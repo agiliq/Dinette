@@ -1,0 +1,11 @@
+
+{% ifnotequal ancount 0 %}
+
+<div id="brd-announcement" class="gen-content">
+<div class="content">
+<a href="{% url djorum_topic_detail announcement.id %}">  {{ announcement.subject }}</a>
+  {{ announcement.message }}
+</div>
+</div>
+
+{% endifnotequal %}
