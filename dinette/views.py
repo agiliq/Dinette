@@ -34,7 +34,8 @@ def indexPage(request):
     
     #groups which this user has access
     if request.user.is_authenticated() :
-            groups = request.user.groups.all()
+            
+            groups = [group for group in request.user.groups.all()] + [group for group in Group.objects.filter(name="general")]
     else:
             #we are treating user who have not loggedin belongs to general group
             groups = Group.objects.filter(name="general")
