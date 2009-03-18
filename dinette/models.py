@@ -215,7 +215,10 @@ class DinetteUserProfile(models.Model):
     def is_online(self):
         import datetime
         now = datetime.datetime.now()
-        return True if (now - self.last_activity).seconds < 900 else False
+        if (now - self.last_activity).seconds < 900:
+            return True
+        else:
+            return False   
     
 
     def getMD5(self):
