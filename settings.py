@@ -63,7 +63,7 @@ MIDDLEWARE_CLASSES = (
     'dinette.middleware.UserActivity',
 )
 
-ROOT_URLCONF = 'djorum.urls'
+ROOT_URLCONF = 'forumproject.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'templates'),

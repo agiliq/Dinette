@@ -8,7 +8,10 @@ class UserActivity:
     def process_request(self, req):
         if req.user.is_authenticated():
             #last = req.user.get_profile().last_activity
-            user_profile = req.user.get_profile()
-            now = datetime.datetime.now()
-            user_profile.last_activity=now
-            user_profile.save()
+            try:
+                user_profile = req.user.get_profile()
+                now = datetime.datetime.now()
+                user_profile.last_activity=now
+                user_profile.save()
+            except:
+                pass    

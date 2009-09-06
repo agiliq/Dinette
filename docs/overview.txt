@@ -9,7 +9,7 @@ built with or by Django it is going to be superb.
 Overview.
 ===========
 
-Djorum is a forum built with Django. It uses the PunBB philosophy of being lightweight, but functional. Additionaly
+Dinette is a forum built with Django. It uses the PunBB philosophy of being lightweight, but functional. Additionaly
 it takes
 the HTML wholesale from PunBB. Like PunBB, it is GPL licensed.
 
@@ -17,7 +17,7 @@ Why Another?
 ================
 There are a lot of existing forum applications for Django, so why another.
 In our belief, there is no forum application, (Apart from that bundled with Ellington)
-of quality comparable to that available to PHP. Djorum is not there yet, but Usware plan
+of quality comparable to that available to PHP. Djorum is not there yet, but Usware plans
 to provide long term support for it,
 and continue to develop this depending on community support.
 

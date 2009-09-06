@@ -55,16 +55,16 @@
 
 
 <div id="brd-crumbs-top" class="crumbs gen-content">
-	<p><span class="crumb crumbfirst"><a href="{% url djorum_category %}">Djorum Forums</a></span> <span class="crumb"><span> »&#160;</span><a href="{{ topic.category.get_absolute_url }}">{{ topic.category.name }}</a></span> <span class="crumb crumblast"><span> »&#160;</span><a href="{{ topic.get_absolute_url }}">{{ topic.subject }} </a></span> 
+	<p><span class="crumb crumbfirst"><a href="{% url dinette_category %}">Djorum Forums</a></span> <span class="crumb"><span> »&#160;</span><a href="{{ topic.category.get_absolute_url }}">{{ topic.category.name }}</a></span> <span class="crumb crumblast"><span> »&#160;</span><a href="{{ topic.get_absolute_url }}">{{ topic.subject }} </a></span> 
           &nbsp; &nbsp;
             <a href="" onclick="return isUserAuthenticated(1)">Post Reply</a> &nbsp; &nbsp;
          
          {% if reply_list.has_next %}
-            <a href="{% url djorum_reply_detail  topic.id   reply_list.next_page_number %}"> Next </a>              
+            <a href="{% url dinette_reply_detail  topic.id   reply_list.next_page_number %}"> Next </a>              
          {% endif %}
          
          {% if reply_list.has_previous %}
-          <a href="{% url djorum_reply_detail  topic.id  reply_list.previous_page_number %}">   Previous </a>
+          <a href="{% url dinette_reply_detail  topic.id  reply_list.previous_page_number %}">   Previous </a>
          {% endif %}   &nbsp;
          
            
@@ -76,7 +76,7 @@
 	
 	<div class="main-head">
 
-		<p class="options"><span class="feed first-item"><a class="feed-option" href="{% url djorum_topic_url  topic.getTopicString %}">RSS Topic Feed</a></span></p>		<h2 class="hn"><span><span class="item-info">Posts </span></span></h2>
+		<p class="options"><span class="feed first-item"><a class="feed-option" href="{% url dinette_topic_url  topic.getTopicString %}">RSS Topic Feed</a></span></p>		<h2 class="hn"><span><span class="item-info">Posts </span></span></h2>
 	</div>
 	<div id="replylist" class="main-content main-topic">
 	
@@ -185,7 +185,7 @@
             </div>
                         
          <div id="formbox" class="magicbox">
-          <form action="{% url djorum_postreply %}" method="POST" id="fpostreply"  >            
+          <form action="{% url dinette_postreply %}" method="POST" id="fpostreply"  >            
                     <table>
                         <tbody> 
                        {{ replyform.as_table }}
@@ -230,7 +230,7 @@
 <div class="hr"><hr /></div>
 
 <div id="brd-about" class="gen-content">
-	<p id="copyright">Powered by <strong><a href="{% url djorum_category %}">Djorum</a></strong></p>
+	<p id="copyright">Powered by <strong><a href="{% url dinette_category %}">Djorum</a></strong></p>
 <p id="extensions-used">Copyright &copy; 2008 <a href="/">Usware</a></p>
 
 </div>

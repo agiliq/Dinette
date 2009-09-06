@@ -144,7 +144,7 @@ class Ftopics(models.Model):
         
     @models.permalink
     def get_absolute_url(self):
-        return ('djorum_topic_detail',(),{'topic_id': self.id})
+        return ('dinette_topic_detail',(),{'topic_id': self.id})
         
     def classname(self):
          return  self.__class__.__name__
@@ -175,7 +175,7 @@ class Reply(models.Model):
     
     @models.permalink
     def get_absolute_url(self):
-        return ('djorum_topic_detail',(),{'topic_id': self.topic.id})
+        return ('dinette_topic_detail',(),{'topic_id': self.topic.id})
     
     def htmlfrombbcode(self):
         soup = BeautifulSoup(self.message)

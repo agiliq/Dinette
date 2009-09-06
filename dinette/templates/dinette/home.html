@@ -25,7 +25,7 @@
   <div id="errorbox">  <span>  </span></div> 
 
  <div id="formbox"> 
-      <form action="{% url djorum_posttopic %}" method="POST" id="fposttopic"  enctype="multipart/form-data">            
+      <form action="{% url dinette_posttopic %}" method="POST" id="fposttopic"  enctype="multipart/form-data">            
         <table>
          <tbody>
          {{ topicform.as_table }}
@@ -53,15 +53,15 @@
 	<h1 class="main-title"><a class="permalink" href="{{ topic.category.get_absolute_url }}" rel="bookmark" title="Permanent link to this forum."> {{ topic.category.name }} </a> <small>(Page 1 of 4)</small></h1>
 
 	<div id="brd-crumbs-top" class="crumbs gen-content">
-	<p><span class="crumb crumbfirst"><a href="{% url djorum_category %}">Djorum Forums</a></span> <span class="crumb crumblast"><span> »&#160;</span><a href="{{ category.get_absolute_url }}"> {{category.name}}</a></span>
+	<p><span class="crumb crumbfirst"><a href="{% url dinette_category %}">Djorum Forums</a></span> <span class="crumb crumblast"><span> »&#160;</span><a href="{{ category.get_absolute_url }}"> {{category.name}}</a></span>
         
            &nbsp;
          {% if topic_list.has_next %}
-            <a href="{% url djorum_index2  category.id   topic_list.next_page_number %}"> Next </a>              
+            <a href="{% url dinette_index2  category.id   topic_list.next_page_number %}"> Next </a>              
          {% endif %}
          
          {% if topic_list.has_previous %}
-          <a href="{% url djorum_index2   category.id  topic_list.previous_page_number %}">   Previous </a>
+          <a href="{% url dinette_index2   category.id  topic_list.previous_page_number %}">   Previous </a>
          {% endif %}
          &nbsp;
           <a href="" onclick="return isUserAuthenticated(0)">New Topic</a>        
@@ -74,7 +74,7 @@
 	
 	<div class="main-head">
 
-		<p class="options"><span class="feed first-item"><a href="{% url djorum_feed_url   category.getCategoryString %}"> RSS </a></span></p>		<h2 class="hn"><span><span class="item-info">Topics </span></span></h2>
+		<p class="options"><span class="feed first-item"><a href="{% url dinette_feed_url   category.getCategoryString %}"> RSS </a></span></p>		<h2 class="hn"><span><span class="item-info">Topics </span></span></h2>
 
 	</div>
 	<div class="main-subhead">
@@ -103,7 +103,7 @@
 <div class="hr"><hr /></div>
 
 <div id="brd-about" class="gen-content">
-	<p id="copyright">Powered by <strong><a href="{% url djorum_category %}">Djorum</a></strong></p>
+	<p id="copyright">Powered by <strong><a href="{% url dinette_category %}">Djorum</a></strong></p>
 <p id="extensions-used">Copyright &copy; 2008 <a href="/">Usware</a></p>
 
 </div>
