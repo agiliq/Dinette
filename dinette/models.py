@@ -2,14 +2,15 @@ from django.db import models
 from django.contrib.auth.models import User,Group
 from django.conf import settings
 from django import forms
+from django.template.defaultfilters import slugify
 
 import logging
 import logging.config
-from libs.postmarkup import render_bbcode
-from BeautifulSoup import BeautifulSoup
 from datetime import datetime
 import hashlib
+from BeautifulSoup import BeautifulSoup
 
+from dinette.libs.postmarkup import render_bbcode
 
 #loading the logging configuration
 logging.config.fileConfig(settings.LOG_FILE_NAME,defaults=dict(log_path=settings.LOG_FILE_PATH))
@@ -41,6 +42,7 @@ class SuperCategory(models.Model):
     
 class Category(models.Model):
     name = models.CharField(max_length = 100)
+    slug = models.SlugField(max_length = 110)
     description = models.TextField(default='')
     ordering = models.PositiveIntegerField(default = 1)
     super_category = models.ForeignKey(SuperCategory)    
@@ -49,9 +51,21 @@ class Category(models.Model):
     posted_by = models.ForeignKey(User, related_name='cposted')
     moderated_by = models.ManyToManyField(User, related_name='moderaters')
     
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            slug = slugify(self.name)
+            same_slug_count = Category.objects.filter(slug__startswith = slug).count()
+            if same_slug_count:
+                slug = slug + str(same_slug_count)
+            self.slug = slug
+        super(Category, self).save(*args, **kwargs)
+    
+    @models.permalink
+    def get_absolute_url(self):
+        return ('welcomePage', [self.slug])
     
     def getCategoryString(self):
-        return "category/%d" % self.id
+        return "category/%s" % self.slug
     
     
     def noofPosts(self):

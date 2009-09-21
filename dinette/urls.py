@@ -12,8 +12,8 @@ feeds = {
 
 urlpatterns = patterns('dinette.views',
     url(r'^$','indexPage',name='dinette_category'),                       
-    url(r'^category(?P<categoryid>\d+)/topics/$','welcomePage', name='dinette_index'),
-    url(r'^category(?P<categoryid>\d+)/topics/page(?P<pageno>\d+)/$','welcomePage', name='dinette_index2'),
+    url(r'^category/(?P<categoryslug>[\w-]+)/topics/$','welcomePage', name='dinette_index'),
+    url(r'^category/(?P<categoryslug>[\w-]+)/topics/page(?P<pageno>\d+)/$','welcomePage', name='dinette_index2'),
     url(r'^post/topic/$','postTopic', name='dinette_posttopic'),
     url(r'^post/reply/$','postReply', name='dinette_postreply'),
     url(r'^topics/list/$','topic_list', name='dinette_topic_list'),

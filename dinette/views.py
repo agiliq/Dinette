@@ -85,13 +85,13 @@ def indexPage(request):
 
 
 
-def welcomePage(request, categoryid,  pageno=1) :
+def welcomePage(request, categoryslug,  pageno=1) :
     mlogger.info("In the welcome page.......................")
     mlogger.debug("Type of request.user %s" % type(request)  )   
     #buid a form for posting topics
     topicform = FtopicForm()
-    category = Category.objects.get(pk=categoryid)
-    queryset = Ftopics.objects.filter(category__id__exact = categoryid)    
+    category = Category.objects.get(slug=categoryslug)
+    queryset = Ftopics.objects.filter(category__id__exact = category.id)    
     paginator = Paginator(queryset,settings.TOPIC_PAGE_SIZE)
     topiclist = paginator.page(pageno)
     return render_to_response("dinette/home.html", {'topicform': topicform,'category':category,'authenticated':request.user.is_authenticated(),'topic_list':topiclist},RequestContext(request))
