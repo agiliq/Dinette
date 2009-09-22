@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -104,6 +104,9 @@ def topic_list(request):
     
 def topic_detail(request, categoryslug, topic_slug , pageno = 1):
     topic = get_object_or_404(Ftopics, slug = topic_slug)
+    show_moderation_items = False
+    if request.user in topic.category.moderated_by.all():
+        show_moderation_items = True
     #some body has viewed this topic
     topic.viewcount = topic.viewcount + 1
     topic.save()
@@ -111,7 +114,7 @@ def topic_detail(request, categoryslug, topic_slug , pageno = 1):
     paginator = Paginator(topic.reply_set.all(),settings.REPLY_PAGE_SIZE)
     replylist = paginator.page(pageno)
     replyform = ReplyForm()
-    payload = {'topic': topic,'replyform':replyform,'reply_list':replylist}
+    payload = {'topic': topic, 'replyform':replyform,'reply_list':replylist, 'show_moderation_items':show_moderation_items}
     return render_to_response("dinette/topic_detail.html", payload, RequestContext(request))
 
 @login_required
@@ -237,7 +240,7 @@ class LatestTopicsByCategory(Feed):
 
      def get_object(self, whichcategory):
          mlogger.debug("Feed for category %s " % whichcategory)
-         return Category.objects.get(pk=whichcategory[0])
+         return get_object_or_404(Category, slug=whichcategory[0])
          
      def title(self, obj):
         return "Latest topics in category %s" % obj.name
@@ -263,7 +266,7 @@ class LatestRepliesOfTopic(Feed):
 
      def get_object(self, whichtopic):
          mlogger.debug("Feed for category %s " % whichtopic)
-         return Ftopics.objects.get(pk=whichtopic[0])
+         return get_object_or_404(Ftopics, slug=whichtopic[0])
          
      def title(self, obj):
         return "Latest replies in topic %s" % obj.subject
@@ -289,18 +292,42 @@ class LatestRepliesOfTopic(Feed):
     
     
 def assignUserElements(user):
-    rank = ""
+    ranks = settings.RANKS_NAMES_DATA
     totalposts = user.ftopics_set.count() + user.reply_set.count()
-    if( totalposts > 0 and totalposts <= 30 ):
-        rank = "Memeber"
-    elif totalposts > 30 and totalposts < 700   :
-        rank = "Senior Memeber"
-    elif totalposts >= 700 :
-        rank = "Star"
-        
+    for el in ranks:
+        if totalposts == el[0]:
+            rank = el[1]
     userprofile = user.get_profile()
     userprofile.userrank = rank
     #this is the time when user posted his last post
     userprofile.last_posttime = datetime.now()
     userprofile.save()
+    
+    
+###Moderation views###
+def moderate_topic(request, topic_id, action):
+    topic = get_object_or_404(Ftopics, pk = topic_id)
+    if not request.user in topic.category.moderated_by.all():
+        raise Http404
+    if request.method == 'POST':
+        if action == 'close':
+            topic.is_closed = True
+            message = 'You have closed topic %s'%topic.subject
+        elif action == 'announce':
+            topic.announcement_flag = True
+            message = '%s is now an announcement.' % topic.subject
+        elif action == 'sticky':
+            topic.is_sticky = True
+            message = '%s has been stickied.' % topic.subject
+        elif action == 'hide':
+            topic.is_hidden = True
+            message = '%s has been hidden and wont show up any further.' % topic.subject
+        topic.save()
+        payload = {'topic_id':topic.pk, 'message':message}
+        resp = simplejson.dumps(payload)
+        return HttpResponse(resp, mimetype='application/javascript')
+    else:
+        return HttpResponse('This view must be called via post')
+        
+    
     

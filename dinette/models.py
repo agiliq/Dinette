@@ -9,7 +9,7 @@ import logging.config
 from datetime import datetime
 import hashlib
 from BeautifulSoup import BeautifulSoup
-
+import datetime
 from dinette.libs.postmarkup import render_bbcode
 
 #loading the logging configuration
@@ -122,8 +122,17 @@ class Ftopics(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     posted_by = models.ForeignKey(User)
+    #Moderation features
     announcement_flag = models.BooleanField(default=False)
+    is_closed = models.BooleanField(default=False)
+    is_sticky = models.BooleanField(default=False)
+    is_hidden = models.BooleanField(default=False)
     
+    
+    class Meta:
+        ordering = ('is_sticky', '-updated_on',)
+        get_latest_by = ('created_on')
+        
     def save(self, *args, **kwargs):
         if not self.slug:
             slug = slugify(self.subject)
@@ -132,6 +141,13 @@ class Ftopics(models.Model):
                 slug = slug + str(same_slug_count)
             self.slug = slug
         super(Ftopics, self).save(*args, **kwargs)
+        
+    def __unicode__(self):
+        return self.subject
+    
+    @models.permalink
+    def get_absolute_url(self):
+        return ('dinette_topic_detail',(),{'categoryslug':self.category.slug, 'topic_slug': self.slug})
     
     
     def htmlfrombbcode(self):
@@ -140,14 +156,10 @@ class Ftopics(models.Model):
         else :
             return ""
         
-    #which is helpful for doing reverse lookup of an feed url for a topic         
     def getTopicString(self):
+        #which is helpful for doing reverse lookup of an feed url for a topic         
         return "topic/%s" % self.slug
         
-    
-    def __unicode__(self):
-        return self.subject
-    
     def lastPostDatetime(self):
         return self.lastPost().created_on
         
@@ -165,21 +177,9 @@ class Ftopics(models.Model):
         return self.reply_set.order_by('-created_on')[0]        
         
         
-    @models.permalink
-    def get_absolute_url(self):
-        return ('dinette_topic_detail',(),{'categoryslug':self.category.slug, 'topic_slug': self.slug})
-        
     def classname(self):
          return  self.__class__.__name__
          
-
-
-    
-    class Meta:
-        ordering = ('-updated_on', )
-        get_latest_by = ('created_on')
-    
-    
 
 # Create Replies for a topic
 class Reply(models.Model):
@@ -192,13 +192,17 @@ class Reply(models.Model):
     topic = models.ForeignKey(Ftopics)
     posted_by = models.ForeignKey(User)
     
+    class Meta:
+        ordering = ('created_on',)
+        get_latest_by = ('created_on', )
     
     def __unicode__(self):
         return self.message
     
+    
     @models.permalink
     def get_absolute_url(self):
-        return ('dinette_topic_detail',(),{'category_slug':self.category.slug,'topic_slug': self.topic.slug})
+        return ('dinette_topic_detail',(),{'categoryslug':self.topic.category.slug,'topic_slug': self.topic.slug})
     
     def htmlfrombbcode(self):
         soup = BeautifulSoup(self.message)
@@ -214,16 +218,6 @@ class Reply(models.Model):
     def classname(self):
         return  self.__class__.__name__
         
-    
-    class Meta:
-        ordering = ('created_on',)
-        
-        
-        
-
-    
-    
-        
         
 class DinetteUserProfile(models.Model):
     user = models.ForeignKey(User)
@@ -236,12 +230,12 @@ class DinetteUserProfile(models.Model):
         return self.user.ftopics_set.count() + self.user.reply_set.count()
     
     def is_online(self):
-        import datetime
+        from django.conf import settings
+        last_online_duration = getattr(settings, 'LAST_ONLINE_DURATION', 900)
         now = datetime.datetime.now()
-        if (now - self.last_activity).seconds < 900:
+        if (now - self.last_activity).seconds < last_online_duration:
             return True
-        else:
-            return False   
+        return False   
     
 
     def getMD5(self):

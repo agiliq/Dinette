@@ -51,7 +51,6 @@
   
    <div id="errorbox"> <span>  </span>  </div>
 
- 
 
 
 
@@ -59,20 +58,18 @@
 
 
 <div id="brd-crumbs-top" class="crumbs gen-content">
-	<p><span class="crumb crumbfirst"><a href="{% url dinette_category %}">Djorum Forums</a></span> <span class="crumb"><span> »&#160;</span><a href="{{ topic.category.get_absolute_url }}">{{ topic.category.name }}</a></span> <span class="crumb crumblast"><span> »&#160;</span><a href="{{ topic.get_absolute_url }}">{{ topic.subject }} </a></span> 
+       <p><span class="crumb crumbfirst"><a href="{% url dinette_category %}">Djorum Forums</a></span> <span class="crumb"><span> »&#160;</span><a href="{{ topic.category.get_absolute_url }}">{{ topic.category.name }}</a></span> <span class="crumb crumblast"><span> »&#160;</span><a href="{{ topic.get_absolute_url }}">{{ topic.subject }} </a></span> 
           &nbsp; &nbsp;
             <a href="" onclick="return isUserAuthenticated(1)">Post Reply</a> &nbsp; &nbsp;
          
          {% if reply_list.has_next %}
-            <a href="{% url dinette_reply_detail  topic.id   reply_list.next_page_number %}"> Next </a>              
+            <a href="{% url dinette_reply_detail  topic.slug   reply_list.next_page_number %}"> Next </a>              
          {% endif %}
          
          {% if reply_list.has_previous %}
-          <a href="{% url dinette_reply_detail  topic.id  reply_list.previous_page_number %}">   Previous </a>
+          <a href="{% url dinette_reply_detail  topic.slug  reply_list.previous_page_number %}">   Previous </a>
          {% endif %}   &nbsp;
-         
-           
-           </p>
+       </p>
        
 
 </div>
@@ -81,6 +78,14 @@
 	<div class="main-head">
 
 		<p class="options"><span class="feed first-item"><a class="feed-option" href="{% url dinette_topic_url  topic.getTopicString %}">RSS Topic Feed</a></span></p>		<h2 class="hn"><span><span class="item-info">Posts </span></span></h2>
+		{% if show_moderation_items %}
+		<p class="moderation_items">
+		     <span><a href="{% url dinette_moderate_close topic.pk %}" class="moderate-post">Close</a></span>
+		     <span><a href="{% url dinette_moderate_sticky topic.pk %}" class="moderate-post">Stickify</a></span>
+		     <span><a href="{% url dinette_moderate_announce topic.pk %}" class="moderate-post">Make announcement</a></span>
+		     <span><a href="{% url dinette_moderate_hide topic.pk %}" class="moderate-post">Hide</a></span>
+	        </p>
+		{% endif %}
 	</div>
 	<div id="replylist" class="main-content main-topic">
 	
