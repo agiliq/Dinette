@@ -57,14 +57,14 @@
         
            &nbsp;
          {% if topic_list.has_next %}
-            <a href="{% url dinette_index2  category.id   topic_list.next_page_number %}"> Next </a>              
+            <a href="{% url dinette_index2  category.slug   topic_list.next_page_number %}"> Next </a>              
          {% endif %}
          
          {% if topic_list.has_previous %}
-          <a href="{% url dinette_index2   category.id  topic_list.previous_page_number %}">   Previous </a>
+          <a href="{% url dinette_index2   category.slug  topic_list.previous_page_number %}">   Previous </a>
          {% endif %}
          &nbsp;
-          <a href="" onclick="return isUserAuthenticated(0)">New Topic</a>        
+          <a href="#" onclick="return isUserAuthenticated(0)">New Topic</a>        
      
         
         

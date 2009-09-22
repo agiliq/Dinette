@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.template import Context , loader
@@ -102,9 +102,9 @@ def topic_list(request):
     queryset = Ftopics.objects.all()                
     return object_list(request, queryset = queryset, template_name = 'dinette/topiclist.html', template_object_name='topic', paginate_by=2)
     
-def topic_detail(request, topic_id , pageno = 1):
-    topic = Ftopics.objects.get(pk = topic_id)
-    #some body has viewed th is topic
+def topic_detail(request, topic_slug , pageno = 1):
+    topic = get_object_or_404(Ftopics, slug = topic_slug)
+    #some body has viewed this topic
     topic.viewcount = topic.viewcount + 1
     topic.save()
     #we also need to display the reply form

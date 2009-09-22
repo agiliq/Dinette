@@ -17,8 +17,8 @@ urlpatterns = patterns('dinette.views',
     url(r'^post/topic/$','postTopic', name='dinette_posttopic'),
     url(r'^post/reply/$','postReply', name='dinette_postreply'),
     url(r'^topics/list/$','topic_list', name='dinette_topic_list'),
-    url(r'^topics/detail/(?P<topic_id>\d+)/$','topic_detail', name='dinette_topic_detail'),
-    url(r'^topics/detail/(?P<topic_id>\d+)/page(?P<pageno>\d+)/$','topic_detail', name='dinette_reply_detail'),
+    url(r'^topics/detail/(?P<topic_slug>[\w-]+)/$','topic_detail', name='dinette_topic_detail'),
+    url(r'^topics/detail/(?P<topic_slug>[\w-]+)/page(?P<pageno>\d+)/$','topic_detail', name='dinette_reply_detail'),
     
     )
 

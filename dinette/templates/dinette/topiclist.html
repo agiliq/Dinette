@@ -3,7 +3,7 @@
 {% block content %}
 
 {% for topic in topic_list %}
-<a href="{% url dinette_topic_detail topic.id %}">{{topic}}<a>
+<a href="{% url dinette_topic_detail topic.slug %}">{{topic}}<a>
 {% endfor %}
 
 {% endblock %}

@@ -108,11 +108,10 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name 
 
-# Create your models here.
-#if you are changing name then please look at the class name function 
 class Ftopics(models.Model):
     category = models.ForeignKey(Category)
-    subject = models.CharField(max_length=1024)   
+    subject = models.CharField(max_length=1024)
+    slug = models.SlugField(max_length = 1034) 
     message = models.TextField()
     file = models.FileField(upload_to='dinette/files',default='',null=True,blank=True)
     attachment_type = models.CharField(max_length=20,default='nofile')
@@ -124,6 +123,15 @@ class Ftopics(models.Model):
     posted_by = models.ForeignKey(User)
     announcement_flag = models.BooleanField(default=False)
     
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            slug = slugify(self.subject)
+            same_slug_count = Ftopics.objects.filter(slug__startswith = slug).count()
+            if same_slug_count:
+                slug = slug + str(same_slug_count)
+            self.slug = slug
+        super(Ftopics, self).save(*args, **kwargs)
+    
     
     def htmlfrombbcode(self):
         if(len(self.message.strip()) >  0):            
@@ -133,7 +141,7 @@ class Ftopics(models.Model):
         
     #which is helpful for doing reverse lookup of an feed url for a topic         
     def getTopicString(self):
-        return "topic/%d" % self.id        
+        return "topic/%s" % self.slug
         
     
     def __unicode__(self):
@@ -158,7 +166,7 @@ class Ftopics(models.Model):
         
     @models.permalink
     def get_absolute_url(self):
-        return ('dinette_topic_detail',(),{'topic_id': self.id})
+        return ('dinette_topic_detail',(),{'topic_slug': self.slug})
         
     def classname(self):
          return  self.__class__.__name__
@@ -189,7 +197,7 @@ class Reply(models.Model):
     
     @models.permalink
     def get_absolute_url(self):
-        return ('dinette_topic_detail',(),{'topic_id': self.topic.id})
+        return ('dinette_topic_detail',(),{'topic_slug': self.topic.slug})
     
     def htmlfrombbcode(self):
         soup = BeautifulSoup(self.message)
