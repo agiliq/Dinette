@@ -45,7 +45,7 @@ function check_errors_in_form()
             
     //hide the form
     
-    $("#errorbox span").html(" <img src='/appmedia/dinette/images/ajaximage.gif' alt='ajax image'/> &nbsp; posting...........  ")
+    $("#errorbox span").html(" <img src='../images/ajaximage.gif' alt='ajax image'/> &nbsp; posting...........  ")
     
      return true;
 }
@@ -61,7 +61,7 @@ function check_errors_in_Replyform()
                 return false;
             }
    
-    $("#errorbox span").html(" <img src='/appmedia/dinette/images/ajaximage.gif' alt='ajax image'/> &nbsp; posting the reply...........  ");
+    $("#errorbox span").html(" <img src='../images/ajaximage.gif' alt='ajax image'/> &nbsp; posting the reply...........  ");
      
     return true;    
    
@@ -139,18 +139,18 @@ function isUserAuthenticated( k )
       {
          
          
-          if($("#formbox").css("display") == "block")
-         {
-           $("#formbox").css("display","none");
-            return false;
-         }
+         if($("#formbox").css("display") == "block")
+            {
+              $("#formbox").css("display","none");
+               return false;
+            }
          
          
          
          if( $("#fposttopic").length > 0 ) {
-                   $("#errorbox span").html(" ");
-                    $("#errorbox span").css({ padding : 0 })
-                   $("#formbox").css("display","block");
+                  $("#errorbox span").html(" ");
+                  $("#errorbox span").css({ padding : 0 })
+                  $("#formbox").css("display","block");
          }
          
          
@@ -214,4 +214,22 @@ function hideForm()
     $("#formbox").css("display","none");
    return false;
 }
+
+function update_message(data){
+   $("#errorbox span").html(data["message"]);
+   $("#errorbox span").css({ padding : 6 })
+   show_hide_error_box()
+   
+}
+
+function show_hide_error_box(){
+   $("#errorbox span").show();
+   setTimeout(function (){$("#errorbox span").hide();}, 3000);
+}
+
+$('.moderate-post').click(function(){
+   url = $(this).attr('href');
+   $.post(url, {}, update_message, 'json');
+   return false;
+   })
 
