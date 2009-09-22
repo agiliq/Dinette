@@ -11,14 +11,14 @@ feeds = {
 
 
 urlpatterns = patterns('dinette.views',
-    url(r'^$','indexPage',name='dinette_category'),                       
-    url(r'^(?P<categoryslug>[\w-]+)/$','welcomePage', name='dinette_index'),
-    url(r'^(?P<categoryslug>[\w-]+)/page(?P<pageno>\d+)/$','welcomePage', name='dinette_index2'),
-    url(r'^post/topic/$','postTopic', name='dinette_posttopic'),
-    url(r'^post/reply/$','postReply', name='dinette_postreply'),
-    url(r'^topics/list/$','topic_list', name='dinette_topic_list'),
-    url(r'^(?P<categoryslug>[\w-]+)/(?P<topic_slug>[\w-]+)/$','topic_detail', name='dinette_topic_detail'),
-    url(r'^(?P<categoryslug>[\w-]+)/(?P<topic_slug>[\w-]+)/page(?P<pageno>\d+)/$','topic_detail', name='dinette_reply_detail'),
+   url(r'^$','index_page',name='dinette_category'),                       
+   url(r'^(?P<categoryslug>[\w-]+)/$','category_details', name='dinette_index'),
+   url(r'^(?P<categoryslug>[\w-]+)/page(?P<pageno>\d+)/$','category_details', name='dinette_index2'),
+   url(r'^post/topic/$','postTopic', name='dinette_posttopic'),
+   url(r'^post/reply/$','postReply', name='dinette_postreply'),
+   #url(r'^topics/list/$','topic_list', name='dinette_topic_list'),
+   url(r'^(?P<categoryslug>[\w-]+)/(?P<topic_slug>[\w-]+)/$','topic_detail', name='dinette_topic_detail'),
+   url(r'^(?P<categoryslug>[\w-]+)/(?P<topic_slug>[\w-]+)/page(?P<pageno>\d+)/$','topic_detail', name='dinette_reply_detail_paged'),
    #moderation views - Hence dont bother with SEF urls
    url(r'^moderate/topic/(?P<topic_id>\d+)/close/$','moderate_topic', {'action':'close'}, name='dinette_moderate_close'),
    url(r'^moderate/topic/(?P<topic_id>\d+)/stickyfy/$','moderate_topic', {'action':'sticky'}, name='dinette_moderate_sticky'),

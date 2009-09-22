@@ -25,7 +25,8 @@ from dinette.forms import  FtopicForm , ReplyForm
 mlogger = logging.getLogger(__name__)
 
 
-def indexPage(request):
+json_mimetype = 'application/javascript'
+def index_page(request):
     mlogger.info("In the index page")
     forums = SuperCategory.objects.all()
     accesslist = ""
@@ -85,7 +86,7 @@ def indexPage(request):
 
 
 
-def welcomePage(request, categoryslug,  pageno=1) :
+def category_details(request, categoryslug,  pageno=1) :
     mlogger.info("In the welcome page.......................")
     mlogger.debug("Type of request.user %s" % type(request)  )   
     #buid a form for posting topics
@@ -131,7 +132,7 @@ def postTopic(request) :
             json = "<textarea>"+simplejson.dumps(d)+"</textarea>"
         else:
             json = simplejson.dumps(d)
-        return HttpResponse(json)                    
+        return HttpResponse(json, mimetype = json_mimetype)                    
      
      
     #code which checks for flood control
@@ -142,7 +143,7 @@ def postTopic(request) :
                json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
          else :
                json = simplejson.dumps(d2)  
-         return HttpResponse(json)
+         return HttpResponse(json, mimetype = json_mimetype)
          
     ftopic = topic.save(commit=False)     
     #only if there is any file
@@ -171,7 +172,7 @@ def postTopic(request) :
        json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
     else :
        json = simplejson.dumps(d2) 
-    return HttpResponse(json)
+    return HttpResponse(json, mimetype = json_mimetype)
     
 @login_required    
 def postReply(request) :
@@ -185,19 +186,19 @@ def postReply(request) :
             json = "<textarea>"+simplejson.dumps(d)+"</textarea>"
         else:
             json = simplejson.dumps(d)
-        return HttpResponse(json)
+        return HttpResponse(json, mimetype = json_mimetype)
         
         
         
     #code which checks for flood control
     if (datetime.now() -(request.user.get_profile().last_posttime)).seconds <= settings.FLOOD_TIME:
     #oh....... user trying to flood us Stop him
-         d2 = {"is_valid":"flood","errormessage":"Flood control.................."}
+         d2 = {"is_valid":"flood","errormessage":"You have posted message too recently. Please wait a while before trying again."}
          if request.FILES : 
                json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
          else :
                json = simplejson.dumps(d2)  
-         return HttpResponse(json)        
+         return HttpResponse(json, mimetype = json_mimetype)        
         
     
     reply = freply.save(commit=False)    
@@ -230,7 +231,7 @@ def postReply(request) :
     else:
         json = simplejson.dumps(d2)
     
-    return HttpResponse(json)  
+    return HttpResponse(json, mimetype = json_mimetype)  
     
     
     
@@ -292,40 +293,53 @@ class LatestRepliesOfTopic(Feed):
     
     
 def assignUserElements(user):
-    ranks = settings.RANKS_NAMES_DATA
-    totalposts = user.ftopics_set.count() + user.reply_set.count()
-    for el in ranks:
-        if totalposts == el[0]:
-            rank = el[1]
-    userprofile = user.get_profile()
-    userprofile.userrank = rank
-    #this is the time when user posted his last post
-    userprofile.last_posttime = datetime.now()
-    userprofile.save()
+    ranks = getattr(settings, 'RANKS_NAMES_DATA')
+    rank = ''
+    if ranks:
+        totalposts = user.ftopics_set.count() + user.reply_set.count()
+        for el in ranks:
+            if totalposts == el[0]:
+                rank = el[1]
+        if rank:    
+            userprofile = user.get_profile()
+            userprofile.userrank = rank
+            #this is the time when user posted his last post
+            userprofile.last_posttime = datetime.now()
+            userprofile.save()
     
     
 ###Moderation views###
+@login_required
 def moderate_topic(request, topic_id, action):
     topic = get_object_or_404(Ftopics, pk = topic_id)
     if not request.user in topic.category.moderated_by.all():
         raise Http404
     if request.method == 'POST':
         if action == 'close':
-            topic.is_closed = True
-            message = 'You have closed topic %s'%topic.subject
+            if topic.is_closed:
+                message = 'You have reopened topic %s'%topic.subject
+            else:
+                message = 'You have closed topic %s'%topic.subject
+            topic.is_closed = not topic.is_closed
         elif action == 'announce':
-            topic.announcement_flag = True
-            message = '%s is now an announcement.' % topic.subject
+            if topic.announcement_flag:
+                message = '%s is no longer an announcement.' % topic.subject
+            else:
+                message = '%s is now an announcement.' % topic.subject
+            topic.announcement_flag = not topic.announcement_flag
         elif action == 'sticky':
-            topic.is_sticky = True
-            message = '%s has been stickied.' % topic.subject
+            if topic.is_sticky:
+                message = '%s has been unstickied.' % topic.subject
+            else:
+                message = '%s has been stickied.' % topic.subject
+            topic.is_sticky = not topic.is_sticky
         elif action == 'hide':
             topic.is_hidden = True
             message = '%s has been hidden and wont show up any further.' % topic.subject
         topic.save()
         payload = {'topic_id':topic.pk, 'message':message}
         resp = simplejson.dumps(payload)
-        return HttpResponse(resp, mimetype='application/javascript')
+        return HttpResponse(resp, mimetype = json_mimetype)
     else:
         return HttpResponse('This view must be called via post')
         

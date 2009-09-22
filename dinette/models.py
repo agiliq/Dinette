@@ -130,7 +130,7 @@ class Ftopics(models.Model):
     
     
     class Meta:
-        ordering = ('is_sticky', '-updated_on',)
+        ordering = ('-is_sticky', '-updated_on',)
         get_latest_by = ('created_on')
         
     def save(self, *args, **kwargs):
