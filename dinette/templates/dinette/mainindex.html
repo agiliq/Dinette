@@ -1,6 +1,6 @@
 {% extends "dinette/base.html" %}
 
-{% block title %} Djorum : Next generation forum application {% endblock %}
+
 
 {% block content %}
 
@@ -38,7 +38,7 @@
           <div id="category{{category.id}}" class="main-content main-category">
                    {% for category in forum.category_set.all %}
 	 
-	     	<div id="forum48" class="main-item odd main-first-item">
+		    <div id="forum48" class="main-item odd main-first-item">
 			<span class="icon "><!-- --></span>
                 
 			<div class="item-subject">
@@ -51,7 +51,7 @@
                                 {% for moderator in category.moderated_by.all %}
                                 
                                   
-                                           <a href="{{ moderator.get_absolute_url }}">{{moderator}}</a>, 
+                                           <a href="{{ moderator.get_absolute_url }}">{{moderator}}</a>{% if not forloop.last %}, {% endif %}
                                 {% endfor %}    
                                 
                                 

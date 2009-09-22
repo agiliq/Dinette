@@ -1,5 +1,9 @@
 {% extends 'dinette/base.html' %}
 
+{% block title %}
+{{ topic.subject }} - {{ block.super }}
+{% endblock %}
+
    
 
 {% block content %}

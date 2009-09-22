@@ -62,7 +62,8 @@ class Category(models.Model):
     
     @models.permalink
     def get_absolute_url(self):
-        return ('welcomePage', [self.slug])
+        #return ('welcomePage', [self.slug])
+        return ('dinette_index',(),{'categoryslug':self.slug})
     
     def getCategoryString(self):
         return "category/%s" % self.slug
@@ -166,7 +167,7 @@ class Ftopics(models.Model):
         
     @models.permalink
     def get_absolute_url(self):
-        return ('dinette_topic_detail',(),{'topic_slug': self.slug})
+        return ('dinette_topic_detail',(),{'categoryslug':self.category.slug, 'topic_slug': self.slug})
         
     def classname(self):
          return  self.__class__.__name__
@@ -197,7 +198,7 @@ class Reply(models.Model):
     
     @models.permalink
     def get_absolute_url(self):
-        return ('dinette_topic_detail',(),{'topic_slug': self.topic.slug})
+        return ('dinette_topic_detail',(),{'category_slug':self.category.slug,'topic_slug': self.topic.slug})
     
     def htmlfrombbcode(self):
         soup = BeautifulSoup(self.message)
@@ -249,7 +250,7 @@ class DinetteUserProfile(models.Model):
         return m.hexdigest()
     
     def get_absolute_url(self):
-        return ''#todo
+        return self.user.get_absolute_url()
        
  
         

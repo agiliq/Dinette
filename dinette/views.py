@@ -102,7 +102,7 @@ def topic_list(request):
     queryset = Ftopics.objects.all()                
     return object_list(request, queryset = queryset, template_name = 'dinette/topiclist.html', template_object_name='topic', paginate_by=2)
     
-def topic_detail(request, topic_slug , pageno = 1):
+def topic_detail(request, categoryslug, topic_slug , pageno = 1):
     topic = get_object_or_404(Ftopics, slug = topic_slug)
     #some body has viewed this topic
     topic.viewcount = topic.viewcount + 1
