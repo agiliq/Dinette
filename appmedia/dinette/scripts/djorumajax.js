@@ -77,23 +77,26 @@ function formsubmission(data)
       
         if(data["is_valid"] == "true")
         {
-          $("#topicslist").prepend(data["response_html"]);
-          $("#errorbox span").html("Sucessfully posted the topic");
-           $("#errorbox span").css({ padding : 6 })
-          $("#formbox").css("display","none");
+         $("#topicslist").prepend(data["response_html"]);
+         show_hide_error_box();
+         $("#errorbox span").html("Sucessfully posted the topic");
+         $("#errorbox span").css({ padding : 6 })
+         $("#formbox").css("display","none");
         }
         else if(data["is_valid"] == "false") {
           
             $("tr:lt(3)","#formbox").remove();
             $("#formbox  table tbody").prepend(data["response_html"]);
+            show_hide_error_box();
             $("#errorbox span").html("There is an error in the form.Please repost the form");
              $("#errorbox span").css({ padding : 6 })
             
         }        
         else if(data["is_valid"] == "flood") {
             $("#formbox").css("display","none");
+            show_hide_error_box();
             $("#errorbox span").html(data["errormessage"]);
-             $("#errorbox span").css({ padding : 6 })
+            $("#errorbox span").css({ padding : 6 })
         }
         
         
@@ -106,23 +109,26 @@ function formsubmission(data)
         if(data["is_valid"] == "true")
         {
           
-          $("#replylist").append(data["response_html"]);
-          $("#errorbox span").html("Sucessfully Replied to the topic");
-           $("#errorbox span").css({ padding : 6 })
-          $("#formbox").css("display","none");
+         $("#replylist").append(data["response_html"]);
+         show_hide_error_box();
+         $("#errorbox span").html("Sucessfully Replied to the topic");
+         $("#errorbox span").css({ padding : 6 })
+         $("#formbox").css("display","none");
           
         }
         else if(data["is_valid"] == "false"){
-          $("tr:lt(2)","#formbox").remove();
-          $("#formbox  table tbody").prepend(data["response_html"]);
-          $("#errorbox span").html("There is an error in the form.Please repost the form");
-           $("#errorbox span").css({ padding : 6 })
+         $("tr:lt(2)","#formbox").remove();
+         $("#formbox  table tbody").prepend(data["response_html"]);
+         show_hide_error_box();
+         $("#errorbox span").html("There is an error in the form.Please repost the form");
+         $("#errorbox span").css({ padding : 6 })
          
         }
         else if(data["is_valid"] == "flood") {
             $("#formbox").css("display","none");
+            show_hide_error_box();
             $("#errorbox span").html(data["errormessage"]);
-             $("#errorbox span").css({ padding : 6 })
+            $("#errorbox span").css({ padding : 6 })
         }
       
    }
@@ -218,13 +224,13 @@ function hideForm()
 function update_message(data){
    $("#errorbox span").html(data["message"]);
    $("#errorbox span").css({ padding : 6 })
-   show_hide_error_box()
+   show_hide_error_box();
    
 }
 
 function show_hide_error_box(){
    $("#errorbox span").show();
-   setTimeout(function (){$("#errorbox span").hide();}, 3000);
+   setTimeout(function (){$("#errorbox span").hide('normal');}, 3000);
 }
 
 $('.moderate-post').click(function(){
