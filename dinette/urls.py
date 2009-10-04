@@ -16,7 +16,6 @@ urlpatterns = patterns('dinette.views',
    url(r'^(?P<categoryslug>[\w-]+)/page(?P<pageno>\d+)/$','category_details', name='dinette_index2'),
    url(r'^post/topic/$','postTopic', name='dinette_posttopic'),
    url(r'^post/reply/$','postReply', name='dinette_postreply'),
-   #url(r'^topics/list/$','topic_list', name='dinette_topic_list'),
    url(r'^(?P<categoryslug>[\w-]+)/(?P<topic_slug>[\w-]+)/$','topic_detail', name='dinette_topic_detail'),
    url(r'^(?P<categoryslug>[\w-]+)/(?P<topic_slug>[\w-]+)/page(?P<pageno>\d+)/$','topic_detail', name='dinette_reply_detail_paged'),
    #moderation views - Hence dont bother with SEF urls

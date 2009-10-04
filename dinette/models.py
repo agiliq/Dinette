@@ -222,9 +222,11 @@ class Reply(models.Model):
 class DinetteUserProfile(models.Model):
     user = models.ForeignKey(User)
     last_activity = models.DateTimeField(auto_now_add=True)
-    userrank = models.CharField(max_length=30,default="Junior Memeber")
+    userrank = models.CharField(max_length=30,default="Junior Member")
     last_posttime = models.DateTimeField(auto_now_add=True)
     photo = models.ImageField(upload_to='dinette/files',null=True,blank=True)
+    signature = models.CharField(max_length = 1000, null = True, blank = True)
+    
     
     def get_total_posts(self):
         return self.user.ftopics_set.count() + self.user.reply_set.count()
