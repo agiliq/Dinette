@@ -1,4 +1,4 @@
-
+{% load socialauth_tags %}
 
 <div id="brd-head" class="gen-content">
 	<p id="brd-access"><a href="#brd-main">Skip to forum content</a></p>
@@ -8,8 +8,11 @@
 
 	<div id="brd-visit" class="gen-content">
 		<p id="welcome"
-			{% if user.is_authenticated %}<p>Hello {{ user }}</p>
-			{%  else%}<p>Login</p>
+			{% if user.is_authenticated %}<p>Hello {% get_calculated_username user %}</p>
+			{%  else %}
+			<p>
+			<a href="{% url dinette_login %}">Login</a>
+			</p>
 			{% endif %}
 		</p>
 	</div>	

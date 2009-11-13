@@ -342,6 +342,14 @@ def moderate_topic(request, topic_id, action):
         return HttpResponse(resp, mimetype = json_mimetype)
     else:
         return HttpResponse('This view must be called via post')
+    
+def login(request):
+    if getattr(settings, 'DINETTE_LOGIN_TEMPLATE', None):
+        return render_to_response(settings.DINETTE_LOGIN_TEMPLATE, {}, RequestContext(request))
+    else:
+        from django.contrib.auth.views import login
+        return login(request)
+        
         
     
     
