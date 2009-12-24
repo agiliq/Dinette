@@ -59,8 +59,8 @@ def index_page(request):
         
           #already one group has acces to forum no need to check whether other groups have access to it or not        
             if jumpflag:
-               mlogger.debug("breaking up"+str(jumpflag)) 
-               break
+                mlogger.debug("breaking up"+str(jumpflag)) 
+                break
         
         if jumpflag == False:
             mlogger.debug("appending false.........."+str(forum.id))
@@ -138,12 +138,12 @@ def postTopic(request) :
     #code which checks for flood control
     if (datetime.now() -(request.user.get_profile().last_posttime)).seconds <= settings.FLOOD_TIME :
     #oh....... user trying to flood us Stop him
-         d2 = {"is_valid":"flood","errormessage":"Flood control.................."}
-         if request.FILES : 
-               json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
-         else :
-               json = simplejson.dumps(d2)  
-         return HttpResponse(json, mimetype = json_mimetype)
+        d2 = {"is_valid":"flood","errormessage":"Flood control.................."}
+        if request.FILES : 
+            json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
+        else :
+            json = simplejson.dumps(d2)  
+        return HttpResponse(json, mimetype = json_mimetype)
          
     ftopic = topic.save(commit=False)     
     #only if there is any file
@@ -169,9 +169,9 @@ def postTopic(request) :
     d2 = {"is_valid":"true","response_html":response_html}
     #this the required for ajax file uploads
     if request.FILES : 
-       json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
+        json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
     else :
-       json = simplejson.dumps(d2) 
+        json = simplejson.dumps(d2) 
     return HttpResponse(json, mimetype = json_mimetype)
     
 @login_required    
