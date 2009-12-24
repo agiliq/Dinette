@@ -139,80 +139,56 @@ function formsubmission(data)
 
 function isUserAuthenticated( k )
 {
-   
-      farry =  $('[name=authenticated]').val()     
-      if(farry == "True")
-      {
+    farry =  $('[name=authenticated]').val()     
+    
+    if(farry == "True") {
+        if($("#formbox").css("display") == "block") {
+            $("#formbox").css("display","none");
+            return false;
+        }
          
-         
-         if($("#formbox").css("display") == "block")
-            {
-              $("#formbox").css("display","none");
-               return false;
-            }
-         
-         
-         
-         if( $("#fposttopic").length > 0 ) {
-                  $("#errorbox span").html(" ");
-                  $("#errorbox span").css({ padding : 0 })
-                  $("#formbox").css("display","block");
+        if( $("#fposttopic").length > 0 ) {
+            $("#errorbox span").html(" ");
+            $("#errorbox span").css({ padding : 0 })
+            $("#formbox").css("display","block");
          }
          
-         
-         
-         
-          if( $("#fpostreply").length > 0 ) {
-            
-            if(k == 2)
-            {
-                  content =   $("#formbox").html();
-                  $("#formbox").remove();    
-                  $("#belowpostreplybox").after("<div id='formbox'>"+content+"</div>");
-                   $("#formbox").css("display","block");
-                    $("#errorbox span").html(" ");
-                    $("#errorbox span").css({ padding : 0 });
-                    $('#fpostreply').ajaxForm({        
-                                      dataType:  'json',              
-                                     success: formsubmission });
+        if( $("#fpostreply").length > 0 ) {
+            if(k == 2) {
+                content =   $("#formbox").html();
+                $("#formbox").remove();    
+                $("#belowpostreplybox").after("<div id='formbox'>"+content+"</div>");
+                $("#formbox").css("display","block");
+                $("#errorbox span").html(" ");
+                $("#errorbox span").css({ padding : 0 });
+                $('#fpostreply').ajaxForm({dataType: 'json', success: formsubmission });
             }
             else{
-                  content =   $("#formbox").html();
-                  $("#formbox").remove();    
-                 $("#errorbox").after("<div id='formbox'>"+content+"</div>");
-                  $("#formbox").css("display","block");
-                   $("#errorbox span").html(" ");
-                   $("#errorbox span").css({ padding : 0 });
-                    $('#fpostreply').ajaxForm({        
-                                      dataType:  'json',              
-                                     success: formsubmission });
+                content =   $("#formbox").html();
+                $("#formbox").remove();    
+                $("#errorbox").after("<div id='formbox'>"+content+"</div>");
+                $("#formbox").css("display","block");
+                $("#errorbox span").html(" ");
+                $("#errorbox span").css({ padding : 0 });
+                $('#fpostreply').ajaxForm({dataType:  'json', success: formsubmission });
             }
          }
          
-         
-        
-                
         if ( $("#fposttopic").length > 0 ){
-             $('#fposttopic').clearForm();        
-             $(':input:visible:enabled:first','#fposttopic').focus();
-             return false;
-           }
+            $('#fposttopic').clearForm();        
+            $(':input:visible:enabled:first','#fposttopic').focus();
+            return false;
+        }
            
-         if( $("#fpostreply").length > 0 )  {
-             $('#fpostreply').clearForm();
-             $(':input:visible:enabled:first','#fpostreply').focus();
-             return false;
-           }                  
-         
-      }
-      
-        
-    document.location = "/dinette/login/?next=/dinette/";    
-    
+        if( $("#fpostreply").length > 0 )  {
+            $('#fpostreply').clearForm();
+            $(':input:visible:enabled:first','#fpostreply').focus();
+            return false;
+        }
+    }
+    document.location = "/forum/login/?next=/forum/";    
     return false; 
 }
-
-
 
 
 function hideForm()

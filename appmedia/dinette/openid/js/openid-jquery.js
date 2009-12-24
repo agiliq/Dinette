@@ -91,7 +91,6 @@ var openid = {
 	provider_url: null,
 	
     init: function(input_id) {
-        
         var openid_btns = $('#openid_btns');
         
         this.input_id = input_id;
@@ -114,10 +113,10 @@ var openid = {
         
         $('#openid_form').submit(this.submit);
         
-        var box_id = this.readCookie();
-        if (box_id) {
-        	this.signin(box_id, true);
-        }  
+        // var box_id = this.readCookie();
+        // if (box_id) {
+        //	 this.signin(box_id, true);
+        // }  
     },
     getBoxHTML: function(provider, box_size, image_ext) {
             
@@ -129,14 +128,13 @@ var openid = {
     },
     /* Provider image click */
     signin: function(box_id, onload) {
-    
     	var provider = providers[box_id];
   		if (! provider) {
   			return;
   		}
 		
 		this.highlight(box_id);
-		this.setCookie(box_id);
+		// this.setCookie(box_id);
 		
 		// prompt user for input?
 		if (provider['label']) {
@@ -145,7 +143,7 @@ var openid = {
 			this.provider_url = provider['url'];
 			
 		} else {
-			
+			this.provider_url = null;
 			this.setOpenIdUrl(provider['url']);
 			if (! onload) {
 				$('#openid_form').submit();
@@ -163,10 +161,9 @@ var openid = {
     	return true;
     },
     setOpenIdUrl: function (url) {
-    
     	var hidden = $('#'+this.input_id);
     	if (hidden.length > 0) {
-    		hidden.value = url;
+    		hidden[0].value = url;
     	} else {
     		$('#openid_form').append('<input type="hidden" id="' + this.input_id + '" name="' + this.input_id + '" value="'+url+'"/>');
     	}
@@ -181,24 +178,24 @@ var openid = {
     	// add new highlight.
     	$('.'+box_id).wrap('<div id="openid_highlight"></div>');
     },
-    setCookie: function (value) {
+    // setCookie: function (value) {
     
-		var date = new Date();
-		date.setTime(date.getTime()+(this.cookie_expires*24*60*60*1000));
-		var expires = "; expires="+date.toGMTString();
+	//	var date = new Date();
+	//	date.setTime(date.getTime()+(this.cookie_expires*24*60*60*1000));
+	//	var expires = "; expires="+date.toGMTString();
 		
-		document.cookie = this.cookie_name+"="+value+expires+"; path=" + this.cookie_path;
-    },
-    readCookie: function () {
-		var nameEQ = this.cookie_name + "=";
-		var ca = document.cookie.split(';');
-		for(var i=0;i < ca.length;i++) {
-			var c = ca[i];
-			while (c.charAt(0)==' ') c = c.substring(1,c.length);
-			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-		}
-		return null;
-    },
+	//	document.cookie = this.cookie_name+"="+value+expires+"; path=" + this.cookie_path;
+    // },
+    // readCookie: function () {
+	//	var nameEQ = this.cookie_name + "=";
+	//	var ca = document.cookie.split(';');
+	//	for(var i=0;i < ca.length;i++) {
+	//		var c = ca[i];
+	//		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+	//		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	//	}
+	//	return null;
+    // },
     useInputBox: function (provider) {
    	
 		var input_area = $('#openid_input_area');
