@@ -345,7 +345,7 @@ def moderate_topic(request, topic_id, action):
     
 def login(request):
     if getattr(settings, 'DINETTE_LOGIN_TEMPLATE', None):
-        return render_to_response(settings.DINETTE_LOGIN_TEMPLATE, {}, RequestContext(request))
+        return render_to_response(settings.DINETTE_LOGIN_TEMPLATE, {}, RequestContext(request, {'fb_api_key':settings.FACEBOOK_API_KEY,}))
     else:
         from django.contrib.auth.views import login
         return login(request)

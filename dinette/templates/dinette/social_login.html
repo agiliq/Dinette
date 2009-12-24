@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:fb="http://www.facebook.com/2008/fbml">
+
+
 <head>
 	<title>Dinette login</title>
 	
 	<!-- Simple OpenID Selector -->
 	<link rel="stylesheet" href="{{ MEDIA_URL }}dinette/openid/css/openid.css" />
+	<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
 	<script type="text/javascript" src="{{ MEDIA_URL }}dinette/openid/js/jquery-1.2.6.min.js"></script>
 	<script type="text/javascript" src="{{ MEDIA_URL }}dinette/openid/js/openid-jquery.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function() {
-		    openid.init('openid_identifier');
-		});
+	  $(document).ready(function() {
+	    openid.init('openid_identifier');
+	  });
+	  function facebook_onlogin(){
+        window.location = "{% url socialauth_facebook_login_done %}"
+	  }
 	</script>
 	<!-- /Simple OpenID Selector -->
 	
@@ -134,6 +140,11 @@
 		<a href="{% url socialauth_twitter_login %}" id="twitter_login_link" class="openid_large_btn twitter"></a>
 	</div>
   </div>
+	
+	<div id="facebook">
+        <fb:login-button onlogin="facebook_onlogin();"></fb:login-button>
+    </div>
+    <script type="text/javascript">  FB.init("{{ fb_api_key }}", "{% url socialauth_xd_receiver %}"); </script>
 </fieldset>
 
 </body>
