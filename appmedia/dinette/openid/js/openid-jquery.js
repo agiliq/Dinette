@@ -103,7 +103,7 @@ var openid = {
            	openid_btns.append(this.getBoxHTML(providers_large[id], 'large', '.gif'));
         }
         if (providers_small) {
-        	openid_btns.append('<br/>');
+        	openid_btns.append('<br style="display: block;"/>');
         	
 	        for (id in providers_small) {
 	        
