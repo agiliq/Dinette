@@ -110,7 +110,13 @@
 			  </li>
                                                 
 			  <li class="usertitle"><span>{{ topic.posted_by.get_profile.userrank }}</span></li>
-			  <li class="userstatus"><span>Offline</span></li>
+			  <li class="userstatus"><span>
+			  {% if topic.posted_by.get_profile.is_online %}
+				Online
+			  {% else %}
+				Offline
+			  {% endif %}
+			  </span></li>
 			</ul>
 			<ul class="author-info">
 			  <li><span>Registered: <strong> {{ topic.posted_by.date_joined|date:"jS F Y H:i A" }}</strong></span></li>

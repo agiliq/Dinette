@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% extends 'dinette/base.html' %}
+
+{% block html_declare %}
 <html xmlns="http://www.w3.org/1999/xhtml"  xmlns:fb="http://www.facebook.com/2008/fbml">
+{% endblock %}
 
-
-<head>
-	<title>Dinette login</title>
-	
+{% block title %} Dinette login {% endblock %}
+{% block extra_header %}
 	<!-- Simple OpenID Selector -->
 	<link rel="stylesheet" href="{{ MEDIA_URL }}dinette/openid/css/openid.css" />
 	<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
@@ -21,13 +21,7 @@
 	</script>
 	<!-- /Simple OpenID Selector -->
 	
-	<style type="text/css">
-		/* Basic page formatting. */
-		body {
-			font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-		}
-	</style>
-	<style>
+<style>
 	#openid_choice
 	{
 		margin-top:10px;
@@ -93,14 +87,20 @@
 	background: #FFF url(/site_media/dinette/twitter.png) no-repeat center center;
 	}
 	
-	</style>
+</style>
+{% endblock %}
 
-</head>
+{% block content %}
 
-<body>
+<div id="brd-wrap" class="brd">
+  <div id="brd-index" class="brd-page basic-page">
+	{% include 'dinette/header_frag.html' %}
+	{% include 'dinette/announce_frag.html' %}
+	<p></p>
+	
+	<div class="hr"><hr /></div>
+	<div id="errorbox"> <span></span> </div> 
 
-<h2>Please login using your openid.</h2>
-<br/>
 
 <!-- Simple OpenID Selector -->
 <form action="{% url socialauth_openid_login %}" method="get" id="openid_form">
@@ -146,106 +146,20 @@
     </div>
     <script type="text/javascript">  FB.init("{{ fb_api_key }}", "{% url socialauth_xd_receiver %}"); </script>
 </fieldset>
+	
+<div> &nbsp; </div>
+<div id="brd-pagepost-end" class="main-pagepost gen-content"> </div>
 
-</body>
-</html>
-
-
-{% comment %}
-{% extends 'dinette/base.html' %}
-
-{% block extra_header %}
-<style>
-﻿#openid_choice
-{
-	margin-top:10px;
-	display: none;
-}
-#openid_input_area
-{
-	padding-top:10px;
-	clear: both;
-}
-#openid_username
-{
-	margin-right:5px;
-}
-#openid_btns, #openid_btns br
-{
-	clear: both;
-}
-#openid_highlight
-{
-	padding: 3px;
-	background-color: #FFFCC9;
-	float: left;
-}
-.openid_large_btn
-{
-	width: 100px;
-	height: 60px;
-	border: 1px solid #DDD;
-	margin: 3px;
-	float: left;
-}
-.openid_small_btn
-{
-	width: 24px;
-	height: 24px;
-	border: 1px solid #DDD;
-	margin: 3px;
-	float: left;
-}
-a.openid_large_btn:focus
-{
-	outline: none;
-}
-a.openid_large_btn:focus
-{
-	-moz-outline-style: none;
-}
-.openid_selected
-{
-	border: 4px solid #DDD;
-}
-.yahoo{
-background: #FFF url(/site_media/dinette/yahoo.png) no-repeat center center;
-}
-.google{
-background: #FFF url(/site_media/dinette/google.png) no-repeat center center;
-}
-.openid{
-background: #FFF url(/site_media/dinette/openid.png) no-repeat center center;
-}
-.twitter{
-background: #FFF url(/site_media/dinette/twitter.png) no-repeat center center;
-}
+<div id="brd-about" class="gen-content">
+	<p id="copyright">Powered by <strong><a href="{% url dinette_category %}">Djorum</a></strong></p>
+	<p id="extensions-used">Copyright &copy; 2008 <a href="/">Usware</a></p>
+</div>
+	
 
 
+  </div>
+</div>
 
-</style>
 
 {% endblock %}
 
-
-{% block content %}
-  <div id="login">
-    <div id="twitter">
-	  <a href="{% url socialauth_twitter_login %}" id="twitter_login_link" class="openid_large_btn twitter"></a>
-	</div>
-    
-	<div id="yahoo">
-	  <a href="{% url socialauth_yahoo_login %}" id="yahoo_login_link" class="openid_large_btn yahoo"></a>
-	</div>
-    
-	<div id="openid">
-	  <a href="{% url socialauth_openid_login %}" id="openid_login_link" class="openid_large_btn openid"></a>
-	</div>
-    
-	<div id="google">
-	  <a href="{% url socialauth_google_login %}" id="google_login_link" class="openid_large_btn google"></a>
-	</div>
-  </div>
-{% endblock %}     
-
-{% endcomment %}
