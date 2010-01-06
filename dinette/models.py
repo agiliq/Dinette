@@ -3,6 +3,7 @@ from django.contrib.auth.models import User,Group
 from django.conf import settings
 from django import forms
 from django.template.defaultfilters import slugify
+from django.db.models.signals import post_save
 
 import logging
 import logging.config
@@ -221,6 +222,7 @@ class DinetteUserProfile(models.Model):
     
     
     def get_total_posts(self):
+        print self.user.ftopics_set.count() + self.user.reply_set.count()
         return self.user.ftopics_set.count() + self.user.reply_set.count()
     
     def is_online(self):
@@ -239,3 +241,9 @@ class DinetteUserProfile(models.Model):
     def get_absolute_url(self):
         return self.user.get_absolute_url()
        
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        DinetteUserProfile.objects.create(user=instance)
+    
+post_save.connect(create_user_profile, sender=User)
+

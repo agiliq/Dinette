@@ -99,6 +99,19 @@
 		{% endfor %}
 	  </div>
 		
+	  <div  id="belowpostreplybox" class="crumbs gen-content">	
+		<span style='float: right;'>
+		  {% if topic_list.has_previous %}
+			<a href="{% url dinette_index2   category.slug  topic_list.previous_page_number %}">   Previous  </a>
+			{% if topic_list.has_next %} | {% endif %}
+		  {% endif %}
+		  
+		  {% if topic_list.has_next %}
+		    <a href="{% url dinette_index2  category.slug   topic_list.next_page_number %}"> Next </a>              
+		  {% endif %}
+		</span>
+	  </div>
+  
 	  <div id="brd-pagepost-end" class="main-pagepost gen-content">
 	  </div>
 	</div>
