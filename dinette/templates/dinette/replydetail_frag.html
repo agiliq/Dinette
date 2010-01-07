@@ -2,6 +2,7 @@
 {% load thumbnail %} 
  
 <!-- div.post/even/replypost begins-->
+<a name="{{ reply.reply_number }}"></a>
 <div class="post even replypost">
   <!-- div p120560 begins-->
   <div id="p120560" class="posthead">
@@ -12,7 +13,7 @@
 		<a title="" href="#"></a>
 	  </span>
       <span class="post-link">
-	    <a class="permalink" rel="bookmark" title="Permanent link to this post" href="{{ reply.get_absolute_url }}">{{ reply.created_on|date:"jS F Y H:i A" }}</a>
+	    <a class="permalink" rel="bookmark" title="Permanent link to this post" href="{{ reply.get_url_with_fragment }}">{{ reply.created_on|date:"jS F Y H:i A" }}</a>
 	  </span> &nbsp; &nbsp; &nbsp;
 	</h3>
   </div>

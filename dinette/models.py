@@ -176,18 +176,27 @@ class Ftopics(models.Model):
 
 # Create Replies for a topic
 class Reply(models.Model):
+    topic = models.ForeignKey(Ftopics)
+    posted_by = models.ForeignKey(User)
+    
     message = models.TextField()
     file = models.FileField(upload_to='dinette/files',default='',null=True,blank=True)
     attachment_type = models.CharField(max_length=20,default='nofile')
     filename = models.CharField(max_length=100,default="dummyname.txt")
+    
+    reply_number = models.SmallIntegerField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    topic = models.ForeignKey(Ftopics)
-    posted_by = models.ForeignKey(User)
+    
     
     class Meta:
         ordering = ('created_on',)
         get_latest_by = ('created_on', )
+        
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            self.reply_number = self.topic.reply_set.all().count() + 1
+        super(Reply, self).save(*args, **kwargs)
     
     def __unicode__(self):
         return self.message
@@ -196,6 +205,15 @@ class Reply(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('dinette_topic_detail',(),{'categoryslug':self.topic.category.slug,'topic_slug': self.topic.slug})
+    
+    def get_url_with_fragment(self):
+        page = (self.reply_number-1)/settings.REPLY_PAGE_SIZE + 1
+        url =  self.get_absolute_url()
+        if not page == 1:
+            return "%spage%s/#%s" % (url, page, self.reply_number)
+        else:
+            return "%s#%s" % (url, self.reply_number)
+            
     
     def htmlfrombbcode(self):
         soup = BeautifulSoup(self.message)
