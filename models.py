@@ -3,6 +3,7 @@ from django.contrib.auth.models import User,Group
 from django.conf import settings
 from django import forms
 from django.template.defaultfilters import slugify
+from django.db.models.signals import post_save
 
 import logging
 import logging.config
@@ -72,8 +73,8 @@ class Category(models.Model):
     def noofPosts(self):
         count = 0
         for topic in self.ftopics_set.all() :
-              #total posts for this topic = total replies + 1 (1 is for the topic as we are considering it as topic)
-              count += topic.reply_set.count() + 1
+            #total posts for this topic = total replies + 1 (1 is for the topic as we are considering it as topic)
+            count += topic.reply_set.count() + 1
         mlog.debug("TOtal count =%d " % count)
         return count
     
@@ -128,7 +129,6 @@ class Ftopics(models.Model):
     is_sticky = models.BooleanField(default=False)
     is_hidden = models.BooleanField(default=False)
     
-    
     class Meta:
         ordering = ('-is_sticky', '-updated_on',)
         get_latest_by = ('created_on')
@@ -149,7 +149,6 @@ class Ftopics(models.Model):
     def get_absolute_url(self):
         return ('dinette_topic_detail',(),{'categoryslug':self.category.slug, 'topic_slug': self.slug})
     
-    
     def htmlfrombbcode(self):
         if(len(self.message.strip()) >  0):            
             return render_bbcode(self.message)
@@ -163,22 +162,16 @@ class Ftopics(models.Model):
     def lastPostDatetime(self):
         return self.lastPost().created_on
         
-        
-        
-        
     def lastPostedUser(self):
         return self.lastPost().posted_by.username
-        
-    
     
     def lastPost(self):
         if (self.reply_set.count() == 0):
             return self       
         return self.reply_set.order_by('-created_on')[0]        
         
-        
     def classname(self):
-         return  self.__class__.__name__
+        return  self.__class__.__name__
          
 
 # Create Replies for a topic
@@ -229,6 +222,7 @@ class DinetteUserProfile(models.Model):
     
     
     def get_total_posts(self):
+        print self.user.ftopics_set.count() + self.user.reply_set.count()
         return self.user.ftopics_set.count() + self.user.reply_set.count()
     
     def is_online(self):
@@ -238,7 +232,6 @@ class DinetteUserProfile(models.Model):
         if (now - self.last_activity).seconds < last_online_duration:
             return True
         return False   
-    
 
     def getMD5(self):
         m = hashlib.md5()
@@ -248,9 +241,9 @@ class DinetteUserProfile(models.Model):
     def get_absolute_url(self):
         return self.user.get_absolute_url()
        
- 
-        
-     
-      
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        DinetteUserProfile.objects.create(user=instance)
     
-     
+post_save.connect(create_user_profile, sender=User)
+

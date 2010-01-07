@@ -59,8 +59,8 @@ def index_page(request):
         
           #already one group has acces to forum no need to check whether other groups have access to it or not        
             if jumpflag:
-               mlogger.debug("breaking up"+str(jumpflag)) 
-               break
+                mlogger.debug("breaking up"+str(jumpflag)) 
+                break
         
         if jumpflag == False:
             mlogger.debug("appending false.........."+str(forum.id))
@@ -138,12 +138,12 @@ def postTopic(request) :
     #code which checks for flood control
     if (datetime.now() -(request.user.get_profile().last_posttime)).seconds <= settings.FLOOD_TIME :
     #oh....... user trying to flood us Stop him
-         d2 = {"is_valid":"flood","errormessage":"Flood control.................."}
-         if request.FILES : 
-               json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
-         else :
-               json = simplejson.dumps(d2)  
-         return HttpResponse(json, mimetype = json_mimetype)
+        d2 = {"is_valid":"flood","errormessage":"Flood control.................."}
+        if request.FILES : 
+            json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
+        else :
+            json = simplejson.dumps(d2)  
+        return HttpResponse(json, mimetype = json_mimetype)
          
     ftopic = topic.save(commit=False)     
     #only if there is any file
@@ -169,9 +169,9 @@ def postTopic(request) :
     d2 = {"is_valid":"true","response_html":response_html}
     #this the required for ajax file uploads
     if request.FILES : 
-       json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
+        json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
     else :
-       json = simplejson.dumps(d2) 
+        json = simplejson.dumps(d2) 
     return HttpResponse(json, mimetype = json_mimetype)
     
 @login_required    
@@ -193,12 +193,12 @@ def postReply(request) :
     #code which checks for flood control
     if (datetime.now() -(request.user.get_profile().last_posttime)).seconds <= settings.FLOOD_TIME:
     #oh....... user trying to flood us Stop him
-         d2 = {"is_valid":"flood","errormessage":"You have posted message too recently. Please wait a while before trying again."}
-         if request.FILES : 
-               json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
-         else :
-               json = simplejson.dumps(d2)  
-         return HttpResponse(json, mimetype = json_mimetype)        
+        d2 = {"is_valid":"flood","errormessage":"You have posted message too recently. Please wait a while before trying again."}
+        if request.FILES : 
+            json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
+        else :
+            json = simplejson.dumps(d2)  
+        return HttpResponse(json, mimetype = json_mimetype)        
         
     
     reply = freply.save(commit=False)    
@@ -236,46 +236,46 @@ def postReply(request) :
     
     
 class LatestTopicsByCategory(Feed):
-     title_template = 'dinette/feeds/title.html'
-     description_template = 'dinette/feeds/description.html'
-
-     def get_object(self, whichcategory):
-         mlogger.debug("Feed for category %s " % whichcategory)
-         return get_object_or_404(Category, slug=whichcategory[0])
-         
-     def title(self, obj):
+    title_template = 'dinette/feeds/title.html'
+    description_template = 'dinette/feeds/description.html'
+    
+    def get_object(self, whichcategory):
+        mlogger.debug("Feed for category %s " % whichcategory)
+        return get_object_or_404(Category, slug=whichcategory[0])
+    
+    def title(self, obj):
         return "Latest topics in category %s" % obj.name
-     
-     def link(self, obj):
+    
+    def link(self, obj):
         return  settings.SITE_URL
-
-     def items(self, obj):
+    
+    def items(self, obj):
         return obj.ftopics_set.all()[:10]
-       
-     #construct these links by means of reverse lookup  by
-     #using permalink decorator
-     def item_link(self,obj):
+    
+    #construct these links by means of reverse lookup  by
+    #using permalink decorator
+    def item_link(self,obj):
         return  obj.get_absolute_url()
-     
-     def item_pubdate(self,obj):
+    
+    def item_pubdate(self,obj):
         return obj.created_on
     
     
 class LatestRepliesOfTopic(Feed):
-     title_template = 'dinette/feeds/title.html'
-     description_template = 'dinette/feeds/description.html'
+    title_template = 'dinette/feeds/title.html'
+    description_template = 'dinette/feeds/description.html'
 
-     def get_object(self, whichtopic):
-         mlogger.debug("Feed for category %s " % whichtopic)
-         return get_object_or_404(Ftopics, slug=whichtopic[0])
+    def get_object(self, whichtopic):
+        mlogger.debug("Feed for category %s " % whichtopic)
+        return get_object_or_404(Ftopics, slug=whichtopic[0])
          
-     def title(self, obj):
+    def title(self, obj):
         return "Latest replies in topic %s" % obj.subject
      
-     def link(self, obj):
+    def link(self, obj):
         return  settings.SITE_URL
 
-     def items(self, obj):
+    def items(self, obj):
         list = []
         list.insert(0,obj)
         for obj in obj.reply_set.all()[:10] :
@@ -284,10 +284,10 @@ class LatestRepliesOfTopic(Feed):
        
      #construct these links by means of reverse lookup  by
      #using permalink decorator
-     def item_link(self,obj):       
+    def item_link(self,obj):       
         return  obj.get_absolute_url()
      
-     def item_pubdate(self,obj):
+    def item_pubdate(self,obj):
         return obj.created_on
     
     
@@ -345,11 +345,13 @@ def moderate_topic(request, topic_id, action):
     
 def login(request):
     if getattr(settings, 'DINETTE_LOGIN_TEMPLATE', None):
-        return render_to_response(settings.DINETTE_LOGIN_TEMPLATE, {}, RequestContext(request))
+        return render_to_response(settings.DINETTE_LOGIN_TEMPLATE, {}, RequestContext(request, {'fb_api_key':settings.FACEBOOK_API_KEY,}))
     else:
         from django.contrib.auth.views import login
         return login(request)
         
-        
+def user_profile(request, user_name):
+    user_profile = User.objects.get(username = user_name)
+    return render_to_response('dinette/user_profile.html', {}, RequestContext(request, {'user_profile': user_profile}))
     
     
