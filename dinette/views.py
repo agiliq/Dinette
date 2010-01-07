@@ -10,6 +10,7 @@ from django.contrib.syndication.feeds import Feed
 from django.contrib.auth.models import User , Group
 from django.conf import settings
 from django.views.generic.list_detail import object_list
+from django.shortcuts import get_object_or_404
 
 from  datetime  import datetime
 import logging
@@ -89,9 +90,9 @@ def index_page(request):
 def category_details(request, categoryslug,  pageno=1) :
     mlogger.info("In the welcome page.......................")
     mlogger.debug("Type of request.user %s" % type(request)  )   
-    #buid a form for posting topics
+    #build a form for posting topics
     topicform = FtopicForm()
-    category = Category.objects.get(slug=categoryslug)
+    category = get_object_or_404(Category, slug=categoryslug)
     queryset = Ftopics.objects.filter(category__id__exact = category.id)    
     paginator = Paginator(queryset,settings.TOPIC_PAGE_SIZE)
     topiclist = paginator.page(pageno)
@@ -351,7 +352,7 @@ def login(request):
         return login(request)
         
 def user_profile(request, user_name):
-    user_profile = User.objects.get(username = user_name)
+    user_profile =get_object_or_404(User, username = user_name)
     return render_to_response('dinette/user_profile.html', {}, RequestContext(request, {'user_profile': user_profile}))
     
     
