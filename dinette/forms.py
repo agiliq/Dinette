@@ -1,4 +1,5 @@
 from django.forms import ModelForm
+from django import forms
 
 from dinette.models import Ftopics ,Reply
 
@@ -11,7 +12,8 @@ class FtopicForm(ModelForm):
 
 #create a form from Reply
 class ReplyForm(ModelForm):
-      class Meta:
-            model = Reply
-            fields = ('message','file')
+    message = forms.CharField(widget = forms.Textarea(attrs={"cols":70, "rows":8}))
+    class Meta:
+        model = Reply
+        fields = ('message','file')
             

@@ -30,7 +30,7 @@
 		    {% if reply.posted_by.get_profile.photo  %}
 		      <img src="{% thumbnail reply.posted_by.get_profile.photo 80x80 %}" />
 		    {% else %}                                                        
-		      <img src="http://www.gravatar.com/avatar/{{reply.posted_by.get_profile.getMD5}}.jpg" alt="" />
+		      <img src="http://www.gravatar.com/avatar/{{reply.posted_by.get_profile.getMD5}}.jpg" alt="{{reply.posted_by.username}}'s Photo" />
 		    {% endif %} 
 		  </td></tr>
 		  <tr><td>
@@ -71,7 +71,7 @@
 	<div class="post-entry">
 	  <h4 id="pc120560" class="entry-title hn">Re: {{reply.topic.subject}}</h4>
 	  <div class="entry-content">
-  	    <p>  {{ reply.htmlfrombbcode|safe }} .</p>
+  	    <p>  {{ reply.htmlfrombbcode|safe }}</p>
 	    {% with reply as rtopic %}    
 	      {% include 'dinette/attachement_frag.html' %}     
 	    {% endwith %}
