@@ -4,6 +4,10 @@
 
 {% block content %}
 
+{% load pagination_tags %}
+
+{% autopaginate topic_list topic_page_size %}
+
 <div id="actionbox">
 
 </div>  
@@ -52,7 +56,7 @@
 	  <div id="brd-crumbs-top" class="crumbs gen-content">
 	    <p>
 		  <span class="crumb crumbfirst">
-			<a href="{% url dinette_category %}">Djorum Forums</a>
+			<a href="{% url dinette_category %}">{{ config.name  }}</a>
 		  </span> 
 		  <span class="crumb crumblast">
 			<span> &raquo; </span>
@@ -94,11 +98,11 @@
 	  </div>
 
 	  <div id="topicslist" class="main-content main-forum forum-views">
-		{% for topic in topic_list.object_list %}     
+		{% for topic in topic_list %}     
 		  {% include 'dinette/topic_detail_frag.html' %}  
 		{% endfor %}
 	  </div>
-		
+	 {% paginate %}
 	  <div  id="belowpostreplybox" class="crumbs gen-content">	
 		<span style='float: right;'>
 		  {% if topic_list.has_previous %}

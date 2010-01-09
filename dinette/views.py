@@ -72,9 +72,8 @@ def index_page(request):
     totaltopics = Ftopics.objects.count()
     totalposts = totaltopics + Reply.objects.count()
     totalusers =  User.objects.count()
-    import datetime
-    now = datetime.datetime.now()
-    users_online = DinetteUserProfile.objects.filter(last_activity__gte =  now - datetime.timedelta(seconds = 900)).count()
+    now = datetime.now()
+    users_online = DinetteUserProfile.objects.filter(last_activity__gte =  now - datetime.timedelta(seconds = 900)).count() + 1#The current user is always online. :)
     last_registered_user = User.objects.order_by('-date_joined')[0]
     try:
         user_access_list = int(accesslist)
@@ -93,10 +92,11 @@ def category_details(request, categoryslug,  pageno=1) :
     #build a form for posting topics
     topicform = FtopicForm()
     category = get_object_or_404(Category, slug=categoryslug)
-    queryset = Ftopics.objects.filter(category__id__exact = category.id)    
-    paginator = Paginator(queryset,settings.TOPIC_PAGE_SIZE)
-    topiclist = paginator.page(pageno)
-    return render_to_response("dinette/home.html", {'topicform': topicform,'category':category,'authenticated':request.user.is_authenticated(),'topic_list':topiclist},RequestContext(request))
+    queryset = Ftopics.objects.filter(category__id__exact = category.id)
+    topiclist = queryset    
+    topic_page_size = getattr(settings , "TOPIC_PAGE_SIZE", 10)
+    payload = {'topicform': topicform,'category':category,'authenticated':request.user.is_authenticated(),'topic_list':topiclist, "topic_page_size": topic_page_size}
+    return render_to_response("dinette/home.html", payload, RequestContext(request))
     
     
        
@@ -113,10 +113,10 @@ def topic_detail(request, categoryslug, topic_slug , pageno = 1):
     topic.viewcount = topic.viewcount + 1
     topic.save()
     #we also need to display the reply form
-    paginator = Paginator(topic.reply_set.all(),settings.REPLY_PAGE_SIZE)
-    replylist = paginator.page(pageno)
+    replylist = topic.reply_set.all()
+    reply_page_size = getattr(settings , "REPLY_PAGE_SIZE", 10)
     replyform = ReplyForm()
-    payload = {'topic': topic, 'replyform':replyform,'reply_list':replylist, 'show_moderation_items':show_moderation_items}
+    payload = {'topic': topic, 'replyform':replyform,'reply_list':replylist, 'show_moderation_items':show_moderation_items, "reply_page_size": reply_page_size}
     return render_to_response("dinette/topic_detail.html", payload, RequestContext(request))
 
 @login_required

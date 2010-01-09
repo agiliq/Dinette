@@ -7,6 +7,8 @@
 {% block content %}
 
 {% load thumbnail %} 
+{% load pagination_tags %}
+{% autopaginate reply_list reply_page_size %}
  
 <div id="replybox">
   <div id="actionbox">
@@ -29,7 +31,7 @@
   <div id="brd-crumbs-top" class="crumbs gen-content">
     <p>
 	  <span class="crumb crumbfirst">
-	    <a href="{% url dinette_category %}">Djorum Forums</a>
+	    <a href="{% url dinette_category %}">{{ config.name }}</a>
 	  </span> 
 	  <span class="crumb">
 		<span> &raquo; </span>
@@ -73,10 +75,10 @@
 	
   <!-- reply list begins -->
   <div id="replylist" class="main-content main-topic">
-	{% ifequal reply_list.number 1 %}
+	{% ifequal request.page 1 %}
 	  <!--post odd reply list begins -->
 	  <div class="post odd replypost">
-	    <div id="p120560" class="posthead">
+	    <div id="p{{ topic.pk }}" class="posthead">
 		  <h3 class="hn post-ident">
 			<span class="post-num"> </span> 
 			<span class="post-byline">
@@ -140,7 +142,7 @@
 	  <!-- post odd reply list ends -->
 	{% endifequal %}    
                 
-	{% for reply in reply_list.object_list %}
+	{% for reply in reply_list %}
 	  {% include 'dinette/replydetail_frag.html' %}
 	{% endfor %}
   </div>
@@ -149,14 +151,7 @@
 	<a href="" onclick="return isUserAuthenticated(2)">Post Reply</a>
 	
 	<span style='float: right;'>
-	  {% if reply_list.has_previous %}
-		<a href="{% url dinette_reply_detail_paged  topic.category.slug topic.slug  reply_list.previous_page_number %}"> Previous </a>
-		{% if reply_list.has_next %} | {% endif %}
-	  {% endif %}
-	
-	  {% if reply_list.has_next %}
-		<a href="{% url dinette_reply_detail_paged  topic.category.slug topic.slug   reply_list.next_page_number %}"> Next </a>              
-	  {% endif %}
+	 {% paginate %}
 	</span>
   </div>
   

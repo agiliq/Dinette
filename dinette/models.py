@@ -210,7 +210,7 @@ class Reply(models.Model):
         page = (self.reply_number-1)/settings.REPLY_PAGE_SIZE + 1
         url =  self.get_absolute_url()
         if not page == 1:
-            return "%spage%s/#%s" % (url, page, self.reply_number)
+            return "%s?page=%s#%s" % (url, page, self.reply_number)
         else:
             return "%s#%s" % (url, self.reply_number)
             
