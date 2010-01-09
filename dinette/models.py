@@ -112,6 +112,11 @@ class Category(models.Model):
     
     def __unicode__(self):
         return self.name 
+    
+class TopicManager(models.Manager):
+    def get_query_set(self):
+        return super(TopicManager, self).get_query_set().filter(is_hidden = False)
+    
 
 class Ftopics(models.Model):
     category = models.ForeignKey(Category)
@@ -137,6 +142,8 @@ class Ftopics(models.Model):
     is_sticky = models.BooleanField(default=False)
     is_hidden = models.BooleanField(default=False)
     
+    default = models.Manager()
+    objects = TopicManager()
     
     class Meta:
         ordering = ('-is_sticky', '-last_reply_on',)

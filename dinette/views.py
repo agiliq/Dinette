@@ -335,8 +335,11 @@ def moderate_topic(request, topic_id, action):
                 message = '%s has been stickied.' % topic.subject
             topic.is_sticky = not topic.is_sticky
         elif action == 'hide':
-            topic.is_hidden = True
-            message = '%s has been hidden and wont show up any further.' % topic.subject
+            if topic.is_hidden:
+                message = '%s has been unhidden.' % topic.subject
+            else:
+                message = "%s has been hidden and won't show up any further." % topic.subject
+            topic.is_hidden = not topic.is_hidden
         topic.save()
         payload = {'topic_id':topic.pk, 'message':message}
         resp = simplejson.dumps(payload)

@@ -41,11 +41,14 @@
 		<span> &raquo; </span>
 		<a href="{{ topic.get_absolute_url }}">{{ topic.subject }} </a>
 	  </span> 
+	  
 	  &nbsp; &nbsp;
+	  {% if not topic.is_closed %}
 	  {% if user.is_authenticated %}
 		<a href="" onclick="return isUserAuthenticated(1)">Post Reply</a> &nbsp; &nbsp;
 	  {% else %}
 		(<a href="{% url dinette_login %}?next={{ topic.get_absolute_url }}">Login to Post Reply</a>) &nbsp; &nbsp;
+	  {% endif %}
 	  {% endif %}
          
 	  {% if reply_list.has_next %}
@@ -148,13 +151,21 @@
   </div>
 		
   <div  id="belowpostreplybox" class="crumbs gen-content">	
-	<a href="" onclick="return isUserAuthenticated(2)">Post Reply</a>
+  	
+	{% if not topic.is_closed %}
+	  {% if user.is_authenticated %}
+		<a href="#" onclick="return isUserAuthenticated(2)">Post Reply</a> &nbsp; &nbsp;
+	  {% else %}
+		(<a href="{% url dinette_login %}?next={{ topic.get_absolute_url }}">Login to Post Reply</a>) &nbsp; &nbsp;
+	  {% endif %}
+	  {% endif %}
 	
 	<span style='float: right;'>
 	 {% paginate %}
 	</span>
   </div>
   
+  {% if not topic.is_closed and user.is_authenticated %}
   <!-- formbox begins -->
   <div id="formbox" class="magicbox">
 	<form action="{% url dinette_postreply %}" method="POST" id="fpostreply"  >            
@@ -175,6 +186,7 @@
 	</form>
   </div>   
   <!-- formbox ends -->
+  {% endif %}
 	
   <div class="hr"><hr /></div>
   <div id="brd-about" class="gen-content">
