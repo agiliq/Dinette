@@ -96,7 +96,7 @@ def category_details(request, categoryslug,  pageno=1) :
     topiclist = queryset    
     topic_page_size = getattr(settings , "TOPIC_PAGE_SIZE", 10)
     payload = {'topicform': topicform,'category':category,'authenticated':request.user.is_authenticated(),'topic_list':topiclist, "topic_page_size": topic_page_size}
-    return render_to_response("dinette/home.html", payload, RequestContext(request))
+    return render_to_response("dinette/category_details.html", payload, RequestContext(request))
     
     
        
