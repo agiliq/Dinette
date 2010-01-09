@@ -252,6 +252,9 @@ class DinetteUserProfile(models.Model):
     photo = models.ImageField(upload_to='dinette/files',null=True,blank=True)
     signature = models.CharField(max_length = 1000, null = True, blank = True)
     
+    def __unicode__(self):
+        return self.user.username
+    
     
     def get_total_posts(self):
         print self.user.ftopics_set.count() + self.user.reply_set.count()

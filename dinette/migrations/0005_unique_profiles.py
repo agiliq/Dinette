@@ -6,28 +6,17 @@ from dinette.models import *
 class Migration:
     
     def forwards(self, orm):
-        "Write your forwards migration here"
-        topics = orm.Ftopics.objects.all()
-        for topic in topics:
-            topic.num_replies = topic.reply_set.count()
-            if topic.reply_set.count():
-                last_reply = topic.reply_set.order_by("-created_on")[0]
-                topic.last_reply_on = last_reply.created_on
-            else:
-                topic.last_reply_on = topic.created_on
-            topic.save()
         
-        replies = Reply.objects.all()
-        for reply in replies:
-            reply.reply_number = Reply.objects.filter(topic = reply.topic, created_on__lte = reply.created_on).count()
-            reply.save()
-        
-            
+        # Creating unique_together for [user] on DinetteUserProfile.
+        db.create_unique('dinette_dinetteuserprofile', ['user_id'])
         
     
     
     def backwards(self, orm):
-        "Write your backwards migration here"
+        
+        # Deleting unique_together for [user] on DinetteUserProfile.
+        db.delete_unique('dinette_dinetteuserprofile', ['user_id'])
+        
     
     
     models = {
@@ -83,7 +72,7 @@ class Migration:
             'last_posttime': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'photo': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'signature': ('django.db.models.fields.CharField', [], {'max_length': '1000', 'null': 'True', 'blank': 'True'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"}),
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'unique': 'True'}),
             'userrank': ('django.db.models.fields.CharField', [], {'default': "'Junior Member'", 'max_length': '30'})
         },
         'dinette.ftopics': {
@@ -137,7 +126,3 @@ class Migration:
     }
     
     complete_apps = ['dinette']
-
-Migration.no_dry_run = True
-
-
