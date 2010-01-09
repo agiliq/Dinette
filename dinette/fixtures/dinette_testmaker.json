@@ -1,0 +1,929 @@
+[
+    {
+        "pk": 1, 
+        "model": "dinette.siteconfig", 
+        "fields": {
+            "name": "The Usware forum", 
+            "tag_line": "Forum based on Usware's Forum app dinette. Discuss about web application development using django and the related tech stack."
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "dinette.supercategory", 
+        "fields": {
+            "name": "Usware's Apps", 
+            "ordering": 3, 
+            "posted_by": 1, 
+            "created_on": "2009-09-21 10:14:22", 
+            "updated_on": "2009-09-21 10:14:22", 
+            "accessgroups": [
+                1
+            ], 
+            "description": "Apps and other things developed by Usware."
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "dinette.supercategory", 
+        "fields": {
+            "name": "Python and Django", 
+            "ordering": 1, 
+            "posted_by": 1, 
+            "created_on": "2009-03-18 05:20:31", 
+            "updated_on": "2009-03-18 05:20:31", 
+            "accessgroups": [
+                1
+            ], 
+            "description": "About Python the best programming language and Django the perfectionists with deadline things."
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "dinette.supercategory", 
+        "fields": {
+            "name": "Other web technologies", 
+            "ordering": 1, 
+            "posted_by": 1, 
+            "created_on": "2009-03-18 05:21:10", 
+            "updated_on": "2009-03-18 05:21:10", 
+            "accessgroups": [
+                1
+            ], 
+            "description": "Such as JS, Jquery, Html, Etc."
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "dinette.category", 
+        "fields": {
+            "description": "Dinette is the best forum app for Django, Period. You are using it right now.", 
+            "ordering": 1, 
+            "posted_by": 1, 
+            "super_category": 3, 
+            "created_on": "2009-09-21 10:17:38", 
+            "updated_on": "2009-09-21 10:17:38", 
+            "moderated_by": [
+                3
+            ], 
+            "slug": "dinette", 
+            "name": "Dinette"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "dinette.category", 
+        "fields": {
+            "description": "Commonly occuring patterns in Django development.", 
+            "ordering": 1, 
+            "posted_by": 1, 
+            "super_category": 3, 
+            "created_on": "2009-09-21 10:16:44", 
+            "updated_on": "2009-09-27 01:42:37", 
+            "moderated_by": [
+                1, 
+                3
+            ], 
+            "slug": "django-design-patterns", 
+            "name": "Django design patterns"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "dinette.category", 
+        "fields": {
+            "description": "Socialauth is a reusable app to enable seamless authentication via Facebook, Twitter, Google, Yahoo and Openid", 
+            "ordering": 1, 
+            "posted_by": 1, 
+            "super_category": 3, 
+            "created_on": "2009-09-21 10:16:06", 
+            "updated_on": "2009-09-27 01:42:30", 
+            "moderated_by": [
+                1
+            ], 
+            "slug": "django-socialauth", 
+            "name": "Django socialauth"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "dinette.category", 
+        "fields": {
+            "description": "Databases such as MySql, Postgressql and Oracle provide the ability to store the huge amounts of data needed in todays web applications.", 
+            "ordering": 1, 
+            "posted_by": 3, 
+            "super_category": 2, 
+            "created_on": "2009-09-21 10:13:08", 
+            "updated_on": "2009-09-27 01:42:21", 
+            "moderated_by": [
+                1
+            ], 
+            "slug": "databases", 
+            "name": "Databases"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "dinette.category", 
+        "fields": {
+            "description": "Javascript is the language which powers most of the powerfull web application you use everyday. Jquery make Javascript development fast and painless.", 
+            "ordering": 1, 
+            "posted_by": 1, 
+            "super_category": 2, 
+            "created_on": "2009-09-21 10:11:57", 
+            "updated_on": "2009-09-27 01:42:13", 
+            "moderated_by": [
+                1
+            ], 
+            "slug": "jquery-javascript", 
+            "name": "Jquery and Javascript"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "dinette.category", 
+        "fields": {
+            "description": "Django is web application framework developed for \"perfectionists with deadlines.\" Are you one?", 
+            "ordering": 1, 
+            "posted_by": 1, 
+            "super_category": 1, 
+            "created_on": "2009-09-21 10:10:20", 
+            "updated_on": "2009-09-27 01:42:06", 
+            "moderated_by": [
+                1
+            ], 
+            "slug": "django", 
+            "name": "Django"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "dinette.category", 
+        "fields": {
+            "description": "Python is a general purpose programming language, developed for ease of use, and readability and quick development. It is used from the beginner hobbyist to the largest corporation such as Google and Nasa.", 
+            "ordering": 1, 
+            "posted_by": 1, 
+            "super_category": 1, 
+            "created_on": "2009-09-21 10:09:31", 
+            "updated_on": "2009-09-21 10:09:31", 
+            "moderated_by": [
+                1
+            ], 
+            "slug": "python", 
+            "name": "Python"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "dinette.ftopics", 
+        "fields": {
+            "category": 6, 
+            "viewcount": 325, 
+            "is_hidden": 0, 
+            "is_sticky": 1, 
+            "posted_by": 1, 
+            "announcement_flag": 0, 
+            "slug": "details-about-the-django-design-patterns", 
+            "created_on": "2009-09-27 01:46:46", 
+            "file": "", 
+            "replies": 0, 
+            "updated_on": "2009-12-23 01:06:20", 
+            "message": "Url: http://djangodesignpatterns.uswaretech.net\nGithub: http://github.com/uswaretech/django-design-patterns\n\nPlease add any new patterns, addendum, and patches here.", 
+            "filename": "dummyname.txt", 
+            "attachment_type": "nofile", 
+            "is_closed": 0, 
+            "subject": "Details about the Django design patterns"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "dinette.ftopics", 
+        "fields": {
+            "category": 7, 
+            "viewcount": 0, 
+            "is_hidden": 0, 
+            "is_sticky": 0, 
+            "posted_by": 1, 
+            "announcement_flag": 0, 
+            "slug": "2", 
+            "created_on": "2010-01-09 02:30:54", 
+            "file": "", 
+            "replies": 0, 
+            "updated_on": "2010-01-09 02:30:54", 
+            "message": "2", 
+            "filename": "dummyname.txt", 
+            "attachment_type": "nofile", 
+            "is_closed": 0, 
+            "subject": "2"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "dinette.ftopics", 
+        "fields": {
+            "category": 7, 
+            "viewcount": 20, 
+            "is_hidden": 0, 
+            "is_sticky": 0, 
+            "posted_by": 1, 
+            "announcement_flag": 0, 
+            "slug": "1", 
+            "created_on": "2010-01-09 01:58:27", 
+            "file": "", 
+            "replies": 0, 
+            "updated_on": "2010-01-09 02:30:31", 
+            "message": "Ho ho ho", 
+            "filename": "dummyname.txt", 
+            "attachment_type": "nofile", 
+            "is_closed": 0, 
+            "subject": "1"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "dinette.ftopics", 
+        "fields": {
+            "category": 7, 
+            "viewcount": 4, 
+            "is_hidden": 0, 
+            "is_sticky": 0, 
+            "posted_by": 1, 
+            "announcement_flag": 0, 
+            "slug": "ha-ha-ha-ha", 
+            "created_on": "2010-01-09 01:38:31", 
+            "file": "", 
+            "replies": 0, 
+            "updated_on": "2010-01-09 01:58:12", 
+            "message": "He he he he", 
+            "filename": "dummyname.txt", 
+            "attachment_type": "nofile", 
+            "is_closed": 0, 
+            "subject": "ha ha ha ha"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "dinette.ftopics", 
+        "fields": {
+            "category": 7, 
+            "viewcount": 0, 
+            "is_hidden": 0, 
+            "is_sticky": 0, 
+            "posted_by": 1, 
+            "announcement_flag": 0, 
+            "slug": "ho-ho-ho", 
+            "created_on": "2010-01-09 01:38:45", 
+            "file": "", 
+            "replies": 0, 
+            "updated_on": "2010-01-09 01:38:45", 
+            "message": "he he he", 
+            "filename": "dummyname.txt", 
+            "attachment_type": "nofile", 
+            "is_closed": 0, 
+            "subject": "Ho ho ho"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "dinette.ftopics", 
+        "fields": {
+            "category": 7, 
+            "viewcount": 10, 
+            "is_hidden": 0, 
+            "is_sticky": 0, 
+            "posted_by": 1, 
+            "announcement_flag": 0, 
+            "slug": "what-is-another-topic", 
+            "created_on": "2010-01-07 14:08:18", 
+            "file": "", 
+            "replies": 0, 
+            "updated_on": "2010-01-07 14:12:55", 
+            "message": "WHat is it?", 
+            "filename": "dummyname.txt", 
+            "attachment_type": "nofile", 
+            "is_closed": 0, 
+            "subject": "What is another topic?"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "dinette.ftopics", 
+        "fields": {
+            "category": 7, 
+            "viewcount": 347, 
+            "is_hidden": 0, 
+            "is_sticky": 0, 
+            "posted_by": 1, 
+            "announcement_flag": 0, 
+            "slug": "dinnette-roadmap", 
+            "created_on": "2009-09-27 01:49:55", 
+            "file": "", 
+            "replies": 0, 
+            "updated_on": "2010-01-07 14:07:56", 
+            "message": "On the roadmap,\n\n1. Integration with Django-socialauth\n2. Better test coverage.\n3. Better integration with other blogengines/cms. (django-mingus/django-cms?)\n\nPlease add your suggestions.", 
+            "filename": "dummyname.txt", 
+            "attachment_type": "nofile", 
+            "is_closed": 0, 
+            "subject": "Dinnette roadmap"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "dinette.ftopics", 
+        "fields": {
+            "category": 5, 
+            "viewcount": 330, 
+            "is_hidden": 0, 
+            "is_sticky": 0, 
+            "posted_by": 1, 
+            "announcement_flag": 0, 
+            "slug": "socialauth-details", 
+            "created_on": "2009-09-27 01:58:00", 
+            "file": "", 
+            "replies": 0, 
+            "updated_on": "2010-01-07 07:34:02", 
+            "message": "1. Details at http://uswaretech.com/blog/2009/08/django-socialauth-login-via-twitter-facebook-openid-yahoo-google/\n2. Githuib: http://github.com/uswaretech/django-socialauth/tree/master", 
+            "filename": "dummyname.txt", 
+            "attachment_type": "nofile", 
+            "is_closed": 0, 
+            "subject": "Socialauth details"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 1, 
+            "created_on": "2009-03-18 07:15:31", 
+            "file": "", 
+            "reply_number": 0, 
+            "updated_on": "2009-03-18 07:15:31", 
+            "message": "This is a reply.", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 2, 
+            "created_on": "2010-01-07 13:51:52", 
+            "file": "", 
+            "reply_number": 1, 
+            "updated_on": "2010-01-07 13:51:52", 
+            "message": "Abcd", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 2, 
+            "created_on": "2010-01-07 13:52:15", 
+            "file": "", 
+            "reply_number": 2, 
+            "updated_on": "2010-01-07 13:52:15", 
+            "message": "Efgh", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 2, 
+            "created_on": "2010-01-07 14:05:32", 
+            "file": "", 
+            "reply_number": 3, 
+            "updated_on": "2010-01-07 14:05:32", 
+            "message": "1", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 2, 
+            "created_on": "2010-01-07 14:05:36", 
+            "file": "", 
+            "reply_number": 4, 
+            "updated_on": "2010-01-07 14:05:36", 
+            "message": "2", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 2, 
+            "created_on": "2010-01-07 14:05:41", 
+            "file": "", 
+            "reply_number": 5, 
+            "updated_on": "2010-01-07 14:05:41", 
+            "message": "3", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 2, 
+            "created_on": "2010-01-07 14:05:46", 
+            "file": "", 
+            "reply_number": 6, 
+            "updated_on": "2010-01-07 14:05:46", 
+            "message": "4", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 2, 
+            "created_on": "2010-01-07 14:05:51", 
+            "file": "", 
+            "reply_number": 7, 
+            "updated_on": "2010-01-07 14:05:51", 
+            "message": "5", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 2, 
+            "created_on": "2010-01-07 14:06:10", 
+            "file": "", 
+            "reply_number": 8, 
+            "updated_on": "2010-01-07 14:06:10", 
+            "message": "6", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 2, 
+            "created_on": "2010-01-07 14:06:15", 
+            "file": "", 
+            "reply_number": 9, 
+            "updated_on": "2010-01-07 14:06:15", 
+            "message": "7", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 2, 
+            "created_on": "2010-01-07 14:06:21", 
+            "file": "", 
+            "reply_number": 10, 
+            "updated_on": "2010-01-07 14:06:21", 
+            "message": "8", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 2, 
+            "created_on": "2010-01-07 14:06:26", 
+            "file": "", 
+            "reply_number": 11, 
+            "updated_on": "2010-01-07 14:06:26", 
+            "message": "9", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 4, 
+            "created_on": "2010-01-07 14:08:25", 
+            "file": "", 
+            "reply_number": 1, 
+            "updated_on": "2010-01-07 14:08:25", 
+            "message": "1", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 4, 
+            "created_on": "2010-01-07 14:08:29", 
+            "file": "", 
+            "reply_number": 2, 
+            "updated_on": "2010-01-07 14:08:29", 
+            "message": "2", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 4, 
+            "created_on": "2010-01-07 14:08:33", 
+            "file": "", 
+            "reply_number": 3, 
+            "updated_on": "2010-01-07 14:08:33", 
+            "message": "3", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 4, 
+            "created_on": "2010-01-07 14:08:36", 
+            "file": "", 
+            "reply_number": 4, 
+            "updated_on": "2010-01-07 14:08:36", 
+            "message": "4", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 4, 
+            "created_on": "2010-01-07 14:08:40", 
+            "file": "", 
+            "reply_number": 5, 
+            "updated_on": "2010-01-07 14:08:40", 
+            "message": "5", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 4, 
+            "created_on": "2010-01-07 14:08:45", 
+            "file": "", 
+            "reply_number": 6, 
+            "updated_on": "2010-01-07 14:08:45", 
+            "message": "6", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 4, 
+            "created_on": "2010-01-07 14:08:48", 
+            "file": "", 
+            "reply_number": 7, 
+            "updated_on": "2010-01-07 14:08:48", 
+            "message": "7", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 4, 
+            "created_on": "2010-01-07 14:08:54", 
+            "file": "", 
+            "reply_number": 8, 
+            "updated_on": "2010-01-07 14:08:54", 
+            "message": "8", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 4, 
+            "created_on": "2010-01-07 14:08:58", 
+            "file": "", 
+            "reply_number": 9, 
+            "updated_on": "2010-01-07 14:08:58", 
+            "message": "9", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 4, 
+            "created_on": "2010-01-07 14:09:13", 
+            "file": "", 
+            "reply_number": 10, 
+            "updated_on": "2010-01-07 14:09:13", 
+            "message": "10", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 4, 
+            "created_on": "2010-01-07 14:09:18", 
+            "file": "", 
+            "reply_number": 11, 
+            "updated_on": "2010-01-07 14:09:18", 
+            "message": "12", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 4, 
+            "created_on": "2010-01-07 14:09:55", 
+            "file": "", 
+            "reply_number": 12, 
+            "updated_on": "2010-01-07 14:09:55", 
+            "message": "13", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 4, 
+            "created_on": "2010-01-07 14:10:07", 
+            "file": "", 
+            "reply_number": 13, 
+            "updated_on": "2010-01-07 14:10:07", 
+            "message": "14", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 5, 
+            "created_on": "2010-01-09 01:58:11", 
+            "file": "", 
+            "reply_number": 1, 
+            "updated_on": "2010-01-09 01:58:11", 
+            "message": "Ha ha ha", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 7, 
+            "created_on": "2010-01-09 02:00:33", 
+            "file": "", 
+            "reply_number": 1, 
+            "updated_on": "2010-01-09 02:00:33", 
+            "message": "Ha ha ha hi", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 7, 
+            "created_on": "2010-01-09 02:00:43", 
+            "file": "", 
+            "reply_number": 2, 
+            "updated_on": "2010-01-09 02:00:43", 
+            "message": "Hmm hmm hmm", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 7, 
+            "created_on": "2010-01-09 02:11:40", 
+            "file": "", 
+            "reply_number": 3, 
+            "updated_on": "2010-01-09 02:11:40", 
+            "message": "1234", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "dinette.reply", 
+        "fields": {
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 7, 
+            "created_on": "2010-01-09 02:30:41", 
+            "file": "", 
+            "reply_number": 4, 
+            "updated_on": "2010-01-09 02:30:41", 
+            "message": "Hello", 
+            "attachment_type": "nofile"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "dinette.dinetteuserprofile", 
+        "fields": {
+            "photo": "", 
+            "last_posttime": "2010-01-09 01:38:45", 
+            "last_activity": "2010-01-09 02:30:54", 
+            "user": 1, 
+            "signature": null, 
+            "userrank": "Member"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "dinette.dinetteuserprofile", 
+        "fields": {
+            "photo": "", 
+            "last_posttime": "2009-03-18 06:21:31", 
+            "last_activity": "2009-03-18 06:21:31", 
+            "user": 2, 
+            "signature": null, 
+            "userrank": "Junior Memeber"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "dinette.dinetteuserprofile", 
+        "fields": {
+            "photo": "", 
+            "last_posttime": "2009-03-18 06:21:37", 
+            "last_activity": "2009-03-18 06:21:37", 
+            "user": 3, 
+            "signature": null, 
+            "userrank": "Junior Memeber"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "dinette.dinetteuserprofile", 
+        "fields": {
+            "photo": "", 
+            "last_posttime": "2010-01-06 04:54:48", 
+            "last_activity": "2010-01-06 23:48:27", 
+            "user": 6, 
+            "signature": null, 
+            "userrank": "Junior Member"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "shabda", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": 1, 
+            "is_superuser": 1, 
+            "is_staff": 1, 
+            "last_login": "2010-01-07 12:07:13", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$e7a2a$2248091fc89bc3a206f839a39d6d0ac6c3f6da7e", 
+            "email": "shabda.raaj@gmail.com", 
+            "date_joined": "2008-08-17 09:08:03"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "general", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "lakshman", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": 1, 
+            "is_superuser": 1, 
+            "is_staff": 1, 
+            "last_login": "2009-03-10 02:35:05", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$70c99$6e76ac4eeea74a49ba229f1aef8670c2ae61135e", 
+            "email": "lakshman@uswaretech.com", 
+            "date_joined": "2009-03-10 02:35:05"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "test", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": 1, 
+            "is_superuser": 0, 
+            "is_staff": 0, 
+            "last_login": "2009-12-21 09:28:03", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$daf2f$505072e8ca6573273f5b291c38203d7d108fe5cf", 
+            "email": "", 
+            "date_joined": "2008-11-11 03:22:56"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "shabda22", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": 1, 
+            "is_superuser": 0, 
+            "is_staff": 0, 
+            "last_login": "2010-01-06 04:56:28", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$abeed$fea1272a90ba4d2403be4c6cb9b0bf00e304e918", 
+            "email": "shabda@uswaretech.com", 
+            "date_joined": "2010-01-06 04:54:48"
+        }
+    }
+]

@@ -12,7 +12,7 @@ from django.conf import settings
 from django.views.generic.list_detail import object_list
 from django.shortcuts import get_object_or_404
 
-from  datetime  import datetime
+from  datetime  import datetime, timedelta
 import logging
 import simplejson
 
@@ -73,7 +73,7 @@ def index_page(request):
     totalposts = totaltopics + Reply.objects.count()
     totalusers =  User.objects.count()
     now = datetime.now()
-    users_online = DinetteUserProfile.objects.filter(last_activity__gte =  now - datetime.timedelta(seconds = 900)).count() + 1#The current user is always online. :)
+    users_online = DinetteUserProfile.objects.filter(last_activity__gte =  now - timedelta(seconds = 900)).count() + 1#The current user is always online. :)
     last_registered_user = User.objects.order_by('-date_joined')[0]
     try:
         user_access_list = int(accesslist)
