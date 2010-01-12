@@ -181,6 +181,9 @@ class Ftopics(models.Model):
         else :
             return ""
         
+    def search_snippet(self):
+        return "%s %s"% (self.title, self.message[:50])
+        
     def getTopicString(self):
         #which is helpful for doing reverse lookup of an feed url for a topic         
         return "topic/%s" % self.slug
@@ -229,6 +232,9 @@ class Reply(models.Model):
     def __unicode__(self):
         return self.message
     
+    def search_snippet(self):
+        return self.message[:50]
+    
     
     @models.permalink
     def get_absolute_url(self):
@@ -270,6 +276,19 @@ class DinetteUserProfile(models.Model):
     
     def __unicode__(self):
         return self.user.username
+    
+    #Populate the user fields for easy access
+    @property
+    def username(self):
+        return self.user.username
+    
+    @property
+    def first_name(self):
+        return self.user.first_name
+    
+    @property
+    def last_name(self):
+        return self.user.last_name
     
     
     def get_total_posts(self):

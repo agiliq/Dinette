@@ -13,8 +13,12 @@ feeds = {
 urlpatterns = patterns('dinette.views',
     url(r'^$','index_page',name='dinette_category'),
     url(r'^new/$','new_topics',name='dinette_new_for_user'),                         
+    url(r'^active/$','active',name='dinette_active'),
+    url(r'^unasnwered/$','active',name='dinette_unanswered'),
     #Login page, needs to be before category_details, or gets caught by that regex.
     url(r'^login/$','login',name='dinette_login'),    
+    
+    url(r'^search/$','search',name='dinette_search'),
     
     # user profile page
     url(r'^users/(?P<user_name>[\w-]+)/$', 'user_profile', name='dinette_user_profile'),

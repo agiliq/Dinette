@@ -361,8 +361,28 @@ def user_profile(request, user_name):
 def new_topics(request):
     userprofile = request.user.get_profile()
     new_topic_list = userprofile.get_since_last_visit()
-    payload = {"new_topic_list": new_topic_list}
+    return topic_list(request, new_topic_list, page_message = "Topics since your last visit")
+    
+def active(request):
+    #Time filter = 48 hours
+    days_ago_2 = datetime.now() - timedelta(days = 2)
+    topics = Ftopics.objects.filter(last_reply_on__gt =  days_ago_2)
+    active_topics = topics.extra(select= {"activity":"viewcount+100*num_replies"}).order_by("-activity")
+    return topic_list(request, active_topics, page_message = "Most active Topics")
+
+def unanswered(request):
+    unanswered_topics = Topic.objects.filter(num_replies = 0)
+    return topic_list(request, unanswered_topics, page_message = "Unanswered Topics")
+    
+def topic_list(request, queryset, page_message):
+    payload = {"new_topic_list": queryset, "page_message": page_message}
     return render_to_response("dinette/new_topics.html", payload, RequestContext(request))
+    
+
+def search(request):
+    from haystack.views import SearchView
+    search_view = SearchView(template = "dinette/search.html")
+    return search_view(request)
     
     
     
