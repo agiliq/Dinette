@@ -8,6 +8,7 @@ admin.site.register(models.Ftopics)
 admin.site.register(models.Reply)
 admin.site.register(models.DinetteUserProfile)
 admin.site.register(models.SiteConfig)
+admin.site.register(models.NavLink)
 
 
 

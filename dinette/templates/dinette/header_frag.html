@@ -19,10 +19,10 @@
 				<a href="{% url dinette_new_for_user %}">New topics</a>
 			</li>
 		{% endif %}
-	  	{% for link in dinette_links %}
+	  	{% for link in dinette_nav_links %}
 		
 			<li>
-				<a href="{{ link.url }}">link.title</a>
+				<a href="{{ link.url }}">{{ link.title }}</a>
 			</li>
 		{% endfor %}
 	</ul>

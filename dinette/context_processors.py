@@ -1,4 +1,4 @@
-from dinette.models import Ftopics, SiteConfig
+from dinette.models import Ftopics, SiteConfig, NavLink
 
 
 def get_announcement(request):
@@ -18,5 +18,11 @@ def get_site_config(request):
         config = SiteConfig.objects.get(id = 1)
         return {'config': config}
     except SiteConfig.DoesNotExist:
+        return {}
+    
+def get_forumwide_links(request):
+    try:
+        return {"dinette_nav_links":NavLink.objects.all()}
+    except:
         return {}
     

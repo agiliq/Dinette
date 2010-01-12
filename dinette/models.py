@@ -317,6 +317,18 @@ class DinetteUserProfile(models.Model):
     
     def get_absolute_url(self):
         return self.user.get_absolute_url()
+    
+class NavLink(models.Model):
+    title = models.CharField(max_length = 100)
+    url = models.URLField()
+    
+    class Meta:
+        verbose_name = "Navigation Link"
+        verbose_name_plural = "Navigation Links"
+        
+    def __unicode__(self):
+        return self.title
+    
        
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
