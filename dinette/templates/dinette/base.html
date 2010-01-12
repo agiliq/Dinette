@@ -24,8 +24,13 @@
 <body>
 
 {% block main_content %} {% endblock %}   
-{% block content %} {% endblock %}        
+{% block content %} 
 
+	<div id="brd-about" class="gen-content">
+	  <p id="copyright">Powered by <strong><a href="{% url dinette_category %}">Dinette</a></strong></p>
+	  <p id="extensions-used">Copyright &copy; 2010 <a href="/">Usware</a></p>
+	</div>
+{% endblock %}
 
 {% compress js %}
   <script type="text/javascript" src="{{ MEDIA_URL }}dinette/scripts/jquery13.js"></script>
