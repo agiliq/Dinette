@@ -4,6 +4,7 @@ from django.conf import settings
 from django import forms
 from django.template.defaultfilters import slugify
 from django.db.models.signals import post_save
+from django.template.defaultfilters import truncatewords
 
 import logging
 import logging.config
@@ -182,7 +183,8 @@ class Ftopics(models.Model):
             return ""
         
     def search_snippet(self):
-        return "%s %s"% (self.title, self.message[:50])
+        msg = "%s %s"% (self.subject, self.message)
+        return truncatewords(msg, 50) 
         
     def getTopicString(self):
         #which is helpful for doing reverse lookup of an feed url for a topic         
@@ -230,10 +232,11 @@ class Reply(models.Model):
         super(Reply, self).save(*args, **kwargs)
     
     def __unicode__(self):
-        return self.message
+        return truncatewords(self.message, 10)
     
     def search_snippet(self):
-        return self.message[:50]
+        msg = "%s %s"%(self.message, self.topic.subject)
+        return truncatewords(msg, 100)
     
     
     @models.permalink

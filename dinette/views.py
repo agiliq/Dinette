@@ -358,6 +358,7 @@ def user_profile(request, user_name):
     user_profile =get_object_or_404(User, username = user_name)
     return render_to_response('dinette/user_profile.html', {}, RequestContext(request, {'user_profile': user_profile}))
 
+@login_required
 def new_topics(request):
     userprofile = request.user.get_profile()
     new_topic_list = userprofile.get_since_last_visit()
