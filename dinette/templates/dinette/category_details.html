@@ -49,7 +49,6 @@
 	    <a class="permalink" href="{{ topic.category.get_absolute_url }}" rel="bookmark" title="Permanent link to this forum.">
 	      {{ topic.category.name }} 
 	    </a> 
-	    <small>(Page 1 of 4)</small>
 	  </h1>
 	  
 	  <!-- bread crumbs begin -->
@@ -63,15 +62,6 @@
 			<a href="{{ category.get_absolute_url }}"> {{category.name}}</a>
 		  </span>
         
-		  &nbsp;
-		  {% if topic_list.has_next %}
-		    <a href="{% url dinette_index2  category.slug   topic_list.next_page_number %}"> Next </a>              
-		  {% endif %}
-         
-		  {% if topic_list.has_previous %}
-			<a href="{% url dinette_index2   category.slug  topic_list.previous_page_number %}">   Previous </a>
-		  {% endif %}
-		  &nbsp;
 		  {% if authenticated %}
 			<a href="#" onclick="return isUserAuthenticated(0)">New Topic</a>        
 		  {% else %}
@@ -102,18 +92,9 @@
 		  {% include 'dinette/topic_detail_frag.html' %}  
 		{% endfor %}
 	  </div>
-	 {% paginate %}
-	  <div  id="belowpostreplybox" class="crumbs gen-content">	
-		<span style='float: right;'>
-		  {% if topic_list.has_previous %}
-			<a href="{% url dinette_index2   category.slug  topic_list.previous_page_number %}">   Previous  </a>
-			{% if topic_list.has_next %} | {% endif %}
-		  {% endif %}
-		  
-		  {% if topic_list.has_next %}
-		    <a href="{% url dinette_index2  category.slug   topic_list.next_page_number %}"> Next </a>              
-		  {% endif %}
-		</span>
+	 
+	  <div  id="belowpostreplybox" class="crumbs gen-content">
+	  	{% paginate %}	
 	  </div>
   
 	  <div id="brd-pagepost-end" class="main-pagepost gen-content">

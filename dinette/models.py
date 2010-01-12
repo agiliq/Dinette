@@ -117,6 +117,11 @@ class TopicManager(models.Manager):
     def get_query_set(self):
         return super(TopicManager, self).get_query_set().filter(is_hidden = False)
     
+    def get_new_since(self, when):
+        "Topics with new replies after @when"
+        now = datetime.datetime.now()
+        return self.filter(last_reply_on__gt = now)
+    
 
 class Ftopics(models.Model):
     category = models.ForeignKey(Category)
@@ -160,6 +165,8 @@ class Ftopics(models.Model):
                 slug = slug + str(same_slug_count)
             self.slug = slug
         super(Ftopics, self).save(*args, **kwargs)
+        
+    
         
     def __unicode__(self):
         return self.subject
@@ -253,7 +260,9 @@ class Reply(models.Model):
         
 class DinetteUserProfile(models.Model):
     user = models.ForeignKey(User, unique = True)
-    last_activity = models.DateTimeField(auto_now_add=True)
+    last_activity = models.DateTimeField()
+    #When was the last session. Used in page activity since last session.
+    last_session_activity = models.DateTimeField()
     userrank = models.CharField(max_length=30,default="Junior Member")
     last_posttime = models.DateTimeField(auto_now_add=True)
     photo = models.ImageField(upload_to='dinette/files',null=True,blank=True)
@@ -279,6 +288,10 @@ class DinetteUserProfile(models.Model):
         m = hashlib.md5()
         m.update(self.user.email)        
         return m.hexdigest()
+    
+    def get_since_last_visit(self):
+        "Topics with new relies since last visit"
+        return Ftopics.objects.get_new_since(self.last_session_activity)
     
     def get_absolute_url(self):
         return self.user.get_absolute_url()

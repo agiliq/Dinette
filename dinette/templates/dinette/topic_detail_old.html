@@ -131,7 +131,7 @@
 		  <!-- author details ends -->
 
 		  <div class="post-entry">
-			<h4 id="pc{{ reply.pk }}" class="entry-title hn">Re: {{reply.topic.subject}}</h4>
+			<h4 id="pc120560" class="entry-title hn">Re: {{reply.topic.subject}}</h4>
 			<div class="entry-content">
 			  <p>  {{ topic.htmlfrombbcode|safe }} </p>
 			  {% with topic as rtopic %}    
@@ -154,7 +154,7 @@
   	
 	{% if not topic.is_closed %}
 	  {% if user.is_authenticated %}
-		<a href="#" onclick="return isUserAuthenticated(2)">Post Reply</a> &nbsp; &nbsp;
+		<a href="" onclick="return isUserAuthenticated(1)">Post Reply</a> &nbsp; &nbsp;
 	  {% else %}
 		(<a href="{% url dinette_login %}?next={{ topic.get_absolute_url }}">Login to Post Reply</a>) &nbsp; &nbsp;
 	  {% endif %}
@@ -165,7 +165,7 @@
 	</span>
   </div>
   
-  {% if not topic.is_closed and user.is_authenticated %}
+  
   <!-- formbox begins -->
   <div id="formbox" class="magicbox">
 	<form action="{% url dinette_postreply %}" method="POST" id="fpostreply"  >            
@@ -186,7 +186,7 @@
 	</form>
   </div>   
   <!-- formbox ends -->
-  {% endif %}
+  
 	
   <div class="hr"><hr /></div>
   <div id="brd-about" class="gen-content">

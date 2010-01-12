@@ -8,7 +8,7 @@
     [New Announcement]
 </strong>
 <a href="{% url dinette_topic_detail announcement.category.slug announcement.slug %}">  {{ announcement.subject }}</a>
-  <p>{{ announcement.message }}</p>
+  <p>{{ announcement.message|truncatewords:30 }}</p>
 </div>
 </div>
 {% endif %}

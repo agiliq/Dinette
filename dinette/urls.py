@@ -11,8 +11,9 @@ feeds = {
 
 
 urlpatterns = patterns('dinette.views',
-    url(r'^$','index_page',name='dinette_category'),                       
-    #Login page, needs to be before category_details, or gets caugth by that regex.
+    url(r'^$','index_page',name='dinette_category'),
+    url(r'^new/$','new_topics',name='dinette_new_for_user'),                         
+    #Login page, needs to be before category_details, or gets caught by that regex.
     url(r'^login/$','login',name='dinette_login'),    
     
     # user profile page
