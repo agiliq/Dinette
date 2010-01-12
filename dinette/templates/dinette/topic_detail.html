@@ -88,8 +88,8 @@
 			  <span>Reply by </span>
 			  <a title="" href=""></a>
 			</span> 
-			<span class="post-link">
-			  <a class="permalink" rel="bookmark" title="Permanent link to this post" href="{{ topic.get_absolute_url }}">{{ topic.created_on|date:"jS F Y H:i A" }}</a>
+			<span class="post-link" id="t{{topic.id}}">
+			  <a class="permalink" rel="bookmark" title="Permanent link to this post" href="#t{{ topic.id }}">{{ topic.created_on|date:"jS F Y H:i A" }}</a>
 			</span>   &nbsp; &nbsp; &nbsp; 
 		  </h3>
 		</div>
@@ -189,11 +189,7 @@
   {% endif %}
 	
   <div class="hr"><hr /></div>
-  <div id="brd-about" class="gen-content">
-  	<p id="copyright">Powered by <strong><a href="{% url dinette_category %}">Djorum</a></strong></p>
-	<p id="extensions-used">Copyright &copy; 2008 <a href="/">Usware</a></p>
-  </div>
-
+  {{ block.super }}
 </div>
 </div>
 {% endblock %}
