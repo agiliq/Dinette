@@ -13,7 +13,7 @@ class UserActivity:
                     user_profile = req.user.get_profile()
                 except DinetteUserProfile.DoesNotExist:
                     now = datetime.datetime.now()
-                    user_profile = DinetteUserProfile.objects.get_or_create(user = req.user, last_activity = now, last_session_activity = now)              
+                    user_profile, created = DinetteUserProfile.objects.get_or_create(user = req.user, last_activity = now, last_session_activity = now)
                 now = datetime.datetime.now()
                 user_profile.last_activity=now
                 dinette_activity_at = req.session.get("dinette_activity_at", [])
