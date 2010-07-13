@@ -216,7 +216,7 @@ def postReply(request) :
             
         reply.filename = request.FILES['file'].name
         
-    reply.posted_by = request.user
+    reply.posted_by = request.user.get_profile()
     mlogger.debug("toipcid= %s" %request.POST['topicid'])
     reply.topic = Ftopics.objects.get(pk = request.POST['topicid'])
     #Assigning user rank
