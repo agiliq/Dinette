@@ -60,9 +60,11 @@ SITE_NAME = 'uswaretech.com'#This is used by socialauth.
 "dinette.context_processors.get_announcement"
 "dinette.context_processors.get_site_config"
 
-5. If you are using django-pagination, this needs to be in the context processor as well. 
+5. If you are using django-pagination, 
 
-"django.core.context_processors.request"
+  * add "django.core.context_processors.request" to your context processors
+
+  * add "pagination.middleware.PaginationMiddleware" to your middleware 
 
 6. Via admin add to `SuperCategory` and `Category`. Add moderators to `Category` who get some extra powers!
 
