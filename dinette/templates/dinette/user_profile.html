@@ -38,15 +38,15 @@
 	  <table class="authortable">
 		<tr><td >
 		  {% if user_profile.photo  %}
-			<img src="{% thumbnail user_profile.photo 80x80 %}" />
-		  {% else %}
-			<img src="http://www.gravatar.com/avatar/{{user_profile.getMD5}}.jpg" alt="" />
+			<img src="{% thumbnail user_profile.get_profile.photo 80x80 %}" />                                                    
+		  {% else %}                                                        
+			<img src="http://www.gravatar.com/avatar/{{user_profile.get_profile.getMD5}}.jpg" alt="" />
 		  {% endif %}  
 		</td></tr>
 		<tr><td>
-		  <a href="{{ user_profile.get_absolute_url }}">{{ user_profile.username|title }}</a>
-		  {% if user_profile.userrank %}
-			({{ user_profile.userrank }})
+		  <a href="{{ user_profile.get_absolute_url }}">{{ user_profile.username|title }}</a> 
+		  {% if user_profile.get_profile.userrank %}
+			({{ user_profile.get_profile.userrank }})
 		  {% endif %}
 		</td></tr>
 	  </table>
