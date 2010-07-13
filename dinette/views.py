@@ -78,7 +78,7 @@ def index_page(request):
     totalusers =  User.objects.count()
     now = datetime.now()
     users_online = DinetteUserProfile.objects.filter(last_activity__gte =  now - timedelta(seconds = 900)).count() + 1#The current user is always online. :)
-    last_registered_user = User.objects.order_by('-date_joined')[0]
+    last_registered_user = DinetteUserProfile.objects.get(pk=User.objects.order_by('-date_joined')[0].id)
     try:
         user_access_list = int(accesslist)
     except ValueError:
@@ -301,12 +301,12 @@ def assignUserElements(user):
     ranks = getattr(settings, 'RANKS_NAMES_DATA')
     rank = ''
     if ranks:
-        totalposts = user.ftopics_set.count() + user.reply_set.count()
+        userprofile = user.get_profile()
+        totalposts = userprofile.ftopics_set.count() + userprofile.reply_set.count()
         for el in ranks:
             if totalposts == el[0]:
                 rank = el[1]
-        if rank:    
-            userprofile = user.get_profile()
+        if rank:
             userprofile.userrank = rank
             #this is the time when user posted his last post
             userprofile.last_posttime = datetime.now()
@@ -359,7 +359,7 @@ def login(request):
         return login(request)
         
 def user_profile(request, user_name):
-    user_profile =get_object_or_404(User, username = user_name)
+    user_profile = get_object_or_404(DinetteUserProfile, user__username=user_name)
     return render_to_response('dinette/user_profile.html', {}, RequestContext(request, {'user_profile': user_profile}))
 
 @login_required

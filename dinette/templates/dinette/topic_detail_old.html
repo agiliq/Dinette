@@ -103,9 +103,9 @@
 				<table class="authortable">
 				  <tr><td >
 					{% if topic.posted_by.photo  %}
-					  <img src="{% thumbnail topic.posted_by.get_profile.photo 80x80 %}" />                                                    
+					  <img src="{% thumbnail topic.posted_by.photo 80x80 %}" />                                                    
 					{% else %}                                                        
-					  <img src="http://www.gravatar.com/avatar/{{topic.posted_by.get_profile.getMD5}}.jpg" alt="" />
+					  <img src="http://www.gravatar.com/avatar/{{topic.posted_by.getMD5}}.jpg" alt="" />
 					{% endif %}  
 				  </td></tr>
 				  <tr><td>
@@ -114,9 +114,9 @@
 				</table>                                                        
 			  </li>
                                                 
-			  <li class="usertitle"><span>{{ topic.posted_by.get_profile.userrank }}</span></li>
+			  <li class="usertitle"><span>{{ topic.posted_by.userrank }}</span></li>
 			  <li class="userstatus"><span>
-			  {% if topic.posted_by.get_profile.is_online %}
+			  {% if topic.posted_by.is_online %}
 				Online
 			  {% else %}
 				Offline
@@ -125,7 +125,7 @@
 			</ul>
 			<ul class="author-info">
 			  <li><span>Registered: <strong> {{ topic.posted_by.date_joined|date:"jS F Y H:i A" }}</strong></span></li>
-			  <li><span>Posts: <strong> {{ topic.posted_by.get_profile.get_total_posts  }}</strong></span></li>
+			  <li><span>Posts: <strong> {{ topic.posted_by.get_total_posts  }}</strong></span></li>
 			</ul>
 		  </div>
 		  <!-- author details ends -->

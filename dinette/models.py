@@ -122,11 +122,61 @@ class TopicManager(models.Manager):
         "Topics with new replies after @when"
         now = datetime.datetime.now()
         return self.filter(last_reply_on__gt = now)
+
+class DinetteUserProfile(models.Model):
+    user = models.ForeignKey(User, unique = True)
+    last_activity = models.DateTimeField(auto_now_add=True)
+    #When was the last session. Used in page activity since last session.
+    last_session_activity = models.DateTimeField(auto_now_add=True)
+    userrank = models.CharField(max_length=30,default="Junior Member")
+    last_posttime = models.DateTimeField(auto_now_add=True)
+    photo = models.ImageField(upload_to='dinette/files',null=True,blank=True)
+    signature = models.CharField(max_length = 1000, null = True, blank = True)
     
+    def __unicode__(self):
+        return self.user.username
+    
+    #Populate the user fields for easy access
+    @property
+    def username(self):
+        return self.user.username
+    
+    @property
+    def first_name(self):
+        return self.user.first_name
+    
+    @property
+    def last_name(self):
+        return self.user.last_name
+    
+    def get_total_posts(self):
+        print self.ftopics_set.count() + self.reply_set.count()
+        return self.ftopics_set.count() + self.reply_set.count()
+    
+    def is_online(self):
+        from django.conf import settings
+        last_online_duration = getattr(settings, 'LAST_ONLINE_DURATION', 900)
+        now = datetime.datetime.now()
+        if (now - self.last_activity).seconds < last_online_duration:
+            return True
+        return False   
+
+    def getMD5(self):
+        m = hashlib.md5()
+        m.update(self.user.email)        
+        return m.hexdigest()
+    
+    def get_since_last_visit(self):
+        "Topics with new relies since last visit"
+        return Ftopics.objects.get_new_since(self.last_session_activity)
+    
+    @models.permalink
+    def get_absolute_url(self):
+        return ('dinette_user_profile', [self.username])
 
 class Ftopics(models.Model):
     category = models.ForeignKey(Category)
-    posted_by = models.ForeignKey(User)
+    posted_by = models.ForeignKey(DinetteUserProfile)
     
     subject = models.CharField(max_length=999)
     slug = models.SlugField(max_length = 200, db_index = True) 
@@ -208,7 +258,7 @@ class Ftopics(models.Model):
 # Create Replies for a topic
 class Reply(models.Model):
     topic = models.ForeignKey(Ftopics)
-    posted_by = models.ForeignKey(User)
+    posted_by = models.ForeignKey(DinetteUserProfile)
     
     message = models.TextField()
     file = models.FileField(upload_to='dinette/files',default='',null=True,blank=True)
@@ -265,58 +315,6 @@ class Reply(models.Model):
     
     def classname(self):
         return  self.__class__.__name__
-        
-        
-class DinetteUserProfile(models.Model):
-    user = models.ForeignKey(User, unique = True)
-    last_activity = models.DateTimeField()
-    #When was the last session. Used in page activity since last session.
-    last_session_activity = models.DateTimeField()
-    userrank = models.CharField(max_length=30,default="Junior Member")
-    last_posttime = models.DateTimeField(auto_now_add=True)
-    photo = models.ImageField(upload_to='dinette/files',null=True,blank=True)
-    signature = models.CharField(max_length = 1000, null = True, blank = True)
-    
-    def __unicode__(self):
-        return self.user.username
-    
-    #Populate the user fields for easy access
-    @property
-    def username(self):
-        return self.user.username
-    
-    @property
-    def first_name(self):
-        return self.user.first_name
-    
-    @property
-    def last_name(self):
-        return self.user.last_name
-    
-    
-    def get_total_posts(self):
-        print self.user.ftopics_set.count() + self.user.reply_set.count()
-        return self.user.ftopics_set.count() + self.user.reply_set.count()
-    
-    def is_online(self):
-        from django.conf import settings
-        last_online_duration = getattr(settings, 'LAST_ONLINE_DURATION', 900)
-        now = datetime.datetime.now()
-        if (now - self.last_activity).seconds < last_online_duration:
-            return True
-        return False   
-
-    def getMD5(self):
-        m = hashlib.md5()
-        m.update(self.user.email)        
-        return m.hexdigest()
-    
-    def get_since_last_visit(self):
-        "Topics with new relies since last visit"
-        return Ftopics.objects.get_new_since(self.last_session_activity)
-    
-    def get_absolute_url(self):
-        return self.user.get_absolute_url()
     
 class NavLink(models.Model):
     title = models.CharField(max_length = 100)
