@@ -14,7 +14,11 @@ from django.shortcuts import get_object_or_404
 
 from  datetime  import datetime, timedelta
 import logging
-import simplejson
+
+try:
+    import simplejson
+except ImportError:
+    from django.utils import simplejson
 
 from dinette.models import Ftopics , SuperCategory ,Category ,Reply, DinetteUserProfile
 from dinette.forms import  FtopicForm , ReplyForm
