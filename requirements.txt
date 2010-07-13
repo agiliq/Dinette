@@ -1,0 +1,3 @@
+django-pagination
+sorl-thumbnail
+django-compressor
