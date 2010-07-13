@@ -35,7 +35,7 @@
 		    {% endif %} 
 		  </td></tr>
 		  <tr><td>
-		    <a href="{{ reply.posted_by.get_absolute_url }}">{{reply.posted_by.username}}</a>
+		    <a href="{{ reply.posted_by.get_profile.get_absolute_url }}">{{reply.posted_by.username}}</a>
 		  </td></tr>
 		  </table>
 		</li>

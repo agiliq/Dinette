@@ -314,9 +314,10 @@ class DinetteUserProfile(models.Model):
     def get_since_last_visit(self):
         "Topics with new relies since last visit"
         return Ftopics.objects.get_new_since(self.last_session_activity)
-    
+     
+    @models.permalink
     def get_absolute_url(self):
-        return self.user.get_absolute_url()
+        return ('dinette_user_profile', [self.username])
     
 class NavLink(models.Model):
     title = models.CharField(max_length = 100)

@@ -44,7 +44,7 @@
 		  {% endif %}  
 		</td></tr>
 		<tr><td>
-		  <a href="{{ user_profile.get_absolute_url }}">{{ user_profile.username|title }}</a> 
+		  <a href="{{ user_profile.get_profile.get_absolute_url }}">{{ user_profile.username|title }}</a> 
 		  {% if user_profile.get_profile.userrank %}
 			({{ user_profile.get_profile.userrank }})
 		  {% endif %}
