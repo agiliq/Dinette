@@ -121,7 +121,8 @@ class TopicManager(models.Manager):
     
     def get_new_since(self, when):
         "Topics with new replies after @when"
-        return self.filter(last_reply_on__gt = when)
+        now = datetime.datetime.now()
+        return self.filter(last_reply_on__gt = now)
     
 
 class Ftopics(models.Model):
