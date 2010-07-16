@@ -17,5 +17,5 @@ class ReplyForm(ModelForm):
     message = forms.CharField(widget = forms.Textarea(attrs={"cols":90, "rows":10}))
     class Meta:
         model = Reply
-        fields = ('message','file')
+        fields = ('message', 'message_markup_type', 'file')
             

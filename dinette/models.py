@@ -13,6 +13,7 @@ import hashlib
 from BeautifulSoup import BeautifulSoup
 import datetime
 from dinette.libs.postmarkup import render_bbcode
+from markupfield.fields import MarkupField
 
 #loading the logging configuration
 logging.config.fileConfig(settings.LOG_FILE_NAME,defaults=dict(log_path=settings.LOG_FILE_PATH))
@@ -209,7 +210,9 @@ class Reply(models.Model):
     topic = models.ForeignKey(Ftopics)
     posted_by = models.ForeignKey(User)
     
-    message = models.TextField()
+    message = MarkupField(default_markup_type=getattr(settings,
+                                                      'DEFAULT_MARKUP_TYPE',
+                                                      'markdown'))
     file = models.FileField(upload_to='dinette/files',default='',null=True,blank=True)
     attachment_type = models.CharField(max_length=20,default='nofile')
     filename = models.CharField(max_length=100,default="dummyname.txt")
@@ -268,9 +271,9 @@ class Reply(models.Model):
         
 class DinetteUserProfile(models.Model):
     user = models.ForeignKey(User, unique = True)
-    last_activity = models.DateTimeField()
+    last_activity = models.DateTimeField(auto_now_add=True)
     #When was the last session. Used in page activity since last session.
-    last_session_activity = models.DateTimeField()
+    last_session_activity = models.DateTimeField(auto_now_add=True)
     userrank = models.CharField(max_length=30,default="Junior Member")
     last_posttime = models.DateTimeField(auto_now_add=True)
     photo = models.ImageField(upload_to='dinette/files',null=True,blank=True)
