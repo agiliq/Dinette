@@ -133,7 +133,7 @@ class Ftopics(models.Model):
     slug = models.SlugField(max_length = 200, db_index = True) 
     message = MarkupField(default_markup_type=getattr(settings,
                                                       'DEFAULT_MARKUP_TYPE',
-                                                      'bbcode'),
+                                                      'markdown'),
                           markup_choices=settings.MARKUP_RENDERERS
                           )
     file = models.FileField(upload_to='dinette/files',default='',null=True,blank=True)
@@ -217,7 +217,7 @@ class Reply(models.Model):
 
     message = MarkupField(default_markup_type=getattr(settings,
                                                       'DEFAULT_MARKUP_TYPE',
-                                                      'bbcode'),
+                                                      'markdown'),
                           markup_choices=settings.MARKUP_RENDERERS
                           )
     file = models.FileField(upload_to='dinette/files',default='',null=True,blank=True)
