@@ -130,7 +130,11 @@ class Ftopics(models.Model):
     
     subject = models.CharField(max_length=999)
     slug = models.SlugField(max_length = 200, db_index = True) 
-    message = models.TextField()
+    message = MarkupField(default_markup_type=getattr(settings,
+                                                      'DEFAULT_MARKUP_TYPE',
+                                                      'bbcode'),
+                          markup_choices=settings.MARKUP_RENDERERS
+                          )
     file = models.FileField(upload_to='dinette/files',default='',null=True,blank=True)
     attachment_type = models.CharField(max_length=20,default='nofile')
     filename = models.CharField(max_length=100,default="dummyname.txt")
@@ -209,10 +213,12 @@ class Ftopics(models.Model):
 class Reply(models.Model):
     topic = models.ForeignKey(Ftopics)
     posted_by = models.ForeignKey(User)
-    
+
     message = MarkupField(default_markup_type=getattr(settings,
                                                       'DEFAULT_MARKUP_TYPE',
-                                                      'markdown'))
+                                                      'bbcode'),
+                          markup_choices=settings.MARKUP_RENDERERS
+                          )
     file = models.FileField(upload_to='dinette/files',default='',null=True,blank=True)
     attachment_type = models.CharField(max_length=20,default='nofile')
     filename = models.CharField(max_length=100,default="dummyname.txt")
@@ -345,4 +351,3 @@ def update_topic_on_reply(sender, instance, created, **kwargs):
     
 post_save.connect(create_user_profile, sender=User)
 post_save.connect(update_topic_on_reply, sender=Reply)
-
