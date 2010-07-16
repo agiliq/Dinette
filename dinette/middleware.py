@@ -16,9 +16,9 @@ class UserActivity:
                     user_profile, created = DinetteUserProfile.objects.get_or_create(user = req.user, last_activity = now, last_session_activity = now)
                 now = datetime.datetime.now()
                 user_profile.last_activity=now
-                dinette_activity_at = req.session.get("dinette_activity_at", [])
-                req.session["dinette_activity_at"] = dinette_activity_at = rotate_with(dinette_activity_at, now)
+                dinette_activity_at = req.session.get("dinette_activity_at", [now])
                 user_profile.last_session_activity = dinette_activity_at[0]
+                req.session["dinette_activity_at"] = dinette_activity_at = rotate_with(dinette_activity_at, now)                
                 user_profile.save()
             except:
                 from django.conf import settings
