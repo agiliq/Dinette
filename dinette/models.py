@@ -352,3 +352,6 @@ def update_topic_on_reply(sender, instance, created, **kwargs):
     
 post_save.connect(create_user_profile, sender=User)
 post_save.connect(update_topic_on_reply, sender=Reply)
+
+from south.modelsinspector import add_introspection_rules
+add_introspection_rules([], ["^markupfield\.fields\.MarkupField"])
