@@ -1,0 +1,3 @@
+recursive-include dinette/fixtures *.json
+recursive-include appmedia *
+recursive-include dinette/templates *.txt *.html
