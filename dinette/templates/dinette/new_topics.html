@@ -1,0 +1,47 @@
+{% extends "dinette/base.html" %}
+
+{% block content %}
+
+
+{% load pagination_tags %}
+
+{% autopaginate new_topic_list %} 
+
+	<div id="brd-wrap" class="brd">
+	  	<div id="brd-index" class="brd-page basic-page">
+		{% include 'dinette/header_frag.html' %}
+		{% include 'dinette/announce_frag.html' %}
+		<p></p>
+		</div>
+		<h2 class="hn"><span><span class="item-info">{{ page_message }}</span></span></h2>
+	</div>
+	
+	
+	
+	<div id="topicslist" class="main-content main-forum forum-views">
+		<div id="brd-wrap" class="brd">
+  			<div id="brd-index" class="brd-page basic-page">
+  				<div class="main-subhead">
+					<p class="item-summary forum-views">
+					  <span>
+						<strong class="subject-title">Topics</strong> in this forum with details of 
+						<strong class="info-replies">replies</strong>, 
+						<strong class="info-views">views</strong>, 
+						<strong class="info-lastpost">last post</strong>.
+					  </span>
+					</p>
+				  </div>
+  				<div id="topicslist" class="main-content main-forum forum-views">
+					{% for topic in new_topic_list %}
+						{% include "dinette/topic_detail_frag.html" %}
+					{% empty %}
+						<p>There is no topic with new replies since your last visit.</p>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+			
+
+
+{% endblock content %}

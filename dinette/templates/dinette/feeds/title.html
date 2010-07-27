@@ -1,0 +1,8 @@
+{% ifequal obj.classname "Ftopics" %}
+   {{obj.subject}}
+{% endifequal %}
+
+
+{% ifequal obj.classname "Reply" %}
+   {{obj.message|slice:":10"}}....
+{% endifequal %}  

@@ -1,0 +1,78 @@
+{% extends 'dinette/base.html' %}
+
+{% block title %} Dinette User Profile for {{ user_profile }}{% endblock %}
+
+{% block content %}
+
+{% load thumbnail %} 
+
+<div id="brd-wrap" class="brd">
+  <div id="brd-index" class="brd-page basic-page">
+	{% include 'dinette/header_frag.html' %}
+	{% include 'dinette/announce_frag.html' %}
+	<p></p>
+	
+	<div class="hr"><hr /></div>
+	<div id="errorbox"> <span></span> </div> 
+	
+	<!-- brd-main begin -->
+	<div id="brd-main">
+	  <!-- bread crumbs begin -->
+	  <div id="brd-crumbs-top" class="crumbs gen-content">
+	    <p>
+		  <span class="crumb crumbfirst">
+			<a href="{% url dinette_category %}">Djorum Forums</a>
+		  </span> 
+		  <span class="crumb crumblast">
+			<span> &raquo; User Profile </span>
+		  </span>
+        </p>
+	  </div>
+	  <!-- bread crumbs end -->
+	
+	  <div class="main-head">
+		<h2 class="hn"><span><span class="item-info">User Profile </span></span></h2>
+	  </div>
+
+	  <div class="main-subhead" style='padding: 10px;'>
+	  <table class="authortable">
+		<tr><td >
+		  {% if user_profile.photo  %}
+			<img src="{% thumbnail user_profile.get_profile.photo 80x80 %}" />                                                    
+		  {% else %}                                                        
+			<img src="http://www.gravatar.com/avatar/{{user_profile.get_profile.getMD5}}.jpg" alt="" />
+		  {% endif %}  
+		</td></tr>
+		<tr><td>
+		  <a href="{{ user_profile.get_profile.get_absolute_url }}">{{ user_profile.username|title }}</a> 
+		  {% if user_profile.get_profile.userrank %}
+			({{ user_profile.get_profile.userrank }})
+		  {% endif %}
+		</td></tr>
+	  </table>
+	  
+	  {% if user_profile.moderaters.all %}
+		<p>
+	    <b> Moderator of </b>:
+		{% for category in user_profile.moderaters.all %}
+		  <a href='{{ category.get_absolute_url }}'> {{ category.name }} </a> {% if not forloop.last %}, {% else %}. {% endif %}
+		{% endfor %}
+		</p>
+	  {% endif %}
+	  <p><b> Number of topics posted </b>: {{  user_profile.ftopics_set.count }} </p>
+	  <p><b> Number of replies posted </b>: {{  user_profile.reply_set.count }} </p>
+	  
+	  </div>
+
+	  <div id="brd-pagepost-end" class="main-pagepost gen-content">
+	  </div>
+	</div>
+    <!-- brd-main ends -->
+
+{{ block.super }}
+
+  </div>
+</div>
+
+
+{% endblock %}

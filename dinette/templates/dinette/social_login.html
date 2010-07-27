@@ -1,0 +1,160 @@
+{% extends 'dinette/base.html' %}
+
+{% block html_declare %}
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:fb="http://www.facebook.com/2008/fbml">
+{% endblock %}
+
+{% block title %} Dinette login {% endblock %}
+{% block extra_header %}
+	<!-- Simple OpenID Selector -->
+	<link rel="stylesheet" href="{{ MEDIA_URL }}dinette/openid/css/openid.css" />
+	<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}dinette/openid/js/jquery-1.2.6.min.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}dinette/openid/js/openid-jquery.js"></script>
+	<script type="text/javascript">
+	  $(document).ready(function() {
+	    openid.init('openid_identifier');
+	  });
+	  function facebook_onlogin(){
+        window.location = "{% url socialauth_facebook_login_done %}"
+	  }
+	</script>
+	<!-- /Simple OpenID Selector -->
+	
+<style>
+	#openid_choice
+	{
+		margin-top:10px;
+		display: none;
+	}
+	#openid_input_area
+	{
+		padding-top:10px;
+		clear: both;
+	}
+	#openid_username
+	{
+		margin-right:5px;
+	}
+	#openid_btns, #openid_btns br
+	{
+		clear: both;
+	}
+	#openid_highlight
+	{
+		padding: 3px;
+		background-color: #FFFCC9;
+		float: left;
+	}
+	.openid_large_btn
+	{
+		width: 100px;
+		height: 60px;
+		border: 1px solid #DDD;
+		margin: 3px;
+		float: left;
+	}
+	.openid_small_btn
+	{
+		width: 24px;
+		height: 24px;
+		border: 1px solid #DDD;
+		margin: 3px;
+		float: left;
+	}
+	a.openid_large_btn:focus
+	{
+		outline: none;
+	}
+	a.openid_large_btn:focus
+	{
+		-moz-outline-style: none;
+	}
+	.openid_selected
+	{
+		border: 4px solid #DDD;
+	}
+	.yahoo{
+	background: #FFF url(/site_media/dinette/yahoo.png) no-repeat center center;
+	}
+	.google{
+	background: #FFF url(/site_media/dinette/google.png) no-repeat center center;
+	}
+	.openid{
+	background: #FFF url(/site_media/dinette/openid.png) no-repeat center center;
+	}
+	.twitter{
+	background: #FFF url(/site_media/dinette/twitter.png) no-repeat center center;
+	}
+	
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div id="brd-wrap" class="brd">
+  <div id="brd-index" class="brd-page basic-page">
+	{% include 'dinette/header_frag.html' %}
+	{% include 'dinette/announce_frag.html' %}
+	<p></p>
+	
+	<div class="hr"><hr /></div>
+	<div id="errorbox"> <span></span> </div> 
+
+
+<!-- Simple OpenID Selector -->
+<form action="{% url socialauth_openid_login %}" method="get" id="openid_form">
+  <input type="hidden" name="action" value="verify" />
+  
+  <fieldset>
+	<legend>Sign-in or Create New Account via these openid providers</legend>
+	
+	<div id="openid_choice">
+	  <p>Please click your account provider:</p>
+	  <div id="openid_btns"></div>
+	</div>
+	
+	<div id="openid_input_area">
+	  <input id="openid_identifier" name="openid_identifier" type="text" value="http://" />
+	  <input id="openid_submit" type="submit" value="Sign-In"/>
+	</div>
+	
+	<noscript>
+	  <p>
+		OpenID is service that allows you to log-on to many different websites using a single indentity. Find out 
+		<a href="http://openid.net/what/">more about OpenID</a> and 
+		<a href="http://openid.net/get/">how to get an OpenID enabled account</a>.
+	  </p>
+	</noscript>
+	
+  </fieldset>
+  
+</form>
+<!-- /Simple OpenID Selector -->
+
+
+<fieldset>
+  <legend>Sign-in or Create New Account via twitter</legend>
+  <div id="login">
+	<div id="twitter">
+		<a href="{% url socialauth_twitter_login %}" id="twitter_login_link" class="openid_large_btn twitter"></a>
+	</div>
+  </div>
+	
+	<div id="facebook">
+        <fb:login-button onlogin="facebook_onlogin();"></fb:login-button>
+    </div>
+    <script type="text/javascript">  FB.init("{{ fb_api_key }}", "{% url socialauth_xd_receiver %}"); </script>
+</fieldset>
+	
+<div> &nbsp; </div>
+<div id="brd-pagepost-end" class="main-pagepost gen-content"> </div>
+
+{{ block.super }}
+
+  </div>
+</div>
+
+
+{% endblock %}
+

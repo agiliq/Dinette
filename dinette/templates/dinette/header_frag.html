@@ -1,0 +1,47 @@
+{% load socialauth_tags %}
+
+<div id="brd-head" class="gen-content">
+  <p id="brd-access"><a href="#brd-main">Skip to forum content</a></p>
+  <p id="brd-title"><a href="{% url dinette_category %}">{{ config.name }}</a></p>
+  <p id="brd-desc">{{ config.tag_line }}</p>
+</div>
+
+<div id="brd-navlinks" class="gen-content"> 
+  	<ul>
+  		<li>
+				<a href="{% url dinette_category %}">Home</a>
+		</li>
+		<li>
+				<a href="{% url dinette_search %}">Search</a>
+		</li>
+		{% if user.is_authenticated %}
+			<li>
+				<a href="{% url dinette_new_for_user %}">New topics</a>
+			</li>
+		{% endif %}
+	  	{% for link in dinette_nav_links %}
+		
+			<li>
+				<a href="{{ link.url }}">{{ link.title }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+ </div>
+
+<div id="brd-visit" class="gen-content">
+  <p id="welcome">
+  	<span>
+		{% if user.is_authenticated %}
+		  Hello {% get_calculated_username user %}, <a href='{% url socialauth_social_logout %}'>Logout</a>
+		{% else %}
+		  <a href="{% url dinette_login %}">Login</a>
+		{% endif %}
+	</span>
+  </p>
+  <p id="visit-links" class="options">
+  		<span><a href="{% url dinette_active %}">Active Topics</a></span>
+		<span><a href="{% url dinette_unanswered %}">Unanswered Topics</a></span>
+  </p>
+</div>	
+
+	
