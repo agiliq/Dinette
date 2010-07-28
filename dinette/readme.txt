@@ -66,12 +66,30 @@ SITE_NAME = 'uswaretech.com'#This is used by socialauth.
 
   * add "pagination.middleware.PaginationMiddleware" to your middleware 
 
-6. Via admin add to `SuperCategory` and `Category`. Add moderators to `Category` who get some extra powers!
 
-7. ???
+6. Add the following settings to enable different markups in the post reply fields:
 
-8. Profit.
+	#MARKUP SETTINGS
+	import markdown
+	from textile import textile
+	from docutils.core import publish_parts
+	from dinette.libs.postmarkup import render_bbcode
 
- 
+	MARKUP_RENDERERS = (
+	    ('markdown', markdown.markdown),
+	    ('bbcode', render_bbcode),
+	    ('textile', textile),
+	    ('rest', lambda m: publish_parts(source=m, writer_name='html4css1')['fragment']),
+	)
+	DEFAULT_MARKUP_RENDERER = 'bbcode'
 
+7. Dinette plays nice with google analytics, just plug in your analytics acount code with this setting.
 
+	#ANALYTICS SETTINGS
+	GOOGLE_ANALYTICS_ACCOUNT_CODE = 'UA-xxxxxx'
+
+8. Via admin add to `SuperCategory` and `Category`. Add moderators to `Category` who get some extra powers!
+
+9. ???
+
+10. Profit.
