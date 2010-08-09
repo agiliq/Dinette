@@ -133,7 +133,7 @@
 		  <div class="post-entry">
 			<h4 id="pc{{ reply.pk }}" class="entry-title hn">Re: {{reply.topic.subject}}</h4>
 			<div class="entry-content">
-			  <p>  {{ topic.htmlfrombbcode|safe }} </p>
+			  <p>  {{ topic.message }} </p>
 			  {% with topic as rtopic %}    
 				{% include 'dinette/attachement_frag.html' %}     
 			  {% endwith %}     
@@ -144,7 +144,7 @@
 	  </div>
 	  <!-- post odd reply list ends -->
 	{% endifequal %}    
-                
+
 	{% for reply in reply_list %}
 	  {% include 'dinette/replydetail_frag.html' %}
 	{% endfor %}
