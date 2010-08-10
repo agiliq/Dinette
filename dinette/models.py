@@ -100,7 +100,7 @@ class Category(models.Model):
     def lastPostedUser(self):
         '''  we are assuming post can be topic / reply
              we are finding out the last post / (if exists) last reply datetime '''
-        return self.lastPost().posted_by.username
+        return self.lastPost().posted_by
         
      
     def lastPost(self):
@@ -262,7 +262,7 @@ class Reply(models.Model):
             
     
     def htmlfrombbcode(self):
-        soup = BeautifulSoup(self.message)
+        soup = BeautifulSoup(self.message.raw)
         #remove all html tags from the message
         onlytext = ''.join(soup.findAll(text=True))
         
