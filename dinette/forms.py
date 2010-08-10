@@ -9,7 +9,7 @@ class FtopicForm(ModelForm):
     message = forms.CharField(widget = forms.Textarea(attrs={"cols":90, "rows":10}))
     class Meta:
         model = Ftopics
-        fields = ('subject', 'message','file' )
+        fields = ('subject', 'message', 'message_markup_type', 'file' )
             
 
 #create a form from Reply
