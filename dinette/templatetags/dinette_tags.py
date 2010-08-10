@@ -68,12 +68,14 @@ def get_site_tag_line():
 def get_main_site_name():
     try:
         name = Site.objects.get_current().name
+        return name
     except:
         return ''
 
 @register.simple_tag
 def get_main_site_domain():
     try:
-        name = Site.objects.get_current().domain
+        domain = Site.objects.get_current().domain
+        return domain
     except:
         return ''
