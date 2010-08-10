@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 {% load compress %}
 {% load analytics %}
+{% load dinette_tags %}
 
 {% block html_declare %}
 <html>
@@ -17,7 +18,7 @@
   {% endcompress %}
 
   <title>
-    {% block title %} {{ config.name }} - {{ config.tag_line }} {% endblock %}
+    {% block title %} {% get_site_name %} - {% get_site_tag_line %} {% endblock %}
   </title>
   {% block extra_header %}{% endblock %}
 </head>
@@ -29,7 +30,7 @@
 
 	<div id="brd-about" class="gen-content">
 	  <p id="copyright">Powered by <strong><a href="{% url dinette_category %}">Dinette</a></strong></p>
-	  <p id="extensions-used">Copyright &copy; 2010 <a href="/">Agiliq</a></p>
+	  <p id="extensions-used">Copyright &copy; 2010 <a href="http://{% get_main_site_domain %}">{% get_main_site_name %}</a></p>
 	</div>
 {% endblock %}
 

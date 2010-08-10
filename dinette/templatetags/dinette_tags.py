@@ -1,4 +1,6 @@
 from django import  template
+from django.contrib.sites.models import Site
+
 from dinette.models import Ftopics, SiteConfig, NavLink
 
 register = template.Library()
@@ -60,4 +62,18 @@ def get_site_tag_line():
         config = SiteConfig.objects.get(id=1)
         return config.tag_line
     except SiteConfig.DoesNotExist:
+        return ''
+    
+@register.simple_tag
+def get_main_site_name():
+    try:
+        name = Site.objects.get_current().name
+    except:
+        return ''
+
+@register.simple_tag
+def get_main_site_domain():
+    try:
+        name = Site.objects.get_current().domain
+    except:
         return ''
