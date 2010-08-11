@@ -326,7 +326,7 @@ class DinetteUserProfile(models.Model):
      
     @models.permalink
     def get_absolute_url(self):
-        return ('dinette_user_profile', [self.username])
+        return ('dinette_user_profile', [self.id])
     
 class NavLink(models.Model):
     title = models.CharField(max_length = 100)
