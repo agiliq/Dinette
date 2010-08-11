@@ -328,13 +328,13 @@ class QuoteTag(TagBase):
 
     def render_open(self, parser, node_index):
         if self.params:
-            return u'<blockquote><em>%s</em><br/>'%(PostMarkup.standard_replace(self.params))
+            return u"<div class='quotebox'><blockquote><em>%s</em><br/>"%(PostMarkup.standard_replace(self.params))
         else:
-            return u'<blockquote>'
+            return u"<div class='quotebox'><blockquote>"
 
 
     def render_close(self, parser, node_index):
-        return u"</blockquote>"
+        return u"</div></blockquote>"
 
 
 class SearchTag(TagBase):
