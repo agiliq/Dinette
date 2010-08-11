@@ -62,7 +62,11 @@
 		</li>
 		<li class="info-lastpost">
 		  <span class="label">Last post:</span>
-		  <strong>{{ category.lastPostDatetime|date:"jS F Y H:i A" }}</strong> 
+		  <strong>
+		      <a href={{ category.lastPost.get_url_with_fragment }}>
+		          {{ category.lastPostDatetime|date:"jS F Y H:i A" }}
+		      </a>
+		  </strong> 
 		  <cite>
 		      by <a href={{ category.lastPostedUser.get_profile.get_absolute_url }}>
 		             {{ category.lastPostedUser.username }}
