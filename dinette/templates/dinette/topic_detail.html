@@ -69,7 +69,7 @@
 		<a class="feed-option" href="{% url dinette_topic_url topic.getTopicString %}">RSS Topic Feed</a>
 	  </span>
 	</p>
-	<h2 class="hn"><span><span class="item-info">Posts </span></span></h2>
+	<h2 class="hn"><span><span class="item-info">Posts [ {{ reply_list.count }} ]</span></span></h2>
 	{% if show_moderation_items %}
 	  {% include 'dinette/moderation_frag.html' %}
 	{% endif %}
@@ -83,7 +83,7 @@
 	  <div class="post odd replypost">
 	    <div id="p{{ topic.pk }}" class="posthead">
 		  <h3 class="hn post-ident">
-			<span class="post-num"> </span> 
+			<span class="post-num">1</span> 
 			<span class="post-byline">
 			  <span>Reply by </span>
 			  <a title="" href=""></a>
