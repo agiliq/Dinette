@@ -1,0 +1,43 @@
+{% extends "dinette/base.html" %}
+
+{% block title %}
+    Edit Reply
+{% endblock %}
+
+{% block content %}
+
+<div id="brd-wrap" class="brd">
+<div id="brd-index" class="brd-page basic-page">
+
+  {% include 'dinette/header_frag.html' %}
+  {% include 'dinette/announce_frag.html' %}
+
+  <p></p>
+
+  <div class="hr"><hr/></div>
+  <div id="errorbox"> <span>  </span>  </div>
+
+  <!-- formbox begins -->
+  <div id="formbox" class="magicbox">
+	<form action="{% url dinette_editreply reply_id %}" method="POST">
+	{% csrf_token %}
+	  <table>
+		<tbody> 
+		  {{ replyform.as_table }}
+		  <tr>
+			<th> </th>
+			<td>
+			  <input type="submit" value="Done editing"/>
+			</td>
+		  </tr>
+		</tbody>
+	  </table>
+	</form>
+  </div>   
+  <!-- formbox ends -->
+	
+  <div class="hr"><hr /></div>
+  {{ block.super }}
+</div>
+</div>
+{% endblock %}

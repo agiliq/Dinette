@@ -1,4 +1,4 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseForbidden, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -10,10 +10,10 @@ from django.contrib.syndication.feeds import Feed
 from django.contrib.auth.models import User , Group
 from django.conf import settings
 from django.views.generic.list_detail import object_list
-from django.shortcuts import get_object_or_404
 
 from  datetime  import datetime, timedelta
 import logging
+from httplib import HTTPResponse
 
 try:
     import simplejson
@@ -237,8 +237,39 @@ def postReply(request) :
         json = simplejson.dumps(d2)
     
     return HttpResponse(json, mimetype = json_mimetype)  
-    
-    
+
+@login_required    
+def deleteReply(request, reply_id):
+    resp= {"status": "1", "message": "Successfully deleted the reply"}
+    try:
+        reply = Reply.objects.get(pk=reply_id)
+        if reply.posted_by != request.user:
+            return HttpResponseForbidden()
+        reply.delete()        
+    except:
+        resp["status"] = 0
+        resp["message"] = "Error deleting message"
+    json = simplejson.dumps(resp)
+    return HttpResponse(json, mimetype = json_mimetype)
+
+@login_required
+def editReply(request, reply_id):
+    reply = get_object_or_404(Reply, pk=reply_id)
+    if reply.posted_by != request.user:
+        return HttpResponseForbidden()
+
+    if request.POST:
+#        import ipdb
+#        ipdb.set_trace()
+        form = ReplyForm(request.POST, request.FILES, instance=reply)
+        if form.is_valid():
+            form.save()
+            #redirect to prev page
+            return HttpResponseRedirect(reply.get_url_with_fragment())
+    else:
+        form = ReplyForm(instance=reply)
+
+    return render_to_response('dinette/edit_reply.html', {'replyform': form, 'reply_id': reply_id}, context_instance=RequestContext(request))
     
 class LatestTopicsByCategory(Feed):
     title_template = 'dinette/feeds/title.html'

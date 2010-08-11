@@ -35,6 +35,8 @@ urlpatterns = patterns('dinette.views',
     url(r'^moderate/topic/(?P<topic_id>\d+)/stickyfy/$','moderate_topic', {'action':'sticky'}, name='dinette_moderate_sticky'),
     url(r'^moderate/topic/(?P<topic_id>\d+)/annoucement/$','moderate_topic', {'action':'announce'}, name='dinette_moderate_announce'),
     url(r'^moderate/topic/(?P<topic_id>\d+)/hide/$','moderate_topic', {'action':'hide'}, name='dinette_moderate_hide'),
+    url(r'^delete/reply/(?P<reply_id>\d+)$','deleteReply', name='dinette_deletereply'),
+    url(r'^edit/reply/(?P<reply_id>\d+)$','editReply', name='dinette_editreply'),
 )
 
 
