@@ -82,7 +82,7 @@ class Category(models.Model):
     
     def noofPosts(self):
         count = 0
-        for topic in self.ftopics_set.all() :
+        for topic in self.get_topics():
             #total posts for this topic = total replies + 1 (1 is for the topic as we are considering it as topic)
             count += topic.reply_set.count() + 1
         mlog.debug("TOtal count =%d " % count)
@@ -112,6 +112,9 @@ class Category(models.Model):
         else :
             return obj  
     
+    def get_topics(self):
+        return Ftopics.objects.filter(category=self)
+
     def __unicode__(self):
         return self.name 
     
@@ -156,7 +159,7 @@ class Ftopics(models.Model):
     is_hidden = models.BooleanField(default=False)
     
     # use TopicManager as default, prevent leaking of hidden topics
-    #default = models.Manager()
+    default = models.Manager()
     objects = TopicManager()
     
     class Meta:
@@ -238,6 +241,7 @@ class Reply(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     
     # replies for hidden topics should be hidden as well
+    default = models.Manager()
     objects = ReplyManager()
 
     class Meta:
