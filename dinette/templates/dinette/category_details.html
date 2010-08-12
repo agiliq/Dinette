@@ -8,6 +8,7 @@
 
 {% autopaginate topic_list topic_page_size %}
 
+{% load dinette_tags %}
 <div id="actionbox">
 
 </div>  
@@ -55,7 +56,7 @@
 	  <div id="brd-crumbs-top" class="crumbs gen-content">
 	    <p>
 		  <span class="crumb crumbfirst">
-			<a href="{% url dinette_category %}">{{ config.name  }}</a>
+			<a href="{% url dinette_category %}">{% get_site_name %}</a>
 		  </span> 
 		  <span class="crumb crumblast">
 			<span> &raquo; </span>

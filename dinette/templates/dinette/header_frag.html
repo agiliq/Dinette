@@ -1,9 +1,10 @@
 {% load socialauth_tags %}
+{% load dinette_tags %}
 
 <div id="brd-head" class="gen-content">
   <p id="brd-access"><a href="#brd-main">Skip to forum content</a></p>
-  <p id="brd-title"><a href="{% url dinette_category %}">{{ config.name }}</a></p>
-  <p id="brd-desc">{{ config.tag_line }}</p>
+  <p id="brd-title"><a href="{% url dinette_category %}">{% get_site_name %}</a></p>
+  <p id="brd-desc">{% get_site_tag_line %}</p>
 </div>
 
 <div id="brd-navlinks" class="gen-content"> 

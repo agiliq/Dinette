@@ -9,6 +9,7 @@
 {% load thumbnail %} 
 {% load pagination_tags %}
 {% autopaginate reply_list reply_page_size %}
+{% load dinette_tags %}
  
 <div id="replybox">
   <div id="actionbox">
@@ -31,7 +32,7 @@
   <div id="brd-crumbs-top" class="crumbs gen-content">
     <p>
 	  <span class="crumb crumbfirst">
-	    <a href="{% url dinette_category %}">{{ config.name }}</a>
+	    <a href="{% url dinette_category %}">{% get_site_name %}</a>
 	  </span> 
 	  <span class="crumb">
 		<span> &raquo; </span>
