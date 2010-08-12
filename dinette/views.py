@@ -389,8 +389,8 @@ def login(request):
         from django.contrib.auth.views import login
         return login(request)
         
-def user_profile(request, user_id):
-    user_profile =get_object_or_404(User, pk=user_id)
+def user_profile(request, slug):
+    user_profile = get_object_or_404(User, dinetteuserprofile__slug=slug)
     return render_to_response('dinette/user_profile.html', {}, RequestContext(request, {'user_profile': user_profile}))
 
 @login_required

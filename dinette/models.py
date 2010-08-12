@@ -285,6 +285,7 @@ class DinetteUserProfile(models.Model):
     last_posttime = models.DateTimeField(auto_now_add=True)
     photo = models.ImageField(upload_to='dinette/files',null=True,blank=True)
     signature = models.CharField(max_length = 1000, null = True, blank = True)
+    slug = models.SlugField(max_length=200, db_index=True, unique=True)
     
     def __unicode__(self):
         return self.user.username
@@ -326,7 +327,20 @@ class DinetteUserProfile(models.Model):
      
     @models.permalink
     def get_absolute_url(self):
-        return ('dinette_user_profile', [self.id])
+        return ('dinette_user_profile', [self.slug])
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            slug = slugify(self.user.username)
+            if slug:
+                same_slug_count = self._default_manager.filter(slug__startswith=slug).count()
+                if same_slug_count:
+                    slug = slug + str(same_slug_count)
+                self.slug = slug
+            else:
+                #fallback to user id
+                slug = self.user.id
+        super(DinetteUserProfile, self).save(*args, **kwargs)
     
 class NavLink(models.Model):
     title = models.CharField(max_length = 100)

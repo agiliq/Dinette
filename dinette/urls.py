@@ -21,7 +21,7 @@ urlpatterns = patterns('dinette.views',
     url(r'^search/$','search',name='dinette_search'),
     
     # user profile page
-    url(r'^users/(?P<user_id>\d+)$', 'user_profile', name='dinette_user_profile'),
+    url(r'^users/(?P<slug>[\w-]+)$', 'user_profile', name='dinette_user_profile'),
     
     url(r'^(?P<categoryslug>[\w-]+)/$','category_details', name='dinette_index'),
     url(r'^(?P<categoryslug>[\w-]+)/page(?P<pageno>\d+)/$','category_details', name='dinette_index2'),
