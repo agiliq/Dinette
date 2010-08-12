@@ -116,6 +116,8 @@ class Category(models.Model):
         return self.name 
     
 class TopicManager(models.Manager):
+    use_for_related_fields = True
+
     def get_query_set(self):
         return super(TopicManager, self).get_query_set().filter(is_hidden = False)
     
@@ -153,7 +155,8 @@ class Ftopics(models.Model):
     is_sticky = models.BooleanField(default=False)
     is_hidden = models.BooleanField(default=False)
     
-    default = models.Manager()
+    # use TopicManager as default, prevent leaking of hidden topics
+    #default = models.Manager()
     objects = TopicManager()
     
     class Meta:
@@ -210,6 +213,12 @@ class Ftopics(models.Model):
         return  self.__class__.__name__
          
 
+class ReplyManager(models.Manager):
+    use_for_related_fields = True
+
+    def get_query_set(self):
+        return super(ReplyManager, self).get_query_set().filter(topic__is_hidden=False)
+
 # Create Replies for a topic
 class Reply(models.Model):
     topic = models.ForeignKey(Ftopics)
@@ -228,7 +237,9 @@ class Reply(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     
-    
+    # replies for hidden topics should be hidden as well
+    objects = ReplyManager()
+
     class Meta:
         verbose_name = "Reply"
         verbose_name_plural = "Replies"
