@@ -243,7 +243,7 @@ def deleteReply(request, reply_id):
     resp= {"status": "1", "message": "Successfully deleted the reply"}
     try:
         reply = Reply.objects.get(pk=reply_id)
-        if reply.posted_by != request.user:
+        if not (reply.posted_by == request.user or request.user in reply.topic.category.moderated_by.all()):
             return HttpResponseForbidden()
         reply.delete()        
     except:
@@ -255,12 +255,10 @@ def deleteReply(request, reply_id):
 @login_required
 def editReply(request, reply_id):
     reply = get_object_or_404(Reply, pk=reply_id)
-    if reply.posted_by != request.user:
+    if not (reply.posted_by == request.user or request.user in reply.topic.category.moderated_by.all()):
         return HttpResponseForbidden()
 
     if request.POST:
-#        import ipdb
-#        ipdb.set_trace()
         form = ReplyForm(request.POST, request.FILES, instance=reply)
         if form.is_valid():
             form.save()

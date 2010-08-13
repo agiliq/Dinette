@@ -1,6 +1,6 @@
 
 {% load thumbnail %} 
- 
+
 <!-- div.post/even/replypost begins-->
 <a name="{{ reply.reply_number }}"></a>
 <div id=post{{ reply.id }} class="post even replypost">
@@ -72,7 +72,7 @@
 	<div class="post-entry">
 		<h4 id="pc120560" class="entry-title hn">Re: {{reply.topic.subject}}</h4>
 		<div id=content{{ reply.id }} class="entry-content">
-		  <p>  {{ reply.message|safe }}</p>
+		  <p>{{ reply.message|safe }}</p>
 		  {% with reply as rtopic %}    
 		    {% include 'dinette/attachement_frag.html' %}     
 		  {% endwith %}
@@ -85,15 +85,15 @@
     {% if request.user %}
 	    <div class="postfoot">
 		    <div class="post-options">
-				<p class="post-actions">
-                    {% ifequal reply.posted_by request.user %}
+                <p class="post-actions">
+                    {% if reply.posted_by == request.user or request.user in reply.topic.category.moderated_by.all %}
 						<span class="delete-post">
 						    <a href="#" onclick="delete_reply({{ reply.id }}); return false;">Delete</a>
 						</span>
 						<span class="edit-post">
 						    <a href="{% url dinette_editreply reply.id %}">Edit</a>
 						</span>
-                    {% endifequal %}
+                    {% endif %}
 					<span class="edit-post first-item">
 					    <a href="#" onclick="quote_reply({{ reply.id }}, '{{ reply.posted_by.username }}'); return false;">Quick quote</a>
 					</span>
