@@ -265,7 +265,8 @@ def editReply(request, reply_id):
             #redirect to prev page
             return HttpResponseRedirect(reply.get_url_with_fragment())
     else:
-        form = ReplyForm(instance=reply)
+        # message should be original input, not the rendered one
+        form = ReplyForm(instance=reply, initial={'message': reply.message.raw})
 
     return render_to_response('dinette/edit_reply.html', {'replyform': form, 'reply_id': reply_id}, context_instance=RequestContext(request))
     
