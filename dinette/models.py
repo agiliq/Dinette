@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User,Group
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django import forms
 from django.template.defaultfilters import slugify
 from django.db.models.signals import post_save
@@ -161,6 +162,9 @@ class Ftopics(models.Model):
     # use TopicManager as default, prevent leaking of hidden topics
     default = models.Manager()
     objects = TopicManager()
+
+    # for topic subscriptions
+    subscribers = models.ManyToManyField(User, related_name='subscribers')
     
     class Meta:
         ordering = ('-is_sticky', '-last_reply_on',)
@@ -378,9 +382,20 @@ def update_topic_on_reply(sender, instance, created, **kwargs):
         instance.topic.last_reply_on = instance.created_on
         instance.topic.num_replies += 1
         instance.topic.save()
-    
+
+def notify_subscribers_on_reply(sender, instance, created, **kwargs):
+    if created:
+        site = Site.objects.get_current()
+        subject = "%s replied on %s" %(instance.posted_by, instance.topic.subject)
+        body = instance.message
+        from_email = getattr(settings, 'DINETTE_FROM_EMAIL', '%s notifications <admin@%s' %(site.name, site.domain))
+        # exclude the user who posted this, even if he is subscribed
+        for subscriber in instance.topic.subscribers.exclude(username=instance.posted_by.username):
+            subscriber.email_user(subject, body, from_email)
+
 post_save.connect(create_user_profile, sender=User)
 post_save.connect(update_topic_on_reply, sender=Reply)
+post_save.connect(notify_subscribers_on_reply, sender=Reply)
 
 from south.modelsinspector import add_introspection_rules
 add_introspection_rules([], ["^markupfield\.fields\.MarkupField"])

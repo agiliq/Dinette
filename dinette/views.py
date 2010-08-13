@@ -1,5 +1,5 @@
 from django.http import HttpResponse, Http404, HttpResponseForbidden, HttpResponseRedirect
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.template import Context , loader
@@ -419,15 +419,14 @@ def search(request):
     search_view = SearchView(template = "dinette/search.html")
     return search_view(request)
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+@login_required
+def subscribeTopic(request, topic_id):
+    topic = get_object_or_404(Ftopics, pk=topic_id)
+    topic.subscribers.add(request.user)
+    return redirect(topic.get_absolute_url())
+
+@login_required
+def UnsubscribeTopic(request, topic_id):
+    topic = get_object_or_404(Ftopics, pk=topic_id)
+    topic.subscribers.remove(request.user)
+    return redirect(topic.get_absolute_url())  
