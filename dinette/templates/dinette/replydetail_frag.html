@@ -5,7 +5,7 @@
 <a name="{{ reply.reply_number }}"></a>
 <div id=post{{ reply.id }} class="post even replypost">
   <!-- div p120560 begins-->
-  <div id="p120560" class="posthead">
+  <div id="reply{{ reply.id }}" class="posthead">
     <h3 class="hn post-ident">
 	  <span class="post-num">{{ forloop.counter|add:1 }}</span>
 	  <span class="post-byline">
@@ -70,9 +70,9 @@
 	<!-- div.post-author ends-->
 
 	<div class="post-entry">
-		<h4 id="pc120560" class="entry-title hn">Re: {{reply.topic.subject}}</h4>
+        <h4 id="entry{{ reply.id }}" class="entry-title hn">Re: {{reply.topic.subject}}</h4>
 		<div id=content{{ reply.id }} class="entry-content">
-		  <p>{{ reply.message|safe }}</p>
+		  <p>{{ reply.message }}</p>
 		  {% with reply as rtopic %}    
 		    {% include 'dinette/attachement_frag.html' %}     
 		  {% endwith %}
