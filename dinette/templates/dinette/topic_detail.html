@@ -10,6 +10,10 @@
 {% load pagination_tags %}
 {% autopaginate reply_list reply_page_size %}
 {% load dinette_tags %}
+
+{% block extra_head %}
+    <link rel="alternate" type="application/rss+xml" title="{{ topic.subject }}" href="{% url dinette_topic_url topic.getTopicString %}" />
+{% endblock %}
  
 <div id="replybox">
   <div id="actionbox">
