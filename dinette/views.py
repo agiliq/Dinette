@@ -426,7 +426,23 @@ def subscribeTopic(request, topic_id):
     return redirect(topic.get_absolute_url())
 
 @login_required
-def UnsubscribeTopic(request, topic_id):
+def unsubscribeTopic(request, topic_id):
     topic = get_object_or_404(Ftopics, pk=topic_id)
     topic.subscribers.remove(request.user)
     return redirect(topic.get_absolute_url())  
+
+@login_required
+def subscribeDigest(request):
+    user = get_object_or_404(User, pk=request.user.id)
+    profile = user.get_profile()
+    profile.is_subscribed_to_digest = True
+    profile.save()
+    return redirect(user.get_profile().get_absolute_url())
+
+@login_required
+def unsubscribeDigest(request):
+    user = get_object_or_404(User, pk=request.user.id)
+    profile = user.get_profile()
+    profile.is_subscribed_to_digest = False
+    profile.save()
+    return redirect(user.get_profile().get_absolute_url())

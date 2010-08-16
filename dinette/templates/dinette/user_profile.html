@@ -61,7 +61,29 @@
 	  {% endif %}
 	  <p><b> Number of topics posted </b>: {{  user_profile.ftopics_set.count }} </p>
 	  <p><b> Number of replies posted </b>: {{  user_profile.reply_set.count }} </p>
-	  
+
+      <p><b>Settings: </b></p>
+      <br/>
+      <p>Subscriptions</p>
+      {% if request.user == user_profile %}
+        <ul>
+            <li>
+            Daily Digest
+		        {% if user_profile.get_profile.is_subscribed_to_digest %}
+		            <a href="{% url dinette_unsubscribe_from_digest %}"><em>Unsubscribe</em></a>
+		        {% else %}
+		            <a href="{% url dinette_subscribe_to_digest %}">Subscribe</a>
+		        {% endif %}
+	        </li>
+	        {% for topic in user_profile.subscribers.all %}
+	            <li>
+	                {{ topic.subject }}
+	                <a href="{% url dinette_unsubscribe_from_topic topic.id %}"><em>Unsubscribe</em></a>
+	            </li>
+	        {% endfor %}
+        </ul>
+      {% endif %}
+
 	  </div>
 
 	  <div id="brd-pagepost-end" class="main-pagepost gen-content">

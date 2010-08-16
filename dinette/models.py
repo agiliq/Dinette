@@ -305,6 +305,7 @@ class DinetteUserProfile(models.Model):
     photo = models.ImageField(upload_to='dinette/files',null=True,blank=True)
     signature = models.CharField(max_length = 1000, null = True, blank = True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True)
+    is_subscribed_to_digest = models.BooleanField(default=False)
     
     def __unicode__(self):
         return self.user.username

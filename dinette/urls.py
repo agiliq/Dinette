@@ -22,6 +22,10 @@ urlpatterns = patterns('dinette.views',
     
     # user profile page
     url(r'^users/(?P<slug>[\w-]+)$', 'user_profile', name='dinette_user_profile'),
+
+    # subscribe to digest
+    url(r'^digest/subscribe/$', 'subscribeDigest', name='dinette_subscribe_to_digest'),
+    url(r'^digest/unsubscribe/$', 'unsubscribeDigest', name='dinette_unsubscribe_from_digest'),
     
     url(r'^(?P<categoryslug>[\w-]+)/$','category_details', name='dinette_index'),
     url(r'^(?P<categoryslug>[\w-]+)/page(?P<pageno>\d+)/$','category_details', name='dinette_index2'),
@@ -42,7 +46,7 @@ urlpatterns = patterns('dinette.views',
 
     # subscribe to topic
     url(r'^subscribe/topic/(?P<topic_id>\d+)', 'subscribeTopic', name='dinette_subscribe_to_topic'),
-    url(r'^unsubscribe/topic/(?P<topic_id>\d+)', 'UnsubscribeTopic', name='dinette_unsubscribe_from_topic'),
+    url(r'^unsubscribe/topic/(?P<topic_id>\d+)', 'unsubscribeTopic', name='dinette_unsubscribe_from_topic'),
 )
 
 
