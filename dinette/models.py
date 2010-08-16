@@ -387,8 +387,8 @@ def notify_subscribers_on_reply(sender, instance, created, **kwargs):
     if created:
         site = Site.objects.get_current()
         subject = "%s replied on %s" %(instance.posted_by, instance.topic.subject)
-        body = instance.message
-        from_email = getattr(settings, 'DINETTE_FROM_EMAIL', '%s notifications <admin@%s' %(site.name, site.domain))
+        body = instance.message.rendered
+        from_email = getattr(settings, 'DINETTE_FROM_EMAIL', '%s notifications <admin@%s>' %(site.name, site.domain))
         # exclude the user who posted this, even if he is subscribed
         for subscriber in instance.topic.subscribers.exclude(username=instance.posted_by.username):
             subscriber.email_user(subject, body, from_email)
