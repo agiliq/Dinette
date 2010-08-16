@@ -43,10 +43,14 @@
 	</li>
 	<li class="info-lastpost">
 	  <span class="label">Last post</span>
-	  <strong><a href="{{ topic.get_absolute_url }}">{{ topic.lastPostDatetime|date:"jS F Y H:i A" }}</a></strong>
+	  {% if topic.reply_set.count > 0 %}
+	      <strong><a href="{{ topic.lastPost.get_url_with_fragment }}">{{ topic.lastPostDatetime|date:"jS F Y H:i A" }}</a></strong>
+	  {% else %}
+	      <strong><a href="{{ topic.lastPost.get_absolute_url }}">{{ topic.lastPostDatetime|date:"jS F Y H:i A" }}</a></strong>
+	  {% endif %}
 	  <cite>
-	      by <a href={{ category.lastPostedUser.get_profile.get_absolute_url }}>
-	             {{ category.lastPostedUser.username }}
+	      by <a href={{ topic.lastPost.posted_by.get_profile.get_absolute_url }}>
+	             {{ topic.lastPost.posted_by.username }}
 	         </a>
 	  </cite>
 	</li>
