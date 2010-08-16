@@ -50,7 +50,7 @@
 	  &nbsp; &nbsp;
 	  {% if not topic.is_closed %}
 	  {% if user.is_authenticated %}
-		<a href="" onclick="return isUserAuthenticated(1)">Post Reply</a> &nbsp; &nbsp;
+		<a href="#fpostreply" onclick="$("#id_message").focus();">Post Reply</a> &nbsp; &nbsp;
 	  {% else %}
 		(<a href="{% url dinette_login %}?next={{ topic.get_absolute_url }}">Login to Post Reply</a>) &nbsp; &nbsp;
 	  {% endif %}
