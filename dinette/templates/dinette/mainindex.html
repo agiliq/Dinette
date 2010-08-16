@@ -63,7 +63,12 @@
 		<li class="info-lastpost">
 		  <span class="label">Last post:</span>
 		  <strong>
-		      <a href={{ category.lastPost.get_url_with_fragment }}>
+		      {# last post can be Reply or Category #}
+		      {% if category.lastPost.get_url_with_fragment %}
+		          <a href={{ category.lastPost.get_url_with_fragment }}>
+		      {% else %}
+		          <a href={{ category.lastPost.get_absolute_url }}>
+		      {% endif %}
 		          {{ category.lastPostDatetime|date:"jS F Y H:i A" }}
 		      </a>
 		  </strong> 
