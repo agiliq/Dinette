@@ -33,7 +33,9 @@
   <p id="welcome">
   	<span>
 		{% if user.is_authenticated %}
-		  Hello {% get_calculated_username user %}, <a href='{% url socialauth_social_logout %}'>Logout</a>
+		  Hello 
+		      <a href="{{ user.get_profile.get_absolute_url }}">{% get_calculated_username user %}</a>, 
+		      <a href='{% url socialauth_social_logout %}'>Logout</a>
 		{% else %}
 		  <a href="{% url dinette_login %}">Login</a>
 		{% endif %}

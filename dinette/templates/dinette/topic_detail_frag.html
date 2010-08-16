@@ -22,7 +22,14 @@
 	  {% endif %}		
 	  <a href="{% url dinette_topic_detail topic.category.slug topic.slug %}">{{topic.subject}} </a>   
 	</h3>
-	&nbsp; <span class="item-starter">by <cite>{{topic.posted_by.username}}</cite></span>
+	&nbsp;
+	<span class="item-starter">
+		  <cite>
+		      by <a href={{ topic.posted_by.get_profile.get_absolute_url }}>
+		             {{ topic.posted_by.username }}
+		         </a>
+		  </cite>
+	</span>
   </div>
   
   <ul class="item-info">
