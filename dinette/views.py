@@ -423,13 +423,15 @@ def search(request):
 def subscribeTopic(request, topic_id):
     topic = get_object_or_404(Ftopics, pk=topic_id)
     topic.subscribers.add(request.user)
-    return redirect(topic.get_absolute_url())
+    next = request.GET.get('next', topic.get_absolute_url())
+    return redirect(next)
 
 @login_required
 def unsubscribeTopic(request, topic_id):
     topic = get_object_or_404(Ftopics, pk=topic_id)
     topic.subscribers.remove(request.user)
-    return redirect(topic.get_absolute_url())  
+    next = request.GET.get('next', topic.get_absolute_url())
+    return redirect(next)
 
 @login_required
 def subscribeDigest(request):
@@ -437,7 +439,8 @@ def subscribeDigest(request):
     profile = user.get_profile()
     profile.is_subscribed_to_digest = True
     profile.save()
-    return redirect(user.get_profile().get_absolute_url())
+    next = request.GET.get('next', user.get_profile().get_absolute_url())
+    return redirect(next)
 
 @login_required
 def unsubscribeDigest(request):
@@ -445,4 +448,5 @@ def unsubscribeDigest(request):
     profile = user.get_profile()
     profile.is_subscribed_to_digest = False
     profile.save()
-    return redirect(user.get_profile().get_absolute_url())
+    next = request.GET.get('next', user.get_profile().get_absolute_url())
+    return redirect(next)

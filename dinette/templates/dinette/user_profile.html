@@ -62,10 +62,10 @@
 	  <p><b> Number of topics posted </b>: {{  user_profile.ftopics_set.count }} </p>
 	  <p><b> Number of replies posted </b>: {{  user_profile.reply_set.count }} </p>
 
+      {% if request.user == user_profile %}
       <p><b>Settings: </b></p>
       <br/>
       <p>Subscriptions</p>
-      {% if request.user == user_profile %}
         <ul>
             <li>
             Daily Digest
@@ -78,7 +78,7 @@
 	        {% for topic in user_profile.subscribers.all %}
 	            <li>
 	                {{ topic.subject }}
-	                <a href="{% url dinette_unsubscribe_from_topic topic.id %}"><em>Unsubscribe</em></a>
+	                <a href="{% url dinette_unsubscribe_from_topic topic.id %}?next={{ request.path }}"><em>Unsubscribe</em></a>
 	            </li>
 	        {% endfor %}
         </ul>
