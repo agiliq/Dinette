@@ -23,7 +23,7 @@ class Command(NoArgsCommand):
         to_address = User.objects.filter(dinetteuserprofile__is_subscribed_to_digest=True).values_list('email', flat=True)
         
         yesterday = datetime.datetime.now() - datetime.timedelta(1)
-        topics = Ftopics.objects.filter(updated_on__gt=yesterday)
+        topics = Ftopics.objects.filter(created_on__gt=yesterday)
         replies = Reply.objects.filter(updated_on__gt=yesterday)
         users = DinetteUserProfile.objects.filter(user__date_joined__gt=yesterday)
         active_users = DinetteUserProfile.objects.filter(user__last_login__gt=yesterday)
