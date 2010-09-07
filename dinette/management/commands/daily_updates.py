@@ -1,9 +1,9 @@
-from django.conf import settings
 from django.core.management.base import NoArgsCommand
-from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.contrib.sites.models import Site
 from django.contrib.auth.models import User
+
+from mailer import send_html_mail
 
 import datetime
 
@@ -30,7 +30,5 @@ class Command(NoArgsCommand):
 
         variables = {'site': site, 'topics': topics, 'replies': replies, 'users': users, 'active_users': active_users}
         html_message = render_to_string('dinette/email/daily_updates.html', variables)
-        mail = EmailMessage(subject, html_message, from_address, to_address)
-        mail.content_subtype = "html"
-        mail.send()
+        send_html_mail(subject, html_message, html_message, from_address, to_address)
 
