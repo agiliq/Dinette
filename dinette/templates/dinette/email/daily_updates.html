@@ -1,32 +1,40 @@
-<h3>Recent topics</h3>
+{% if topics %}
+    <h3>Recent topics</h3>
 
-<ul>
-    {% for topic in topics %}
-        <li><a href="{{ site.domain }}{{ topic.get_absolute_url }}">{{ topic.subject }}</a></li>
-    {% endfor %}
-</ul>
+    <ul>
+        {% for topic in topics %}
+            <li><a href="{{ site.domain }}{{ topic.get_absolute_url }}">{{ topic.subject }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
-<h3>Recent posts</h3>
+{% if replies %}
+    <h3>Recent posts</h3>
 
-<ul>
-    {% for reply in replies %}
-        <li><a href="{{ site.domain }}{{ reply.get_url_with_fragment }}">{{ reply.message  }}</a></li>
-    {% endfor %}
-</ul>
+    <ul>
+        {% for reply in replies %}
+            <li><a href="{{ site.domain }}{{ reply.get_url_with_fragment }}">{{ reply.message  }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
+{% if users %}
 <h3>Recent users</h3>
 
 <ul>
     {% for user in users %}
-        <li><a href="{{ site.name }}{{ user.get_absolute_url }}">{{ user.username }}</a></li>
+        <li><a href="{{ site.domain}}{{ user.get_absolute_url }}">{{ user.username }}</a></li>
     {% endfor %}
 </ul>
+{% endif %}
 
-<h3>Active users</h3>
+{% if active_users %}
+    <h3>Active users</h3>
 
-<ul>
-    {% for user in active_users %}
-        <li><a href="{{ site.name }}{{ user.get_absolute_url }}">{{ user.username }}</a></li>
-    {% endfor %}
-</ul>
+    <ul>
+        {% for user in active_users %}
+            <li><a href="{{ site.domain }}{{ user.get_absolute_url }}">{{ user.username }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
 

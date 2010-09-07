@@ -28,7 +28,8 @@ class Command(NoArgsCommand):
         users = DinetteUserProfile.objects.filter(user__date_joined__gt=yesterday)
         active_users = DinetteUserProfile.objects.filter(user__last_login__gt=yesterday)
 
-        variables = {'site': site, 'topics': topics, 'replies': replies, 'users': users, 'active_users': active_users}
-        html_message = render_to_string('dinette/email/daily_updates.html', variables)
-        send_html_mail(subject, html_message, html_message, from_address, to_address)
+        if any([topics, replies, users, active_users]):
+            variables = {'site': site, 'topics': topics, 'replies': replies, 'users': users, 'active_users': active_users}
+            html_message = render_to_string('dinette/email/daily_updates.html', variables)
+            send_html_mail(subject, html_message, html_message, from_address, to_address)
 
