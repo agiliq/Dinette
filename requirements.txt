@@ -1,5 +1,5 @@
 django-pagination
 sorl-thumbnail
 django-compressor
-django-markupfield
+django-markupfield>1.0.0b
 -e git@github.com:agiliq/django-google-analytics.git#egg=google-analytics
