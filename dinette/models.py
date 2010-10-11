@@ -140,7 +140,8 @@ class Ftopics(models.Model):
     message = MarkupField(default_markup_type=getattr(settings,
                                                       'DEFAULT_MARKUP_TYPE',
                                                       'markdown'),
-                          markup_choices=settings.MARKUP_RENDERERS
+                          markup_choices=settings.MARKUP_RENDERERS,
+                          escape_html=True,
                           )
     file = models.FileField(upload_to='dinette/files',default='',null=True,blank=True)
     attachment_type = models.CharField(max_length=20,default='nofile')
@@ -234,7 +235,8 @@ class Reply(models.Model):
     message = MarkupField(default_markup_type=getattr(settings,
                                                       'DEFAULT_MARKUP_TYPE',
                                                       'markdown'),
-                          markup_choices=settings.MARKUP_RENDERERS
+                          markup_choices=settings.MARKUP_RENDERERS,
+                          escape_html=True,
                           )
     file = models.FileField(upload_to='dinette/files',default='',null=True,blank=True)
     attachment_type = models.CharField(max_length=20,default='nofile')
