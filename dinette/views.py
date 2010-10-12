@@ -160,6 +160,8 @@ def postTopic(request) :
         ftopic.filename = request.FILES['file'].name
         
     ftopic.posted_by = request.user
+    #autosubsribe
+    ftopic.subscribers.add(request.user)
     mlogger.debug("categoryid= %s" %request.POST['categoryid'])
     ftopic.category  = Category.objects.get(pk = request.POST['categoryid'])
     #Assigning user rank
