@@ -1,5 +1,15 @@
-django-pagination
-sorl-thumbnail
-django-compressor
-django-markupfield>1.0.0b
--e git@github.com:agiliq/django-google-analytics.git#egg=google-analytics
+BeautifulSoup==3.1.0.1
+Django==1.2.1
+PIL==1.1.7
+PyLinkedIn==0.3
+distribute==0.6.10
+django-compressor==0.5.3
+-e git+http://github.com/jamesturk/django-markupfield.git@3ab742d66839e763c574fa91e3a3f5407cf37a12#egg=django_markupfield-1.0.0b-py2.6-dev
+django-pagination==1.0.7
+django-socialauth==0.1.2c
+facebook-python-sdk==0.1
+-e git+git@github.com:agiliq/django-google-analytics.git@210167d90e8fb1066b335683880fa77b2c3e0047#egg=google_analytics-0.1-py2.6-dev
+oauth==1.0.1
+python-openid==2.2.5
+sorl-thumbnail==3.2.5
+wsgiref==0.1.2

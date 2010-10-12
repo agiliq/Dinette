@@ -1,0 +1,176 @@
+2010-10-12 02:09:43,524 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:09:43,524 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:09:47,798 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:09:47,798 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:15:01,189 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:15:01,189 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:15:19,606 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:15:19,607 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:16:07,024 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:16:07,024 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:16:38,070 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:16:38,070 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:23:38,635 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:23:38,635 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:24:33,858 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:24:33,859 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:24:46,001 - dinette.views - INFO - In the index page
+2010-10-12 02:24:46,112 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 02:27:47,482 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:27:47,483 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:27:49,582 - dinette.views - INFO - In the index page
+2010-10-12 02:27:49,587 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 02:28:26,586 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:28:26,587 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:28:29,568 - dinette.views - INFO - In the index page
+2010-10-12 02:28:29,574 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 02:28:54,500 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:28:54,500 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:28:56,986 - dinette.views - INFO - In the index page
+2010-10-12 02:28:56,993 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 02:35:49,471 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:35:49,472 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:35:57,213 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:35:57,214 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:35:59,594 - dinette.views - INFO - In the index page
+2010-10-12 02:35:59,600 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 02:38:15,090 - dinette.views - INFO - In the index page
+2010-10-12 02:38:15,095 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 02:38:15,693 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:38:15,693 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:42:56,620 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:42:56,621 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:42:57,973 - dinette.views - INFO - In the index page
+2010-10-12 02:42:57,980 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 02:43:55,619 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:43:55,620 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:43:57,854 - dinette.views - INFO - In the index page
+2010-10-12 02:43:57,860 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 02:44:18,199 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:44:18,200 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:44:22,542 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:44:22,542 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:44:23,852 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:44:23,852 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:44:25,855 - dinette.views - INFO - In the index page
+2010-10-12 02:44:25,861 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 02:44:49,474 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/forum/logs/logs.txt"
+2010-10-12 02:44:49,475 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:48:30,972 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 02:48:30,972 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:48:34,550 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 02:48:34,551 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:48:38,302 - dinette.views - INFO - In the index page
+2010-10-12 02:48:38,311 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 02:50:08,127 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 02:50:08,127 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:50:27,247 - dinette.views - INFO - In the index page
+2010-10-12 02:50:27,251 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 02:52:31,178 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 02:52:31,179 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:52:46,636 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 02:52:46,636 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:53:15,239 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 02:53:15,240 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:53:50,968 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 02:53:50,968 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:54:06,466 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 02:54:06,466 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 02:54:29,040 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 02:54:29,040 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:01:46,084 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:01:46,085 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:03:27,262 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:03:27,262 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:07:17,435 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:07:17,435 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:08:05,325 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:08:05,325 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:08:14,831 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:08:14,832 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:08:43,397 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:08:43,397 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:11:46,661 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:11:46,662 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:12:00,687 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:12:00,687 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:12:07,733 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:12:07,733 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:12:43,250 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:12:43,251 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:13:51,137 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:13:51,137 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:13:55,870 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:13:55,870 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:14:27,414 - dinette.views - INFO - In the index page
+2010-10-12 03:14:27,425 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 03:15:10,324 - dinette.views - INFO - In the index page
+2010-10-12 03:15:10,331 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 03:17:09,457 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:17:09,457 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:17:37,068 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:17:37,068 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:17:58,715 - dinette.views - INFO - In the index page
+2010-10-12 03:17:58,772 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 03:18:14,778 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:18:14,778 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:18:25,525 - dinette.views - INFO - In the index page
+2010-10-12 03:18:25,578 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 03:19:39,191 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:19:39,191 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:19:41,485 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:19:41,486 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:21:04,983 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:21:04,983 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:21:06,310 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:21:06,311 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:21:16,691 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:21:16,691 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:21:20,026 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:21:20,027 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:21:30,419 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:21:30,419 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:21:37,774 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:21:37,775 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:21:44,123 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:21:44,123 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:21:45,419 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:21:45,419 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:21:46,702 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:21:46,703 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:21:53,337 - dinette.views - INFO - In the index page
+2010-10-12 03:21:53,389 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 03:23:27,575 - dinette.views - INFO - In the index page
+2010-10-12 03:23:27,580 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 03:25:05,150 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:25:05,151 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:25:10,554 - dinette.views - INFO - In the index page
+2010-10-12 03:25:10,609 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 03:25:51,043 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:25:51,044 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:26:16,714 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:26:16,715 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:26:26,100 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:26:26,100 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:26:31,459 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:26:31,460 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:26:38,851 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:26:38,852 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:26:43,989 - dinette.views - INFO - In the index page
+2010-10-12 03:26:44,046 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 03:27:27,813 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:27:27,813 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:31:47,845 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:31:47,845 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:32:22,173 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:32:22,173 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:32:31,310 - dinette.views - INFO - In the index page
+2010-10-12 03:32:31,414 - dinette.views - DEBUG - what is the accesslist 
+2010-10-12 03:36:17,800 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:36:17,800 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:50:13,960 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:50:13,960 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:50:45,924 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/tuxcanfly/Work/env/dinette/Work/Dinette/forum/logs/logs.txt"
+2010-10-12 03:50:45,925 - dinette.models - DEBUG - Models Compliing!dinette.models
+2010-10-12 03:50:54,132 - dinette.views - INFO - In the index page
+2010-10-12 03:50:54,264 - dinette.views - DEBUG - what is the accesslist 
