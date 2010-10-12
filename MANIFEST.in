@@ -1,3 +1,6 @@
-recursive-include dinette/fixtures *.json
-recursive-include dinette/media *
-recursive-include dinette/templates *.txt *.html
+include README
+include LICENSE
+include requirements.txt
+recursive-include dinette *
+recursive-include forum *
+recursive-include docs *
