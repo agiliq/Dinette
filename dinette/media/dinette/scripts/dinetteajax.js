@@ -48,7 +48,7 @@ function check_errors_in_form() {
 function check_errors_in_Replyform() {
     farry =  $('#fpostreply *').fieldValue();
     if ($.trim(farry[0]).length  <= 0) {
-        window.alert("MEssage should not be empty"+farry[0]);
+        window.alert("Message should not be empty"+farry[0]);
         return false;
     }
    
