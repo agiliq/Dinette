@@ -9,7 +9,7 @@ setup(
     name='dinette',
     description='Dinette is a forum application in the spirit of PunBB.',
     keywords='django, forum',
-    packages=find_packages(),
+    packages=find_packages(exclude=["forum", "forum.*"]),
     include_package_data=True,
     zip_safe=False,
     version="1.2",
