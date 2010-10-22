@@ -12,7 +12,7 @@ setup(
     packages=find_packages(exclude=["forum", "forum.*"]),
     include_package_data=True,
     zip_safe=False,
-    version="1.2",
+    version="1.2a",
     author="Agiliq Solutions",
     author_email="hello@agiliq.com",
     long_description= data,
