@@ -27,7 +27,7 @@
 					<strong><a href="{{ result.object.get_absolute_url }}">{{ result.object }}</a></strong>
 					{% if result.object.search_snippet %}
 					<p>
-						{{ result.object.search_snippet }}
+						{{ result.object.search_snippet|safe }}
 					</p>
 					{% endif %}
 				
