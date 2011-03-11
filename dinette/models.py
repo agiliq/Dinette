@@ -199,7 +199,7 @@ class Ftopics(models.Model):
             return ""
         
     def search_snippet(self):
-        msg = "%s %s"% (self.subject, self.message)
+        msg = "%s %s"% (self.subject, self.message.rendered)
         return truncatewords(msg, 50) 
         
     def getTopicString(self):
@@ -265,7 +265,7 @@ class Reply(models.Model):
         return truncatewords(self.message, 10)
     
     def search_snippet(self):
-        msg = "%s %s"%(self.message, self.topic.subject)
+        msg = "%s %s"%(self.message.rendered, self.topic.subject)
         return truncatewords(msg, 100)
     
     
