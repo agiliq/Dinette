@@ -1,0 +1,121 @@
+Metadata-Version: 1.0
+Name: ipdb
+Version: 0.6
+Summary: IPython-enabled pdb
+Home-page: https://github.com/gotcha/ipdb
+Author: Godefroid Chapelle
+Author-email: gotcha@bubblenet.be
+License: GPL
+Description: IPython `pdb`
+        =============
+        
+        Use 
+        
+        ::
+        
+                from ipdb import set_trace; set_trace()
+        
+        or
+        
+        ::
+        
+                from ipdb import pm; pm()
+        
+        You then get all IPython features (tab completion, syntax highlighting, better
+        tracebacks, better introspection) right in `pdb`.
+        
+        If you install ``ipdb`` with a tool which supports ``setuptools`` entry points,
+        an ``ipdb`` script is made for you. You can use it to debug your scripts like
+        
+        ::
+        
+                $ bin/ipdb mymodule.py
+        
+        With Python 2.7 only, you can also use
+        
+        ::
+        
+                $ python -m ipdb mymodule.py
+        
+        PDBDebugMode support
+        --------------------
+        
+        ``ipdb`` support is integrated in Zope 2 ``Products.PDBDebugMode``. 
+        If ``ipdb`` is available, it is used in place of ``pdb``.
+        
+        Development
+        ===========
+        
+        ``ipdb`` source code and tracker are at https://github.com/gotcha/ipdb.
+        
+        
+        Changelog
+        =========
+        
+        0.6 (2011-09-01)
+        ----------------
+        
+        - Add setuptools ``console_scripts`` entry point.
+          [akrito, gotcha] 
+        
+        - Nose support.
+          Closes https://github.com/gotcha/ipdb/issues/8
+          [akaihola, gotcha]
+        
+        0.5 (2011-08-05)
+        ----------------
+        
+        - IPython 0.11 support.
+          [lebedov]
+        
+        
+        0.4 (2011-06-13)
+        ----------------
+        
+        - When used from IPython, use its colors.
+          Closes https://github.com/gotcha/ipdb/issues/1
+          [gotcha]
+        
+        - Fixed errors when exiting with "q". 
+          [gotcha]
+        
+        - Allow use of ``python -m ipdb mymodule.py``.
+          Python 2.7 only. 
+          Closes https://github.com/gotcha/ipdb/issues/3 
+          [gotcha]
+        
+        - Fixed post_mortem when the traceback is None.
+          [maurits]
+        
+        
+        0.3 (2011-01-16)
+        ----------------
+        
+        - Add ``post_mortem()`` for ``Products.PDBDebugMode`` support.
+          [Jean Jordaan]
+        
+        - Moved to github.com.
+        
+        
+        0.2 (2010-10-20)
+        ----------------
+        
+        - Added ``pm()``.
+          [Paulo Benedict Ang]
+        
+        
+        0.1 (2010-04-26)
+        ----------------
+        
+        - First "non dev" release.
+        
+Keywords: pdb ipython
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.4
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Topic :: Software Development :: Debuggers

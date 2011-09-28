@@ -1,0 +1,12 @@
+LICENSE.txt
+setup.cfg
+setup.py
+oauth/__init__.py
+oauth/oauth.py
+oauth.egg-info/PKG-INFO
+oauth.egg-info/SOURCES.txt
+oauth.egg-info/dependency_links.txt
+oauth.egg-info/top_level.txt
+oauth.egg-info/zip-safe
+oauth/example/client.py
+oauth/example/server.py

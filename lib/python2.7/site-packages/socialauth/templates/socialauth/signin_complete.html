@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+You have signed in.<br/>
+<a onclick="FB.logout(); window.location='{% url socialauth_social_logout %}';" href="#">Logout</a>
+
+{% endblock %}

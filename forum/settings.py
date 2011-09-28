@@ -73,6 +73,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'forum.urls'
@@ -82,6 +83,16 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth', 
+    'django.core.context_processors.debug', 
+    'django.core.context_processors.i18n', 
+    'django.core.context_processors.media', 
+    'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.request',
+)
+
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -90,13 +101,14 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'dinette',
     'socialauth',
     'compressor',
     'google_analytics',
     'sorl.thumbnail',
     'openid_consumer',
+    'pagination'
 )
 
 from localsettings import *

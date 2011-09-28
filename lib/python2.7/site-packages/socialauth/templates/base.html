@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+{% block html_declare %}
+<html lang="en">
+{% endblock %}
+
+<head>
+    <title>{% if user.is_authenticated %}Hello {{ user }}{% else %}Please login{% endif %}</title>
+    <link rel="stylesheet" type="text/css" media="screen"  href="{{ MEDIA_URL }}css/socialauth.css" />
+    {% block extra_head %}
+    {% endblock %}
+</head>
+
+<body>
+    <h1>social-auth</h1>
+		{% if FACEBOOK_APP_ID %}
+		  <div id="fb-root"></div>
+		  <script>
+		  window.fbAsyncInit = function() {
+			FB.init({appId: '{{ FACEBOOK_APP_ID }}', status: true, cookie: true, xfbml: true});
+			FB.Event.subscribe('auth.sessionChange', function(response) {
+			  if (response.session) {
+				  window.location = '{% url socialauth_facebook_login_done %}';
+			  } else {
+				  //window.location = '{% url socialauth_social_logout %}';
+			  }
+			});
+		  };
+		  (function() {
+			var e = document.createElement('script');
+			e.type = 'text/javascript';
+			e.src = document.location.protocol +
+			  '//connect.facebook.net/en_US/all.js';
+			e.async = true;
+			document.getElementById('fb-root').appendChild(e);
+		  }());
+		  </script>    
+		{% endif %}    
+    {% block extra_body %}
+    {% endblock %}
+    
+    {% block main_content %}
+    {% endblock %}
+    
+    {% block content %}
+    {% endblock %}
+    <!-- Insert your content here -->
+</body>
+</html>
