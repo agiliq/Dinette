@@ -1,9 +1,0 @@
-#!/home/gonecrazy/agiliq/Dinette/bin/python
-# EASY-INSTALL-ENTRY-SCRIPT: 'ipdb==0.6','console_scripts','ipdb'
-__requires__ = 'ipdb==0.6'
-import sys
-from pkg_resources import load_entry_point
-
-sys.exit(
-   load_entry_point('ipdb==0.6', 'console_scripts', 'ipdb')()
-)

@@ -1,6 +1,0 @@
-rdflib/plugins/parsers
-rdflib/plugins/parsers/rdfa/transform
-rdflib/plugins
-rdflib
-rdflib/plugins/parsers/rdfa
-rdflib/plugins/serializers
