@@ -209,3 +209,5 @@
 2011-09-28 02:37:58,109 - dinette.models - DEBUG - Models Compliing!dinette.models
 2011-09-28 02:39:25,760 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
 2011-09-28 02:39:25,760 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-28 02:43:52,676 - dinette.views - INFO - In the index page
+2011-09-28 02:43:52,690 - dinette.views - DEBUG - what is the accesslist 
