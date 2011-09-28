@@ -9,28 +9,25 @@ class Testmaker(TestCase):
 
     fixtures = ["dinette_testmaker"]
 
+    def setUp(self):
+        self.client = Client()
 
-    def test_forum_126302568811(self):
+    def test_index_page(self):
         r = self.client.get('/forum/', {})
         self.assertEqual(r.status_code, 200)
 
-
-    def test_forumdinette_126302582299(self):
-        r = self.client.get('/forum/dinette/', {})
-        self.assertEqual(r.status_code, 200)
-                    
-    def test_forumdinette1_126302583052(self):
-        r = self.client.get('/forum/dinette/1/', {})
-        self.assertEqual(r.status_code, 200)
-        
-        
-    def test_forumpostreply_126302584183(self):
+           
+    def test_forumpost_reply(self):
         r = self.client.post('/forum/post/reply/', {'topicid': '7', 'message': 'Hello', 'authenticated': 'True', 'file': '', })
+        self.assertEqual(r.statuscode,200)
+    
 
-    def test_forumdinette_126302584715(self):
-        r = self.client.get('/forum/dinette/', {})
-        self.assertEqual(r.status_code, 200)
-
-    def test_forumposttopic_126302585432(self):
+    def test_forumpost_topic(self):
         r = self.client.post('/forum/post/topic/', {'message': '2', 'authenticated': 'True', 'categoryid': '7', 'file': '', 'subject': '2', })
         self.assertEqual(r.status_code, 200)
+    
+
+
+    
+    
+
