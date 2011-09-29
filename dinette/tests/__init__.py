@@ -7,6 +7,7 @@ from .. import models
 from django import template
 from django.db.models import get_model
 from django.core.urlresolvers import reverse
+
 class Testmaker(TestCase):
     fixtures = ['test_data']
 
@@ -30,6 +31,8 @@ class Testmaker(TestCase):
 
     def test_unanswered_topics(self):
         r = self.client.get(reverse('dinette_unanswered'))
+        topic =  r.context['new_topic_list'][0]
+        self.assertEqual(topic.subject,'Details about the Django design patterns')
         
         
     def test_user_profile(self):
@@ -47,10 +50,8 @@ class Testmaker(TestCase):
         
     def test_post_topic(self):
         response = self.client.post('/forum/post/topic/',{'subject':'python','message':'this is python','authenticated':'true','categoryid':'1'})
-        print response.status_code
         response = self.client.get('/forum/active/')
-        print response.context['new_topic_list']
-        topics = models.Ftopics.objects.all()[-1]
+        topics = models.Ftopics.objects.all()[0]
         self.assertEqual(topics.subject,"python")
 
 

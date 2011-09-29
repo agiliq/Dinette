@@ -1,6 +1,27 @@
 [
 {
         "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "plaban", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": 1, 
+            "is_superuser": 1, 
+            "is_staff": 1, 
+            "last_login": "2010-01-07 12:07:13", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$d75a1$31942eb8bf13ad4aae0ef05c64ee74d002514fc7",
+            "email": "plaban.nayak@gmail.com", 
+            "date_joined": "2008-08-17 09:08:03"
+        }
+    },
+   
+
+
+{
+        "pk": 1, 
         "model": "dinette.category", 
         "fields": {
             "description": "Dinette is the best forum app for Django, Period. You are using it right now.", 
@@ -53,9 +74,29 @@
             "subject": "Details about the Django design patterns"
         }
     }, 
+
    
-	
- {
+
+{
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "plaban", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": 1, 
+            "is_superuser": 1, 
+            "is_staff": 1, 
+            "last_login": "2010-01-07 12:07:13", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$d75a1$31942eb8bf13ad4aae0ef05c64ee74d002514fc7",
+            "email": "plaban.nayak@gmail.com", 
+            "date_joined": "2008-08-17 09:08:03"
+        }
+    },
+   
+{
         "pk": 1, 
         "model": "auth.user", 
         "fields": {
@@ -73,6 +114,8 @@
             "date_joined": "2008-08-17 09:08:03"
         }
     }
+   
+	
     
 ] 
    
