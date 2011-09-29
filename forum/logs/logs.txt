@@ -1,163 +1,28 @@
-2011-09-28 05:57:57,619 - dinette.views - DEBUG - appending false..........1
-2011-09-28 05:57:57,620 - dinette.views - DEBUG - appending false..........2
-2011-09-28 05:57:57,620 - dinette.views - DEBUG - what is the accesslist 00
-2011-09-28 06:04:41,027 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:04:41,035 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:04:42,413 - dinette.views - INFO - In the index page
-2011-09-28 06:04:42,415 - dinette.views - DEBUG - appending false..........3
-2011-09-28 06:04:42,415 - dinette.views - DEBUG - appending false..........1
-2011-09-28 06:04:42,415 - dinette.views - DEBUG - appending false..........2
-2011-09-28 06:04:42,415 - dinette.views - DEBUG - what is the accesslist 000
-2011-09-28 06:05:55,437 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:05:55,438 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:05:55,918 - dinette.views - INFO - In the index page
-2011-09-28 06:05:55,920 - dinette.views - DEBUG - appending false..........3
-2011-09-28 06:05:55,920 - dinette.views - DEBUG - appending false..........1
-2011-09-28 06:05:55,920 - dinette.views - DEBUG - appending false..........2
-2011-09-28 06:05:55,920 - dinette.views - DEBUG - what is the accesslist 000
-2011-09-28 06:10:27,323 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:10:27,323 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:10:27,740 - dinette.views - INFO - In the index page
-2011-09-28 06:10:27,741 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 06:12:24,291 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:12:24,292 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:12:24,771 - dinette.views - INFO - In the index page
-2011-09-28 06:12:24,773 - dinette.views - DEBUG - appending false..........3
-2011-09-28 06:12:24,773 - dinette.views - DEBUG - appending false..........1
-2011-09-28 06:12:24,773 - dinette.views - DEBUG - appending false..........2
-2011-09-28 06:12:24,774 - dinette.views - DEBUG - what is the accesslist 000
-2011-09-28 06:12:43,079 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:12:43,079 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:12:43,497 - dinette.views - INFO - In the index page
-2011-09-28 06:12:43,499 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 06:13:02,043 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:13:02,043 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:13:05,850 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:13:05,851 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:13:06,280 - dinette.views - INFO - In the index page
-2011-09-28 06:13:06,281 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 06:13:22,892 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:13:22,892 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:13:23,299 - dinette.views - INFO - In the index page
-2011-09-28 06:13:23,300 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 06:14:52,791 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:14:52,791 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:14:53,388 - dinette.views - INFO - In the index page
-2011-09-28 06:14:53,389 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 06:17:16,935 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:17:16,935 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:18:08,918 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:18:08,918 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:19:34,117 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:19:34,117 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:19:34,570 - dinette.views - INFO - In the index page
-2011-09-28 06:19:34,571 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 06:22:48,854 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:22:48,855 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:22:58,131 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:22:58,131 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:23:29,954 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:23:29,954 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:24:15,953 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:24:15,953 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:24:16,416 - dinette.views - INFO - In the index page
-2011-09-28 06:24:16,417 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 06:59:42,997 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:59:42,997 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:59:43,410 - dinette.views - INFO - In the index page
-2011-09-28 06:59:43,411 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 06:59:50,233 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 06:59:50,233 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 06:59:50,644 - dinette.views - INFO - In the index page
-2011-09-28 06:59:50,645 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 07:06:00,591 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 07:06:00,591 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 07:06:01,003 - dinette.views - INFO - In the index page
-2011-09-28 07:06:01,004 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 07:06:22,944 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 07:06:22,944 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 07:06:29,795 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 07:06:29,796 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 07:06:52,359 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 07:06:52,360 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 07:06:52,774 - dinette.views - INFO - In the index page
-2011-09-28 07:06:52,775 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 07:07:21,905 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 07:07:21,905 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 07:08:05,341 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 07:08:05,341 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 07:08:05,751 - dinette.views - INFO - In the index page
-2011-09-28 07:08:05,752 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 07:08:51,581 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 07:08:51,581 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 07:08:51,994 - dinette.views - INFO - In the index page
-2011-09-28 07:08:51,995 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 07:09:10,626 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 07:09:10,626 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 07:09:11,044 - dinette.views - INFO - In the index page
-2011-09-28 07:09:11,045 - dinette.views - DEBUG - what is the accesslist 
-2011-09-28 07:19:13,726 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 07:19:13,726 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 07:19:17,587 - dinette.views - INFO - In the welcome page.......................
-2011-09-28 07:19:17,587 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
-2011-09-28 07:19:33,464 - dinette.views - INFO - In the index page
-2011-09-28 07:19:33,503 - dinette.views - DEBUG - appending false..........1
-2011-09-28 07:19:33,503 - dinette.views - DEBUG - appending false..........2
-2011-09-28 07:19:33,504 - dinette.views - DEBUG - what is the accesslist 00
-2011-09-28 07:22:31,556 - dinette.views - INFO - In the index page
-2011-09-28 07:22:31,567 - dinette.views - DEBUG - appending false..........1
-2011-09-28 07:22:31,567 - dinette.views - DEBUG - appending false..........2
-2011-09-28 07:22:31,567 - dinette.views - DEBUG - what is the accesslist 00
-2011-09-28 07:22:49,635 - dinette.views - INFO - in post reply.................
-2011-09-28 07:24:17,389 - dinette.views - INFO - In post Topic page.....................
-2011-09-28 07:24:17,389 - dinette.views - DEBUG - Type of request.user <class 'django.contrib.auth.models.User'>
-2011-09-28 07:24:24,938 - dinette.views - INFO - In the welcome page.......................
-2011-09-28 07:24:24,938 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
-2011-09-28 07:24:28,880 - dinette.views - INFO - In the index page
-2011-09-28 07:24:28,886 - dinette.views - DEBUG - appending false..........1
-2011-09-28 07:24:28,886 - dinette.views - DEBUG - appending false..........2
-2011-09-28 07:24:28,886 - dinette.views - DEBUG - what is the accesslist 00
-2011-09-28 07:24:31,445 - dinette.views - INFO - In the index page
-2011-09-28 07:24:31,452 - dinette.views - DEBUG - appending false..........1
-2011-09-28 07:24:31,452 - dinette.views - DEBUG - appending false..........2
-2011-09-28 07:24:31,452 - dinette.views - DEBUG - what is the accesslist 00
-2011-09-28 07:24:39,813 - dinette.views - INFO - In the index page
-2011-09-28 07:24:39,825 - dinette.views - DEBUG - appending false..........1
-2011-09-28 07:24:39,825 - dinette.views - DEBUG - appending false..........2
-2011-09-28 07:24:39,825 - dinette.views - DEBUG - what is the accesslist 00
-2011-09-28 07:25:30,195 - dinette.views - INFO - In the index page
-2011-09-28 07:25:30,207 - dinette.views - DEBUG - appending false..........1
-2011-09-28 07:25:30,208 - dinette.views - DEBUG - appending false..........2
-2011-09-28 07:25:30,208 - dinette.views - DEBUG - what is the accesslist 00
-2011-09-28 07:34:21,410 - dinette.views - INFO - In the index page
-2011-09-28 07:34:21,421 - dinette.views - DEBUG - appending false..........1
-2011-09-28 07:34:21,421 - dinette.views - DEBUG - appending false..........2
-2011-09-28 07:34:21,422 - dinette.views - DEBUG - what is the accesslist 00
-2011-09-28 07:34:59,792 - dinette.views - INFO - In the index page
-2011-09-28 07:34:59,803 - dinette.views - DEBUG - appending false..........1
-2011-09-28 07:34:59,803 - dinette.views - DEBUG - appending false..........2
-2011-09-28 07:34:59,803 - dinette.views - DEBUG - what is the accesslist 00
-2011-09-28 07:35:33,208 - dinette.views - INFO - In the index page
-2011-09-28 07:35:33,218 - dinette.views - DEBUG - appending false..........1
-2011-09-28 07:35:33,219 - dinette.views - DEBUG - appending false..........2
-2011-09-28 07:35:33,219 - dinette.views - DEBUG - what is the accesslist 00
-2011-09-28 10:52:31,231 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-28 10:52:31,238 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-28 10:52:32,253 - dinette.views - INFO - In the index page
-2011-09-28 10:52:32,254 - dinette.views - DEBUG - what is the accesslist 
-2011-09-29 00:41:19,283 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-29 00:41:19,288 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-29 00:41:26,350 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-29 00:41:26,350 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-29 00:41:27,370 - dinette.views - INFO - In the index page
-2011-09-29 00:41:27,371 - dinette.views - DEBUG - what is the accesslist 
-2011-09-29 00:45:34,836 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-29 00:45:34,836 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-29 00:45:35,305 - dinette.views - INFO - In the index page
-2011-09-29 00:45:35,306 - dinette.views - DEBUG - what is the accesslist 
-2011-09-29 00:46:22,019 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-29 00:46:22,020 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-29 00:49:15,121 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-29 00:49:15,121 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-29 00:49:15,549 - dinette.views - INFO - In the index page
-2011-09-29 00:49:15,550 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 02:26:30,738 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 02:26:30,739 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 02:26:31,179 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 02:26:31,179 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 02:26:31,399 - dinette.views - INFO - In the index page
+2011-09-29 02:26:31,400 - dinette.views - DEBUG - appending false..........1
+2011-09-29 02:26:31,401 - dinette.views - DEBUG - what is the accesslist 0
+2011-09-29 02:27:47,203 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 02:27:47,203 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 02:27:47,651 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 02:27:47,651 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 02:27:47,874 - dinette.views - INFO - In the index page
+2011-09-29 02:27:47,875 - dinette.views - DEBUG - appending false..........1
+2011-09-29 02:27:47,876 - dinette.views - DEBUG - what is the accesslist 0
+2011-09-29 02:28:35,582 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 02:28:35,582 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 02:28:36,030 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 02:28:36,030 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 02:28:36,251 - dinette.views - INFO - In the index page
+2011-09-29 02:28:36,253 - dinette.views - DEBUG - appending false..........1
+2011-09-29 02:28:36,253 - dinette.views - DEBUG - what is the accesslist 0
+2011-09-29 02:29:53,057 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 02:29:53,058 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 02:29:53,502 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 02:29:53,502 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 02:29:53,724 - dinette.views - INFO - In the index page
+2011-09-29 02:29:53,726 - dinette.views - DEBUG - appending false..........1
+2011-09-29 02:29:53,726 - dinette.views - DEBUG - what is the accesslist 0
