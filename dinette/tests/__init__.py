@@ -50,13 +50,39 @@ class Testmaker(TestCase):
         
     def test_post_topic(self):
         response = self.client.post('/forum/post/topic/',{'subject':'python','message':'this is python','authenticated':'true','categoryid':'1'})
+        print response.status_code
         response = self.client.get('/forum/active/')
-        topics = models.Ftopics.objects.all()[0]
-        self.assertEqual(topics.subject,"python")
+        topic = response.context['new_topic_list'][0]
+        self.assertEqual(topic.subject,'python')
+        print topic.slug
 
 
     def test_post_reply(self):
+        response = self.client.login(username = "plaban",password = "plaban")
         response = self.client.post("/forum/post/reply",{'message':'this is good','message_markup_type':'plain',
                                                          'authenticated':'True','topicid':'1'})
+        self.assertEqual(response.status_code,302)
+        
+
+    def test_edit_reply(self):
+        response = self.client.login(username = "plaban",password = "plaban")
+        response = self.client.get("/forum/edit/reply/1")
+        self.assertEqual(response.status_code,200)
+        reponse = self.client.post("/forum/edit/reply/1",{'message':'this is the edit reply','message_markup_type':'plain'                                                          })
+        self.assertEqual(response.status_code,200)
+        reply = models.Reply.objects.all()[0]
+        self.assertEqual(str(reply),'<p>this is the edit reply</p>')
+        
+        
+        
+
+
+        
+    
+        
+
+        
+        
+        
         
         

@@ -18,6 +18,21 @@
         }
     },
    
+{
+        "pk": 1, 
+        "model": "dinette.supercategory", 
+        "fields": {
+            "name": "Python and Django", 
+            "ordering": 1, 
+            "posted_by": 1, 
+            "created_on": "2009-03-18 05:20:31", 
+            "updated_on": "2009-03-18 05:20:31", 
+            "accessgroups": [
+                1
+            ], 
+            "description": "About Python the best programming language and Django the perfectionists with deadline things."
+        }
+    }, 
 
 
 {
@@ -39,21 +54,6 @@
     },
 {
         "pk": 1, 
-        "model": "dinette.supercategory", 
-        "fields": {
-            "name": "Python and Django", 
-            "ordering": 1, 
-            "posted_by": 1, 
-            "created_on": "2009-03-18 05:20:31", 
-            "updated_on": "2009-03-18 05:20:31", 
-            "accessgroups": [
-                1
-            ], 
-            "description": "About Python the best programming language and Django the perfectionists with deadline things."
-        }
-    }, 
-     {
-        "pk": 1, 
         "model": "dinette.ftopics", 
         "fields": {
             "category": 1, 
@@ -73,47 +73,24 @@
             "is_closed": 0, 
             "subject": "Details about the Django design patterns"
         }
-    }, 
-
-   
-
-{
-        "pk": 1, 
-        "model": "auth.user", 
-        "fields": {
-            "username": "plaban", 
-            "first_name": "", 
-            "last_name": "", 
-            "is_active": 1, 
-            "is_superuser": 1, 
-            "is_staff": 1, 
-            "last_login": "2010-01-07 12:07:13", 
-            "groups": [], 
-            "user_permissions": [], 
-            "password": "sha1$d75a1$31942eb8bf13ad4aae0ef05c64ee74d002514fc7",
-            "email": "plaban.nayak@gmail.com", 
-            "date_joined": "2008-08-17 09:08:03"
-        }
     },
-   
-{
+
+    {
         "pk": 1, 
-        "model": "auth.user", 
+        "model": "dinette.reply", 
         "fields": {
-            "username": "plaban", 
-            "first_name": "", 
-            "last_name": "", 
-            "is_active": 1, 
-            "is_superuser": 1, 
-            "is_staff": 1, 
-            "last_login": "2010-01-07 12:07:13", 
-            "groups": [], 
-            "user_permissions": [], 
-            "password": "sha1$d75a1$31942eb8bf13ad4aae0ef05c64ee74d002514fc7",
-            "email": "plaban.nayak@gmail.com", 
-            "date_joined": "2008-08-17 09:08:03"
+            "posted_by": 1, 
+            "filename": "dummyname.txt", 
+            "topic": 1, 
+            "created_on": "2009-03-18 07:15:31", 
+            "file": "", 
+            "reply_number": 0, 
+            "updated_on": "2009-03-18 07:15:31", 
+            "message": "This is a reply.", 
+            "attachment_type": "nofile"
         }
     }
+
    
 	
     
