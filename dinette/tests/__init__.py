@@ -28,8 +28,18 @@ class Testmaker(TestCase):
 
     def test_unanswered_topics(self):
         r = self.client.get(reverse('dinette_unanswered'))
-        print r.context['unanswered_topics']
         
         
-
-
+    def test_user_profile(self):
+        response = self.client.get('/forum/users/plaban')
+        user =  response.context['user_profile']
+        self.assertEqual(user.email,'plaban.nayak@gmail.com')
+    
+    def test_category(self):
+        response = self.client.get('/forum/dinette/')
+        category =  response.context['category']
+        self.assertEqual(category.name,"Dinette")
+        self.assertEqual(category.description,"Dinette is the best forum app for Django, Period. You are using it right now.")
+        supercategory = category.super_category
+        self.assertEqual(supercategory.name,"Python and Django")
+        

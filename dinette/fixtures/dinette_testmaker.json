@@ -811,7 +811,8 @@
         }
     }, 
     {
-        "pk": 2, 
+    
+    "pk": 2, 
         "model": "dinette.dinetteuserprofile", 
         "fields": {
             "photo": "", 

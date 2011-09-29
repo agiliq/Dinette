@@ -1,0 +1,78 @@
+[
+{
+        "pk": 1, 
+        "model": "dinette.category", 
+        "fields": {
+            "description": "Dinette is the best forum app for Django, Period. You are using it right now.", 
+            "ordering": 1, 
+            "posted_by": 1, 
+            "super_category": 1, 
+            "created_on": "2009-09-21 10:17:38", 
+            "updated_on": "2009-09-21 10:17:38", 
+            "moderated_by": [
+                1
+            ], 
+            "slug": "dinette", 
+            "name": "Dinette"
+        }
+    },
+{
+        "pk": 1, 
+        "model": "dinette.supercategory", 
+        "fields": {
+            "name": "Python and Django", 
+            "ordering": 1, 
+            "posted_by": 1, 
+            "created_on": "2009-03-18 05:20:31", 
+            "updated_on": "2009-03-18 05:20:31", 
+            "accessgroups": [
+                1
+            ], 
+            "description": "About Python the best programming language and Django the perfectionists with deadline things."
+        }
+    }, 
+     {
+        "pk": 1, 
+        "model": "dinette.ftopics", 
+        "fields": {
+            "category": 1, 
+            "viewcount": 325, 
+            "is_hidden": 0, 
+            "is_sticky": 1, 
+            "posted_by": 1, 
+            "announcement_flag": 0, 
+            "slug": "details-about-the-django-design-patterns", 
+            "created_on": "2009-09-27 01:46:46", 
+            "file": "", 
+            "replies": 0, 
+            "updated_on": "2009-12-23 01:06:20", 
+            "message": "Url: http://djangodesignpatterns.uswaretech.net\nGithub: http://github.com/uswaretech/django-design-patterns\n\nPlease add any new patterns, addendum, and patches here.", 
+            "filename": "dummyname.txt", 
+            "attachment_type": "nofile", 
+            "is_closed": 0, 
+            "subject": "Details about the Django design patterns"
+        }
+    }, 
+   
+	
+ {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "plaban", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": 1, 
+            "is_superuser": 1, 
+            "is_staff": 1, 
+            "last_login": "2010-01-07 12:07:13", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$d75a1$31942eb8bf13ad4aae0ef05c64ee74d002514fc7",
+            "email": "plaban.nayak@gmail.com", 
+            "date_joined": "2008-08-17 09:08:03"
+        }
+    }
+    
+] 
+   
