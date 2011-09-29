@@ -24,7 +24,7 @@
 	
 	<!-- begin formbox -->
 	<div id="formbox" style="display:none"> 
-      <form action="{% url dinette_posttopic %}" method="POST" id="fposttopic"  enctype="multipart/form-data">            
+      <form action="{% url dinette_posttopic %}" method="POST" id="fposttopic"  enctype="multipart/form-data">{% csrf_token %}
 		<table>
 		  <tbody>
 			{{ topicform.as_table }}

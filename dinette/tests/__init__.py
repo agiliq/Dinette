@@ -2,6 +2,8 @@
 
 from django.test import TestCase
 from django.test import Client
+from .. import models 
+
 from django import template
 from django.db.models import get_model
 from django.core.urlresolvers import reverse
@@ -42,4 +44,18 @@ class Testmaker(TestCase):
         self.assertEqual(category.description,"Dinette is the best forum app for Django, Period. You are using it right now.")
         supercategory = category.super_category
         self.assertEqual(supercategory.name,"Python and Django")
+        
+    def test_post_topic(self):
+        response = self.client.post('/forum/post/topic/',{'subject':'python','message':'this is python','authenticated':'true','categoryid':'1'})
+        print response.status_code
+        response = self.client.get('/forum/active/')
+        print response.context['new_topic_list']
+        topics = models.Ftopics.objects.all()[-1]
+        self.assertEqual(topics.subject,"python")
+
+
+    def test_post_reply(self):
+        response = self.client.post("/forum/post/reply",{'message':'this is good','message_markup_type':'plain',
+                                                         'authenticated':'True','topicid':'1'})
+        
         

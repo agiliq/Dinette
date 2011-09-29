@@ -182,7 +182,7 @@
   {% if not topic.is_closed and user.is_authenticated %}
   <!-- formbox begins -->
   <div id="formbox" class="magicbox">
-	<form action="{% url dinette_postreply %}" method="POST" id="fpostreply"  >            
+	<form action="{% url dinette_postreply %}" method="POST" id="fpostreply"  >{% csrf_token %}
 	  <table>
 		<tbody> 
 		  {{ replyform.as_table }}

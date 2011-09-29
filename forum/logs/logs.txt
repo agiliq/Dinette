@@ -1,28 +1,449 @@
-2011-09-29 02:26:30,738 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-29 02:26:30,739 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-29 02:26:31,179 - dinette.views - INFO - In the welcome page.......................
-2011-09-29 02:26:31,179 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
-2011-09-29 02:26:31,399 - dinette.views - INFO - In the index page
-2011-09-29 02:26:31,400 - dinette.views - DEBUG - appending false..........1
-2011-09-29 02:26:31,401 - dinette.views - DEBUG - what is the accesslist 0
-2011-09-29 02:27:47,203 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-29 02:27:47,203 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-29 02:27:47,651 - dinette.views - INFO - In the welcome page.......................
-2011-09-29 02:27:47,651 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
-2011-09-29 02:27:47,874 - dinette.views - INFO - In the index page
-2011-09-29 02:27:47,875 - dinette.views - DEBUG - appending false..........1
-2011-09-29 02:27:47,876 - dinette.views - DEBUG - what is the accesslist 0
-2011-09-29 02:28:35,582 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-29 02:28:35,582 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-29 02:28:36,030 - dinette.views - INFO - In the welcome page.......................
-2011-09-29 02:28:36,030 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
-2011-09-29 02:28:36,251 - dinette.views - INFO - In the index page
-2011-09-29 02:28:36,253 - dinette.views - DEBUG - appending false..........1
-2011-09-29 02:28:36,253 - dinette.views - DEBUG - what is the accesslist 0
-2011-09-29 02:29:53,057 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
-2011-09-29 02:29:53,058 - dinette.models - DEBUG - Models Compliing!dinette.models
-2011-09-29 02:29:53,502 - dinette.views - INFO - In the welcome page.......................
-2011-09-29 02:29:53,502 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
-2011-09-29 02:29:53,724 - dinette.views - INFO - In the index page
-2011-09-29 02:29:53,726 - dinette.views - DEBUG - appending false..........1
-2011-09-29 02:29:53,726 - dinette.views - DEBUG - what is the accesslist 0
+2011-09-29 05:00:53,268 - dinette.views - DEBUG - what is the response = 
+ 
+
+<!-- div.post/even/replypost begins-->
+<a name="7"></a>
+<div id=post7 class="post even replypost">
+  <!-- div p120560 begins-->
+  <div id="reply7" class="posthead">
+    <h3 class="hn post-ident">
+	  <span class="post-num"></span>
+	  <span class="post-byline">
+	    <span>Reply by </span>
+		<a title="" href="#"></a>
+	  </span>
+      <span class="post-link">
+	    <a class="permalink" rel="bookmark" title="Permanent link to this post" href="/forum/joke/jokes/#7">29th September 2011 05:00 AM</a>
+	  </span> &nbsp; &nbsp; &nbsp;
+	</h3>
+  </div>
+  <!-- div p120560 ends-->
+  
+  <!-- div.postbody begins-->
+  <div class="postbody">
+	<!-- div.post-author begins-->
+    <div class="post-author">
+	  <!-- ul.author-indent begins-->
+	  <ul class="author-ident">
+	    <li>
+		  <table class="authortable">
+		  <tr><td>
+		                                                            
+		      <img src="http://www.gravatar.com/avatar/1c08fc598f37e4f2017c0802686a459a.jpg" alt="gonecrazy's Photo" />
+		     
+		  </td></tr>
+		  <tr><td>
+		    <a href="/forum/users/gonecrazy">gonecrazy</a>
+		  </td></tr>
+		  </table>
+		</li>
+		<li class="usertitle"><span>Junior Member  </span></li>
+		<li class="userstatus">
+		  <span>
+		  
+			Offline
+		  
+		  </span>
+		</li>
+	  </ul>
+	  <!-- ul.author-indent ends-->
+	  
+	  <!-- ul.author-info begins-->
+	  <ul class="author-info">
+	    <li>
+		  <span>Registered: 
+		    <strong> 26th September 2011 06:43 AM</strong>
+		  </span>
+		</li>
+		<li>
+		  <span>Posts: 
+		    <strong> 8</strong>
+		  </span>
+		</li>
+	  </ul>
+	  <!-- ul.author-info ends-->
+	</div>
+	<!-- div.post-author ends-->
+
+	<div class="post-entry">
+        <h4 id="entry7" class="entry-title hn">Re: jokes</h4>
+		<div id=content7 class="entry-content">
+		  <p><p>adfadsfasdfvccxvscsv</p></p>
+		      
+		            
+    
+    
+    
+    
+     
+                                                     
+		  
+		</div>
+	</div>
+	
+  </div>
+  <!-- div.postbody ends-->
+  
+    
+	    <div class="postfoot">
+		    <div class="post-options">
+                <p class="post-actions">
+                    
+						<span class="delete-post">
+						    <a href="#" onclick="delete_reply(7); return false;">Delete</a>
+						</span>
+						<span class="edit-post">
+						    <a href="/forum/edit/reply/7">Edit</a>
+						</span>
+                    
+					<span class="edit-post first-item">
+					    <a href="#" onclick="quote_reply(7, 'gonecrazy'); return false;">Quick quote</a>
+					</span>
+				</p>
+		    </div>
+		</div>
+    
+
+</div>        
+<!-- div.post/even/replypost ends-->
+ 
+2011-09-29 05:08:52,292 - dinette.views - INFO - in post reply.................
+2011-09-29 05:08:52,295 - dinette.views - DEBUG - toipcid= 1
+2011-09-29 05:08:52,297 - dinette.views - DEBUG - Assigning an user rank, and last posted datetime
+2011-09-29 05:08:52,645 - dinette.views - DEBUG - what is the replymesage = <markupfield.fields.Markup object at 0xaf12bcc>
+2011-09-29 05:08:52,659 - dinette.views - DEBUG - what is the response = 
+ 
+
+<!-- div.post/even/replypost begins-->
+<a name="8"></a>
+<div id=post8 class="post even replypost">
+  <!-- div p120560 begins-->
+  <div id="reply8" class="posthead">
+    <h3 class="hn post-ident">
+	  <span class="post-num"></span>
+	  <span class="post-byline">
+	    <span>Reply by </span>
+		<a title="" href="#"></a>
+	  </span>
+      <span class="post-link">
+	    <a class="permalink" rel="bookmark" title="Permanent link to this post" href="/forum/joke/jokes/#8">29th September 2011 05:08 AM</a>
+	  </span> &nbsp; &nbsp; &nbsp;
+	</h3>
+  </div>
+  <!-- div p120560 ends-->
+  
+  <!-- div.postbody begins-->
+  <div class="postbody">
+	<!-- div.post-author begins-->
+    <div class="post-author">
+	  <!-- ul.author-indent begins-->
+	  <ul class="author-ident">
+	    <li>
+		  <table class="authortable">
+		  <tr><td>
+		                                                            
+		      <img src="http://www.gravatar.com/avatar/1c08fc598f37e4f2017c0802686a459a.jpg" alt="gonecrazy's Photo" />
+		     
+		  </td></tr>
+		  <tr><td>
+		    <a href="/forum/users/gonecrazy">gonecrazy</a>
+		  </td></tr>
+		  </table>
+		</li>
+		<li class="usertitle"><span>Junior Member  </span></li>
+		<li class="userstatus">
+		  <span>
+		  
+			Offline
+		  
+		  </span>
+		</li>
+	  </ul>
+	  <!-- ul.author-indent ends-->
+	  
+	  <!-- ul.author-info begins-->
+	  <ul class="author-info">
+	    <li>
+		  <span>Registered: 
+		    <strong> 26th September 2011 06:43 AM</strong>
+		  </span>
+		</li>
+		<li>
+		  <span>Posts: 
+		    <strong> 9</strong>
+		  </span>
+		</li>
+	  </ul>
+	  <!-- ul.author-info ends-->
+	</div>
+	<!-- div.post-author ends-->
+
+	<div class="post-entry">
+        <h4 id="entry8" class="entry-title hn">Re: jokes</h4>
+		<div id=content8 class="entry-content">
+		  <p><p>adfasdfasdf</p></p>
+		      
+		            
+    
+    
+    
+    
+     
+                                                     
+		  
+		</div>
+	</div>
+	
+  </div>
+  <!-- div.postbody ends-->
+  
+    
+	    <div class="postfoot">
+		    <div class="post-options">
+                <p class="post-actions">
+                    
+						<span class="delete-post">
+						    <a href="#" onclick="delete_reply(8); return false;">Delete</a>
+						</span>
+						<span class="edit-post">
+						    <a href="/forum/edit/reply/8">Edit</a>
+						</span>
+                    
+					<span class="edit-post first-item">
+					    <a href="#" onclick="quote_reply(8, 'gonecrazy'); return false;">Quick quote</a>
+					</span>
+				</p>
+		    </div>
+		</div>
+    
+
+</div>        
+<!-- div.post/even/replypost ends-->
+ 
+2011-09-29 05:09:43,474 - dinette.views - INFO - in post reply.................
+2011-09-29 05:09:43,477 - dinette.views - DEBUG - toipcid= 1
+2011-09-29 05:09:43,479 - dinette.views - DEBUG - Assigning an user rank, and last posted datetime
+2011-09-29 05:09:43,909 - dinette.views - DEBUG - what is the replymesage = <markupfield.fields.Markup object at 0xaf4516c>
+2011-09-29 05:09:43,930 - dinette.views - DEBUG - what is the response = 
+ 
+
+<!-- div.post/even/replypost begins-->
+<a name="9"></a>
+<div id=post9 class="post even replypost">
+  <!-- div p120560 begins-->
+  <div id="reply9" class="posthead">
+    <h3 class="hn post-ident">
+	  <span class="post-num"></span>
+	  <span class="post-byline">
+	    <span>Reply by </span>
+		<a title="" href="#"></a>
+	  </span>
+      <span class="post-link">
+	    <a class="permalink" rel="bookmark" title="Permanent link to this post" href="/forum/joke/jokes/#9">29th September 2011 05:09 AM</a>
+	  </span> &nbsp; &nbsp; &nbsp;
+	</h3>
+  </div>
+  <!-- div p120560 ends-->
+  
+  <!-- div.postbody begins-->
+  <div class="postbody">
+	<!-- div.post-author begins-->
+    <div class="post-author">
+	  <!-- ul.author-indent begins-->
+	  <ul class="author-ident">
+	    <li>
+		  <table class="authortable">
+		  <tr><td>
+		                                                            
+		      <img src="http://www.gravatar.com/avatar/1c08fc598f37e4f2017c0802686a459a.jpg" alt="gonecrazy's Photo" />
+		     
+		  </td></tr>
+		  <tr><td>
+		    <a href="/forum/users/gonecrazy">gonecrazy</a>
+		  </td></tr>
+		  </table>
+		</li>
+		<li class="usertitle"><span>Junior Member  </span></li>
+		<li class="userstatus">
+		  <span>
+		  
+			Offline
+		  
+		  </span>
+		</li>
+	  </ul>
+	  <!-- ul.author-indent ends-->
+	  
+	  <!-- ul.author-info begins-->
+	  <ul class="author-info">
+	    <li>
+		  <span>Registered: 
+		    <strong> 26th September 2011 06:43 AM</strong>
+		  </span>
+		</li>
+		<li>
+		  <span>Posts: 
+		    <strong> 10</strong>
+		  </span>
+		</li>
+	  </ul>
+	  <!-- ul.author-info ends-->
+	</div>
+	<!-- div.post-author ends-->
+
+	<div class="post-entry">
+        <h4 id="entry9" class="entry-title hn">Re: jokes</h4>
+		<div id=content9 class="entry-content">
+		  <p><p>fadsfasdfasdfa</p></p>
+		      
+		            
+    
+    
+    
+    
+     
+                                                     
+		  
+		</div>
+	</div>
+	
+  </div>
+  <!-- div.postbody ends-->
+  
+    
+	    <div class="postfoot">
+		    <div class="post-options">
+                <p class="post-actions">
+                    
+						<span class="delete-post">
+						    <a href="#" onclick="delete_reply(9); return false;">Delete</a>
+						</span>
+						<span class="edit-post">
+						    <a href="/forum/edit/reply/9">Edit</a>
+						</span>
+                    
+					<span class="edit-post first-item">
+					    <a href="#" onclick="quote_reply(9, 'gonecrazy'); return false;">Quick quote</a>
+					</span>
+				</p>
+		    </div>
+		</div>
+    
+
+</div>        
+<!-- div.post/even/replypost ends-->
+ 
+2011-09-29 05:19:45,945 - dinette.views - INFO - in post reply.................
+2011-09-29 05:20:11,191 - dinette.views - INFO - in post reply.................
+2011-09-29 05:20:11,193 - dinette.views - DEBUG - toipcid= 1
+2011-09-29 05:20:11,194 - dinette.views - DEBUG - Assigning an user rank, and last posted datetime
+2011-09-29 05:20:11,584 - dinette.views - DEBUG - what is the replymesage = <markupfield.fields.Markup object at 0xaf72cec>
+2011-09-29 05:20:11,603 - dinette.views - DEBUG - what is the response = 
+ 
+
+<!-- div.post/even/replypost begins-->
+<a name="10"></a>
+<div id=post10 class="post even replypost">
+  <!-- div p120560 begins-->
+  <div id="reply10" class="posthead">
+    <h3 class="hn post-ident">
+	  <span class="post-num"></span>
+	  <span class="post-byline">
+	    <span>Reply by </span>
+		<a title="" href="#"></a>
+	  </span>
+      <span class="post-link">
+	    <a class="permalink" rel="bookmark" title="Permanent link to this post" href="/forum/joke/jokes/#10">29th September 2011 05:20 AM</a>
+	  </span> &nbsp; &nbsp; &nbsp;
+	</h3>
+  </div>
+  <!-- div p120560 ends-->
+  
+  <!-- div.postbody begins-->
+  <div class="postbody">
+	<!-- div.post-author begins-->
+    <div class="post-author">
+	  <!-- ul.author-indent begins-->
+	  <ul class="author-ident">
+	    <li>
+		  <table class="authortable">
+		  <tr><td>
+		                                                            
+		      <img src="http://www.gravatar.com/avatar/1c08fc598f37e4f2017c0802686a459a.jpg" alt="gonecrazy's Photo" />
+		     
+		  </td></tr>
+		  <tr><td>
+		    <a href="/forum/users/gonecrazy">gonecrazy</a>
+		  </td></tr>
+		  </table>
+		</li>
+		<li class="usertitle"><span>Junior Member  </span></li>
+		<li class="userstatus">
+		  <span>
+		  
+			Offline
+		  
+		  </span>
+		</li>
+	  </ul>
+	  <!-- ul.author-indent ends-->
+	  
+	  <!-- ul.author-info begins-->
+	  <ul class="author-info">
+	    <li>
+		  <span>Registered: 
+		    <strong> 26th September 2011 06:43 AM</strong>
+		  </span>
+		</li>
+		<li>
+		  <span>Posts: 
+		    <strong> 11</strong>
+		  </span>
+		</li>
+	  </ul>
+	  <!-- ul.author-info ends-->
+	</div>
+	<!-- div.post-author ends-->
+
+	<div class="post-entry">
+        <h4 id="entry10" class="entry-title hn">Re: jokes</h4>
+		<div id=content10 class="entry-content">
+		  <p><p>adfadsfadsfasdf</p></p>
+		      
+		            
+    
+    
+    
+    
+     
+                                                     
+		  
+		</div>
+	</div>
+	
+  </div>
+  <!-- div.postbody ends-->
+  
+    
+	    <div class="postfoot">
+		    <div class="post-options">
+                <p class="post-actions">
+                    
+						<span class="delete-post">
+						    <a href="#" onclick="delete_reply(10); return false;">Delete</a>
+						</span>
+						<span class="edit-post">
+						    <a href="/forum/edit/reply/10">Edit</a>
+						</span>
+                    
+					<span class="edit-post first-item">
+					    <a href="#" onclick="quote_reply(10, 'gonecrazy'); return false;">Quick quote</a>
+					</span>
+				</p>
+		    </div>
+		</div>
+    
+
+</div>        
+<!-- div.post/even/replypost ends-->
+ 
