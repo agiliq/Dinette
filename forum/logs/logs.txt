@@ -447,3 +447,214 @@
 </div>        
 <!-- div.post/even/replypost ends-->
  
+2011-09-29 06:22:55,628 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:22:55,628 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:22:56,133 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:22:56,133 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:22:56,370 - dinette.views - INFO - In the index page
+2011-09-29 06:22:56,371 - dinette.views - DEBUG - appending false..........1
+2011-09-29 06:22:56,372 - dinette.views - DEBUG - what is the accesslist 0
+2011-09-29 06:24:11,832 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:24:11,832 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:24:12,284 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:24:12,285 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:24:12,516 - dinette.views - INFO - In the index page
+2011-09-29 06:24:12,517 - dinette.views - DEBUG - appending false..........1
+2011-09-29 06:24:12,517 - dinette.views - DEBUG - what is the accesslist 0
+2011-09-29 06:28:12,341 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:28:12,341 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:28:12,783 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:28:12,784 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:28:12,870 - dinette.views - INFO - In the index page
+2011-09-29 06:28:12,871 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:29:23,726 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:29:23,727 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:29:24,147 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:29:24,148 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:29:24,230 - dinette.views - INFO - In the index page
+2011-09-29 06:29:24,231 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:30:07,967 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:30:07,967 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:30:08,382 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:30:08,382 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:30:08,467 - dinette.views - INFO - In the index page
+2011-09-29 06:30:08,468 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:31:17,311 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:31:17,311 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:31:17,745 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:31:17,745 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:31:17,833 - dinette.views - INFO - In the index page
+2011-09-29 06:31:17,834 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:31:38,803 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:31:38,803 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:31:39,251 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:31:39,251 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:31:39,337 - dinette.views - INFO - In the index page
+2011-09-29 06:31:39,338 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:32:40,982 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:32:40,982 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:32:41,415 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:32:41,415 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:32:41,503 - dinette.views - INFO - In the index page
+2011-09-29 06:32:41,504 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:32:52,327 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:32:52,327 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:32:52,757 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:32:52,757 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:32:52,845 - dinette.views - INFO - In the index page
+2011-09-29 06:32:52,846 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:44:03,125 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:44:03,126 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:44:07,962 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:44:07,962 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:44:08,380 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:44:08,381 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:44:08,463 - dinette.views - INFO - In the index page
+2011-09-29 06:44:08,464 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:45:41,411 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:45:41,411 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:45:41,837 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:45:41,837 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:45:41,923 - dinette.views - INFO - In the index page
+2011-09-29 06:45:41,924 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:45:46,156 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:45:46,156 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:45:46,574 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:45:46,575 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:45:46,658 - dinette.views - INFO - In the index page
+2011-09-29 06:45:46,659 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:45:50,900 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:45:50,900 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:45:51,323 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:45:51,323 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:45:51,411 - dinette.views - INFO - In the index page
+2011-09-29 06:45:51,412 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:45:55,363 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:45:55,363 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:45:55,781 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:45:55,781 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:45:55,865 - dinette.views - INFO - In the index page
+2011-09-29 06:45:55,866 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:46:50,044 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:46:50,045 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:46:50,463 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:46:50,463 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:46:50,548 - dinette.views - INFO - In the index page
+2011-09-29 06:46:50,549 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:46:57,504 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:46:57,504 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:46:57,916 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:46:57,917 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:46:58,044 - dinette.views - INFO - In the index page
+2011-09-29 06:46:58,046 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:48:00,681 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:48:00,681 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:48:01,098 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:48:01,099 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:48:01,182 - dinette.views - INFO - In the index page
+2011-09-29 06:48:01,183 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:48:05,176 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:48:05,176 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:48:05,593 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:48:05,593 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:48:05,678 - dinette.views - INFO - In the index page
+2011-09-29 06:48:05,679 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:48:09,218 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:48:09,218 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:48:09,632 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:48:09,633 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:48:09,718 - dinette.views - INFO - In the index page
+2011-09-29 06:48:09,719 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:48:14,456 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:48:14,456 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:48:14,884 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:48:14,884 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:48:14,968 - dinette.views - INFO - In the index page
+2011-09-29 06:48:14,969 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:48:35,764 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:48:35,764 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:48:36,181 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:48:36,181 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:48:36,265 - dinette.views - INFO - In the index page
+2011-09-29 06:48:36,266 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:48:40,686 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:48:40,686 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:48:41,100 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:48:41,100 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:48:41,184 - dinette.views - INFO - In the index page
+2011-09-29 06:48:41,185 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:48:45,311 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:48:45,311 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:48:45,727 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:48:45,727 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:48:45,810 - dinette.views - INFO - In the index page
+2011-09-29 06:48:45,811 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:48:51,784 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:48:51,784 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:48:52,199 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:48:52,199 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:48:52,282 - dinette.views - INFO - In the index page
+2011-09-29 06:48:52,283 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:51:27,974 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:51:27,974 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:51:28,404 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:51:28,404 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:51:28,488 - dinette.views - INFO - In the index page
+2011-09-29 06:51:28,489 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:51:57,212 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:51:57,213 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:51:57,640 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:51:57,640 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:51:57,731 - dinette.views - INFO - In the index page
+2011-09-29 06:51:57,732 - dinette.views - DEBUG - what is the accesslist 
+2011-09-29 06:52:23,982 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:52:23,982 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:52:24,431 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:52:24,431 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:52:24,666 - dinette.views - INFO - In the index page
+2011-09-29 06:52:24,667 - dinette.views - DEBUG - appending false..........1
+2011-09-29 06:52:24,667 - dinette.views - DEBUG - what is the accesslist 0
+2011-09-29 06:53:33,198 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:53:33,198 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:53:33,655 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:53:33,655 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:53:33,887 - dinette.views - INFO - In the index page
+2011-09-29 06:53:33,888 - dinette.views - DEBUG - appending false..........1
+2011-09-29 06:53:33,891 - dinette.views - DEBUG - what is the accesslist 0
+2011-09-29 06:54:08,324 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:54:08,324 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:54:08,800 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:54:08,800 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:54:09,038 - dinette.views - INFO - In the index page
+2011-09-29 06:54:09,039 - dinette.views - DEBUG - appending false..........1
+2011-09-29 06:54:09,039 - dinette.views - DEBUG - what is the accesslist 0
+2011-09-29 06:55:17,954 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:55:17,954 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:55:32,413 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:55:32,414 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:55:32,897 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:55:32,897 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:55:33,134 - dinette.views - INFO - In the index page
+2011-09-29 06:55:33,135 - dinette.views - DEBUG - appending false..........1
+2011-09-29 06:55:33,135 - dinette.views - DEBUG - what is the accesslist 0
+2011-09-29 06:55:39,087 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:55:39,087 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:55:39,539 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:55:39,539 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:55:39,778 - dinette.views - INFO - In the index page
+2011-09-29 06:55:39,779 - dinette.views - DEBUG - appending false..........1
+2011-09-29 06:55:39,780 - dinette.views - DEBUG - what is the accesslist 0
+2011-09-29 06:55:50,546 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:55:50,546 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:55:51,004 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:55:51,004 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:55:51,243 - dinette.views - INFO - In the index page
+2011-09-29 06:55:51,244 - dinette.views - DEBUG - appending false..........1
+2011-09-29 06:55:51,245 - dinette.views - DEBUG - what is the accesslist 0
+2011-09-29 06:57:30,940 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/gonecrazy/agiliq/Dinette/forum/logging.conf LOG_FILE_PATH "/home/gonecrazy/agiliq/Dinette/forum/logs/logs.txt"
+2011-09-29 06:57:30,940 - dinette.models - DEBUG - Models Compliing!dinette.models
+2011-09-29 06:57:31,418 - dinette.views - INFO - In the welcome page.......................
+2011-09-29 06:57:31,418 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2011-09-29 06:57:31,659 - dinette.views - INFO - In the index page
+2011-09-29 06:57:31,661 - dinette.views - DEBUG - appending false..........1
+2011-09-29 06:57:31,661 - dinette.views - DEBUG - what is the accesslist 0
