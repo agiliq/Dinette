@@ -1,5 +1,6 @@
 import os
 from distutils.core import setup
+from setuptools import find_packages
 
 overview = open(os.path.join(os.path.dirname(__file__), 'docs/overview.txt'))
 data = overview.read()
