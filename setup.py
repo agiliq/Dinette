@@ -1,7 +1,7 @@
 import os
-from setuptools import setup, find_packages
+from distutils.core import setup
 
-overview = file('docs/overview.txt')
+overview = open(os.path.join(os.path.dirname(__file__), 'docs/overview.txt'))
 data = overview.read()
 overview.close()
 
@@ -11,7 +11,6 @@ setup(
     keywords='django, forum',
     packages=find_packages(exclude=["forum", "forum.*"]),
     include_package_data=True,
-    zip_safe=False,
     version="1.2a",
     author="Agiliq Solutions",
     author_email="hello@agiliq.com",
