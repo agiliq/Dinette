@@ -38,7 +38,9 @@
 	  <table class="authortable">
 		<tr><td >
 		  {% if user_profile.photo  %}
-			<img src="{% thumbnail user_profile.get_profile.photo 80x80 %}" />                                                    
+			{% thumbnail user_profile.get_profile.photo 80x80 as profile_thumbnail %}
+			<img src="{{ profile_thumbnail.url }}" />
+			{% endthumbnail %}
 		  {% else %}                                                        
 			<img src="http://www.gravatar.com/avatar/{{user_profile.get_profile.getMD5}}.jpg" alt="" />
 		  {% endif %}  
