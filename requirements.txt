@@ -9,6 +9,6 @@ django-socialauth
 -e git+http://github.com/agiliq/django-google-analytics.git#egg=google_analytics-0.1-py2.6-dev
 oauth
 python-openid
-sorl-thumbnail
+sorl-thumbnail==3.2.5
 Whoosh
 django-haystack
