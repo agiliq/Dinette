@@ -1,4 +1,3 @@
-
 {% load thumbnail %} 
 
 <!-- div.post/even/replypost begins-->
@@ -29,7 +28,9 @@
 		  <table class="authortable">
 		  <tr><td>
 		    {% if reply.posted_by.get_profile.photo  %}
-		      <img src="{% thumbnail reply.posted_by.get_profile.photo 80x80 %}" />
+		      {% thumbnail reply.posted_by.get_profile.photo "80x80" as profile_photo %}
+		      <img src="{{ profile_photo.url }}" />
+		      {% endthumbnail %}
 		    {% else %}                                                        
 		      <img src="http://www.gravatar.com/avatar/{{reply.posted_by.get_profile.getMD5}}.jpg" alt="{{reply.posted_by.username}}'s Photo" />
 		    {% endif %} 
