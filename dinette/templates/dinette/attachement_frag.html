@@ -16,8 +16,9 @@
     <strong> Image Attachment : </strong>  <br/>
     {{rtopic.filename}}<br/><br/>
     <a href="{{MEDIA_URL}}/{{rtopic.file}}">
-        
-        <img src="{% thumbnail rtopic.file 200x200 %}" />
+        {% thumbnail rtopic.file "200x200" as file_thumbnail %}
+        <img src="{{ file_thumbnail.url }}" />
+        {% endthumbnail %}
         
     </a>   
     &nbsp; <a href=""> Download </a>
