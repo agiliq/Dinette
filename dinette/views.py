@@ -160,14 +160,15 @@ def postTopic(request) :
         ftopic.filename = request.FILES['file'].name
         
     ftopic.posted_by = request.user
-    #autosubsribe
-    ftopic.subscribers.add(request.user)
+
     mlogger.debug("categoryid= %s" %request.POST['categoryid'])
     ftopic.category  = Category.objects.get(pk = request.POST['categoryid'])
     #Assigning user rank
     mlogger.debug("Assigning an user rank and last posted datetime")     
     assignUserElements(request.user)
     ftopic.save()
+    #autosubsribe
+    ftopic.subscribers.add(request.user)
     mlogger.debug("what is the message (%s %s) " % (ftopic.message,ftopic.subject))    
     payload = {'topic':ftopic}
     response_html = render_to_string('dinette/topic_detail_frag.html', payload,RequestContext(request))

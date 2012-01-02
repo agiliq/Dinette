@@ -145,3 +145,236 @@
 2011-09-29 07:54:29,203 - dinette.views - INFO - In the index page
 2011-09-29 07:54:29,205 - dinette.views - DEBUG - appending false..........1
 2011-09-29 07:54:29,205 - dinette.views - DEBUG - what is the accesslist 0
+2012-01-02 00:46:13,394 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logs/logs.txt"
+2012-01-02 00:46:13,406 - dinette.models - DEBUG - Models Compliing!dinette.models
+2012-01-02 00:48:16,476 - dinette.views - INFO - In the index page
+2012-01-02 00:48:16,631 - dinette.views - DEBUG - appending false..........1
+2012-01-02 00:48:16,632 - dinette.views - DEBUG - appending false..........2
+2012-01-02 00:48:16,632 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 00:49:00,764 - dinette.views - INFO - In the index page
+2012-01-02 00:49:00,774 - dinette.views - DEBUG - appending false..........1
+2012-01-02 00:49:00,774 - dinette.views - DEBUG - appending false..........2
+2012-01-02 00:49:00,774 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 00:50:17,373 - dinette.views - INFO - In the welcome page.......................
+2012-01-02 00:50:17,373 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2012-01-02 00:52:19,466 - dinette.views - INFO - In the index page
+2012-01-02 00:52:19,471 - dinette.views - DEBUG - appending false..........1
+2012-01-02 00:52:19,471 - dinette.views - DEBUG - appending false..........2
+2012-01-02 00:52:19,471 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 00:52:27,955 - dinette.views - INFO - In the index page
+2012-01-02 00:52:27,965 - dinette.views - DEBUG - appending false..........1
+2012-01-02 00:52:27,965 - dinette.views - DEBUG - appending false..........2
+2012-01-02 00:52:27,965 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 00:54:15,271 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logs/logs.txt"
+2012-01-02 00:54:15,271 - dinette.models - DEBUG - Models Compliing!dinette.models
+2012-01-02 00:55:37,481 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logs/logs.txt"
+2012-01-02 00:55:37,482 - dinette.models - DEBUG - Models Compliing!dinette.models
+2012-01-02 00:55:51,502 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logs/logs.txt"
+2012-01-02 00:55:51,502 - dinette.models - DEBUG - Models Compliing!dinette.models
+2012-01-02 00:56:12,747 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logs/logs.txt"
+2012-01-02 00:56:12,747 - dinette.models - DEBUG - Models Compliing!dinette.models
+2012-01-02 00:56:46,730 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logs/logs.txt"
+2012-01-02 00:56:46,730 - dinette.models - DEBUG - Models Compliing!dinette.models
+2012-01-02 00:57:09,572 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logs/logs.txt"
+2012-01-02 00:57:09,572 - dinette.models - DEBUG - Models Compliing!dinette.models
+2012-01-02 00:57:29,641 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logs/logs.txt"
+2012-01-02 00:57:29,641 - dinette.models - DEBUG - Models Compliing!dinette.models
+2012-01-02 00:58:06,221 - dinette.views - INFO - In the index page
+2012-01-02 00:58:06,230 - dinette.views - DEBUG - what is the accesslist 
+2012-01-02 00:58:26,960 - dinette.views - INFO - In the index page
+2012-01-02 00:58:26,974 - dinette.views - DEBUG - what is the accesslist 
+2012-01-02 00:58:39,297 - dinette.views - INFO - In the index page
+2012-01-02 00:58:39,307 - dinette.views - DEBUG - what is the accesslist 
+2012-01-02 00:58:44,908 - dinette.views - INFO - In the index page
+2012-01-02 00:58:44,914 - dinette.views - DEBUG - what is the accesslist 
+2012-01-02 00:58:57,806 - dinette.views - INFO - In post Topic page.....................
+2012-01-02 00:58:57,807 - dinette.views - DEBUG - Type of request.user <class 'django.contrib.auth.models.User'>
+2012-01-02 01:02:41,272 - dinette.views - INFO - In the index page
+2012-01-02 01:02:41,282 - dinette.views - DEBUG - appending false..........1
+2012-01-02 01:02:41,282 - dinette.views - DEBUG - what is the accesslist 0
+2012-01-02 01:03:01,770 - dinette.views - INFO - in post reply.................
+2012-01-02 02:24:33,148 - dinette.views - INFO - In the index page
+2012-01-02 02:24:33,162 - dinette.views - DEBUG - appending false..........1
+2012-01-02 02:24:33,163 - dinette.views - DEBUG - what is the accesslist 0
+2012-01-02 02:24:36,888 - dinette.views - INFO - In the index page
+2012-01-02 02:24:36,906 - dinette.views - DEBUG - appending false..........1
+2012-01-02 02:24:36,906 - dinette.views - DEBUG - what is the accesslist 0
+2012-01-02 02:25:03,195 - dinette.views - INFO - in post reply.................
+2012-01-02 02:25:07,997 - dinette.views - INFO - in post reply.................
+2012-01-02 02:25:08,000 - dinette.views - DEBUG - toipcid= 1
+2012-01-02 02:25:08,001 - dinette.views - DEBUG - Assigning an user rank, and last posted datetime
+2012-01-02 02:25:08,234 - dinette.views - DEBUG - what is the replymesage = <markupfield.fields.Markup object at 0xb66b8c2c>
+2012-01-02 02:25:08,256 - dinette.views - DEBUG - what is the response =  
+
+<!-- div.post/even/replypost begins-->
+<a name="1"></a>
+<div id=post1 class="post even replypost">
+  <!-- div p120560 begins-->
+  <div id="reply1" class="posthead">
+    <h3 class="hn post-ident">
+	  <span class="post-num"></span>
+	  <span class="post-byline">
+	    <span>Reply by </span>
+		<a title="" href="#"></a>
+	  </span>
+      <span class="post-link">
+	    <a class="permalink" rel="bookmark" title="Permanent link to this post" href="/forum/balu/Hi/#1">2nd January 2012 02:25 AM</a>
+	  </span> &nbsp; &nbsp; &nbsp;
+	</h3>
+  </div>
+  <!-- div p120560 ends-->
+  
+  <!-- div.postbody begins-->
+  <div class="postbody">
+	<!-- div.post-author begins-->
+    <div class="post-author">
+	  <!-- ul.author-indent begins-->
+	  <ul class="author-ident">
+	    <li>
+		  <table class="authortable">
+		  <tr><td>
+		                                                            
+		      <img src="http://www.gravatar.com/avatar/7c799b330b2877f61f7a9fa7243c2bdb.jpg" alt="balu's Photo" />
+		     
+		  </td></tr>
+		  <tr><td>
+		    <a href="/forum/users/balu">balu</a>
+		  </td></tr>
+		  </table>
+		</li>
+		<li class="usertitle"><span>Junior Member  </span></li>
+		<li class="userstatus">
+		  <span>
+		  
+			Offline
+		  
+		  </span>
+		</li>
+	  </ul>
+	  <!-- ul.author-indent ends-->
+	  
+	  <!-- ul.author-info begins-->
+	  <ul class="author-info">
+	    <li>
+		  <span>Registered: 
+		    <strong> 2nd January 2012 00:57 AM</strong>
+		  </span>
+		</li>
+		<li>
+		  <span>Posts: 
+		    <strong> 2</strong>
+		  </span>
+		</li>
+	  </ul>
+	  <!-- ul.author-info ends-->
+	</div>
+	<!-- div.post-author ends-->
+
+	<div class="post-entry">
+        <h4 id="entry1" class="entry-title hn">Re: Hi</h4>
+		<div id=content1 class="entry-content">
+		  <p>asd</p>
+		      
+		            
+    
+    
+    
+    
+     
+                                                     
+		  
+		</div>
+	</div>
+	
+  </div>
+  <!-- div.postbody ends-->
+  
+    
+	    <div class="postfoot">
+		    <div class="post-options">
+                <p class="post-actions">
+                    
+						<span class="delete-post">
+						    <a href="#" onclick="delete_reply(1); return false;">Delete</a>
+						</span>
+						<span class="edit-post">
+						    <a href="/forum/edit/reply/1">Edit</a>
+						</span>
+                    
+					<span class="edit-post first-item">
+					    <a href="#" onclick="quote_reply(1, 'balu'); return false;">Quick quote</a>
+					</span>
+				</p>
+		    </div>
+		</div>
+    
+
+</div>        
+<!-- div.post/even/replypost ends-->
+ 
+2012-01-02 02:25:21,675 - dinette.views - INFO - In the index page
+2012-01-02 02:25:21,685 - dinette.views - DEBUG - appending false..........1
+2012-01-02 02:25:21,685 - dinette.views - DEBUG - what is the accesslist 0
+2012-01-02 02:37:35,676 - dinette.views - INFO - In the index page
+2012-01-02 02:37:35,693 - dinette.views - DEBUG - appending false..........1
+2012-01-02 02:37:35,693 - dinette.views - DEBUG - what is the accesslist 0
+2012-01-02 02:38:43,608 - dinette.views - INFO - In the index page
+2012-01-02 02:38:43,617 - dinette.views - DEBUG - appending false..........1
+2012-01-02 02:38:43,617 - dinette.views - DEBUG - appending false..........2
+2012-01-02 02:38:43,617 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 02:39:21,076 - dinette.views - INFO - In the index page
+2012-01-02 02:39:21,082 - dinette.views - DEBUG - appending false..........1
+2012-01-02 02:39:21,082 - dinette.views - DEBUG - appending false..........2
+2012-01-02 02:39:21,083 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 02:39:23,386 - dinette.views - INFO - In the index page
+2012-01-02 02:39:23,399 - dinette.views - DEBUG - appending false..........1
+2012-01-02 02:39:23,399 - dinette.views - DEBUG - appending false..........2
+2012-01-02 02:39:23,400 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 02:40:12,148 - dinette.views - INFO - In post Topic page.....................
+2012-01-02 02:40:12,149 - dinette.views - DEBUG - Type of request.user <class 'django.contrib.auth.models.User'>
+2012-01-02 02:40:17,426 - dinette.views - INFO - In post Topic page.....................
+2012-01-02 02:40:17,427 - dinette.views - DEBUG - Type of request.user <class 'django.contrib.auth.models.User'>
+2012-01-02 02:40:22,277 - dinette.views - INFO - In the index page
+2012-01-02 02:40:22,286 - dinette.views - DEBUG - appending false..........1
+2012-01-02 02:40:22,286 - dinette.views - DEBUG - appending false..........2
+2012-01-02 02:40:22,287 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 03:07:48,223 - dinette.views - INFO - In the welcome page.......................
+2012-01-02 03:07:48,224 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2012-01-02 03:08:00,658 - dinette.views - INFO - In the welcome page.......................
+2012-01-02 03:08:00,658 - dinette.views - DEBUG - Type of request.user <class 'django.core.handlers.wsgi.WSGIRequest'>
+2012-01-02 03:09:38,575 - dinette.views - INFO - In the index page
+2012-01-02 03:09:38,590 - dinette.views - DEBUG - appending false..........1
+2012-01-02 03:09:38,591 - dinette.views - DEBUG - appending false..........2
+2012-01-02 03:09:38,591 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 03:31:23,354 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logs/logs.txt"
+2012-01-02 03:31:23,354 - dinette.models - DEBUG - Models Compliing!dinette.models
+2012-01-02 03:51:19,378 - dinette.views - INFO - In the index page
+2012-01-02 03:51:19,423 - dinette.views - DEBUG - appending false..........1
+2012-01-02 03:51:19,423 - dinette.views - DEBUG - appending false..........2
+2012-01-02 03:51:19,424 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 03:53:20,470 - dinette.models - DEBUG - From settings LOG_FILE_NAME /home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logging.conf LOG_FILE_PATH "/home/balu/workspace/virtual_env/workspace/work/Dinette/forum/logs/logs.txt"
+2012-01-02 03:53:20,473 - dinette.models - DEBUG - Models Compliing!dinette.models
+2012-01-02 04:21:31,652 - dinette.views - INFO - In the index page
+2012-01-02 04:21:31,695 - dinette.views - DEBUG - appending false..........1
+2012-01-02 04:21:31,695 - dinette.views - DEBUG - appending false..........2
+2012-01-02 04:21:31,695 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 04:22:34,475 - dinette.views - INFO - In the index page
+2012-01-02 04:22:34,486 - dinette.views - DEBUG - appending false..........1
+2012-01-02 04:22:34,487 - dinette.views - DEBUG - appending false..........2
+2012-01-02 04:22:34,487 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 04:26:59,524 - dinette.views - INFO - In the index page
+2012-01-02 04:26:59,539 - dinette.views - DEBUG - appending false..........1
+2012-01-02 04:26:59,539 - dinette.views - DEBUG - appending false..........2
+2012-01-02 04:26:59,539 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 04:27:09,899 - dinette.views - INFO - In the index page
+2012-01-02 04:27:09,918 - dinette.views - DEBUG - appending false..........1
+2012-01-02 04:27:09,918 - dinette.views - DEBUG - appending false..........2
+2012-01-02 04:27:09,920 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 04:27:16,781 - dinette.views - INFO - In the index page
+2012-01-02 04:27:16,799 - dinette.views - DEBUG - appending false..........1
+2012-01-02 04:27:16,799 - dinette.views - DEBUG - appending false..........2
+2012-01-02 04:27:16,799 - dinette.views - DEBUG - what is the accesslist 00
+2012-01-02 04:27:29,587 - dinette.views - INFO - In the index page
+2012-01-02 04:27:29,603 - dinette.views - DEBUG - appending false..........1
+2012-01-02 04:27:29,604 - dinette.views - DEBUG - appending false..........2
+2012-01-02 04:27:29,604 - dinette.views - DEBUG - what is the accesslist 00

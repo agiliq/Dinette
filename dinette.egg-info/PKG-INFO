@@ -1,0 +1,76 @@
+Metadata-Version: 1.0
+Name: dinette
+Version: 1.2a
+Summary: Dinette is a forum application in the spirit of PunBB.
+Home-page: http://www.agiliq.com/
+Author: Agiliq Solutions
+Author-email: hello@agiliq.com
+License: GPL
+Description: Dinette Forum
+        ---------------
+        
+        The name
+        ==============
+        Dinette is a composition by Django Reinhardt. I haven't personally heard it, but I believe that like everything
+        built with or by Django it is going to be superb.
+        
+        Overview.
+        ===========
+        
+        Dinette is a forum built with Django. It uses the PunBB philosophy of being lightweight, but functional. Additionaly
+        it takes
+        the HTML wholesale from PunBB. Like PunBB, it is GPL licensed.
+        
+        Why Another?
+        ================
+        There are a lot of existing forum applications for Django, so why another.
+        In our belief, there is no forum application, (Apart from that bundled with Ellington)
+        of quality comparable to that available to PHP. Djorum is not there yet, but Usware plans
+        to provide long term support for it,
+        and continue to develop this depending on community support.
+        
+        Features
+        ===============
+        1. Fully reuable, plug and play in your existing site.
+        2. Plays well with other Django components, like auth and django-registration, admin.
+        3. Support BBCode
+        4. Supports File attachement.
+        5. Supports image attachment
+        6. Supports supercategories, categories, and topic. (Upto 3 levels of nesting).
+        7. Support groups and limited visibility.
+        8. Supports Karma
+        9. Supports Ranks
+        10.Supports announcements.
+        11. Supports RSS
+        And many, many others.
+        
+        Why use this
+        ==================
+        Why use this instead of say PubBB?
+        
+        This integrates tightly with other Django subsystems, including Admin, User and Groups.
+        
+        
+        How to use it.
+        ================
+        1. Put it into your existing Django project.
+        2. Syncdb
+        3. Make your registration system create a DinetteUserProfile object for each user who is going to use Dinette.
+        4. Create supercategories, categories and categories.
+        5. Play.
+        
+        
+Keywords: django,forum
+Platform: all
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
