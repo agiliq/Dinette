@@ -18,3 +18,4 @@ include/*
 local
 dist/*
 build/*
+*.db
