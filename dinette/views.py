@@ -46,7 +46,6 @@ def index_page(request):
             #we are treating user who have not loggedin belongs to general group
             groups = Group.objects.filter(name="general")
         
-    
     #logic which decide which forum does this user have access to
     for forum in forums :
         
@@ -163,18 +162,22 @@ def postTopic(request) :
 
     mlogger.debug("categoryid= %s" %request.POST['categoryid'])
     ftopic.category  = Category.objects.get(pk = request.POST['categoryid'])
+
     #Assigning user rank
     mlogger.debug("Assigning an user rank and last posted datetime")     
     assignUserElements(request.user)
     ftopic.save()
+
     #autosubsribe
     ftopic.subscribers.add(request.user)
+
     mlogger.debug("what is the message (%s %s) " % (ftopic.message,ftopic.subject))    
     payload = {'topic':ftopic}
     response_html = render_to_string('dinette/topic_detail_frag.html', payload,RequestContext(request))
     mlogger.debug("what is the response = %s " % response_html)
   
     d2 = {"is_valid":"true","response_html":response_html}
+
     #this the required for ajax file uploads
     if request.FILES : 
         json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
