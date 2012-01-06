@@ -19,3 +19,4 @@ local
 dist/*
 build/*
 *.db
+forum/logs/*
