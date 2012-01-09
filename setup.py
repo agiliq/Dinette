@@ -12,7 +12,7 @@ setup(
     keywords='django, forum',
     packages=find_packages(exclude=["forum", "forum.*"]),
     include_package_data=True,
-    version="1.2a",
+    version="1.2b",
     author="Agiliq Solutions",
     author_email="hello@agiliq.com",
     long_description= data,
