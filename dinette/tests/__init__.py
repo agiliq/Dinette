@@ -49,19 +49,17 @@ class Testmaker(TestCase):
         self.assertEqual(supercategory.name,"Python and Django")
         
     def test_post_topic(self):
-        response = self.client.post('/forum/post/topic/',{'subject':'python','message':'this is python','authenticated':'true','categoryid':'1'})
-        print response.status_code
+        self.client.login(username='plaban', password='plaban')
+        response = self.client.post('/forum/post/topic/', {'subject':'python','message':'this is python', 'message_markup_type':'plain', 'authenticated':'true','categoryid':'1'})
         response = self.client.get('/forum/active/')
         topic = response.context['new_topic_list'][0]
-        self.assertEqual(topic.subject,'python')
-        print topic.slug
-
+        self.assertEqual(topic.subject, 'python')
 
     def test_post_reply(self):
-        response = self.client.login(username = "plaban",password = "plaban")
-        response = self.client.post("/forum/post/reply",{'message':'this is good','message_markup_type':'plain',
-                                                         'authenticated':'True','topicid':'1'})
-        self.assertEqual(response.status_code,302)
+        response = self.client.login(username='plaban',password='plaban')
+        response = self.client.post("/forum/post/reply/", {'message':'this is good', 'message_markup_type':'plain',
+                                                         'authenticated':'True', 'topicid':'1'})
+	self.assertEqual(response.status_code, 200)
         
 
     def test_edit_reply(self):

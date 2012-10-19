@@ -71,7 +71,8 @@
             "filename": "dummyname.txt", 
             "attachment_type": "nofile", 
             "is_closed": 0, 
-            "subject": "Details about the Django design patterns"
+            "subject": "Details about the Django design patterns",
+            "last_reply_on":"2012-10-17 01:06:20"
         }
     },
 

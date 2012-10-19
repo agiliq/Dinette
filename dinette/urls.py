@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from django.contrib.syndication.views import feed
+from django.contrib.syndication.views import Feed
 
 from dinette.views import LatestTopicsByCategory,LatestRepliesOfTopic
 
@@ -14,7 +14,7 @@ urlpatterns = patterns('dinette.views',
     url(r'^$','index_page',name='dinette_category'),
     url(r'^new/$','new_topics',name='dinette_new_for_user'),                         
     url(r'^active/$','active',name='dinette_active'),
-    url(r'^unasnwered/$','active',name='dinette_unanswered'),
+    url(r'^unanswered/$','unanswered',name='dinette_unanswered'),
     #Login page, needs to be before category_details, or gets caught by that regex.
     url(r'^login/$','login',name='dinette_login'),    
     
@@ -51,6 +51,6 @@ urlpatterns = patterns('dinette.views',
 
 
 urlpatterns += patterns('',
-    url(r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed' , {'feed_dict': feeds},name='dinette_feed_url'),
-    url(r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed' , {'feed_dict': feeds},name='dinette_topic_url'),
+    url(r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.Feed' , {'feed_dict': feeds},name='dinette_feed_url'),
+    url(r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.Feed' , {'feed_dict': feeds},name='dinette_topic_url'),
 )

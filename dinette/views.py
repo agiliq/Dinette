@@ -6,7 +6,7 @@ from django.template import Context , loader
 from django.template import RequestContext
 from django.core.paginator import Paginator
 from django.template.loader import render_to_string
-from django.contrib.syndication.feeds import Feed
+from django.contrib.syndication.views import Feed
 from django.contrib.auth.models import User , Group
 from django.conf import settings
 from django.views.generic.list_detail import object_list
@@ -127,8 +127,8 @@ def postTopic(request) :
     mlogger.info("In post Topic page.....................")
     mlogger.debug("Type of request.user %s" % type(request.user)  )
     
-    topic = FtopicForm(request.POST,request.FILES)
-   
+    topic = FtopicForm(request.POST, request.FILES)
+
     if topic.is_valid() == False :
         d = {"is_valid":"false","response_html":topic.as_table()}
         json = simplejson.dumps(d)
@@ -137,10 +137,9 @@ def postTopic(request) :
         else:
             json = simplejson.dumps(d)
         return HttpResponse(json, mimetype = json_mimetype)                    
-     
-     
+   
     #code which checks for flood control
-    if (datetime.now() -(request.user.get_profile().last_posttime)).seconds <= settings.FLOOD_TIME :
+    if (datetime.now()-request.user.get_profile().last_posttime).seconds <= settings.FLOOD_TIME:
     #oh....... user trying to flood us Stop him
         d2 = {"is_valid":"flood","errormessage":"Flood control.................."}
         if request.FILES : 
@@ -148,7 +147,7 @@ def postTopic(request) :
         else :
             json = simplejson.dumps(d2)  
         return HttpResponse(json, mimetype = json_mimetype)
-         
+    
     ftopic = topic.save(commit=False)     
     #only if there is any file
     if request.FILES :
@@ -167,7 +166,6 @@ def postTopic(request) :
     mlogger.debug("Assigning an user rank and last posted datetime")     
     assignUserElements(request.user)
     ftopic.save()
-
     #autosubsribe
     ftopic.subscribers.add(request.user)
 
@@ -186,7 +184,7 @@ def postTopic(request) :
     return HttpResponse(json, mimetype = json_mimetype)
     
 @login_required    
-def postReply(request) :
+def postReply(request):
     mlogger.info("in post reply.................")
     freply = ReplyForm(request.POST,request.FILES)
     
@@ -412,7 +410,7 @@ def active(request):
     return topic_list(request, active_topics, page_message = "Most active Topics")
 
 def unanswered(request):
-    unanswered_topics = Topic.objects.filter(num_replies = 0)
+    unanswered_topics = Ftopics.objects.filter(replies = 0)
     return topic_list(request, unanswered_topics, page_message = "Unanswered Topics")
     
 def topic_list(request, queryset, page_message):
