@@ -186,3 +186,13 @@ $('.moderate-post').click(function(){
    return false;
    })
 
+function quote_reply(reply, author) {
+  msg = "[quote=" + author + "]" + $("#content" + reply).text().trim() + "[/quote]";
+  $("#id_message").val(msg).focus();
+}
+
+function delete_reply(reply) {
+  $.get('/forum/delete/reply/' + reply, function(resp) {
+    $("#post" + reply).fadeOut();
+  }, 'json');
+}

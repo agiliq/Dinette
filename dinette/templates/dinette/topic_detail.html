@@ -163,6 +163,7 @@
         {% include 'dinette/replydetail_frag.html' %}
         {% endfor %}
 		
+    </div>
   <div  id="belowpostreplybox" class="crumbs gen-content">	
   	
 	{% if not topic.is_closed %}
@@ -202,6 +203,5 @@
   {% endif %}
 	
   {{ block.super }}
-</div>
 </div>
 {% endblock %}
