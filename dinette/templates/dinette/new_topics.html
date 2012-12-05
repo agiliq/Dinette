@@ -13,7 +13,7 @@
 		{% include 'dinette/announce_frag.html' %}
 		<p></p>
 		</div>
-		<h2 class="hn"><span><span class="item-info">{{ page_message }}</span></span></h2>
+        <div class='well well-small'>{{ page_message }}</div>
 	</div>
 	
 	
@@ -21,6 +21,7 @@
 	<div id="topicslist" class="main-content main-forum forum-views">
 		<div id="brd-wrap" class="brd">
   			<div id="brd-index" class="brd-page basic-page">
+  			    <!--
   				<div class="main-subhead">
 					<p class="item-summary forum-views">
 					  <span>
@@ -31,13 +32,25 @@
 					  </span>
 					</p>
 				  </div>
-  				<div id="topicslist" class="main-content main-forum forum-views">
-					{% for topic in new_topic_list %}
-						{% include "dinette/topic_detail_frag.html" %}
-					{% empty %}
-						<p>There is no topic with new replies since your last visit.</p>
-					{% endfor %}
-				</div>
+                  -->
+                  <div class='well well-small'>
+                        <span class='span6'>Topics</span>
+                        <span class='span1'>Replies</span>
+                        <span class='span1'>Views</span>
+                        <span class='span2'>Last Post</span>
+                    </div>
+                    <div class='well'>
+                            {% for topic in new_topic_list %}
+                                {% include "dinette/topic_detail_frag.html" %}
+                            <div class='clearfix'></div>
+                            {% empty %}
+                                <p>There is no topic with new replies since your last visit.</p>
+                            {% endfor %}
+                        </div>
+
+
+                  </table>
+
 			</div>
 		</div>
 	</div>

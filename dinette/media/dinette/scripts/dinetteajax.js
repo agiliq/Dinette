@@ -61,7 +61,8 @@ function check_errors_in_Replyform() {
 function formsubmission(data) {
     if ( $("#fposttopic").length > 0 ) {
         if(data["is_valid"] == "true") {
-            $("#topicslist").prepend(data["response_html"]);
+            //$(data["response_html"]).insertAfter($($("#topicslist tr")[0]));
+            $("#topicslist").prepend(data['response_html']);
             show_hide_error_box();
             $("#errorbox span").html("Sucessfully posted the topic");
             $("#errorbox span").css({ padding : 6 })
@@ -84,7 +85,7 @@ function formsubmission(data) {
     
     if ( $("#fpostreply").length > 0 ) {
         if(data["is_valid"] == "true") {
-            $("#replylist").append(data["response_html"]);
+            $("#replies").append(data["response_html"]);
             show_hide_error_box();
             $("#errorbox span").html("Sucessfully Replied to the topic");
             $("#errorbox span").css({ padding : 6 })

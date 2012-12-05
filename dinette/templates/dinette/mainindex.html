@@ -2,99 +2,83 @@
 
 {% block content %}
 
-<!-- brd-wrap begins -->
-<div id="brd-wrap" class="brd">
     
 <!-- brd-index begins -->
 <div id="brd-index" class="brd-page basic-page">
 {% include 'dinette/header_frag.html' %}
 {% include 'dinette/announce_frag.html' %}
 
-<p></p>
-
-<div class="hr"><hr /></div>
 <!-- brd-main begins -->
 <div id="brd-main">
 {% for forum in forums_list %}
   {% if user_access_list|get_digit:forloop.counter  %}
-  <h1 class="main-title">{{ forum }}</h1>
+  <!--
   <div class="main-head">
-    <h2 class="hn"><span>{{ forum }}</span></h2>
+    <h2 class="hn"><span>{#{ forum }#}</span></h2>
   </div>
+  -->
+  <div class='well well-small'><strong>{{ forum }}</strong></div>
 
-  <div class="main-subhead">
-    <p class="item-summary">
-	  <span>
-	    <strong class="subject-title">Forum  </strong> in this category with details of 
-		<strong class="info-topics">topics</strong>,
-		<strong class="info-posts">posts</strong>, 
-		<strong class="info-lastpost">last post</strong>
-	  </span>
-	</p>
-  </div>
-  
-  <!-- category-#id begins -->
-  <div id="category{{category.id}}" class="main-content main-category">
+  <div class='well well-small'>
+    <span class='span6'>Forum</span>
+    <span class='span1'>Topics</span>
+    <span class='span1'>Posts</span>
+    <span class='span1'>Last Post</span>
+</div>
+    <div class='well'>
     {% for category in forum.category_set.all %}
-	<!-- forum48 begins -->
-    <div id="category{{ category.id }}" class="main-item odd main-first-item">
-	  <span class="icon "><!-- --></span>
-                
-	  <div class="item-subject">
-		<h3 class="hn"><a href="{% url dinette_index category.slug %}"><span> {{category}} </span></a></h3>
-		<p>{{ category.description }} 
-		  <span class="modlist">
-		    (Moderated by
-		    {% for moderator in category.moderated_by.all %}
-			  <a href="{{ moderator.get_profile.get_absolute_url }}">{{moderator}}</a>{% if not forloop.last %}, {% endif %}
-		    {% endfor %}    
-		    )
-		  </span>
-		</p>
-	  </div>
-                
-	  <ul class="item-info">
-		<li class="info-topics">
-		  <strong>{{ category.get_topics.count }} </strong> <span class="label">topics</span>
-		</li>
-		<li class="info-posts">
-		  <strong>{{ category.noofPosts }} </strong> <span class="label">posts</span>
-		</li>
-		<li class="info-lastpost">
-		  <span class="label">Last post:</span>
-		  <strong>
-		      {# last post can be Reply or Category #}
-		      {% if category.lastPost.get_url_with_fragment %}
-		          <a href={{ category.lastPost.get_url_with_fragment }}>
-		      {% else %}
-		          <a href={{ category.lastPost.get_absolute_url }}>
-		      {% endif %}
-		          {{ category.lastPostDatetime|date:"jS F Y H:i A" }}
-		      </a>
-		  </strong> 
-		  <cite>
-		      by <a href={{ category.lastPostedUser.get_profile.get_absolute_url }}>
-		             {{ category.lastPostedUser.username }}
-		         </a>
-		  </cite>
-		</li>
-	  </ul>
-	</div>
-	<!-- forum48 ends -->
-	{% endfor %}
+
+            <span class='icon'></span>
+            <div class="item-subject span6">
+                <h4 >
+                    <!--               <span class=' icon-chevron-right ' style='inline'></span> -->
+                    <a href="{% url dinette_index category.slug %}"><span> {{category}} </span></a></h4>
+                    <p>{{ category.description }}
+                    <span class="modlist">
+                        (Moderated by
+                        {% for moderator in category.moderated_by.all %}
+                        <a href="{{ moderator.get_profile.get_absolute_url }}">{{moderator}}</a>{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                        )
+                    </span>
+                    </p>
+                </div>
+            <div class='span1'> {{ category.get_topics.count  }} </div>
+            <div class='span1'> {{ category.noofPosts }} </div>
+            <div class='span2'>
+
+                <strong>
+                    {# last post can be Reply or Category #}
+                    {% if category.lastPost.get_url_with_fragment %}
+                        <a href={{ category.lastPost.get_url_with_fragment }}>
+                    {% else %}
+                        <a href={{ category.lastPost.get_absolute_url }}>
+                    {% endif %}
+                        {{ category.lastPostDatetime|date:"jS F Y H:i A" }}
+                    </a>
+                </strong> 
+                <cite>
+                    by <a href={{ category.lastPostedUser.get_profile.get_absolute_url }}>
+                            {{ category.lastPostedUser.username }}
+                        </a>
+                </cite>
+            </div>
+            <div class='clearfix'></div>
+    {% endfor %}
+</div>
+
   </div>
   <!-- category-#id ends -->
   {% endif %}
+  <br>
 {% endfor %}
-</div>
 <!-- brd-main ends -->
 
 <!-- forum_qpost -->
 
 <!-- brd-stats begins -->
-<div id="brd-stats" class="gen-content">
-  <h2 class="hn"><span>Forum statistics</span></h2>
-  <ul>
+<div id="brd-stats" class="well well-large">
+  <ul class='pull-left unstyled'>
 	<li class="st-users">
 	  <span>Total number of registered users: <strong>{{ totalusers }} </strong></span>
 	</li>
@@ -107,6 +91,8 @@
 		</strong>
 	  </span>
 	</li>
+</ul>
+<ul class='pull-right unstyled'>
 	<li class="st-activity">
 	  <span>Total number of topics: <strong>{{ totaltopics }}</strong></span>
 	</li>
@@ -117,10 +103,10 @@
 	  <span>Users Online: <strong> {{ users_online }} </strong></span>
 	</li>
   </ul>
+  <div class='clearfix'></div>
 </div>
 <!-- brd-stats ends -->
 
-<div class="hr"><hr /></div>
 
 {{ block.super }}
 

@@ -1,14 +1,15 @@
 {% load socialauth_tags %}
 {% load dinette_tags %}
-
-<div id="brd-head" class="gen-content">
-  <p id="brd-access"><a href="#brd-main">Skip to forum content</a></p>
+<br>
+<div id="brd-head" class="well well-small">
+    <!--  <p id="brd-access"><a href="#brd-main">Skip to forum content</a></p>  -->
   <p id="brd-title"><a href="{% url dinette_category %}">{% get_site_name %}</a></p>
   <p id="brd-desc">{% get_site_tag_line %}</p>
 </div>
 
-<div id="brd-navlinks" class="gen-content"> 
-  	<ul>
+<div  class="navbar"> 
+    <div class='navbar-inner'>
+  	<ul class='nav'> 
   		<li>
 				<a href="{% url dinette_category %}">Home</a>
 		</li>
@@ -27,10 +28,11 @@
 			</li>
 		{% endfor %}
 	</ul>
+</div>
  </div>
 
-<div id="brd-visit" class="gen-content">
-  <p id="welcome">
+<div class="well well-small">
+  <p  class='pull-left'>
   	<span>
 		{% if user.is_authenticated %}
 		  Hello 
@@ -41,10 +43,12 @@
 		{% endif %}
 	</span>
   </p>
-  <p id="visit-links" class="options">
+  <p class="options pull-right">
   		<span><a href="{% url dinette_active %}">Active Topics</a></span>
+        <span class='navbar navbar-inverse'><a class='divider-vertical'></a></span>
 		<span><a href="{% url dinette_unanswered %}">Unanswered Topics</a></span>
   </p>
 </div>	
+<br>
 
 	

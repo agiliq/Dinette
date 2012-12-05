@@ -19,7 +19,6 @@
 	{% include 'dinette/announce_frag.html' %}
 	<p></p>
 	
-	<div class="hr"><hr /></div>
 	<div id="errorbox"> <span></span> </div> 
 	
 	<!-- begin formbox -->
@@ -53,7 +52,7 @@
 	  </h1>
 	  
 	  <!-- bread crumbs begin -->
-	  <div id="brd-crumbs-top" class="crumbs gen-content">
+	  <div id="brd-crumbs-top" class="crumbs well well-small">
 	    <p>
 		  <span class="crumb crumbfirst">
 			<a href="{% url dinette_category %}">{% get_site_name %}</a>
@@ -70,13 +69,31 @@
 		  {% endif %}
         </p>
 	  </div>
+      <br>
 	  <!-- bread crumbs end -->
 	
-	  <div class="main-head">
-		<p class="options"><span class="feed first-item"><a href="{% url dinette_feed_url category.getCategoryString %}"> RSS </a></span></p>	
-		<h2 class="hn"><span><span class="item-info">Topics </span></span></h2>
+	  <div class="well well-small">
+		<p class="options pull-right"><span class="feed first-item"><a href="{% url dinette_feed_url category.getCategoryString %}"> RSS </a></span></p>	
+        <span class='pull-left'><strong>Topics </strong> </span>
 	  </div>
 
+      <div class='well well-small'>
+          <div>
+            <span class='smallspan'>&nbsp;</span>
+            <span class='span6'>Topics</span>
+            <span class='span1'>Replies</span>
+            <span class='span1'>Views</span>
+            <span class='span2'>Last Post</span>
+        </div>
+    </div>
+    
+            <div class="main-content main-forum forum-views well" id='topicslist'>
+                {% for topic in topic_list %}     
+                {% include 'dinette/topic_detail_frag.html' %}  
+                {% endfor %}
+                <div class='clearfix'></div>
+            </div>
+      <!--
 	  <div class="main-subhead">
 		<p class="item-summary forum-views">
 		  <span>
@@ -87,12 +104,9 @@
 		  </span>
 		</p>
 	  </div>
+      -->
 
-	  <div id="topicslist" class="main-content main-forum forum-views">
-		{% for topic in topic_list %}     
-		  {% include 'dinette/topic_detail_frag.html' %}  
-		{% endfor %}
-	  </div>
+
 	 
 	  <div  id="belowpostreplybox" class="crumbs gen-content">
 	  	{% paginate %}	
@@ -103,7 +117,6 @@
 	</div>
     <!-- brd-main ends -->
 
-	<div class="hr"><hr /></div>
 	{{ block.super }}
 	
   </div>

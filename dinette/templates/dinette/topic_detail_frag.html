@@ -1,5 +1,6 @@
-<div id="topic{{ topic.pk }}" class="main-item odd main-first-item normal">
-  {% if topic.is_closed %}
+<div class='eachtopic_row'>
+    <span class='smallspan'>
+{% if topic.is_closed %}
 	<span class="icon closed"><!-- --></span>
   {% endif %}
   
@@ -10,9 +11,16 @@
   {% if topic.is_normal %}
 	<span class="icon normal"><!-- --></span>
   {% endif %}
+    &nbsp;
+  </span>
+
+    <div class="item-subject span6">
+
   
-  <div class="item-subject">
-	<h3 class="hn"><span class="item-num">1</span>
+
+
+
+      <span class="item-num"></span>
 	  {% if topic.is_closed %}
 		<strong>(Closed)</strong>
 	  {% endif %}
@@ -21,8 +29,6 @@
 		<strong>(Sticky)</strong>
 	  {% endif %}		
 	  <a href="{% url dinette_topic_detail topic.category.slug topic.slug %}">{{topic.subject}} </a>   
-	</h3>
-	&nbsp;
 	<span class="item-starter">
 		  <cite>
 		      by <a href={{ topic.posted_by.get_profile.get_absolute_url }}>
@@ -32,29 +38,18 @@
 	</span>
   </div>
   
-  <ul class="item-info">
-	<li class="info-replies">
-	  <strong>{{ topic.reply_set.count }}</strong> 
-	  <span class="label">replies</span>
-	</li>
-	<li class="info-views">
-	  <strong>{{ topic.viewcount }}</strong> 
-	  <span class="label">views</span>
-	</li>
-	<li class="info-lastpost">
-	  <span class="label">Last post</span>
+  <div class='span1'> <span>{{ topic.reply_set.count }}</span> </div>
+  <div class='span1'>  <span>{{ topic.viewcount }}</span> </div>
+  <div class='span2'>
 	  {% if topic.reply_set.count > 0 %}
-	      <strong><a href="{{ topic.lastPost.get_url_with_fragment }}">{{ topic.lastPostDatetime|date:"jS F Y H:i A" }}</a></strong>
+	      <span><a href="{{ topic.lastPost.get_url_with_fragment }}">{{ topic.lastPostDatetime|date:"jS F Y H:i A" }}</a></span>
 	  {% else %}
-	      <strong><a href="{{ topic.lastPost.get_absolute_url }}">{{ topic.lastPostDatetime|date:"jS F Y H:i A" }}</a></strong>
+	      <span><a href="{{ topic.lastPost.get_absolute_url }}">{{ topic.lastPostDatetime|date:"jS F Y H:i A" }}</a></span>
 	  {% endif %}
 	  <cite>
 	      by <a href={{ topic.lastPost.posted_by.get_profile.get_absolute_url }}>
 	             {{ topic.lastPost.posted_by.username }}
 	         </a>
 	  </cite>
-	</li>
-  </ul>
-
+  </div>
 </div>
-

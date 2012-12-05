@@ -20,7 +20,6 @@
   </div>
 </div>
 
-
 <div id="brd-wrap" class="brd">
 <div id="brd-index" class="brd-page basic-page">
 
@@ -29,11 +28,10 @@
 
   <p></p>
 
-  <div class="hr"><hr/></div>
   <div id="errorbox"> <span>  </span>  </div>
 
   <!-- bread crumbs begin -->
-  <div id="brd-crumbs-top" class="crumbs gen-content">
+  <div id="brd-crumbs-top" class="crumbs well well-small">
     <p>
 	  <span class="crumb crumbfirst">
 	    <a href="{% url dinette_category %}">{% get_site_name %}</a>
@@ -70,20 +68,27 @@
   <!-- main head begins -->
   <div class="main-head">
 	<p class="options">
-	  <span class="feed first-item">
-		<a class="feed-option" href="{% url dinette_topic_url topic.getTopicString %}">RSS Topic Feed</a>
-	  </span>
+
+
+	</p>
+    <div class='well well-small'>
+        <span class='pull-left'>Posts [ {{ reply_list.count }} ]</span>
+        <span class="feed first-item pull-right" >
+            <a class="feed-option" href="{% url dinette_topic_url topic.getTopicString %}">RSS Topic Feed</a>
       {% if request.user.is_authenticated %}
           <span>
               {% if request.user in topic.subscribers.all %}
+                  <span class='navbar navbar-inverse'><a class='divider-vertical'></a></span>
                   <a href="{% url dinette_unsubscribe_from_topic topic.id %}"><em>Unsubscribe</em></a>
               {% else %}
+                  <span class='navbar navbar-inverse'><a class='divider-vertical'></a></span>
                   <a href="{% url dinette_subscribe_to_topic topic.id %}">Subscribe</a>
               {% endif %}
           </span>
       {% endif %}
-	</p>
-	<h2 class="hn"><span><span class="item-info">Posts [ {{ reply_list.count }} ]</span></span></h2>
+
+        </span>
+    </div>
 	{% if show_moderation_items %}
 	  {% include 'dinette/moderation_frag.html' %}
 	{% endif %}
@@ -91,31 +96,20 @@
   <!-- main head ends -->
 	
   <!-- reply list begins -->
-  <div id="replylist" class="main-content main-topic">
+  <div id="replies" class="main-content main-topic" >
 	{% ifequal request.page 1 %}
 	  <!--post odd reply list begins -->
-	  <div class="post odd replypost">
-	    <div id="p{{ topic.pk }}" class="posthead">
-		  <h3 class="hn post-ident">
-			<span class="post-num">1</span> 
-			<span class="post-byline">
-			  <span>Reply by </span>
-			  <a title="" href=""></a>
-			</span> 
-			<span class="post-link" id="t{{topic.id}}">
-			  <a class="permalink" rel="bookmark" title="Permanent link to this post" href="#t{{ topic.id }}">{{ topic.created_on|date:"jS F Y H:i A" }}</a>
-			</span>   &nbsp; &nbsp; &nbsp; 
-		  </h3>
-		</div>
+      <!--	  <div class="post odd replypost"> -->
+
+
 			
 		<!-- post body begins -->
-		<div class="postbody">
+        <!--	<div class="postbody"> -->
 		  <!-- author details begins -->
-		  <div class="post-author">
-			<ul class="author-ident">
+          <div class='well eachrow'>
+		  <div class="post-author span3">
+			<ul class="author-ident unstyled">
 			  <li>
-				<table class="authortable">
-				  <tr><td >
 					{% if topic.posted_by.photo  %}
 					  {% thumbnail topic.posted_by.get_profile.photo "80x80" as profile_thumbnail %}
                                           <img src="{{ profile_thumbnail.url }}" />
@@ -123,11 +117,9 @@
 					{% else %}                                                        
 					  <img src="http://www.gravatar.com/avatar/{{topic.posted_by.get_profile.getMD5}}.jpg" alt="" />
 					{% endif %}  
-				  </td></tr>
-				  <tr><td>
+				</li>
+                <li>
 					<a href="{{ topic.posted_by.get_profile.get_absolute_url }}">{{topic.posted_by.username}}</a>
-				  </td></tr>
-				</table>                                                        
 			  </li>
                                                 
 			  <li class="usertitle"><span>{{ topic.posted_by.get_profile.userrank }}</span></li>
@@ -139,15 +131,21 @@
 			  {% endif %}
 			  </span></li>
 			</ul>
-			<ul class="author-info">
+			<ul class="author-info unstyled" >
 			  <li><span>Registered: <strong> {{ topic.posted_by.date_joined|date:"jS F Y H:i A" }}</strong></span></li>
 			  <li><span>Posts: <strong> {{ topic.posted_by.get_profile.get_total_posts  }}</strong></span></li>
 			</ul>
 		  </div>
 		  <!-- author details ends -->
 
-		  <div class="post-entry">
-			<h4 id="pc{{ reply.pk }}" class="entry-title hn">Re: {{reply.topic.subject}}</h4>
+		  <div class="post-entry span8">
+                <div id="p{{ topic.pk }}" class="posthead">
+                    <span class="post-num pull-right">1</span> 
+                    <span class="post-link pull-left" id="t{{topic.id}}"> 
+                    <a class="permalink" rel="bookmark" title="Permanent link to this post" href="#t{{ topic.id }}">{{ topic.created_on|date:"jS F Y H:i A" }}</a>
+                    </span>   &nbsp; &nbsp; &nbsp; 
+                </div>
+			<h4 id="pc{{ reply.pk }}" class="entry-title">{{reply.topic.subject}}</h4>
 			<div class="entry-content">
 			  <p>  {{ topic.message }} </p>
 			  {% with topic as rtopic %}    
@@ -155,16 +153,15 @@
 			  {% endwith %}     
 			</div>
 		  </div>
-		</div>
+          <!--	</div> -->
 		<!-- post body ends -->
+        <div class='clearfix'></div>
 	  </div>
 	  <!-- post odd reply list ends -->
 	{% endifequal %}    
-
-	{% for reply in reply_list %}
-	  {% include 'dinette/replydetail_frag.html' %}
-	{% endfor %}
-  </div>
+        {% for reply in reply_list %}
+        {% include 'dinette/replydetail_frag.html' %}
+        {% endfor %}
 		
   <div  id="belowpostreplybox" class="crumbs gen-content">	
   	
@@ -204,7 +201,6 @@
   <!-- formbox ends -->
   {% endif %}
 	
-  <div class="hr"><hr /></div>
   {{ block.super }}
 </div>
 </div>
