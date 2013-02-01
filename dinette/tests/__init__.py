@@ -36,11 +36,6 @@ class Testmaker(TestCase):
         r = self.client.get(reverse('dinette_active'))
         self.assertEqual(r.status_code, 200)
 
-
-    def test_dinette_search(self):
-        r = self.client.get(reverse('dinette_search'))
-        self.assertEqual(r.status_code, 200)
-
     def test_subscribe_to_digest(self):
         r = self.client.get(reverse('dinette_subscribe_to_digest'))
         self.assertEqual(r.status_code, 302)
@@ -93,7 +88,10 @@ class Testmaker(TestCase):
 
     def test_post_topic(self):
         self.client.login(username='plaban', password='plaban')
-        response = self.client.post('/forum/post/topic/', {'subject':'python','message':'this is python', 'message_markup_type':'plain', 'authenticated':'true','categoryid':'1'})
+        response = self.client.post('/forum/post/topic/', 
+            {'subject':'python','message':'this is python', 
+            'message_markup_type':'plain', 'authenticated':'true',
+            'categoryid':'1'})
         response = self.client.get('/forum/active/')
         topic = response.context['new_topic_list'][0]
         self.assertEqual(topic.subject, 'python')

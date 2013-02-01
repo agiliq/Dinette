@@ -139,7 +139,7 @@ def postTopic(request) :
         return HttpResponse(json, mimetype = json_mimetype)                    
    
     #code which checks for flood control
-    if (datetime.now()-request.user.get_profile().last_posttime).seconds <= settings.FLOOD_TIME:
+    if (datetime.now()-request.user.get_profile().last_posttime).seconds < settings.FLOOD_TIME:
     #oh....... user trying to flood us Stop him
         d2 = {"is_valid":"flood","errormessage":"Flood control.................."}
         if request.FILES : 
