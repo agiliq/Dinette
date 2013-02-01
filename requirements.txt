@@ -1,3 +1,4 @@
+django
 BeautifulSoup
 PIL
 hg+https://pylinkedin.googlecode.com/hg/pylinkedin>=0.1
