@@ -1,6 +1,9 @@
+
+[![Build Status](https://travis-ci.org/agiliq/Dinette.png?branch=master)](https://travis-ci.org/agiliq/Dinette)
+
 ### Dinette - A Django based forum inspired by PunBB
 
-Dinette is a lighweight forum application in the spirit of PunBB. 
+Dinette is a lightweight forum application in the spirit of PunBB. 
 
 ### Requirements
 
