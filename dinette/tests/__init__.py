@@ -48,7 +48,7 @@ class Testmaker(TestCase):
         r = self.client.get(reverse('dinette_subscribe_to_digest'))
         self.assertEqual(r.status_code, 302)
         self.assertEqual(urlparse.urlparse(r['location']).path, reverse('dinette_user_profile',
-            args={'plaban'}))
+            args=['plaban']))
 
 
 
@@ -64,7 +64,7 @@ class Testmaker(TestCase):
         r = self.client.get(reverse('dinette_subscribe_to_digest'))
         self.assertEqual(r.status_code, 302)
         self.assertEqual(urlparse.urlparse(r['location']).path, reverse('dinette_user_profile',
-            args={'plaban'}))
+            args=['plaban']))
 
 
     def test_unanswered_topics(self):
