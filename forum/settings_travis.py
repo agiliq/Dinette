@@ -76,7 +76,7 @@ MIDDLEWARE_CLASSES = (
     'pagination.middleware.PaginationMiddleware',
 )
 
-ROOT_URLCONF = 'forum.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -128,6 +128,8 @@ from dinette.extra_settings import *
 
 #LOG FILE NAME In django
 import os
+from subprocess import call
+
 from markupfield.markup import DEFAULT_MARKUP_TYPES
 from dinette.libs.postmarkup import render_bbcode
 
@@ -139,6 +141,9 @@ DEFAULT_MARKUP_TYPE = "bbcode"
 logfilename =  os.path.join(os.path.dirname(os.path.normpath(__file__)),'logging.conf')
 LOG_FILE_NAME = logfilename
 LOG_FILE_PATH = "\""+os.path.join(os.path.join(os.path.dirname(os.path.normpath(__file__)),'logs'),"logs.txt")+"\""
+log_file_dir = "%s/forum/logs" % os.getcwd()
+if not os.path.exists(log_file_dir):
+    call(['mkdir', log_file_dir])
 AUTH_PROFILE_MODULE = "dinette.DinetteUserProfile"
 REPLY_PAGE_SIZE = 10
 FLOOD_TIME = 0
