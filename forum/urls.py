@@ -28,4 +28,3 @@ if settings.DEBUG or getattr(settings, 'SERVE_MEDIA', False):
             }
         ),
     )
-
