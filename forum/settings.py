@@ -112,4 +112,6 @@ INSTALLED_APPS = (
     'pagination'
 )
 
+STATIC_URL = '/static/'
+
 from localsettings import *
