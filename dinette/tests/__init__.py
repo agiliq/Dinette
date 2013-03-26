@@ -111,17 +111,3 @@ class Testmaker(TestCase):
         self.assertEqual(response.status_code,200)
         reply = models.Reply.objects.all()[0]
         self.assertEqual(str(reply),'<p>this is the edit reply</p>')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
