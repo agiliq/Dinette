@@ -10,11 +10,11 @@
 
 <head>
   {% compress css %}
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ MEDIA_URL }}dinette/css/oxygen.css" />
-    <link rel="stylesheet" type="text/css" media="screen"  href="{{ MEDIA_URL }}dinette/css/oxygen_cs.css" />
-    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}dinette/css/Oxygen_ie6.css" /><![endif]-->
-    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}dinette/css/Oxygen_ie7.css" /><![endif]-->
-    <link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}dinette/css/djorumstyle.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}dinette/css/oxygen.css" />
+    <link rel="stylesheet" type="text/css" media="screen"  href="{{ STATIC_URL }}dinette/css/oxygen_cs.css" />
+    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}dinette/css/Oxygen_ie6.css" /><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}dinette/css/Oxygen_ie7.css" /><![endif]-->
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}dinette/css/djorumstyle.css">
   {% endcompress %}
 
   <title>
@@ -35,9 +35,9 @@
 {% endblock %}
 
 {% compress js %}
-  <script type="text/javascript" src="{{ MEDIA_URL }}dinette/scripts/jquery13.js"></script>
-  <script type="text/javascript" src="{{ MEDIA_URL }}dinette/scripts/jqueryform.js"></script>
-  <script type="text/javascript" src="{{ MEDIA_URL }}dinette/scripts/dinetteajax.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}dinette/scripts/jquery13.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}dinette/scripts/jqueryform.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}dinette/scripts/dinetteajax.js"></script>
 {% endcompress  %}
 
 {% analytics %}

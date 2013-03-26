@@ -1,0 +1,55 @@
+ table.authortable  td{
+    
+    border : 0px solid red;
+    text-align : left;
+    padding : 0px;
+    padding-bottom : 5px;
+}
+
+table.authortable  td  a:link{
+    text-decoration : none;
+    color : #025678;
+}
+
+
+
+
+#formbox table
+{
+    border : 2px solid #cbdced;
+    width : auto;
+}
+
+#formbox table td  {
+    
+    
+    padding : 0px;
+    margin : 0px;
+    padding : 12px;
+    border : 0px solid white;
+    
+}
+
+
+#formbox table th  {
+    
+    
+    padding : 0px;
+    margin : 0px;
+    background-color : white;
+    padding : 12px;
+    text-align : left;
+    border : 0px solid white;
+    
+}
+#errorbox
+{
+    text-align : center;
+}
+
+
+#errorbox  span{
+    background-color : #FFF1A8 ;
+    font-size : 130%;  
+   
+}

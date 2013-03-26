@@ -90,6 +90,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media', 
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
+    'django.core.context_processors.static',
 )
 
 
@@ -102,6 +103,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    'django.contrib.staticfiles',
     'dinette',
     'socialauth',
 
