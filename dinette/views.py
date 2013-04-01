@@ -36,23 +36,17 @@ def index_page(request):
     forums = SuperCategory.objects.all()
     accesslist = ""
     jumpflag = False
-    
-    
     #groups which this user has access
     if request.user.is_authenticated() :
-            
             groups = [group for group in request.user.groups.all()] + [group for group in Group.objects.filter(name="general")]
     else:
             #we are treating user who have not loggedin belongs to general group
             groups = Group.objects.filter(name="general")
-        
     #logic which decide which forum does this user have access to
     for forum in forums :
-        
         jumpflag = False
         for group in groups :           
             for gforum in group.can_access_forums.all() :
-                
                 if gforum.id == forum.id :
                     #the respective user can access the forum
                     #accesslist.append(True)

@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User,Group
+from django.contrib.auth.models import User, Group
 from django.conf import settings
 from django.contrib.sites.models import Site
 from django import forms
@@ -17,11 +17,11 @@ from dinette.libs.postmarkup import render_bbcode
 from markupfield.fields import MarkupField
 
 #loading the logging configuration
-logging.config.fileConfig(settings.LOG_FILE_NAME,defaults=dict(log_path=settings.LOG_FILE_PATH))
- 
-#Create module logger 
-mlog=logging.getLogger(__name__) 
-mlog.debug("From settings LOG_FILE_NAME %s LOG_FILE_PATH %s" % (settings.LOG_FILE_NAME,settings.LOG_FILE_PATH))
+logging.config.fileConfig(settings.LOG_FILE_NAME, defaults=dict(log_path=settings.LOG_FILE_PATH))
+
+#Create module logger
+mlog = logging.getLogger(__name__)
+mlog.debug("From settings LOG_FILE_NAME %s LOG_FILE_PATH %s" % (settings.LOG_FILE_NAME, settings.LOG_FILE_PATH))
 mlog.debug("Models Compliing!"+__name__)
 
 class SiteConfig(models.Model):
@@ -31,11 +31,11 @@ class SiteConfig(models.Model):
 class SuperCategory(models.Model):
     name = models.CharField(max_length = 100)
     description = models.TextField(default='')
-    ordering = models.PositiveIntegerField(default = 1)    
+    ordering = models.PositiveIntegerField(default = 1)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    posted_by = models.ForeignKey(User)   
-    accessgroups  = models.ManyToManyField(Group,related_name='can_access_forums')
+    posted_by = models.ForeignKey(User)
+    accessgroups = models.ManyToManyField(Group, related_name='can_access_forums')
     
     class Meta:
         verbose_name = "Super Category"
@@ -62,7 +62,6 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
         ordering = ('ordering','-created_on' )    
     
-    
     def save(self, *args, **kwargs):
         if not self.slug:
             slug = slugify(self.name)
@@ -80,7 +79,6 @@ class Category(models.Model):
     def getCategoryString(self):
         return "category/%s" % self.slug
     
-    
     def noofPosts(self):
         count = 0
         for topic in self.get_topics():
@@ -89,21 +87,16 @@ class Category(models.Model):
         mlog.debug("TOtal count =%d " % count)
         return count
     
-    
     def lastPostDatetime(self):
         ''' we are assuming post can be topic / reply
          we are finding out the last post / (if exists) last reply datetime '''                
         return self.lastPost().created_on
-        
-        
-        
         
     def lastPostedUser(self):
         '''  we are assuming post can be topic / reply
              we are finding out the last post / (if exists) last reply datetime '''
         return self.lastPost().posted_by
         
-     
     def lastPost(self):
         if(self.ftopics_set.count() == 0):
             return self   
@@ -119,6 +112,7 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name 
     
+
 class TopicManager(models.Manager):
     use_for_related_fields = True
 
@@ -134,7 +128,6 @@ class TopicManager(models.Manager):
 class Ftopics(models.Model):
     category = models.ForeignKey(Category)
     posted_by = models.ForeignKey(User)
-    
     subject = models.CharField(max_length=999)
     slug = models.SlugField(max_length = 200, db_index = True) 
     message = MarkupField(default_markup_type=getattr(settings,
@@ -150,7 +143,6 @@ class Ftopics(models.Model):
     replies = models.IntegerField(default=0)    
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    
     last_reply_on = models.DateTimeField(auto_now_add=True)
     num_replies = models.PositiveSmallIntegerField(default = 0)
     
