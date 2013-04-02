@@ -1,14 +1,12 @@
-#Auto created tests via DJango test utils
-
 from django.test import TestCase
 from django.test import Client
-from .. import models
-
-from django import template
-from django.db.models import get_model
+from django.contrib.auth.models import Group, User
 from django.core.urlresolvers import reverse
 
 import urlparse
+
+from .. import models
+from dinette.models import SuperCategory
 
 class Testmaker(TestCase):
     fixtures = ['test_data']
@@ -20,6 +18,34 @@ class Testmaker(TestCase):
         """Check if the homepage is accessible by all"""
         r = self.client.get(reverse('dinette_category'), {})
         self.assertEqual(r.status_code, 200)
+
+    def test_index_page_visible_super_categories(self):
+        sup_category_creator = User.objects.create_user(
+                username='test', password='123', email='test@test.com')
+        general = Group.objects.create(name='general')
+        ordinary = Group.objects.create(name='ordinary')
+        special = Group.objects.create(name='special')
+        sup_category1 = SuperCategory.objects.create(
+                name='super1', posted_by=sup_category_creator)
+        sup_category1.accessgroups.add(general)
+        sup_category2 = SuperCategory.objects.create(
+                name='super2', posted_by=sup_category_creator)
+        sup_category2.accessgroups.add(ordinary, special)
+        sup_category3 = SuperCategory.objects.create(
+                name='super3', posted_by=sup_category_creator)
+
+        r = self.client.get(reverse('dinette_category'), {})
+        self.assertContains(r, "super1")
+        self.assertNotContains(r, "super2")
+
+        user = User.objects.create_user(
+                username='user', password='pass')
+        user.groups.add(ordinary)
+        self.client.login(username='user', password='pass')
+        r = self.client.get(reverse('dinette_category'))
+        self.assertContains(r, "super1")
+        self.assertContains(r, "super2")
+        self.assertNotContains(r, "super3")
 
     def test_new_topics(self):
         r = self.client.get(reverse('dinette_new_for_user'))
