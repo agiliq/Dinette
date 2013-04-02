@@ -2,14 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User, Group
 from django.conf import settings
 from django.contrib.sites.models import Site
-from django import forms
 from django.template.defaultfilters import slugify
 from django.db.models.signals import post_save
 from django.template.defaultfilters import truncatewords
 
 import logging
 import logging.config
-from datetime import datetime
 import hashlib
 from BeautifulSoup import BeautifulSoup
 import datetime
