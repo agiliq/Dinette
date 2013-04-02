@@ -16,7 +16,6 @@
 <!-- brd-main begins -->
 <div id="brd-main">
 {% for forum in forums_list %}
-  {% if user_access_list|get_digit:forloop.counter  %}
   <h1 class="main-title">{{ forum }}</h1>
   <div class="main-head">
     <h2 class="hn"><span>{{ forum }}</span></h2>
@@ -84,7 +83,6 @@
 	{% endfor %}
   </div>
   <!-- category-#id ends -->
-  {% endif %}
 {% endfor %}
 </div>
 <!-- brd-main ends -->

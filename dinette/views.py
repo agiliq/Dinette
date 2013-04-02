@@ -33,9 +33,6 @@ mlogger = logging.getLogger(__name__)
 json_mimetype = 'application/javascript'
 def index_page(request):
     mlogger.info("In the index page")
-    forums = SuperCategory.objects.all()
-    accesslist = ""
-    jumpflag = False
     #groups which this user has access
     if request.user.is_authenticated() :
             groups = [group for group in request.user.groups.all()] + [group for group in Group.objects.filter(name="general")]
@@ -43,42 +40,20 @@ def index_page(request):
             #we are treating user who have not loggedin belongs to general group
             groups = Group.objects.filter(name="general")
     #logic which decide which forum does this user have access to
-    for forum in forums :
-        jumpflag = False
-        for group in groups :           
-            for gforum in group.can_access_forums.all() :
-                if gforum.id == forum.id :
-                    #the respective user can access the forum
-                    #accesslist.append(True)
-                    accesslist = "1"+accesslist
-                    mlogger.debug("appending true ...... "+str(forum.id))
-                    jumpflag = True
-                    break
-        
-          #already one group has acces to forum no need to check whether other groups have access to it or not        
-            if jumpflag:
-                mlogger.debug("breaking up"+str(jumpflag)) 
-                break
-        
-        if jumpflag == False:
-            mlogger.debug("appending false.........."+str(forum.id))
-            accesslist = "0"+accesslist
+    forums = []
+    for group in groups:
+        forums.extend([each for each in group.can_access_forums.all()])
+    forums = set(forums)
+    forums = sorted(forums, cmp=lambda x, y: y.ordering-x.ordering)
             
-   
-    mlogger.debug("what is the accesslist "+accesslist)
     totaltopics = Ftopics.objects.count()
     totalposts = totaltopics + Reply.objects.count()
     totalusers =  User.objects.count()
     now = datetime.now()
     users_online = DinetteUserProfile.objects.filter(last_activity__gte =  now - timedelta(seconds = 900)).count() + 1#The current user is always online. :)
     last_registered_user = User.objects.order_by('-date_joined')[0]
-    try:
-        user_access_list = int(accesslist)
-    except ValueError:
-        user_access_list = 0
     payload = {'users_online':users_online, 'forums_list':forums,'totaltopics':totaltopics,
-               'totalposts':totalposts,'totalusers':totalusers,'user_access_list':user_access_list,
-               'last_registered_user':last_registered_user}
+               'totalposts':totalposts,'totalusers':totalusers, 'last_registered_user':last_registered_user}
     return render_to_response("dinette/mainindex.html", payload,RequestContext(request))
 
 
