@@ -1,13 +1,10 @@
 from django.http import HttpResponse, Http404, HttpResponseForbidden, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
-from django.template import Context , loader
 from django.template import RequestContext
-from django.core.paginator import Paginator
 from django.template.loader import render_to_string
 from django.contrib.syndication.views import Feed
-from django.contrib.auth.models import User , Group
+from django.contrib.auth.models import User, Group
 from django.conf import settings
 from django.views.generic.list_detail import object_list
 
@@ -20,9 +17,8 @@ try:
 except ImportError:
     from django.utils import simplejson
 
-from dinette.models import Ftopics , SuperCategory ,Category ,Reply, DinetteUserProfile
-from dinette.forms import  FtopicForm , ReplyForm
-
+from dinette.models import Ftopics, Category, Reply, DinetteUserProfile
+from dinette.forms import  FtopicForm, ReplyForm
 
 
 #Create module logger
@@ -31,10 +27,12 @@ mlogger = logging.getLogger(__name__)
 
 
 json_mimetype = 'application/javascript'
+
+
 def index_page(request):
     mlogger.info("In the index page")
     #groups which this user has access
-    if request.user.is_authenticated() :
+    if request.user.is_authenticated():
             groups = [group for group in request.user.groups.all()] + [group for group in Group.objects.filter(name="general")]
     else:
             #we are treating user who have not loggedin belongs to general group
@@ -44,18 +42,16 @@ def index_page(request):
     for group in groups:
         forums.extend([each for each in group.can_access_forums.all()])
     forums = set(forums)
-    forums = sorted(forums, cmp=lambda x, y: y.ordering-x.ordering)
-            
+    forums = sorted(forums, cmp=lambda x, y: y.ordering - x.ordering)
     totaltopics = Ftopics.objects.count()
     totalposts = totaltopics + Reply.objects.count()
-    totalusers =  User.objects.count()
+    totalusers = User.objects.count()
     now = datetime.now()
     users_online = DinetteUserProfile.objects.filter(last_activity__gte =  now - timedelta(seconds = 900)).count() + 1#The current user is always online. :)
     last_registered_user = User.objects.order_by('-date_joined')[0]
-    payload = {'users_online':users_online, 'forums_list':forums,'totaltopics':totaltopics,
-               'totalposts':totalposts,'totalusers':totalusers, 'last_registered_user':last_registered_user}
+    payload = {'users_online':users_online, 'forums_list':forums, 'totaltopics':totaltopics,
+               'totalposts':totalposts, 'totalusers':totalusers, 'last_registered_user':last_registered_user}
     return render_to_response("dinette/mainindex.html", payload,RequestContext(request))
-
 
 
 def category_details(request, categoryslug,  pageno=1) :
