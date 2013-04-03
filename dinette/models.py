@@ -58,7 +58,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = "Category"
         verbose_name_plural = "Categories"
-        ordering = ('ordering','-created_on' )    
+        ordering = ('ordering','-created_on')
     
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -172,8 +172,6 @@ class Ftopics(models.Model):
                 slug = slug + str(same_slug_count)
             self.slug = slug
         super(Ftopics, self).save(*args, **kwargs)
-        
-    
         
     def __unicode__(self):
         return self.subject
