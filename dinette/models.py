@@ -292,9 +292,9 @@ class DinetteUserProfile(models.Model):
     last_activity = models.DateTimeField(auto_now_add=True)
     #When was the last session. Used in page activity since last session.
     last_session_activity = models.DateTimeField(auto_now_add=True)
-    userrank = models.CharField(max_length=30,default="Junior Member")
+    userrank = models.CharField(max_length=30, default="Junior Member")
     last_posttime = models.DateTimeField(auto_now_add=True)
-    photo = models.ImageField(upload_to='dinette/files',null=True,blank=True)
+    photo = models.ImageField(upload_to='dinette/files', null=True, blank=True)
     signature = models.CharField(max_length = 1000, null = True, blank = True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True)
     is_subscribed_to_digest = models.BooleanField(default=False)
@@ -314,7 +314,6 @@ class DinetteUserProfile(models.Model):
     @property
     def last_name(self):
         return self.user.last_name
-    
     
     def get_total_posts(self):
         print self.user.ftopics_set.count() + self.user.reply_set.count()
@@ -389,4 +388,3 @@ def notify_subscribers_on_reply(sender, instance, created, **kwargs):
 post_save.connect(create_user_profile, sender=User)
 post_save.connect(update_topic_on_reply, sender=Reply)
 post_save.connect(notify_subscribers_on_reply, sender=Reply)
-

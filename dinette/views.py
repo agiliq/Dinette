@@ -66,8 +66,6 @@ def category_details(request, categoryslug,  pageno=1) :
     payload = {'topicform': topicform,'category':category,'authenticated':request.user.is_authenticated(),'topic_list':topiclist, "topic_page_size": topic_page_size}
     return render_to_response("dinette/category_details.html", payload, RequestContext(request))
     
-    
-       
 def topic_list(request):
     queryset = Ftopics.objects.all()                
     return object_list(request, queryset = queryset, template_name = 'dinette/topiclist.html', template_object_name='topic', paginate_by=2)
@@ -381,7 +379,6 @@ def unanswered(request):
 def topic_list(request, queryset, page_message):
     payload = {"new_topic_list": queryset, "page_message": page_message}
     return render_to_response("dinette/new_topics.html", payload, RequestContext(request))
-    
 
 def search(request):
     from haystack.views import SearchView
