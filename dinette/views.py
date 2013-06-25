@@ -33,10 +33,10 @@ def index_page(request):
     mlogger.info("In the index page")
     #groups which this user has access
     if request.user.is_authenticated():
-            groups = [group for group in request.user.groups.all()] + [group for group in Group.objects.filter(name="general")]
+        groups = [group for group in request.user.groups.all()] + [group for group in Group.objects.filter(name="general")]
     else:
-            #we are treating user who have not loggedin belongs to general group
-            groups = Group.objects.filter(name="general")
+        #we are treating user who have not loggedin belongs to general group
+        groups = Group.objects.filter(name="general")
     #logic which decide which forum does this user have access to
     forums = []
     for group in groups:
