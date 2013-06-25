@@ -5,6 +5,7 @@ from django.contrib.sites.models import Site
 from django.template.defaultfilters import slugify
 from django.db.models.signals import post_save
 from django.template.defaultfilters import truncatewords
+from django.core.urlresolvers import reverse
 
 import logging
 import logging.config
@@ -69,10 +70,8 @@ class Category(models.Model):
             self.slug = slug
         super(Category, self).save(*args, **kwargs)
     
-    @models.permalink
     def get_absolute_url(self):
-        #return ('welcomePage', [self.slug])
-        return ('dinette_index',(),{'categoryslug':self.slug})
+        return reverse("dinette_index", args=[self.slug])
     
     def getCategoryString(self):
         return "category/%s" % self.slug
@@ -176,9 +175,8 @@ class Ftopics(models.Model):
     def __unicode__(self):
         return self.subject
     
-    @models.permalink
     def get_absolute_url(self):
-        return ('dinette_topic_detail',(),{'categoryslug':self.category.slug, 'topic_slug': self.slug})
+        return reverse('dinette_topic_detail', kwargs={'categoryslug':self.category.slug, 'topic_slug': self.slug})
     
     def htmlfrombbcode(self):
         if(len(self.message.strip()) >  0):            
