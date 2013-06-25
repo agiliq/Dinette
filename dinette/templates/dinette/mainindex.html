@@ -46,7 +46,7 @@
 		    (Moderated by
 		    {% for moderator in category.moderated_by.all %}
 			  <a href="{{ moderator.get_profile.get_absolute_url }}">{{moderator}}</a>{% if not forloop.last %}, {% endif %}
-		    {% endfor %}    
+		    {% endfor %}
 		    )
 		  </span>
 		</p>
