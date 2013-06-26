@@ -108,7 +108,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.staticfiles',
     'dinette',
-    'socialauth',
 
     'compressor',
     'google_analytics',

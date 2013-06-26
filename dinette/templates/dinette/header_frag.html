@@ -1,4 +1,3 @@
-{% load socialauth_tags %}
 {% load dinette_tags %}
 
 <div id="brd-head" class="gen-content">
@@ -34,7 +33,7 @@
   	<span>
 		{% if user.is_authenticated %}
 		  Hello 
-		      <a href="{{ user.get_profile.get_absolute_url }}">{% get_calculated_username user %}</a>, 
+              <a href="{{ user.get_profile.get_absolute_url }}">{{user.username}}</a>, 
 		      <a href='{% url dinette_logout %}'>Logout</a>
 		{% else %}
 		  <a href="{% url dinette_login %}">Login</a>
