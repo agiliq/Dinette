@@ -5,9 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
     (r'^forum/', include('dinette.urls')),
-    (r'^accounts/', include('socialauth.urls')),
 
     (r'^admin/', include(admin.site.urls)),
 )
