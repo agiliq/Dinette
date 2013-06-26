@@ -11,7 +11,6 @@ from django.contrib.auth.views import login as auth_login, logout as auth_logout
 
 from  datetime  import datetime, timedelta
 import logging
-from httplib import HTTPResponse
 
 try:
     import simplejson
