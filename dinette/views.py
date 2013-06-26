@@ -7,7 +7,7 @@ from django.contrib.syndication.views import Feed
 from django.contrib.auth.models import User, Group
 from django.conf import settings
 from django.views.generic.list_detail import object_list
-from django.contrib.auth.views import login as auth_login
+from django.contrib.auth.views import login as auth_login, logout as auth_logout
 
 from  datetime  import datetime, timedelta
 import logging
@@ -351,6 +351,9 @@ def moderate_topic(request, topic_id, action):
     
 def login(request):
     return auth_login(request)
+
+def logout(request):
+    return auth_logout(request)
         
 def user_profile(request, slug):
     user_profile = get_object_or_404(User, dinetteuserprofile__slug=slug)

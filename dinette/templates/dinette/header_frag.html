@@ -35,7 +35,7 @@
 		{% if user.is_authenticated %}
 		  Hello 
 		      <a href="{{ user.get_profile.get_absolute_url }}">{% get_calculated_username user %}</a>, 
-		      <a href='{% url socialauth_social_logout %}'>Logout</a>
+		      <a href='{% url dinette_logout %}'>Logout</a>
 		{% else %}
 		  <a href="{% url dinette_login %}">Login</a>
 		{% endif %}
@@ -46,5 +46,3 @@
 		<span><a href="{% url dinette_unanswered %}">Unanswered Topics</a></span>
   </p>
 </div>	
-
-	
