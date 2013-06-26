@@ -7,6 +7,7 @@ from django.contrib.syndication.views import Feed
 from django.contrib.auth.models import User, Group
 from django.conf import settings
 from django.views.generic.list_detail import object_list
+from django.contrib.auth.views import login as auth_login
 
 from  datetime  import datetime, timedelta
 import logging
@@ -349,11 +350,7 @@ def moderate_topic(request, topic_id, action):
         return HttpResponse('This view must be called via post')
     
 def login(request):
-    if getattr(settings, 'DINETTE_LOGIN_TEMPLATE', None):
-        return render_to_response(settings.DINETTE_LOGIN_TEMPLATE, {}, RequestContext(request, {'fb_api_key':getattr(settings, 'FACEBOOK_API_KEY', None),}))
-    else:
-        from django.contrib.auth.views import login
-        return login(request)
+    return auth_login(request)
         
 def user_profile(request, slug):
     user_profile = get_object_or_404(User, dinetteuserprofile__slug=slug)
