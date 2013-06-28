@@ -113,7 +113,9 @@ INSTALLED_APPS = (
     'google_analytics',
     'sorl.thumbnail',
     'openid_consumer',
-    'pagination'
+    'pagination',
+
+    'accounts',
 )
 
 STATIC_URL = '/static/'

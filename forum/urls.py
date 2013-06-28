@@ -4,8 +4,10 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
+
 urlpatterns = patterns('',
     (r'^forum/', include('dinette.urls')),
+    (r'^accounts/', include('accounts.urls')),
 
     (r'^admin/', include(admin.site.urls)),
 )
