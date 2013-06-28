@@ -58,9 +58,8 @@ def category_details(request, categoryslug,  pageno=1) :
     topicform = FtopicForm()
     category = get_object_or_404(Category, slug=categoryslug)
     queryset = Ftopics.objects.filter(category__id__exact = category.id)
-    topiclist = queryset    
     topic_page_size = getattr(settings , "TOPIC_PAGE_SIZE", 10)
-    payload = {'topicform': topicform,'category':category,'authenticated':request.user.is_authenticated(),'topic_list':topiclist, "topic_page_size": topic_page_size}
+    payload = {'topicform': topicform,'category':category,'authenticated':request.user.is_authenticated(),'topic_list':queryset, "topic_page_size": topic_page_size}
     return render_to_response("dinette/category_details.html", payload, RequestContext(request))
     
 def topic_list(request):
