@@ -84,3 +84,7 @@ def get_main_site_domain():
 @register.simple_tag
 def get_login_url():
     return settings.LOGIN_URL
+
+@register.simple_tag
+def get_logout_url():
+    return settings.LOGOUT_URL
