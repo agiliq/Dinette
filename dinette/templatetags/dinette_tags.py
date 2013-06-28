@@ -1,5 +1,6 @@
 from django import  template
 from django.contrib.sites.models import Site
+from django.conf import settings
 
 from dinette.models import Ftopics, SiteConfig, NavLink
 
@@ -79,3 +80,7 @@ def get_main_site_domain():
         return domain
     except:
         return ''
+
+@register.simple_tag
+def get_login_url():
+    return settings.LOGIN_URL
