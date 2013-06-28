@@ -15,9 +15,6 @@ urlpatterns = patterns('dinette.views',
     url(r'^new/$','new_topics',name='dinette_new_for_user'),
     url(r'^active/$','active',name='dinette_active'),
     url(r'^unanswered/$','unanswered',name='dinette_unanswered'),
-    #Login page, needs to be before category_details, or gets caught by that regex.
-    url(r'^login/$','login',name='dinette_login'),    
-    url(r'^logout/$','logout',name='dinette_logout'),    
     
     url(r'^search/$','search',name='dinette_search'),
     

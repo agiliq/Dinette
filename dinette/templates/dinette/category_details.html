@@ -5,6 +5,7 @@
 {% block content %}
 
 {% load pagination_tags %}
+{% load dinette_tags %}
 
 {% autopaginate topic_list topic_page_size %}
 
@@ -66,7 +67,7 @@
 		  {% if authenticated %}
 			<a href="#" onclick="return isUserAuthenticated(0)">New Topic</a>        
 		  {% else %}
-			<a href="{% url dinette_login %}?next={{ category.get_absolute_url }}">Login to start New Topic</a>        
+			<a href="{% get_login_url %}?next={{ category.get_absolute_url }}">Login to start New Topic</a>        
 		  {% endif %}
         </p>
 	  </div>
