@@ -36,7 +36,7 @@
               <a href="{{ user.get_profile.get_absolute_url }}">{{user.username}}</a>, 
 		      <a href='{% url dinette_logout %}'>Logout</a>
 		{% else %}
-		  <a href="{% url dinette_login %}">Login</a>
+		  <a href="{% get_login_url %}">Login</a>
 		{% endif %}
 	</span>
   </p>

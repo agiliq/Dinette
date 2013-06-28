@@ -30,7 +30,6 @@ json_mimetype = 'application/javascript'
 
 
 def index_page(request):
-    mlogger.info("In the index page")
     #groups which this user has access
     if request.user.is_authenticated():
         groups = [group for group in request.user.groups.all()] + [group for group in Group.objects.filter(name="general")]
