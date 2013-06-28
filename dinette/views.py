@@ -54,8 +54,6 @@ def index_page(request):
 
 
 def category_details(request, categoryslug,  pageno=1) :
-    mlogger.info("In the welcome page.......................")
-    mlogger.debug("Type of request.user %s" % type(request)  )   
     #build a form for posting topics
     topicform = FtopicForm()
     category = get_object_or_404(Category, slug=categoryslug)
