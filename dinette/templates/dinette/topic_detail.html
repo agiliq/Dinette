@@ -1,5 +1,8 @@
 {% extends 'dinette/base.html' %}
 
+{% load url from future %}
+
+
 {% block title %}
 {{ topic.subject }} - {{ block.super }}
 {% endblock %}
@@ -12,7 +15,7 @@
 {% load dinette_tags %}
 
 {% block extra_head %}
-    <link rel="alternate" type="application/rss+xml" title="{{ topic.subject }}" href="{% url dinette_topic_url topic.getTopicString %}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ topic.subject }}" href="{% url 'dinette_topic_url' topic.getTopicString %}" />
 {% endblock %}
  
 <div id="replybox">
@@ -36,7 +39,7 @@
   <div id="brd-crumbs-top" class="crumbs gen-content">
     <p>
 	  <span class="crumb crumbfirst">
-	    <a href="{% url dinette_category %}">{% get_site_name %}</a>
+	    <a href="{% url 'dinette_category' %}">{% get_site_name %}</a>
 	  </span> 
 	  <span class="crumb">
 		<span> &raquo; </span>
@@ -57,11 +60,11 @@
 	  {% endif %}
          
 	  {% if reply_list.has_next %}
-		<a href="{% url dinette_reply_detail_paged  topic.category.slug topic.slug   reply_list.next_page_number %}"> Next </a>              
+		<a href="{% url 'dinette_reply_detail_paged'  topic.category.slug topic.slug   reply_list.next_page_number %}"> Next </a>              
 	  {% endif %}
          
 	  {% if reply_list.has_previous %}
-		<a href="{% url dinette_reply_detail_paged  topic.category.slug topic.slug  reply_list.previous_page_number %}"> Previous </a>
+		<a href="{% url 'dinette_reply_detail_paged'  topic.category.slug topic.slug  reply_list.previous_page_number %}"> Previous </a>
 	  {% endif %}   &nbsp;
 	</p>  
   </div>
@@ -71,14 +74,14 @@
   <div class="main-head">
 	<p class="options">
 	  <span class="feed first-item">
-		<a class="feed-option" href="{% url dinette_topic_url topic.getTopicString %}">RSS Topic Feed</a>
+		<a class="feed-option" href="{% url 'dinette_topic_url' topic.getTopicString %}">RSS Topic Feed</a>
 	  </span>
       {% if request.user.is_authenticated %}
           <span>
               {% if request.user in topic.subscribers.all %}
-                  <a href="{% url dinette_unsubscribe_from_topic topic.id %}"><em>Unsubscribe</em></a>
+                  <a href="{% url 'dinette_unsubscribe_from_topic' topic.id %}"><em>Unsubscribe</em></a>
               {% else %}
-                  <a href="{% url dinette_subscribe_to_topic topic.id %}">Subscribe</a>
+                  <a href="{% url 'dinette_subscribe_to_topic' topic.id %}">Subscribe</a>
               {% endif %}
           </span>
       {% endif %}
@@ -184,7 +187,7 @@
   {% if not topic.is_closed and user.is_authenticated %}
   <!-- formbox begins -->
   <div id="formbox" class="magicbox">
-	<form action="{% url dinette_postreply %}" method="POST" id="fpostreply"  >{% csrf_token %}
+	<form action="{% url 'dinette_postreply' %}" method="POST" id="fpostreply"  >{% csrf_token %}
 	  <table>
 		<tbody> 
 		  {{ replyform.as_table }}

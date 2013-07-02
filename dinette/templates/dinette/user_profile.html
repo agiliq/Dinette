@@ -1,5 +1,8 @@
 {% extends 'dinette/base.html' %}
 
+{% load url from future %}
+
+
 {% block title %} Dinette User Profile for {{ user_profile }}{% endblock %}
 
 {% block content %}
@@ -21,7 +24,7 @@
 	  <div id="brd-crumbs-top" class="crumbs gen-content">
 	    <p>
 		  <span class="crumb crumbfirst">
-			<a href="{% url dinette_category %}">Dinette Forums</a>
+			<a href="{% url 'dinette_category' %}">Dinette Forums</a>
 		  </span> 
 		  <span class="crumb crumblast">
 			<span> &raquo; User Profile </span>
@@ -72,15 +75,15 @@
             <li>
             Daily Digest
 		        {% if user_profile.get_profile.is_subscribed_to_digest %}
-		            <a href="{% url dinette_unsubscribe_from_digest %}"><em>Unsubscribe</em></a>
+		            <a href="{% url 'dinette_unsubscribe_from_digest' %}"><em>Unsubscribe</em></a>
 		        {% else %}
-		            <a href="{% url dinette_subscribe_to_digest %}">Subscribe</a>
+		            <a href="{% url 'dinette_subscribe_to_digest' %}">Subscribe</a>
 		        {% endif %}
 	        </li>
 	        {% for topic in user_profile.subscribers.all %}
 	            <li>
 	                {{ topic.subject }}
-	                <a href="{% url dinette_unsubscribe_from_topic topic.id %}?next={{ request.path }}"><em>Unsubscribe</em></a>
+	                <a href="{% url 'dinette_unsubscribe_from_topic' topic.id %}?next={{ request.path }}"><em>Unsubscribe</em></a>
 	            </li>
 	        {% endfor %}
         </ul>

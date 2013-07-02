@@ -1,3 +1,4 @@
+{% load url from future %}
 {% load thumbnail %} 
 
 <!-- div.post/even/replypost begins-->
@@ -92,7 +93,7 @@
 						    <a href="#" onclick="delete_reply({{ reply.id }}); return false;">Delete</a>
 						</span>
 						<span class="edit-post">
-						    <a href="{% url dinette_editreply reply.id %}">Edit</a>
+						    <a href="{% url 'dinette_editreply' reply.id %}">Edit</a>
 						</span>
                     {% endif %}
 					<span class="edit-post first-item">
