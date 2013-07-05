@@ -46,7 +46,7 @@ def index_page(request):
     totalposts = totaltopics + Reply.objects.count()
     totalusers = User.objects.count()
     now = datetime.now()
-    users_online = DinetteUserProfile.objects.filter(last_activity__gte =  now - timedelta(seconds = 900)).count() + 1#The current user is always online. :)
+    users_online = DinetteUserProfile.objects.filter(last_activity__gte =  now - timedelta(seconds = 900)).count()
     last_registered_user = User.objects.order_by('-date_joined')[0]
     payload = {'users_online':users_online, 'forums_list':forums, 'totaltopics':totaltopics,
                'totalposts':totalposts, 'totalusers':totalusers, 'last_registered_user':last_registered_user}
