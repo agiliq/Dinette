@@ -85,7 +85,7 @@ var openid = {
 	cookie_name: 'openid_provider',
 	cookie_path: '/',
 	
-	img_path: '/site_media/dinette/openid/images/',
+	img_path: '/static/dinette/openid/images/',
 	
 	input_id: null,
 	provider_url: null,

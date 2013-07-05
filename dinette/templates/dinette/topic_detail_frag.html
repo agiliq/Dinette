@@ -1,3 +1,4 @@
+{% load url from future %}
 <div id="topic{{ topic.pk }}" class="main-item odd main-first-item normal">
   {% if topic.is_closed %}
 	<span class="icon closed"><!-- --></span>
@@ -20,7 +21,7 @@
 	  {% if topic.is_sticky %}
 		<strong>(Sticky)</strong>
 	  {% endif %}		
-	  <a href="{% url dinette_topic_detail topic.category.slug topic.slug %}">{{topic.subject}} </a>   
+	  <a href="{% url 'dinette_topic_detail' topic.category.slug topic.slug %}">{{topic.subject}} </a>   
 	</h3>
 	&nbsp;
 	<span class="item-starter">

@@ -6,8 +6,8 @@ from django.template.loader import render_to_string
 from django.contrib.syndication.views import Feed
 from django.contrib.auth.models import User, Group
 from django.conf import settings
-from django.views.generic.list_detail import object_list
 from django.contrib.auth.views import login as auth_login, logout as auth_logout
+from django.views.generic.list import ListView
 
 from  datetime  import datetime, timedelta
 import logging
@@ -41,7 +41,7 @@ def index_page(request):
     for group in groups:
         forums.extend([each for each in group.can_access_forums.all()])
     forums = set(forums)
-    forums = sorted(forums, cmp=lambda x, y: y.ordering - x.ordering)
+    forums = sorted(forums, cmp=lambda x, y: int(y.ordering) - int(x.ordering))
     totaltopics = Ftopics.objects.count()
     totalposts = totaltopics + Reply.objects.count()
     totalusers = User.objects.count()
@@ -61,11 +61,11 @@ def category_details(request, categoryslug,  pageno=1) :
     topic_page_size = getattr(settings , "TOPIC_PAGE_SIZE", 10)
     payload = {'topicform': topicform,'category':category,'authenticated':request.user.is_authenticated(),'topic_list':queryset, "topic_page_size": topic_page_size}
     return render_to_response("dinette/category_details.html", payload, RequestContext(request))
-    
-def topic_list(request):
-    queryset = Ftopics.objects.all()                
-    return object_list(request, queryset = queryset, template_name = 'dinette/topiclist.html', template_object_name='topic', paginate_by=2)
-    
+
+
+topic_list = ListView.as_view(template_name='dinette/topiclist.html', model=Ftopics, context_object_name='topic', paginate_by=2)
+
+
 def topic_detail(request, categoryslug, topic_slug , pageno = 1):
     topic = get_object_or_404(Ftopics, slug = topic_slug)
     show_moderation_items = False
@@ -85,7 +85,7 @@ def topic_detail(request, categoryslug, topic_slug , pageno = 1):
 def postTopic(request) :
     mlogger.info("In post Topic page.....................")
     mlogger.debug("Type of request.user %s" % type(request.user)  )
-    
+
     topic = FtopicForm(request.POST, request.FILES)
 
     if topic.is_valid() == False :
@@ -95,19 +95,19 @@ def postTopic(request) :
             json = "<textarea>"+simplejson.dumps(d)+"</textarea>"
         else:
             json = simplejson.dumps(d)
-        return HttpResponse(json, mimetype = json_mimetype)                    
-   
+        return HttpResponse(json, mimetype = json_mimetype)
+
     #code which checks for flood control
     if (datetime.now()-request.user.get_profile().last_posttime).seconds < settings.FLOOD_TIME:
     #oh....... user trying to flood us Stop him
         d2 = {"is_valid":"flood","errormessage":"Flood control.................."}
-        if request.FILES : 
+        if request.FILES :
             json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
         else :
-            json = simplejson.dumps(d2)  
+            json = simplejson.dumps(d2)
         return HttpResponse(json, mimetype = json_mimetype)
-    
-    ftopic = topic.save(commit=False)     
+
+    ftopic = topic.save(commit=False)
     #only if there is any file
     if request.FILES :
         if(request.FILES['file'].content_type.find("image") >= 0 ) :
@@ -115,38 +115,38 @@ def postTopic(request) :
         else :
             ftopic.attachment_type = "text"
         ftopic.filename = request.FILES['file'].name
-        
+
     ftopic.posted_by = request.user
 
     mlogger.debug("categoryid= %s" %request.POST['categoryid'])
     ftopic.category  = Category.objects.get(pk = request.POST['categoryid'])
 
     #Assigning user rank
-    mlogger.debug("Assigning an user rank and last posted datetime")     
+    mlogger.debug("Assigning an user rank and last posted datetime")
     assignUserElements(request.user)
     ftopic.save()
     #autosubsribe
     ftopic.subscribers.add(request.user)
 
-    mlogger.debug("what is the message (%s %s) " % (ftopic.message,ftopic.subject))    
+    mlogger.debug("what is the message (%s %s) " % (ftopic.message,ftopic.subject))
     payload = {'topic':ftopic}
     response_html = render_to_string('dinette/topic_detail_frag.html', payload,RequestContext(request))
     mlogger.debug("what is the response = %s " % response_html)
-  
+
     d2 = {"is_valid":"true","response_html":response_html}
 
     #this the required for ajax file uploads
-    if request.FILES : 
+    if request.FILES :
         json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
     else :
-        json = simplejson.dumps(d2) 
+        json = simplejson.dumps(d2)
     return HttpResponse(json, mimetype = json_mimetype)
-    
-@login_required    
+
+@login_required
 def postReply(request):
     mlogger.info("in post reply.................")
     freply = ReplyForm(request.POST,request.FILES)
-    
+
     if freply.is_valid() == False :
         d = {"is_valid":"false","response_html":freply.as_table()}
         json = simplejson.dumps(d)
@@ -155,60 +155,60 @@ def postReply(request):
         else:
             json = simplejson.dumps(d)
         return HttpResponse(json, mimetype = json_mimetype)
-        
-        
-        
+
+
+
     #code which checks for flood control
     if (datetime.now() -(request.user.get_profile().last_posttime)).seconds <= settings.FLOOD_TIME:
     #oh....... user trying to flood us Stop him
         d2 = {"is_valid":"flood","errormessage":"You have posted message too recently. Please wait a while before trying again."}
-        if request.FILES : 
+        if request.FILES :
             json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
         else :
-            json = simplejson.dumps(d2)  
-        return HttpResponse(json, mimetype = json_mimetype)        
-        
-    
-    reply = freply.save(commit=False)    
+            json = simplejson.dumps(d2)
+        return HttpResponse(json, mimetype = json_mimetype)
+
+
+    reply = freply.save(commit=False)
      #only if there is any file
     if len(request.FILES.keys()) == 1 :
         if(request.FILES['file'].content_type.find("image") >= 0 ) :
             reply.attachment_type = "image"
         else :
             reply.attachment_type = "text"
-            
+
         reply.filename = request.FILES['file'].name
-        
+
     reply.posted_by = request.user
     mlogger.debug("toipcid= %s" %request.POST['topicid'])
     reply.topic = Ftopics.objects.get(pk = request.POST['topicid'])
     #Assigning user rank
     mlogger.debug("Assigning an user rank, and last posted datetime")
-    assignUserElements(request.user) 
+    assignUserElements(request.user)
     reply.save()
-    payload = {'reply':reply}    
+    payload = {'reply':reply}
     mlogger.debug("what is the replymesage = %s" %reply.message)
     response_html = render_to_string('dinette/replydetail_frag.html', payload ,RequestContext(request))
     mlogger.debug("what is the response = %s " % response_html)
-    
+
     d2 = {"is_valid":"true","response_html":response_html}
-        
+
     if request.FILES :
         #this the required for ajax file uploads
         json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
     else:
         json = simplejson.dumps(d2)
-    
-    return HttpResponse(json, mimetype = json_mimetype)  
 
-@login_required    
+    return HttpResponse(json, mimetype = json_mimetype)
+
+@login_required
 def deleteReply(request, reply_id):
     resp= {"status": "1", "message": "Successfully deleted the reply"}
     try:
         reply = Reply.objects.get(pk=reply_id)
         if not (reply.posted_by == request.user or request.user in reply.topic.category.moderated_by.all()):
             return HttpResponseForbidden()
-        reply.delete()        
+        reply.delete()
     except:
         resp["status"] = 0
         resp["message"] = "Error deleting message"
@@ -232,33 +232,33 @@ def editReply(request, reply_id):
         form = ReplyForm(instance=reply, initial={'message': reply.message.raw})
 
     return render_to_response('dinette/edit_reply.html', {'replyform': form, 'reply_id': reply_id}, context_instance=RequestContext(request))
-    
+
 class LatestTopicsByCategory(Feed):
     title_template = 'dinette/feeds/title.html'
     description_template = 'dinette/feeds/description.html'
-    
+
     def get_object(self, whichcategory):
         mlogger.debug("Feed for category %s " % whichcategory)
         return get_object_or_404(Category, slug=whichcategory[0])
-    
+
     def title(self, obj):
         return "Latest topics in category %s" % obj.name
-    
+
     def link(self, obj):
         return  settings.SITE_URL
-    
+
     def items(self, obj):
         return obj.ftopics_set.all()[:10]
-    
+
     #construct these links by means of reverse lookup  by
     #using permalink decorator
     def item_link(self,obj):
         return  obj.get_absolute_url()
-    
+
     def item_pubdate(self,obj):
         return obj.created_on
-    
-    
+
+
 class LatestRepliesOfTopic(Feed):
     title_template = 'dinette/feeds/title.html'
     description_template = 'dinette/feeds/description.html'
@@ -266,10 +266,10 @@ class LatestRepliesOfTopic(Feed):
     def get_object(self, whichtopic):
         mlogger.debug("Feed for category %s " % whichtopic)
         return get_object_or_404(Ftopics, slug=whichtopic[0])
-         
+
     def title(self, obj):
         return "Latest replies in topic %s" % obj.subject
-     
+
     def link(self, obj):
         return  settings.SITE_URL
 
@@ -277,19 +277,19 @@ class LatestRepliesOfTopic(Feed):
         list = []
         list.insert(0,obj)
         for obj in obj.reply_set.all()[:10] :
-            list.append(obj)           
+            list.append(obj)
         return list
-       
+
      #construct these links by means of reverse lookup  by
      #using permalink decorator
-    def item_link(self,obj):       
+    def item_link(self,obj):
         return  obj.get_absolute_url()
-     
+
     def item_pubdate(self,obj):
         return obj.created_on
-    
-    
-    
+
+
+
 def assignUserElements(user):
     ranks = getattr(settings, 'RANKS_NAMES_DATA')
     rank = ''
@@ -298,14 +298,14 @@ def assignUserElements(user):
         for el in ranks:
             if totalposts == el[0]:
                 rank = el[1]
-        if rank:    
+        if rank:
             userprofile = user.get_profile()
             userprofile.userrank = rank
             #this is the time when user posted his last post
             userprofile.last_posttime = datetime.now()
             userprofile.save()
-    
-    
+
+
 ###Moderation views###
 @login_required
 def moderate_topic(request, topic_id, action):
@@ -343,13 +343,13 @@ def moderate_topic(request, topic_id, action):
         return HttpResponse(resp, mimetype = json_mimetype)
     else:
         return HttpResponse('This view must be called via post')
-    
+
 def login(request):
     return auth_login(request)
 
 def logout(request):
     return auth_logout(request)
-        
+
 def user_profile(request, slug):
     user_profile = get_object_or_404(User, dinetteuserprofile__slug=slug)
     return render_to_response('dinette/user_profile.html', {}, RequestContext(request, {'user_profile': user_profile}))
@@ -359,7 +359,7 @@ def new_topics(request):
     userprofile = request.user.get_profile()
     new_topic_list = userprofile.get_since_last_visit()
     return topic_list(request, new_topic_list, page_message = "Topics since your last visit")
-    
+
 def active(request):
     #Time filter = 48 hours
     days_ago_2 = datetime.now() - timedelta(days = 2)
@@ -370,7 +370,7 @@ def active(request):
 def unanswered(request):
     unanswered_topics = Ftopics.objects.filter(replies = 0)
     return topic_list(request, unanswered_topics, page_message = "Unanswered Topics")
-    
+
 def topic_list(request, queryset, page_message):
     payload = {"new_topic_list": queryset, "page_message": page_message}
     return render_to_response("dinette/new_topics.html", payload, RequestContext(request))
@@ -379,7 +379,7 @@ def search(request):
     from haystack.views import SearchView
     search_view = SearchView(template = "dinette/search.html")
     return search_view(request)
-    
+
 @login_required
 def subscribeTopic(request, topic_id):
     topic = get_object_or_404(Ftopics, pk=topic_id)
