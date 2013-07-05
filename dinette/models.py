@@ -7,21 +7,11 @@ from django.db.models.signals import post_save
 from django.template.defaultfilters import truncatewords
 from django.core.urlresolvers import reverse
 
-import logging
-import logging.config
 import hashlib
 from BeautifulSoup import BeautifulSoup
 import datetime
 from dinette.libs.postmarkup import render_bbcode
 from markupfield.fields import MarkupField
-
-#loading the logging configuration
-logging.config.fileConfig(settings.LOG_FILE_NAME, defaults=dict(log_path=settings.LOG_FILE_PATH))
-
-#Create module logger
-mlog = logging.getLogger(__name__)
-mlog.debug("From settings LOG_FILE_NAME %s LOG_FILE_PATH %s" % (settings.LOG_FILE_NAME, settings.LOG_FILE_PATH))
-mlog.debug("Models Compliing!"+__name__)
 
 class SiteConfig(models.Model):
     name = models.CharField(max_length = 100)
@@ -81,7 +71,6 @@ class Category(models.Model):
         for topic in self.get_topics():
             #total posts for this topic = total replies + 1 (1 is for the topic as we are considering it as topic)
             count += topic.reply_set.count() + 1
-        mlog.debug("TOtal count =%d " % count)
         return count
     
     def lastPostDatetime(self):
