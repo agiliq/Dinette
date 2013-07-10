@@ -1,8 +1,7 @@
-from django.http import HttpResponse
-
 import datetime
 
 from dinette.models import DinetteUserProfile
+
 
 class UserActivity:
     def process_request(self, req):
@@ -28,7 +27,6 @@ class UserActivity:
                     pass
 
 
-                
 def get_last_activity_with_hour_offset(lst, now = None):
     "Given a list of datetimes, find the most recent time which is at least one hour ago"
     if not now:
@@ -56,6 +54,3 @@ def rotate_with(lst, el, maxsize = 10):
         lst.pop()
     lst.insert(0, el)
     return lst
-    
-            
-

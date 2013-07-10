@@ -1,5 +1,4 @@
 from django.conf.urls.defaults import *
-from django.contrib.syndication.views import Feed
 
 from dinette.views import LatestTopicsByCategory,LatestRepliesOfTopic
 
@@ -7,7 +6,6 @@ feeds = {
    'category': LatestTopicsByCategory,
    'topic': LatestRepliesOfTopic
 }
-
 
 
 urlpatterns = patterns('dinette.views',
