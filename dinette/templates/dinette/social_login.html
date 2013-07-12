@@ -1,5 +1,8 @@
 {% extends 'dinette/base.html' %}
 
+{% load url from future %}
+
+
 {% block html_declare %}
 <html xmlns="http://www.w3.org/1999/xhtml"  xmlns:fb="http://www.facebook.com/2008/fbml">
 {% endblock %}
@@ -7,16 +10,16 @@
 {% block title %} Dinette login {% endblock %}
 {% block extra_header %}
 	<!-- Simple OpenID Selector -->
-	<link rel="stylesheet" href="{{ MEDIA_URL }}dinette/openid/css/openid.css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}dinette/openid/css/openid.css" />
 	<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
-	<script type="text/javascript" src="{{ MEDIA_URL }}dinette/openid/js/jquery-1.2.6.min.js"></script>
-	<script type="text/javascript" src="{{ MEDIA_URL }}dinette/openid/js/openid-jquery.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}dinette/openid/js/jquery-1.2.6.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}dinette/openid/js/openid-jquery.js"></script>
 	<script type="text/javascript">
 	  $(document).ready(function() {
 	    openid.init('openid_identifier');
 	  });
 	  function facebook_onlogin(){
-        window.location = "{% url socialauth_facebook_login_done %}"
+        window.location = "{% url 'socialauth_facebook_login_done' %}"
 	  }
 	</script>
 	<!-- /Simple OpenID Selector -->
@@ -103,7 +106,7 @@
 
 
 <!-- Simple OpenID Selector -->
-<form action="{% url socialauth_openid_login %}" method="get" id="openid_form">
+<form action="{% url 'socialauth_openid_login' %}" method="get" id="openid_form">
   <input type="hidden" name="action" value="verify" />
   
   <fieldset>
@@ -137,14 +140,14 @@
   <legend>Sign-in or Create New Account via twitter</legend>
   <div id="login">
 	<div id="twitter">
-		<a href="{% url socialauth_twitter_login %}" id="twitter_login_link" class="openid_large_btn twitter"></a>
+		<a href="{% url 'socialauth_twitter_login' %}" id="twitter_login_link" class="openid_large_btn twitter"></a>
 	</div>
   </div>
 	
 	<div id="facebook">
         <fb:login-button onlogin="facebook_onlogin();"></fb:login-button>
     </div>
-    <script type="text/javascript">  FB.init("{{ fb_api_key }}", "{% url socialauth_xd_receiver %}"); </script>
+    <script type="text/javascript">  FB.init("{{ fb_api_key }}", "{% url 'socialauth_xd_receiver' %}"); </script>
 </fieldset>
 	
 <div> &nbsp; </div>

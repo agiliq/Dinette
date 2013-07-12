@@ -1,10 +1,14 @@
 {% extends "dinette/base.html" %}
 
+{% load url from future %}
+
+
 {% block title %}{{  block.super }}{% endblock %}
 
 {% block content %}
 
 {% load pagination_tags %}
+{% load dinette_tags %}
 
 {% autopaginate topic_list topic_page_size %}
 
@@ -23,7 +27,7 @@
 	
 	<!-- begin formbox -->
 	<div id="formbox" style="display:none"> 
-      <form action="{% url dinette_posttopic %}" method="POST" id="fposttopic"  enctype="multipart/form-data">{% csrf_token %}
+      <form action="{% url 'dinette_posttopic' %}" method="POST" id="fposttopic"  enctype="multipart/form-data">{% csrf_token %}
 		<table>
 		  <tbody>
 			{{ topicform.as_table }}
@@ -45,17 +49,11 @@
      
     <!-- brd-main begin -->
 	<div id="brd-main">
-	  <h1 class="main-title">
-	    <a class="permalink" href="{{ topic.category.get_absolute_url }}" rel="bookmark" title="Permanent link to this forum.">
-	      {{ topic.category.name }} 
-	    </a> 
-	  </h1>
-	  
 	  <!-- bread crumbs begin -->
 	  <div id="brd-crumbs-top" class="crumbs well well-small">
 	    <p>
 		  <span class="crumb crumbfirst">
-			<a href="{% url dinette_category %}">{% get_site_name %}</a>
+			<a href="{% url 'dinette_category' %}">{% get_site_name %}</a>
 		  </span> 
 		  <span class="crumb crumblast">
 			<span> &raquo; </span>
@@ -65,7 +63,7 @@
 		  {% if authenticated %}
 			<a href="#" onclick="return isUserAuthenticated(0)">New Topic</a>        
 		  {% else %}
-			<a href="{% url dinette_login %}?next={{ category.get_absolute_url }}">Login to start New Topic</a>        
+			<a href="{% get_login_url %}?next={{ category.get_absolute_url }}">Login to start New Topic</a>        
 		  {% endif %}
         </p>
 	  </div>
@@ -107,6 +105,11 @@
       -->
 
 
+	  <div id="topicslist" class="main-content main-forum forum-views">
+		{% for topic in topic_list %}
+		  {% include 'dinette/topic_detail_frag.html' %}  
+		{% endfor %}
+	  </div>
 	 
 	  <div  id="belowpostreplybox" class="crumbs gen-content">
 	  	{% paginate %}	

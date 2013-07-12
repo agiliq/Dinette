@@ -1,5 +1,8 @@
 {% extends "dinette/base.html" %}
 
+{% load url from future %}
+
+
 {% block title %}
     Edit Reply
 {% endblock %}
@@ -19,7 +22,7 @@
 
   <!-- formbox begins -->
   <div id="formbox" class="magicbox">
-	<form action="{% url dinette_editreply reply_id %}" method="POST">
+	<form action="{% url 'dinette_editreply' reply_id %}" method="POST">
 	{% csrf_token %}
 	  <table>
 		<tbody> 

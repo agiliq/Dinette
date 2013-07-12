@@ -1,0 +1,8 @@
+<form method="POST" action=".">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="SUBMIT" value="SUBMIT"></input> 
+    <input type="hidden" name="next" value="{{next}}">
+</form>

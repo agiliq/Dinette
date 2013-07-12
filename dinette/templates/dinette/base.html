@@ -1,3 +1,4 @@
+{% load url from future %}
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 {% load compress %}
@@ -33,7 +34,6 @@
 {% block main_content %} {% endblock %}   
 {% block content %} 
 
-
 	<div id="brd-about" class="well well-small">
 	  <p id="copyright" class='pull-right'>Powered by <strong><a href="{% url dinette_category %}">Dinette</a></strong></p>
       <p id="extensions-used" class='pull-left'> Copyright &copy; 2010 <a href="http://{% get_main_site_domain %}">{% get_main_site_name %}</a></p>
@@ -42,9 +42,9 @@
 {% endblock %}
 
 {% compress js %}
-  <script type="text/javascript" src="{{ MEDIA_URL }}dinette/scripts/jquery13.js"></script>
-  <script type="text/javascript" src="{{ MEDIA_URL }}dinette/scripts/jqueryform.js"></script>
-  <script type="text/javascript" src="{{ MEDIA_URL }}dinette/scripts/dinetteajax.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}dinette/scripts/jquery13.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}dinette/scripts/jqueryform.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}dinette/scripts/dinetteajax.js"></script>
 {% endcompress  %}
 
 {% analytics %}

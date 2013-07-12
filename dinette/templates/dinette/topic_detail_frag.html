@@ -28,7 +28,7 @@
 	  {% if topic.is_sticky %}
 		<strong>(Sticky)</strong>
 	  {% endif %}		
-	  <a href="{% url dinette_topic_detail topic.category.slug topic.slug %}">{{topic.subject}} </a>   
+	  <a href="{% url 'dinette_topic_detail' topic.category.slug topic.slug %}">{{topic.subject}} </a>   
 	<span class="item-starter">
 		  <cite>
 		      by <a href={{ topic.posted_by.get_profile.get_absolute_url }}>

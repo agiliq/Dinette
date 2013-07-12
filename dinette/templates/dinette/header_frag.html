@@ -1,9 +1,10 @@
-{% load socialauth_tags %}
+{% load url from future %}
 {% load dinette_tags %}
 <br>
 <div id="brd-head" class="well well-small">
     <!--  <p id="brd-access"><a href="#brd-main">Skip to forum content</a></p>  -->
-  <p id="brd-title"><a href="{% url dinette_category %}">{% get_site_name %}</a></p>
+  <p id="brd-title"><a href="{% url 'dinette_category' %}">{% get_site_name %}</a></p>
+
   <p id="brd-desc">{% get_site_tag_line %}</p>
 </div>
 
@@ -11,14 +12,14 @@
     <div class='navbar-inner'>
   	<ul class='nav'> 
   		<li>
-				<a href="{% url dinette_category %}">Home</a>
+				<a href="{% url 'dinette_category' %}">Home</a>
 		</li>
 		<li>
-				<a href="{% url dinette_search %}">Search</a>
+				<a href="{% url 'dinette_search' %}">Search</a>
 		</li>
 		{% if user.is_authenticated %}
 			<li>
-				<a href="{% url dinette_new_for_user %}">New topics</a>
+				<a href="{% url 'dinette_new_for_user' %}">New topics</a>
 			</li>
 		{% endif %}
 	  	{% for link in dinette_nav_links %}
@@ -36,17 +37,17 @@
   	<span>
 		{% if user.is_authenticated %}
 		  Hello 
-		      <a href="{{ user.get_profile.get_absolute_url }}">{% get_calculated_username user %}</a>, 
-		      <a href='{% url socialauth_social_logout %}'>Logout</a>
+              <a href="{{ user.get_profile.get_absolute_url }}">{{user.username}}</a>, 
+		      <a href='{% get_logout_url %}'>Logout</a>
 		{% else %}
-		  <a href="{% url dinette_login %}">Login</a>
+		  <a href="{% get_login_url %}">Login</a>
 		{% endif %}
 	</span>
   </p>
   <p class="options pull-right">
-  		<span><a href="{% url dinette_active %}">Active Topics</a></span>
+  		<span><a href="{% url 'dinette_active' %}">Active Topics</a></span>
         <span class='navbar navbar-inverse'><a class='divider-vertical'></a></span>
-		<span><a href="{% url dinette_unanswered %}">Unanswered Topics</a></span>
+		<span><a href="{% url 'dinette_unanswered' %}">Unanswered Topics</a></span>
   </p>
 </div>	
 <br>

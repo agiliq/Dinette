@@ -1,5 +1,8 @@
 {% extends 'dinette/base.html' %}
 
+{% load url from future %}
+
+
 {% block title %}
 {{ topic.subject }} - {{ block.super }}
 {% endblock %}
@@ -9,7 +12,7 @@
 {% block content %}
 
 {% for topic in topic_list %}
-<a href="{% url dinette_topic_detail topic.category.slug topic.slug %}">{{topic}}<a>
+<a href="{% url 'dinette_topic_detail' topic.category.slug topic.slug %}">{{topic}}<a>
 {% endfor %}
 
 {% endblock %}

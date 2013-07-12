@@ -1,9 +1,7 @@
 # Django settings for forum project.
-import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-PROJECT_DIR = os.path.dirname(__file__)
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
@@ -75,7 +73,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'dinette.middleware.UserActivity',
     'pagination.middleware.PaginationMiddleware',
 )
 
@@ -85,7 +82,6 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_DIR, 'templates')
 )
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth', 
@@ -114,11 +110,47 @@ INSTALLED_APPS = (
     'google_analytics',
     'sorl.thumbnail',
     'openid_consumer',
-    'pagination',
-
-    'accounts',
+    'pagination'
 )
 
-STATIC_URL = '/static/'
 
-from localsettings import *
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'dev.db',                      # Or path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    }
+}
+
+from dinette.extra_settings import *
+
+#LOG FILE NAME In django
+import os
+from subprocess import call
+
+from markupfield.markup import DEFAULT_MARKUP_TYPES
+from dinette.libs.postmarkup import render_bbcode
+
+COMPRESS = False
+DEFAULT_MARKUP_TYPES.append(('bbcode', render_bbcode))
+MARKUP_RENDERERS = DEFAULT_MARKUP_TYPES
+DEFAULT_MARKUP_TYPE = "bbcode"
+
+logfilename =  os.path.join(os.path.dirname(os.path.normpath(__file__)),'logging.conf')
+LOG_FILE_NAME = logfilename
+LOG_FILE_PATH = "\""+os.path.join(os.path.join(os.path.dirname(os.path.normpath(__file__)),'logs'),"logs.txt")+"\""
+log_file_dir = "%s/forum/logs" % os.getcwd()
+if not os.path.exists(log_file_dir):
+    call(['mkdir', log_file_dir])
+AUTH_PROFILE_MODULE = "dinette.DinetteUserProfile"
+REPLY_PAGE_SIZE = 10
+FLOOD_TIME = 0
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+STATIC_URL = '/static/'

@@ -1,5 +1,8 @@
 {% extends 'dinette/base.html' %}
 
+{% load url from future %}
+
+
 {% block title %}
 {{ topic.subject }} - {{ block.super }}
 {% endblock %}
@@ -12,7 +15,7 @@
 {% load dinette_tags %}
 
 {% block extra_head %}
-    <link rel="alternate" type="application/rss+xml" title="{{ topic.subject }}" href="{% url dinette_topic_url topic.getTopicString %}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ topic.subject }}" href="{% url 'dinette_topic_url' topic.getTopicString %}" />
 {% endblock %}
  
 <div id="replybox">
@@ -34,7 +37,7 @@
   <div id="brd-crumbs-top" class="crumbs well well-small">
     <p>
 	  <span class="crumb crumbfirst">
-	    <a href="{% url dinette_category %}">{% get_site_name %}</a>
+	    <a href="{% url 'dinette_category' %}">{% get_site_name %}</a>
 	  </span> 
 	  <span class="crumb">
 		<span> &raquo; </span>
@@ -50,16 +53,16 @@
 	  {% if user.is_authenticated %}
 		<a href="#fpostreply" onclick="$('#id_message').focus();">Post Reply</a> &nbsp; &nbsp;
 	  {% else %}
-		(<a href="{% url dinette_login %}?next={{ topic.get_absolute_url }}">Login to Post Reply</a>) &nbsp; &nbsp;
+		(<a href="{% get_login_url %}?next={{ topic.get_absolute_url }}">Login to Post Reply</a>) &nbsp; &nbsp;
 	  {% endif %}
 	  {% endif %}
          
 	  {% if reply_list.has_next %}
-		<a href="{% url dinette_reply_detail_paged  topic.category.slug topic.slug   reply_list.next_page_number %}"> Next </a>              
+		<a href="{% url 'dinette_reply_detail_paged'  topic.category.slug topic.slug   reply_list.next_page_number %}"> Next </a>              
 	  {% endif %}
          
 	  {% if reply_list.has_previous %}
-		<a href="{% url dinette_reply_detail_paged  topic.category.slug topic.slug  reply_list.previous_page_number %}"> Previous </a>
+		<a href="{% url 'dinette_reply_detail_paged'  topic.category.slug topic.slug  reply_list.previous_page_number %}"> Previous </a>
 	  {% endif %}   &nbsp;
 	</p>  
   </div>
@@ -74,15 +77,15 @@
     <div class='well well-small'>
         <span class='pull-left'>Posts [ {{ reply_list.count }} ]</span>
         <span class="feed first-item pull-right" >
-            <a class="feed-option" href="{% url dinette_topic_url topic.getTopicString %}">RSS Topic Feed</a>
+            <a class="feed-option" href="{% url 'dinette_topic_url' topic.getTopicString %}">RSS Topic Feed</a>
       {% if request.user.is_authenticated %}
           <span>
               {% if request.user in topic.subscribers.all %}
                   <span class='navbar navbar-inverse'><a class='divider-vertical'></a></span>
-                  <a href="{% url dinette_unsubscribe_from_topic topic.id %}"><em>Unsubscribe</em></a>
+                  <a href="{% url 'dinette_unsubscribe_from_topic' topic.id %}"><em>Unsubscribe</em></a>
               {% else %}
                   <span class='navbar navbar-inverse'><a class='divider-vertical'></a></span>
-                  <a href="{% url dinette_subscribe_to_topic topic.id %}">Subscribe</a>
+                  <a href="{% url 'dinette_subscribe_to_topic' topic.id %}">Subscribe</a>
               {% endif %}
           </span>
       {% endif %}
@@ -170,7 +173,7 @@
 	  {% if user.is_authenticated %}
 		<a href="#" onclick="return isUserAuthenticated(2)">Post Reply</a> &nbsp; &nbsp;
 	  {% else %}
-		(<a href="{% url dinette_login %}?next={{ topic.get_absolute_url }}">Login to Post Reply</a>) &nbsp; &nbsp;
+		(<a href="{% get_login_url %}?next={{ topic.get_absolute_url }}">Login to Post Reply</a>) &nbsp; &nbsp;
 	  {% endif %}
 	  {% endif %}
 	
@@ -182,7 +185,7 @@
   {% if not topic.is_closed and user.is_authenticated %}
   <!-- formbox begins -->
   <div id="formbox" class="magicbox">
-	<form action="{% url dinette_postreply %}" method="POST" id="fpostreply"  >{% csrf_token %}
+	<form action="{% url 'dinette_postreply' %}" method="POST" id="fpostreply"  >{% csrf_token %}
 	  <table>
 		<tbody> 
 		  {{ replyform.as_table }}

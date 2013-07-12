@@ -1,5 +1,8 @@
 {% extends "dinette/base.html" %}
 
+{% load url from future %}
+
+
 {% block content %}
 
     
@@ -11,7 +14,6 @@
 <!-- brd-main begins -->
 <div id="brd-main">
 {% for forum in forums_list %}
-  {% if user_access_list|get_digit:forloop.counter  %}
   <!--
   <div class="main-head">
     <h2 class="hn"><span>{#{ forum }#}</span></h2>
@@ -32,7 +34,7 @@
             <div class="item-subject span6">
                 <h4 >
                     <!--               <span class=' icon-chevron-right ' style='inline'></span> -->
-                    <a href="{% url dinette_index category.slug %}"><span> {{category}} </span></a></h4>
+                    <a href="{% url 'dinette_index' category.slug %}"><span> {{category}} </span></a></h4>
                     <p>{{ category.description }}
                     <span class="modlist">
                         (Moderated by
@@ -69,7 +71,6 @@
 
   </div>
   <!-- category-#id ends -->
-  {% endif %}
   <br>
 {% endfor %}
 <!-- brd-main ends -->
