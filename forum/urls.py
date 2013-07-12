@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
+from django.conf.urls.static import static
 
 from django.contrib import admin
 admin.autodiscover()
@@ -12,13 +13,4 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
 )
 
-if settings.DEBUG or getattr(settings, 'SERVE_MEDIA', False):
-    urlpatterns += patterns(
-        'django.views.static',
-        (r'^site_media/(?P<path>.*)$', 'serve', 
-            { 
-                'document_root': settings.MEDIA_ROOT,
-                'show_indexes': True
-            }
-        ),
-    )
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
