@@ -15,7 +15,7 @@
 {% load dinette_tags %}
 
 {% block extra_head %}
-    <link rel="alternate" type="application/rss+xml" title="{{ topic.subject }}" href="{% url 'dinette_topic_url' topic.getTopicString %}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ topic.subject }}" href="{% url 'dinette_topic_url' topic.slug %}" />
 {% endblock %}
  
 <div id="replybox">
@@ -74,7 +74,7 @@
   <div class="main-head">
 	<p class="options">
 	  <span class="feed first-item">
-		<a class="feed-option" href="{% url 'dinette_topic_url' topic.getTopicString %}">RSS Topic Feed</a>
+		<a class="feed-option" href="{% url 'dinette_topic_url' topic.slug %}">RSS Topic Feed</a>
 	  </span>
       {% if request.user.is_authenticated %}
           <span>

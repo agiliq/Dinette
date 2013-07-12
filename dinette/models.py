@@ -168,8 +168,8 @@ class Ftopics(models.Model):
         return reverse('dinette_topic_detail', kwargs={'categoryslug':self.category.slug, 'topic_slug': self.slug})
     
     def htmlfrombbcode(self):
-        if(len(self.message.strip()) >  0):            
-            return render_bbcode(self.message)
+        if(len(self.message.raw.strip()) >  0):            
+            return render_bbcode(self.message.raw)
         else :
             return ""
         
