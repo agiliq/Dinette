@@ -237,9 +237,9 @@ class LatestTopicsByCategory(Feed):
     title_template = 'dinette/feeds/title.html'
     description_template = 'dinette/feeds/description.html'
 
-    def get_object(self, whichcategory):
+    def get_object(self, request, whichcategory):
         mlogger.debug("Feed for category %s " % whichcategory)
-        return get_object_or_404(Category, slug=whichcategory[0])
+        return get_object_or_404(Category, slug=whichcategory)
 
     def title(self, obj):
         return "Latest topics in category %s" % obj.name
@@ -263,9 +263,9 @@ class LatestRepliesOfTopic(Feed):
     title_template = 'dinette/feeds/title.html'
     description_template = 'dinette/feeds/description.html'
 
-    def get_object(self, whichtopic):
+    def get_object(self, request, whichtopic):
         mlogger.debug("Feed for category %s " % whichtopic)
-        return get_object_or_404(Ftopics, slug=whichtopic[0])
+        return get_object_or_404(Ftopics, slug=whichtopic)
 
     def title(self, obj):
         return "Latest replies in topic %s" % obj.subject
