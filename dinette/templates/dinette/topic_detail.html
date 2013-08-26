@@ -15,7 +15,7 @@
 {% load dinette_tags %}
 
 {% block extra_head %}
-    <link rel="alternate" type="application/rss+xml" title="{{ topic.subject }}" href="{% url 'dinette_topic_url' topic.getTopicString %}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ topic.subject }}" href="{% url 'dinette_topic_url' topic.slug %}" />
 {% endblock %}
  
 <div id="replybox">
@@ -71,7 +71,6 @@
   <!-- main head begins -->
   <div class="main-head">
 	<p class="options">
-
 
 	</p>
     <div class='well well-small'>

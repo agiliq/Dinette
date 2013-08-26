@@ -6,8 +6,6 @@ REPLY_PAGE_SIZE = 12
 AUTH_PROFILE_MODULE = 'dinette.DinetteUserProfile'
 RANKS_NAMES_DATA = ((30, "Member"), (100, "Senior Member"), (300, 'Star'))
 DINETTE_LOGIN_TEMPLATE = 'dinette/social_login.html'
-LOG_FILE_PATH = "\""+os.path.join(os.path.join(os.path.dirname(os.path.normpath(__file__)),'logs'),"logs.txt")+"\""
-LOG_FILE_NAME =  os.path.join(os.path.dirname(os.path.normpath(__file__)),'logging.conf')
 FLOOD_TIME = 1000
 HAYSTACK_SITECONF = "dinette.search"
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
@@ -54,10 +52,6 @@ OPENID_AX_PROVIDER_MAP = {'Google': {'email': 'http://axschema.org/contact/email
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'socialauth.auth_backends.OpenIdBackend',
-    'socialauth.auth_backends.TwitterBackend',
-    'socialauth.auth_backends.FacebookBackend',
-    'socialauth.auth_backends.LinkedInBackend',
 )
 
 # markup settings
