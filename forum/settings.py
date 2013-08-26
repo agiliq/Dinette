@@ -113,7 +113,6 @@ INSTALLED_APPS = (
     'compressor',
     'google_analytics',
     'sorl.thumbnail',
-    'openid_consumer',
     'pagination',
 
     'accounts',

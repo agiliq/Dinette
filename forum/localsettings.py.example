@@ -52,10 +52,6 @@ OPENID_AX_PROVIDER_MAP = {'Google': {'email': 'http://axschema.org/contact/email
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'socialauth.auth_backends.OpenIdBackend',
-    'socialauth.auth_backends.TwitterBackend',
-    'socialauth.auth_backends.FacebookBackend',
-    'socialauth.auth_backends.LinkedInBackend',
 )
 
 # markup settings

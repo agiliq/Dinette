@@ -5,7 +5,6 @@ hg+https://pylinkedin.googlecode.com/hg/pylinkedin>=0.1
 django-compressor==1.2
 -e git+http://github.com/jamesturk/django-markupfield.git#egg=django_markupfield-1.0.0b-py2.6-dev
 django-pagination
-django-socialauth
 facebook-sdk
 -e git+http://github.com/agiliq/django-google-analytics.git#egg=google_analytics-0.1-py2.6-dev
 oauth
