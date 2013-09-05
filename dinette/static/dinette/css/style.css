@@ -20,15 +20,6 @@
 
 
 
-.icon {
-    border-style: solid;
-border-width: 0.5833em;
-height: 0;
-width: 0;
-float: left;
-margin-top: 0.967em;
-/* margin-left: -2.417em; */
-}
 
 .sticky {
     background: #F2F4FA;
@@ -42,9 +33,11 @@ margin-top: 0.967em;
     width: 15px;
 }
 
-.icon {
-    border-color: #EDF1F5 #DDE0E4 #C6CBD3 #BABFC6
-    }
+.left-icon {
+    float: left; margin-top: 13px; 
+}
+
+.row-div { border-bottom: 1px solid rgb(223, 223, 223); }
 
 .redirect .icon {
     border-color: #f4f4f4 #f4f4f4 #f4f4f4 #f4f4f4

@@ -19,19 +19,23 @@
     <h2 class="hn"><span>{#{ forum }#}</span></h2>
   </div>
   -->
-  <div class='well well-small'><strong>{{ forum }}</strong></div>
-
   <div class='well well-small'>
-    <span class='span6'>Forum</span>
+      <h4>{{ forum }}</h4>
+
+  <div class=''>
+    <span class='span6' style='margin-left: 43px;'>Forum</span>
     <span class='span1'>Topics</span>
     <span class='span1'>Posts</span>
     <span class='span1'>Last Post</span>
-</div>
+  </div>
+  <div class='clearfix'></div>
+  </div>
     <div class='well'>
     {% for category in forum.category_set.all %}
+    <div class='row-div'>
 
-            <span class='icon'></span>
-            <div class="item-subject span6">
+            <i class='icon-th left-icon'> </i>
+            <div class="item-subject span6 row-item">
                 <h4 >
                     <!--               <span class=' icon-chevron-right ' style='inline'></span> -->
                     <a href="{% url 'dinette_index' category.slug %}"><span> {{category}} </span></a></h4>
@@ -45,9 +49,9 @@
                     </span>
                     </p>
                 </div>
-            <div class='span1'> {{ category.get_topics.count  }} </div>
-            <div class='span1'> {{ category.noofPosts }} </div>
-            <div class='span2'>
+            <div class='span1 row-item'> {{ category.get_topics.count  }} </div>
+            <div class='span1 row-item'> {{ category.noofPosts }} </div>
+            <div class='span2 row-item'>
 
                 <strong>
                     {# last post can be Reply or Category #}
@@ -66,6 +70,7 @@
                 </cite>
             </div>
             <div class='clearfix'></div>
+        </div>
     {% endfor %}
 </div>
 

@@ -1,12 +1,11 @@
 {% load url from future %}
 {% load dinette_tags %}
 <br>
-<div id="brd-head" class="well well-small">
-    <!--  <p id="brd-access"><a href="#brd-main">Skip to forum content</a></p>  -->
-  <p id="brd-title"><a href="{% url 'dinette_category' %}">{% get_site_name %}</a></p>
+<div class='page-header'>
+    <h1><a href="{% url 'dinette_category' %}">{% get_site_name %}</a></h1>
 
-  <p id="brd-desc">{% get_site_tag_line %}</p>
-</div>
+    <h1><small>{% get_site_tag_line %}</small></h1>
+  </div>
 
 <div  class="navbar"> 
     <div class='navbar-inner'>
