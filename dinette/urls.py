@@ -42,6 +42,6 @@ urlpatterns = patterns('dinette.views',
 
 
 urlpatterns += patterns('',
-    url(r'^feeds/category/(?P<whichcategory>[\w-]+)/$', LatestTopicsByCategory(), name='dinette_feed_url'),
-    url(r'^feeds/topic/(?P<whichtopic>[\w-]+)/$', LatestRepliesOfTopic() ,name='dinette_topic_url'),
+    url(r'^feeds/category/(?P<whichcategory>[\w/-]+)/$', LatestTopicsByCategory(), name='dinette_feed_url'),
+    url(r'^feeds/topic/(?P<whichtopic>[\w/-]+)/$', LatestRepliesOfTopic() ,name='dinette_topic_url'),
 )
