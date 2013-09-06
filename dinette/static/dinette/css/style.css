@@ -1,4 +1,6 @@
-
+body { background-color: rgb(51, 48, 48); }
+body a { color: black; }
+body .page-header a { color: whitesmoke; }
 
 .eachtopic_row {
     min-height: 55px;
@@ -17,15 +19,6 @@
     position:absolute; bottom: 10px; right: 10px;
 }
 
-
-
-
-
-.sticky {
-    background: #F2F4FA;
-    margin-top: 0.367em;
-}
-
 .smallspan {
     float: left;
     min-height: 1px;
@@ -39,26 +32,18 @@
 
 .row-div { border-bottom: 1px solid rgb(223, 223, 223); }
 
-.redirect .icon {
-    border-color: #f4f4f4 #f4f4f4 #f4f4f4 #f4f4f4
-    }
 
- .sticky .icon {
-    border-color: #D7E5F3 #C3CFDC #9FB3C7 #90A2B4
-    margin-top: 0.367em;
-    }
+.forum_column_title {
+    font-weight: bold;
+    margin-bottom: 7px;
+    line-height: 30px;
+    border-bottom: 1px solid rgb(223, 223, 223);
+}
 
-.closed .icon {
-    border-color: #ACACAC #979797 #898989 #7A7A7A
-    }
+.well.well-small.small { padding-bottom: 0px; }
 
-.sticky .closed {
-    border-color: #D7E5F3 #C3CFDC #898989 #7A7A7A
-    margin-top: 0.367em;
-    }
+.forum_name { 
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
 
-/*
-.icon {
-    border-color: #2B75AD #235E8C #1F537B #266799
-    }
-*/

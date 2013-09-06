@@ -27,13 +27,7 @@
 				<a href="{{ link.url }}">{{ link.title }}</a>
 			</li>
 		{% endfor %}
-	</ul>
-</div>
- </div>
-
-<div class="well well-small">
-  <p  class='pull-left'>
-  	<span>
+        <li>
 		{% if user.is_authenticated %}
 		  Hello 
               <a href="{{ user.get_profile.get_absolute_url }}">{{user.username}}</a>, 
@@ -41,14 +35,19 @@
 		{% else %}
 		  <a href="{% get_login_url %}">Login</a>
 		{% endif %}
-	</span>
-  </p>
+        </li>
+	</ul>
+</div>
+ </div>
+
+<div class="well well-small pull-right small" >
   <p class="options pull-right">
   		<span><a href="{% url 'dinette_active' %}">Active Topics</a></span>
         <span class='navbar navbar-inverse'><a class='divider-vertical'></a></span>
 		<span><a href="{% url 'dinette_unanswered' %}">Unanswered Topics</a></span>
   </p>
 </div>	
+<div class='clearfix'></div>
 <br>
 
 	
