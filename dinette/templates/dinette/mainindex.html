@@ -52,7 +52,6 @@
             <div class='span1 row-item'> {{ category.noofPosts }} </div>
             <div class='span2 row-item'>
 
-                <strong>
                     {# last post can be Reply or Category #}
                     {% if category.lastPost.get_url_with_fragment %}
                         <a href={{ category.lastPost.get_url_with_fragment }}>
@@ -61,7 +60,6 @@
                     {% endif %}
                         {{ category.lastPostDatetime|date:"jS F Y H:i A" }}
                     </a>
-                </strong> 
                 <cite>
                     by <a href={{ category.lastPostedUser.get_profile.get_absolute_url }}>
                             {{ category.lastPostedUser.username }}
