@@ -34,12 +34,13 @@
 {% block main_content %} {% endblock %}   
 {% block content %} 
 
+
+{% endblock %}
 	<div id="brd-about" class="well well-small">
-	  <p id="copyright" class='pull-right'>Powered by <strong><a href="{% url dinette_category %}">Dinette</a></strong></p>
+	  <p id="copyright" class='pull-right'>Powered by <strong><a href="{% url 'dinette_category' %}">Dinette</a></strong></p>
       <p id="extensions-used" class='pull-left'> Copyright &copy; 2010 <a href="http://{% get_main_site_domain %}">{% get_main_site_name %}</a></p>
 	</div>
 </div>
-{% endblock %}
 
 {% compress js %}
   <script type="text/javascript" src="{{ STATIC_URL }}dinette/scripts/jquery13.js"></script>
