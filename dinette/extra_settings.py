@@ -9,8 +9,6 @@ AUTH_PROFILE_MODULE = 'dinette.DinetteUserProfile'
 
 RANKS_NAMES_DATA = ((30, "Member"), (100, "Senior Member"), (300, 'Star'))
 
-DINETTE_LOGIN_TEMPLATE = 'dinette/social_login.html'
-
 FLOOD_TIME = 1000
 
 HAYSTACK_SITECONF = "dinette.search"
