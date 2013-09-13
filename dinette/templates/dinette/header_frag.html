@@ -13,9 +13,6 @@
   		<li>
 				<a href="{% url 'dinette_category' %}">Home</a>
 		</li>
-		<li>
-				<a href="{% url 'dinette_search' %}">Search</a>
-		</li>
 		{% if user.is_authenticated %}
 			<li>
 				<a href="{% url 'dinette_new_for_user' %}">New topics</a>
