@@ -1,4 +1,5 @@
-body { background-color: rgb(51, 48, 48); }
+body { background-color: rgb(51, 48, 48); color: whitesmoke; }
+body .well, body .well a { color: black; }
 body .page-header a { color: whitesmoke; }
 
 .eachtopic_row {
