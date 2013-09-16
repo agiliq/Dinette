@@ -52,7 +52,7 @@ function check_errors_in_Replyform() {
         return false;
     }
    
-    $("#errorbox span").html(" <img src='/site_media/dinette/images/ajaximage.gif' alt='ajax image'/> &nbsp; posting the reply...........  ");
+    $("#errorbox span").html(" <img src='/static/dinette/images/ajaximage.gif' alt='ajax image'/> &nbsp; posting the reply...........  ");
      
     return true;    
 }
@@ -92,7 +92,7 @@ function formsubmission(data) {
             $("#formbox").css("display","none");
         }
         else if(data["is_valid"] == "false") {
-            $("tr:lt(2)","#formbox").remove();
+            $("tr:lt(3)","#formbox").remove();
             $("#formbox  table tbody").prepend(data["response_html"]);
             show_hide_error_box();
             $("#errorbox span").html("There is an error in the form.Please repost the form");
