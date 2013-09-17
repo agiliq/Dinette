@@ -49,3 +49,4 @@ body .page-header a { color: whitesmoke; }
 
 #belowpostreplybox .pagination { margin: 0px; }
 #belowpostreplybox { margin: 20px 0px; }
+.errorlist li { color: red; }

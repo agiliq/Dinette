@@ -128,7 +128,7 @@ function isUserAuthenticated( k )
             if(k == 2) {
                 content =   $("#formbox").html();
                 $("#formbox").remove();    
-                $("#belowpostreplybox").after("<div id='formbox'>"+content+"</div>");
+                $("#belowpostreplybox").after("<div id='formbox' class='magicbox well '>"+content+"</div>");
                 $("#formbox").css("display","block");
                 $("#errorbox span").html(" ");
                 $("#errorbox span").css({ padding : 0 });
@@ -137,7 +137,7 @@ function isUserAuthenticated( k )
             else{
                 content =   $("#formbox").html();
                 $("#formbox").remove();    
-                $("#errorbox").after("<div id='formbox'>"+content+"</div>");
+                $("#errorbox").after("<div id='formbox' class='magicbox well'>"+content+"</div>");
                 $("#formbox").css("display","block");
                 $("#errorbox span").html(" ");
                 $("#errorbox span").css({ padding : 0 });
