@@ -24,13 +24,13 @@
 				<a href="{{ link.url }}">{{ link.title }}</a>
 			</li>
 		{% endfor %}
-        <li>
+
 		{% if user.is_authenticated %}
-		  Hello 
-              <a href="{{ user.get_profile.get_absolute_url }}">{{user.username}}</a>, 
-		      <a href='{% get_logout_url %}'>Logout</a>
+        <li>
+          <a href="{{ user.get_profile.get_absolute_url }}">Profile</a> </li>
+         <li>   <a href='{% get_logout_url %}'>Logout</a></li>
 		{% else %}
-		  <a href="{% get_login_url %}">Login</a>
+        <li> <a href="{% get_login_url %}">Login</a></li>
 		{% endif %}
         </li>
 	</ul>

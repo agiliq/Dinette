@@ -52,7 +52,7 @@ function check_errors_in_Replyform() {
         return false;
     }
    
-    $("#errorbox span").html(" <img src='/site_media/dinette/images/ajaximage.gif' alt='ajax image'/> &nbsp; posting the reply...........  ");
+    $("#errorbox span").html(" <img src='/static/dinette/images/ajaximage.gif' alt='ajax image'/> &nbsp; posting the reply...........  ");
      
     return true;    
 }
@@ -92,7 +92,7 @@ function formsubmission(data) {
             $("#formbox").css("display","none");
         }
         else if(data["is_valid"] == "false") {
-            $("tr:lt(2)","#formbox").remove();
+            $("tr:lt(3)","#formbox").remove();
             $("#formbox  table tbody").prepend(data["response_html"]);
             show_hide_error_box();
             $("#errorbox span").html("There is an error in the form.Please repost the form");
@@ -128,7 +128,7 @@ function isUserAuthenticated( k )
             if(k == 2) {
                 content =   $("#formbox").html();
                 $("#formbox").remove();    
-                $("#belowpostreplybox").after("<div id='formbox'>"+content+"</div>");
+                $("#belowpostreplybox").after("<div id='formbox' class='magicbox well '>"+content+"</div>");
                 $("#formbox").css("display","block");
                 $("#errorbox span").html(" ");
                 $("#errorbox span").css({ padding : 0 });
@@ -137,7 +137,7 @@ function isUserAuthenticated( k )
             else{
                 content =   $("#formbox").html();
                 $("#formbox").remove();    
-                $("#errorbox").after("<div id='formbox'>"+content+"</div>");
+                $("#errorbox").after("<div id='formbox' class='magicbox well'>"+content+"</div>");
                 $("#formbox").css("display","block");
                 $("#errorbox span").html(" ");
                 $("#errorbox span").css({ padding : 0 });
@@ -187,6 +187,7 @@ $('.moderate-post').click(function(){
    })
 
 function quote_reply(reply, author) {
+    $("#formbox").show();
   msg = "[quote=" + author + "]" + $("#content" + reply).text().trim() + "[/quote]";
   $("#id_message").val(msg).focus();
 }

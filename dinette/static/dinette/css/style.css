@@ -1,4 +1,5 @@
-body { background-color: rgb(51, 48, 48); }
+body { background-color: rgb(51, 48, 48); color: whitesmoke; }
+body .well, body .well a { color: black; }
 body .page-header a { color: whitesmoke; }
 
 .eachtopic_row {
@@ -48,3 +49,4 @@ body .page-header a { color: whitesmoke; }
 
 #belowpostreplybox .pagination { margin: 0px; }
 #belowpostreplybox { margin: 20px 0px; }
+.errorlist li { color: red; }
