@@ -108,7 +108,7 @@ def postTopic(request):
 
     topic = FtopicForm(request.POST, request.FILES)
 
-    if topic.is_valid() == False:
+    if not topic.is_valid():
         d = {"is_valid": "false", "response_html": topic.as_table()}
         json = simplejson.dumps(d)
         if request.FILES:
@@ -167,7 +167,7 @@ def postReply(request):
     mlogger.info("in post reply.................")
     freply = ReplyForm(request.POST,request.FILES)
 
-    if freply.is_valid() == False :
+    if not freply.is_valid():
         d = {"is_valid":"false","response_html":freply.as_table()}
         json = simplejson.dumps(d)
         if request.FILES :
