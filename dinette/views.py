@@ -1,4 +1,6 @@
-from django.http import HttpResponse, Http404, HttpResponseForbidden, HttpResponseRedirect
+from django.http import (
+    HttpResponse, Http404, HttpResponseForbidden,
+    HttpResponseRedirect)
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
@@ -6,10 +8,11 @@ from django.template.loader import render_to_string
 from django.contrib.syndication.views import Feed
 from django.contrib.auth.models import User, Group
 from django.conf import settings
-from django.contrib.auth.views import login as auth_login, logout as auth_logout
+from django.contrib.auth.views import (
+    login as auth_login, logout as auth_logout)
 from django.views.generic.list import ListView
 
-from  datetime  import datetime, timedelta
+from datetime import datetime, timedelta
 import logging
 
 try:
@@ -18,13 +21,12 @@ except ImportError:
     from django.utils import simplejson
 
 from dinette.models import Ftopics, Category, Reply, DinetteUserProfile
-from dinette.forms import  FtopicForm, ReplyForm
+from dinette.forms import FtopicForm, ReplyForm
 
 
 #Create module logger
 #several logging configurations are configured in the models
 mlogger = logging.getLogger(__name__)
-
 
 json_mimetype = 'application/javascript'
 
@@ -32,7 +34,8 @@ json_mimetype = 'application/javascript'
 def index_page(request):
     #groups which this user has access
     if request.user.is_authenticated():
-        groups = [group for group in request.user.groups.all()] + [group for group in Group.objects.filter(name="general")]
+        groups = [group for group in request.user.groups.all()] + \
+            [group for group in Group.objects.filter(name="general")]
     else:
         #we are treating user who have not loggedin belongs to general group
         groups = Group.objects.filter(name="general")
@@ -46,28 +49,40 @@ def index_page(request):
     totalposts = totaltopics + Reply.objects.count()
     totalusers = User.objects.count()
     now = datetime.now()
-    users_online = DinetteUserProfile.objects.filter(last_activity__gte =  now - timedelta(seconds = 900)).count()
+    users_online = DinetteUserProfile.objects.filter(
+        last_activity__gte=now - timedelta(seconds=900)).count()
     last_registered_user = User.objects.order_by('-date_joined')[0]
-    payload = {'users_online':users_online, 'forums_list':forums, 'totaltopics':totaltopics,
-               'totalposts':totalposts, 'totalusers':totalusers, 'last_registered_user':last_registered_user}
-    return render_to_response("dinette/mainindex.html", payload,RequestContext(request))
+    payload = {
+        'users_online': users_online, 'forums_list': forums,
+        'totaltopics': totaltopics, 'totalposts': totalposts,
+        'totalusers': totalusers, 'last_registered_user': last_registered_user
+    }
+    return render_to_response(
+        "dinette/mainindex.html", payload, RequestContext(request))
 
 
-def category_details(request, categoryslug,  pageno=1) :
+def category_details(request, categoryslug,  pageno=1):
     #build a form for posting topics
     topicform = FtopicForm()
     category = get_object_or_404(Category, slug=categoryslug)
-    queryset = Ftopics.objects.filter(category__id__exact = category.id)
-    topic_page_size = getattr(settings , "TOPIC_PAGE_SIZE", 10)
-    payload = {'topicform': topicform,'category':category,'authenticated':request.user.is_authenticated(),'topic_list':queryset, "topic_page_size": topic_page_size}
-    return render_to_response("dinette/category_details.html", payload, RequestContext(request))
+    queryset = Ftopics.objects.filter(category__id__exact=category.id)
+    topic_page_size = getattr(settings, "TOPIC_PAGE_SIZE", 10)
+    payload = {
+        'topicform': topicform, 'category': category,
+        'authenticated': request.user.is_authenticated(),
+        'topic_list': queryset, "topic_page_size": topic_page_size
+    }
+    return render_to_response(
+        "dinette/category_details.html", payload, RequestContext(request))
 
 
-topic_list = ListView.as_view(template_name='dinette/topiclist.html', model=Ftopics, context_object_name='topic', paginate_by=2)
+topic_list = ListView.as_view(
+    template_name='dinette/topiclist.html',
+    model=Ftopics, context_object_name='topic', paginate_by=2)
 
 
-def topic_detail(request, categoryslug, topic_slug , pageno = 1):
-    topic = get_object_or_404(Ftopics, slug = topic_slug)
+def topic_detail(request, categoryslug, topic_slug, pageno=1):
+    topic = get_object_or_404(Ftopics, slug=topic_slug)
     show_moderation_items = False
     if request.user in topic.category.moderated_by.all():
         show_moderation_items = True
@@ -76,32 +91,37 @@ def topic_detail(request, categoryslug, topic_slug , pageno = 1):
     topic.save()
     #we also need to display the reply form
     replylist = topic.reply_set.all()
-    reply_page_size = getattr(settings , "REPLY_PAGE_SIZE", 10)
+    reply_page_size = getattr(settings, "REPLY_PAGE_SIZE", 10)
     replyform = ReplyForm()
-    payload = {'topic': topic, 'replyform':replyform,'reply_list':replylist, 'show_moderation_items':show_moderation_items, "reply_page_size": reply_page_size}
-    return render_to_response("dinette/topic_detail.html", payload, RequestContext(request))
+    payload = {
+        'topic': topic, 'replyform': replyform, 'reply_list': replylist,
+        'show_moderation_items': show_moderation_items,
+        "reply_page_size": reply_page_size}
+    return render_to_response(
+        "dinette/topic_detail.html", payload, RequestContext(request))
+
 
 @login_required
-def postTopic(request) :
+def postTopic(request):
     mlogger.info("In post Topic page.....................")
-    mlogger.debug("Type of request.user %s" % type(request.user)  )
+    mlogger.debug("Type of request.user %s" % type(request.user))
 
     topic = FtopicForm(request.POST, request.FILES)
 
-    if topic.is_valid() == False :
-        d = {"is_valid":"false","response_html":topic.as_table()}
+    if topic.is_valid() == False:
+        d = {"is_valid": "false", "response_html": topic.as_table()}
         json = simplejson.dumps(d)
-        if request.FILES :
+        if request.FILES:
             json = "<textarea>"+simplejson.dumps(d)+"</textarea>"
         else:
             json = simplejson.dumps(d)
-        return HttpResponse(json, mimetype = json_mimetype)
+        return HttpResponse(json, mimetype=json_mimetype)
 
     #code which checks for flood control
     if (datetime.now()-request.user.get_profile().last_posttime).seconds < settings.FLOOD_TIME:
     #oh....... user trying to flood us Stop him
-        d2 = {"is_valid":"flood","errormessage":"Flood control.................."}
-        if request.FILES :
+        d2 = {"is_valid": "flood", "errormessage": "Flood control.................."}
+        if request.FILES:
             json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
         else :
             json = simplejson.dumps(d2)
