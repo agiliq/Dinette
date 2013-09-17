@@ -187,6 +187,7 @@ $('.moderate-post').click(function(){
    })
 
 function quote_reply(reply, author) {
+    $("#formbox").show();
   msg = "[quote=" + author + "]" + $("#content" + reply).text().trim() + "[/quote]";
   $("#id_message").val(msg).focus();
 }
