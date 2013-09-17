@@ -176,9 +176,12 @@
 	  {% endif %}
 	  {% endif %}
 	
-	<span style='float: right;'>
-	 {% paginate %}
-	</span>
+      {% if page_obj.paginator.count > 1 %}
+    <div  class="crumbs gen-content well well-small small pull-right" >
+        {% paginate %}
+    </div>
+    <div class='clearfix'></div>
+    {% endif %}
   </div>
   
   {% if not topic.is_closed and user.is_authenticated %}
