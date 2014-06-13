@@ -4,8 +4,7 @@ python:
   - "2.7"
 # command to install dependencies
 install:
-    - "pip install BeautifulSoup==3.2.1"
-    - "pip install -r requirements.txt --use-mirrors"
+    - "pip install -r requirements.txt --allow-all-external"
     - "pip install coveralls --use-mirrors"
 # command to run tests
 script: coverage run forum/manage.py test dinette --settings=settings_travis
