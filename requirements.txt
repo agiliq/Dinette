@@ -1,6 +1,7 @@
+BeautifulSoup==3.2.1
 Django==1.5
 MySQL-python==1.2.5
---no-index -f http://dist.plone.org/thirdparty/ -U PIL
+Pillow==2.4.0
 Whoosh==2.5.2
 argparse==1.2.1
 django-appconf==0.6
