@@ -2,7 +2,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 {% load compress %}
-{% load analytics %}
 {% load dinette_tags %}
 
 {% block html_declare %}
@@ -29,8 +28,8 @@
 <body>
 
 <div class='container'>
-{% block main_content %} {% endblock %}   
-{% block content %} 
+{% block main_content %} {% endblock %}
+{% block content %}
 
 
 {% endblock %}
@@ -46,7 +45,6 @@
   <script type="text/javascript" src="{{ STATIC_URL }}dinette/scripts/dinetteajax.js"></script>
 {% endcompress  %}
 
-{% analytics %}
 
-</body>    
+</body>
 </html>
