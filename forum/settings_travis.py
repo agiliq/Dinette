@@ -130,6 +130,7 @@ from subprocess import call
 
 from markupfield.markup import DEFAULT_MARKUP_TYPES
 from dinette.libs.postmarkup import render_bbcode
+from settings import STATIC_ROOT
 
 COMPRESS = False
 DEFAULT_MARKUP_TYPES.append(('bbcode', render_bbcode))
