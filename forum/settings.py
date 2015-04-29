@@ -123,4 +123,7 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles')
 
 SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
 
-from localsettings import *
+try:
+    from localsettings import *
+except ImportError:
+    pass

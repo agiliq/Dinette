@@ -1,9 +1,7 @@
 # Django settings for forum project.
-import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-PROJECT_DIR = os.path.dirname(__file__)
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
@@ -148,5 +146,3 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles')
