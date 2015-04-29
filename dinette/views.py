@@ -15,10 +15,7 @@ from django.views.generic.list import ListView
 from datetime import datetime, timedelta
 import logging
 
-try:
-    import simplejson
-except ImportError:
-    from django.utils import simplejson
+import json
 
 from dinette.models import Ftopics, Category, Reply, DinetteUserProfile
 from dinette.forms import FtopicForm, ReplyForm
@@ -110,21 +107,21 @@ def postTopic(request):
 
     if not topic.is_valid():
         d = {"is_valid": "false", "response_html": topic.as_table()}
-        json = simplejson.dumps(d)
+        json = json.dumps(d)
         if request.FILES:
-            json = "<textarea>"+simplejson.dumps(d)+"</textarea>"
+            json = "<textarea>"+json.dumps(d)+"</textarea>"
         else:
-            json = simplejson.dumps(d)
+            json = json.dumps(d)
         return HttpResponse(json, mimetype=json_mimetype)
 
     #code which checks for flood control
-    if (datetime.now()-request.user.get_profile().last_posttime).seconds < settings.FLOOD_TIME:
+    if (datetime.now()-request.user.dinetteuserprofile.last_posttime).seconds < settings.FLOOD_TIME:
     #oh....... user trying to flood us Stop him
         d2 = {"is_valid": "flood", "errormessage": "Flood control.................."}
         if request.FILES:
-            json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
+            json = "<textarea>"+json.dumps(d2)+"</textarea>"
         else :
-            json = simplejson.dumps(d2)
+            json = json.dumps(d2)
         return HttpResponse(json, mimetype = json_mimetype)
 
     ftopic = topic.save(commit=False)
@@ -157,9 +154,9 @@ def postTopic(request):
 
     #this the required for ajax file uploads
     if request.FILES :
-        json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
+        json = "<textarea>"+json.dumps(d2)+"</textarea>"
     else :
-        json = simplejson.dumps(d2)
+        json = json.dumps(d2)
     return HttpResponse(json, mimetype = json_mimetype)
 
 @login_required
@@ -169,23 +166,23 @@ def postReply(request):
 
     if not freply.is_valid():
         d = {"is_valid":"false","response_html":freply.as_table()}
-        json = simplejson.dumps(d)
+        json = json.dumps(d)
         if request.FILES :
-            json = "<textarea>"+simplejson.dumps(d)+"</textarea>"
+            json = "<textarea>"+json.dumps(d)+"</textarea>"
         else:
-            json = simplejson.dumps(d)
+            json = json.dumps(d)
         return HttpResponse(json, mimetype = json_mimetype)
 
 
 
     #code which checks for flood control
-    if (datetime.now() -(request.user.get_profile().last_posttime)).seconds <= settings.FLOOD_TIME:
+    if (datetime.now() -(request.user.dinetteuserprofile.last_posttime)).seconds <= settings.FLOOD_TIME:
     #oh....... user trying to flood us Stop him
         d2 = {"is_valid":"flood","errormessage":"You have posted message too recently. Please wait a while before trying again."}
         if request.FILES :
-            json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
+            json = "<textarea>"+json.dumps(d2)+"</textarea>"
         else :
-            json = simplejson.dumps(d2)
+            json = json.dumps(d2)
         return HttpResponse(json, mimetype = json_mimetype)
 
 
@@ -215,9 +212,9 @@ def postReply(request):
 
     if request.FILES :
         #this the required for ajax file uploads
-        json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
+        json = "<textarea>"+json.dumps(d2)+"</textarea>"
     else:
-        json = simplejson.dumps(d2)
+        json = json.dumps(d2)
 
     return HttpResponse(json, mimetype = json_mimetype)
 
@@ -232,7 +229,7 @@ def deleteReply(request, reply_id):
     except:
         resp["status"] = 0
         resp["message"] = "Error deleting message"
-    json = simplejson.dumps(resp)
+    json = json.dumps(resp)
     return HttpResponse(json, mimetype = json_mimetype)
 
 @login_required
@@ -319,7 +316,7 @@ def assignUserElements(user):
             if totalposts == el[0]:
                 rank = el[1]
         if rank:
-            userprofile = user.get_profile()
+            userprofile = user.dinetteuserprofile
             userprofile.userrank = rank
             #this is the time when user posted his last post
             userprofile.last_posttime = datetime.now()
@@ -359,7 +356,7 @@ def moderate_topic(request, topic_id, action):
             topic.is_hidden = not topic.is_hidden
         topic.save()
         payload = {'topic_id':topic.pk, 'message':message}
-        resp = simplejson.dumps(payload)
+        resp = json.dumps(payload)
         return HttpResponse(resp, mimetype = json_mimetype)
     else:
         return HttpResponse('This view must be called via post')
@@ -376,7 +373,7 @@ def user_profile(request, slug):
 
 @login_required
 def new_topics(request):
-    userprofile = request.user.get_profile()
+    userprofile = request.user.dinetteuserprofile
     new_topic_list = userprofile.get_since_last_visit()
     return topic_list(request, new_topic_list, page_message = "Topics since your last visit")
 
@@ -417,17 +414,17 @@ def unsubscribeTopic(request, topic_id):
 @login_required
 def subscribeDigest(request):
     user = get_object_or_404(User, pk=request.user.id)
-    profile = user.get_profile()
+    profile = user.dinetteuserprofile
     profile.is_subscribed_to_digest = True
     profile.save()
-    next = request.GET.get('next', user.get_profile().get_absolute_url())
+    next = request.GET.get('next', user.dinetteuserprofile.get_absolute_url())
     return redirect(next)
 
 @login_required
 def unsubscribeDigest(request):
     user = get_object_or_404(User, pk=request.user.id)
-    profile = user.get_profile()
+    profile = user.dinetteuserprofile
     profile.is_subscribed_to_digest = False
     profile.save()
-    next = request.GET.get('next', user.get_profile().get_absolute_url())
+    next = request.GET.get('next', user.dinetteuserprofile.get_absolute_url())
     return redirect(next)
